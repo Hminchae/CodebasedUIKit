@@ -24,65 +24,35 @@ class LoginViewController: UIViewController {
     
     let emailTextField = {
         let textField = UITextField()
-        textField.placeholder = "이메일 주소 또는 전화번호"
-        textField.tintColor = .white
-        textField.textColor = .black
-        textField.backgroundColor = .lightGray
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 8
-        textField.textAlignment = .center
+        textField.setLoginTextField("이메일 주소 또는 전화번호")
         
         return textField
     }()
     
     let passwordTextField = {
         let textField = UITextField()
-        textField.placeholder = "비밀번호"
-        textField.tintColor = .white
-        textField.textColor = .black
-        textField.backgroundColor = .lightGray
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 8
-        textField.textAlignment = .center
+        textField.setLoginTextField("비밀번호")
         
         return textField
     }()
     
     let nickNameTextField = {
         let textField = UITextField()
-        textField.placeholder = "닉네임"
-        textField.tintColor = .white
-        textField.textColor = .black
-        textField.backgroundColor = .lightGray
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 8
-        textField.textAlignment = .center
+        textField.setLoginTextField("닉네임")
         
         return textField
     }()
     
     let locationTextField = {
         let textField = UITextField()
-        textField.placeholder = "위치"
-        textField.tintColor = .white
-        textField.textColor = .black
-        textField.backgroundColor = .lightGray
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 8
-        textField.textAlignment = .center
+        textField.setLoginTextField("위치")
         
         return textField
     }()
     
     let recomendCodeTextField = {
         let textField = UITextField()
-        textField.placeholder = "추천 코드 입력"
-        textField.tintColor = .white
-        textField.textColor = .black
-        textField.backgroundColor = .lightGray
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 8
-        textField.textAlignment = .center
+        textField.setLoginTextField("추천 코드 입력")
         
         return textField
     }()

@@ -18,6 +18,7 @@
 		B15541642C0F58A000DAAB37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541632C0F58A000DAAB37 /* LoginViewController.swift */; };
 		B15541672C0F58BB00DAAB37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B15541662C0F58BB00DAAB37 /* SnapKit */; };
 		B15541692C0F58BB00DAAB37 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B15541682C0F58BB00DAAB37 /* SnapKit-Dynamic */; };
+		B155416C2C0F68E100DAAB37 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155416B2C0F68E100DAAB37 /* UITextField+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B155415E2C0F469D00DAAB37 /* NewHotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHotViewController.swift; sourceTree = "<group>"; };
 		B15541602C0F46C300DAAB37 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		B15541632C0F58A000DAAB37 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B155416B2C0F68E100DAAB37 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B155415C2C0F464600DAAB37 /* MainTabBarController.swift */,
 				B15541622C0F46D800DAAB37 /* ViewControllers */,
 				B15541482C0F339D00DAAB37 /* AppDelegate.swift */,
+				B155416A2C0F679100DAAB37 /* Extensions */,
 				B155414A2C0F339D00DAAB37 /* SceneDelegate.swift */,
 				B15541512C0F339F00DAAB37 /* Assets.xcassets */,
 				B15541532C0F339F00DAAB37 /* LaunchScreen.storyboard */,
@@ -86,6 +89,14 @@
 				B15541602C0F46C300DAAB37 /* DownloadsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B155416A2C0F679100DAAB37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B155416B2C0F68E100DAAB37 /* UITextField+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				B155415F2C0F469D00DAAB37 /* NewHotViewController.swift in Sources */,
 				B15541612C0F46C300DAAB37 /* DownloadsViewController.swift in Sources */,
 				B15541492C0F339D00DAAB37 /* AppDelegate.swift in Sources */,
+				B155416C2C0F68E100DAAB37 /* UITextField+Extension.swift in Sources */,
 				B155415D2C0F464600DAAB37 /* MainTabBarController.swift in Sources */,
 				B155414B2C0F339D00DAAB37 /* SceneDelegate.swift in Sources */,
 			);
