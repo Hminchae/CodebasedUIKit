@@ -11,7 +11,7 @@ import Alamofire
 import SnapKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    
     let imageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -99,15 +99,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         dateTextField.text = formatter.string(from: datePicker.date)
+        searchDate = dateTextField.text
     }
     
     @objc func searchButtonTapped() {
-        if let data = dateTextField.text {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyyMMdd"
-            let dateStr = formatter.string(for: data)
-            dataRequest(dateStr)
-        }
+        dataRequest(searchDate)
         tableView.reloadData()
     }
     
@@ -193,20 +189,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-}
-
-struct BoxOfficeResult: Decodable {
-    let boxOfficeResult: BoxOfficeDetails
-}
-
-struct BoxOfficeDetails: Decodable {
-    let boxofficeType: String
-    let showRange: String
-    let dailyBoxOfficeList: [BoxOffice]
-}
-
-struct BoxOffice: Decodable {
-    let openDt: String
-    let movieNm: String
-    let rank: String
 }
