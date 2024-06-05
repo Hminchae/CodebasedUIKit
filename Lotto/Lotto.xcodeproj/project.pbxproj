@@ -20,6 +20,7 @@
 		B15541D12C1064E300DAAB37 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D02C1064E300DAAB37 /* UIColor+Extension.swift */; };
 		B15541D52C10770800DAAB37 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D42C10770800DAAB37 /* APIKey.swift */; };
 		B15541D72C10852100DAAB37 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D62C10852100DAAB37 /* UILabel+Extension.swift */; };
+		B15541DA2C108C4B00DAAB37 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D92C108C4B00DAAB37 /* Lotto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B15541D02C1064E300DAAB37 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B15541D42C10770800DAAB37 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B15541D62C10852100DAAB37 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		B15541D92C108C4B00DAAB37 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,11 +73,12 @@
 			isa = PBXGroup;
 			children = (
 				B15541D42C10770800DAAB37 /* APIKey.swift */,
-				B15541D32C10650100DAAB37 /* Protocol */,
-				B15541D22C1064F400DAAB37 /* Extensions */,
 				B15541C32C1056B400DAAB37 /* MainTabBarViewController.swift */,
 				B15541B12C10563800DAAB37 /* SceneDelegate.swift */,
 				B15541AF2C10563800DAAB37 /* AppDelegate.swift */,
+				B15541D82C108C3500DAAB37 /* Model */,
+				B15541D32C10650100DAAB37 /* Protocol */,
+				B15541D22C1064F400DAAB37 /* Extensions */,
 				B15541C72C1057BC00DAAB37 /* ViewController */,
 				B15541B82C10563A00DAAB37 /* Assets.xcassets */,
 				B15541BA2C10563A00DAAB37 /* LaunchScreen.storyboard */,
@@ -108,6 +111,14 @@
 				B15541CE2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B15541D82C108C3500DAAB37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B15541D92C108C4B00DAAB37 /* Lotto.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 				B15541C62C1057B500DAAB37 /* MyNewLottoViewController.swift in Sources */,
 				B15541CF2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift in Sources */,
 				B15541C42C1056B400DAAB37 /* MainTabBarViewController.swift in Sources */,
+				B15541DA2C108C4B00DAAB37 /* Lotto.swift in Sources */,
 				B15541B02C10563800DAAB37 /* AppDelegate.swift in Sources */,
 				B15541B22C10563800DAAB37 /* SceneDelegate.swift in Sources */,
 				B15541D72C10852100DAAB37 /* UILabel+Extension.swift in Sources */,

@@ -60,6 +60,14 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
     
     let numbers = Array(1...986).reversed() as [Int]
     
+    let bonusLabel = {
+        let label = UILabel()
+        label.text = "보너스"
+        label.font = .systemFont(ofSize: 13)
+        label.textColor = .darkGray
+        
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +93,7 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(separaterView)
         view.addSubview(roundStack)
         view.addSubview(ballStack)
+        view.addSubview(bonusLabel)
     }
     
     func configureRoundStack() {
@@ -148,6 +157,11 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(33)
         }
+        
+        bonusLabel.snp.makeConstraints { make in
+            make.top.equalTo(ballStack.snp_bottomMargin).offset(10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
     }
     
     func configureUI() {
@@ -208,33 +222,5 @@ extension LookUpLottoViewController : UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(numbers[row])회차"
-    }
-}
-
-struct Lotto: Decodable {
-    let returnValue : String
-    let lottoDate : String
-    let num1 : Int
-    let num2 : Int
-    let num3 : Int
-    let num4 : Int
-    let num5 : Int
-    let num6 : Int
-    let num7 : Int
-    let prizeMoney : Int
-    let lottoRound : Int
-    
-    enum CodingKeys: String, CodingKey {
-        case returnValue = "returnValue"
-        case lottoDate = "drwNoDate"
-        case num1 = "drwtNo1"
-        case num2 = "drwtNo2"
-        case num3 = "drwtNo3"
-        case num4 = "drwtNo4"
-        case num5 = "drwtNo5"
-        case num6 = "drwtNo6"
-        case num7 = "bnusNo"
-        case prizeMoney = "firstWinamnt"
-        case lottoRound = "drwNo"
     }
 }
