@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     let imageView = {
         let imageView = UIImageView()
@@ -40,9 +40,9 @@ class ViewController: UIViewController {
     let searchButton = {
         let button = UIButton()
         button.backgroundColor = .white
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 5
         button.setTitle("검색", for: .normal)
-        button.tintColor = .black
+        button.setTitleColor(.black, for: .normal)
         
         return button
     }()
@@ -67,24 +67,56 @@ class ViewController: UIViewController {
     
     let tableView = UITableView()
     
+    var searchDate: String?
+    
+    let datePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
+        dateTextField.inputView = datePicker
         
         configureViewHierachy()
         configureViewLayout()
         
         tableView.delegate = self
         tableView.dataSource = self
+        dateTextField.delegate = self
         tableView.backgroundColor = .clear
         
-        dataRequest()
-
+        searchDate = todayDate
+        dataRequest(searchDate)
+        
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.addTarget(self, action: #selector(isDateChanged), for: .valueChanged)
+    }
+    
+    @objc func isDateChanged() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        dateTextField.text = formatter.string(from: datePicker.date)
+    }
+    
+    @objc func searchButtonTapped() {
+        if let data = dateTextField.text {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMMdd"
+            let dateStr = formatter.string(for: data)
+            dataRequest(dateStr)
+        }
+        tableView.reloadData()
     }
     
     func configureViewHierachy() {
         view.addSubview(imageView)
         view.addSubview(bgView)
+        view.addSubview(dateTextField)
+        view.addSubview(underLine)
+        view.addSubview(searchButton)
         view.addSubview(tableView)
     }
     
@@ -98,16 +130,39 @@ class ViewController: UIViewController {
             make.edges.equalTo(view)
         }
         
+        searchButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(50)
+            make.width.equalTo(80)
+        }
+        
+        dateTextField.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(searchButton.snp.leading).offset(-10)
+            make.height.equalTo(45)
+        }
+        
+        underLine.snp.makeConstraints { make in
+            make.top.equalTo(searchButton.snp.bottom).offset(-1)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(searchButton.snp.leading).offset(-10)
+            make.height.equalTo(1)
+        }
+        
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(underLine.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableView.rowHeight = 50
     }
     
-    func dataRequest() {
-        let url = "\(APIURL.baseURL)key=\(APIURL.key)&targetDt=\(todayDate ?? "20240522")"
+    func dataRequest(_ date: String?) {
+        let url = "\(APIURL.baseURL)key=\(APIURL.key)&targetDt=\(date ?? "20240522")"
         
         AF.request(url).responseDecodable(of: BoxOfficeResult.self) { response in
             switch response.result {

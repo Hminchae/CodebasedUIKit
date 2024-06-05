@@ -62,22 +62,22 @@ class MovieTableViewCell: UITableViewCell {
         }
         
         rankingLabel.snp.makeConstraints { make in
-            make.top.equalTo(allView.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(allView.safeAreaLayoutGuide).inset(14)
             make.leading.equalTo(allView.safeAreaLayoutGuide).offset(20)
             make.width.equalTo(35)
         }
         
         movieTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(allView.safeAreaLayoutGuide).offset(5)
-            make.leading.equalTo(rankingLabel.snp_trailingMargin).offset(20)
+            make.top.equalTo(allView.safeAreaLayoutGuide)
+            make.leading.equalTo(rankingLabel.snp.trailing).offset(20)
             make.height.equalTo(50)
         }
         
         openDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(allView.safeAreaLayoutGuide).offset(5)
+            make.top.equalTo(allView.safeAreaLayoutGuide)
             make.trailing.equalTo(allView.safeAreaLayoutGuide).inset(20)
             make.width.equalTo(80)
-            make.leading.equalTo(movieTitleLabel.snp_trailingMargin).offset(20)
+            make.leading.equalTo(movieTitleLabel.snp.trailing).offset(20)
             make.height.equalTo(50)
         }
     }
