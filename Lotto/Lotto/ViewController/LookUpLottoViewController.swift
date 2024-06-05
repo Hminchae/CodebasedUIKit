@@ -65,6 +65,8 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierachy()
@@ -80,6 +82,13 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         configureNetwork()
         configureRoundStack()
         configureBallStack()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(anyTapped))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func anyTapped() {
+        lottoRoundTextField.endEditing(true)
     }
     
     func configureHierachy() {
@@ -90,6 +99,7 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(roundStack)
         view.addSubview(ballStack)
         view.addSubview(bonusLabel)
+        
     }
 
     
