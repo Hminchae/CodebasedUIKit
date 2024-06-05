@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Alamofire
 import SnapKit
 
 class ViewController: UIViewController {
@@ -51,16 +53,47 @@ class ViewController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         
-        numberTextField.backgroundColor = .brown
-        checkButton.backgroundColor = .magenta
+        numberTextField.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        numberTextField.layer.cornerRadius = 10
+        numberTextField.placeholder = "회차를 입력하세요"
+        
+        checkButton.backgroundColor = .white
         checkButton.setTitle("로또 당첨 번호 확인", for: .normal)
-        checkButton.setTitleColor(.white, for: .normal)
+        checkButton.setTitleColor(.black, for: .normal)
         checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
-        resultLabel.backgroundColor = .cyan
+        checkButton.layer.cornerRadius = 10
+        checkButton.layer.borderColor = UIColor.black.cgColor
+        checkButton.layer.borderWidth = 2
+        
+        resultLabel.backgroundColor = .black.withAlphaComponent(0.5)
+        resultLabel.textColor = .white
+        resultLabel.numberOfLines = 0
+        resultLabel.textAlignment = .center
+        resultLabel.font = .boldSystemFont(ofSize: 20)
+        resultLabel.clipsToBounds = true
+        resultLabel.layer.cornerRadius = 10
     }
+    
+    // 💡 Swift.DecodingError.keyNotFound
+    // 1️⃣ URL 확인
+    // 2️⃣ respnseString 으로 확인
+    // 3️⃣ nil
     
     @objc func checkButtonClicked() {
         print(#function)
+        let url = "https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(numberTextField.text!)"
+
+        AF.request(url).responseDecodable(of: Lotto.self) { response in
+            switch response.result {
+            case .success(let value):
+                print(value)
+                
+                self.resultLabel.text = "\(value.drwNoDate)\n1등 당첨금액: \(value.totSellamnt.formatted())"
+            case .failure(let error):
+                print(error)
+                self.resultLabel.text = "올바른 값을 입력해주세요."
+            }
+        }
     }
 }
 
