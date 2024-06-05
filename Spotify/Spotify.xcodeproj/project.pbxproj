@@ -29,6 +29,7 @@
 		B18BCB262C04D81800EA8869 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB252C04D81800EA8869 /* AudioTrack.swift */; };
 		B18BCB282C04D82100EA8869 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB272C04D82100EA8869 /* Artist.swift */; };
 		B18BCB2A2C04D82D00EA8869 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB292C04D82D00EA8869 /* UserProfile.swift */; };
+		B18BCB2C2C05555700EA8869 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB2B2C05555700EA8869 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B18BCB252C04D81800EA8869 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		B18BCB272C04D82100EA8869 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		B18BCB292C04D82D00EA8869 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B18BCB2B2C05555700EA8869 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				B18BCAED2C04D41100EA8869 /* AppDelegate.swift */,
 				B18BCAF62C04D41200EA8869 /* Assets.xcassets */,
 				B18BCAEF2C04D41100EA8869 /* SceneDelegate.swift */,
+				B18BCB2B2C05555700EA8869 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				B18BCB102C04D6DA00EA8869 /* AuthViewController.swift in Sources */,
 				B18BCB142C04D6F400EA8869 /* SettingViewController.swift in Sources */,
 				B18BCB2A2C04D82D00EA8869 /* UserProfile.swift in Sources */,
+				B18BCB2C2C05555700EA8869 /* Extensions.swift in Sources */,
 				B18BCAEE2C04D41100EA8869 /* AppDelegate.swift in Sources */,
 				B18BCB282C04D82100EA8869 /* Artist.swift in Sources */,
 				B18BCB1A2C04D71C00EA8869 /* PlaylistViewController.swift in Sources */,
