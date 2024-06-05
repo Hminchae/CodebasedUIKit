@@ -18,6 +18,8 @@
 		B15541CD2C10610000DAAB37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B15541CC2C10610000DAAB37 /* SnapKit */; };
 		B15541CF2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541CE2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift */; };
 		B15541D12C1064E300DAAB37 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D02C1064E300DAAB37 /* UIColor+Extension.swift */; };
+		B15541D52C10770800DAAB37 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D42C10770800DAAB37 /* APIKey.swift */; };
+		B15541D72C10852100DAAB37 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541D62C10852100DAAB37 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		B15541C52C1057B500DAAB37 /* MyNewLottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewLottoViewController.swift; sourceTree = "<group>"; };
 		B15541CE2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		B15541D02C1064E300DAAB37 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B15541D42C10770800DAAB37 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B15541D62C10852100DAAB37 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		B15541AE2C10563800DAAB37 /* Lotto */ = {
 			isa = PBXGroup;
 			children = (
+				B15541D42C10770800DAAB37 /* APIKey.swift */,
 				B15541D32C10650100DAAB37 /* Protocol */,
 				B15541D22C1064F400DAAB37 /* Extensions */,
 				B15541C32C1056B400DAAB37 /* MainTabBarViewController.swift */,
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				B15541D02C1064E300DAAB37 /* UIColor+Extension.swift */,
+				B15541D62C10852100DAAB37 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,11 +190,13 @@
 			files = (
 				B15541D12C1064E300DAAB37 /* UIColor+Extension.swift in Sources */,
 				B15541B42C10563800DAAB37 /* LookUpLottoViewController.swift in Sources */,
+				B15541D52C10770800DAAB37 /* APIKey.swift in Sources */,
 				B15541C62C1057B500DAAB37 /* MyNewLottoViewController.swift in Sources */,
 				B15541CF2C10644C00DAAB37 /* ReuseIdentifierProtocol.swift in Sources */,
 				B15541C42C1056B400DAAB37 /* MainTabBarViewController.swift in Sources */,
 				B15541B02C10563800DAAB37 /* AppDelegate.swift in Sources */,
 				B15541B22C10563800DAAB37 /* SceneDelegate.swift in Sources */,
+				B15541D72C10852100DAAB37 /* UILabel+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
