@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = ViewController()
+        let vc = MarketViewController()
         window?.rootViewController = vc // sb entrypoint
         window?.makeKeyAndVisible()
         

@@ -18,6 +18,7 @@
 		B15541982C0FE55800DAAB37 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B15541972C0FE55800DAAB37 /* Toast */; };
 		B155419A2C0FF26600DAAB37 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541992C0FF26500DAAB37 /* Lotto.swift */; };
 		B155419C2C0FFD9A00DAAB37 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419B2C0FFD9A00DAAB37 /* MarketViewController.swift */; };
+		B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B15541872C0FE4EA00DAAB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15541992C0FF26500DAAB37 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 		B155419B2C0FFD9A00DAAB37 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
+		B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				B155417B2C0FE4E800DAAB37 /* SceneDelegate.swift */,
 				B155417D2C0FE4E800DAAB37 /* ViewController.swift */,
 				B155419B2C0FFD9A00DAAB37 /* MarketViewController.swift */,
+				B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */,
 				B15541992C0FF26500DAAB37 /* Lotto.swift */,
 				B15541822C0FE4EA00DAAB37 /* Assets.xcassets */,
 				B15541842C0FE4EA00DAAB37 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				B155419C2C0FFD9A00DAAB37 /* MarketViewController.swift in Sources */,
 				B155417A2C0FE4E800DAAB37 /* AppDelegate.swift in Sources */,
 				B155417C2C0FE4E800DAAB37 /* SceneDelegate.swift in Sources */,
+				B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
