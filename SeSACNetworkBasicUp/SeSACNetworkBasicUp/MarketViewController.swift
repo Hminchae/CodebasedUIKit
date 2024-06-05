@@ -13,6 +13,8 @@ class MarketViewController: UIViewController {
     
     let tableView = UITableView()
     
+    var list: [Market] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,17 +33,19 @@ class MarketViewController: UIViewController {
         tableView.backgroundColor = .lightGray
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: <#T##String#>)
+        tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: MarketTableViewCell.identifier)
+        tableView.rowHeight = 60
     }
     
     func callRequest() {
         print(#function, "3333")
-        let url = "https://api.upbit.com/v1/market/all"
-        
+        let url = APIURL.upbitURL
         AF.request(url).responseDecodable(of: [Market].self) { response in
             switch response.result {
             case .success(let value):
-                print(value[0])
+                print("SUCCESS")
+                self.list = value
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -52,11 +56,16 @@ class MarketViewController: UIViewController {
 
 extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        print(#function, list.count)
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MarketTableViewCell.identifier, for: indexPath) as! MarketTableViewCell
+        
+        cell.nameLabel.text = list[indexPath.row].korean_name
+        return cell
     }
     
     

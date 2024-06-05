@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     
     @objc func checkButtonClicked() {
         print(#function)
-        let url = "https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(numberTextField.text!)"
+        let url = "\(APIURL.lottoURL)\(numberTextField.text!)"
 
         AF.request(url).responseDecodable(of: Lotto.self) { response in
             switch response.result {
