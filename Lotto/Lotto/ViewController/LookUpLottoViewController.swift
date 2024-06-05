@@ -22,19 +22,16 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         label.font = .systemFont(ofSize: 15)
         return label
     }()
-    
     // ex) 2020-08-20 추첨
     let infoOfRoundLabel = UILabel()
     
     let separaterView = UIView()
     
-    let roundStack = UIStackView()
     // 회차
-    var keyRound: Int = 986
-    // ~ 회차
-    let roundLabel = UILabel()
+    let roundStack = UIStackView()
     
-    // 당첨결과
+    var keyRound: Int = 986
+    let roundLabel = UILabel()
     let resultLabel = {
         let label = UILabel()
         label.text = "당첨결과"
@@ -53,8 +50,7 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
     var stackItem5 = UILabel()
     var stackItem6 = UILabel()
     var stackItem7 = UILabel()
-    
-    var stackItemPlus = UILabel()
+    let stackItemPlus = UILabel()
     
     let pickerView = UIPickerView()
     
@@ -95,13 +91,40 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(ballStack)
         view.addSubview(bonusLabel)
     }
+
     
+    func configureNetwork() {
+        
+        let url = "\(APIURL.lottoURL)\(keyRound)"
+        
+        AF.request(url).responseDecodable(of: Lotto.self) { response in
+            switch response.result {
+            case .success(let value):
+                print(value.lottoDate)
+                self.infoOfRoundLabel.text = "\(value.lottoDate) 추첨"
+                self.stackItem1.setBallUI(value.num1)
+                self.stackItem2.setBallUI(value.num2)
+                self.stackItem3.setBallUI(value.num3)
+                self.stackItem4.setBallUI(value.num4)
+                self.stackItem5.setBallUI(value.num5)
+                self.stackItem6.setBallUI(value.num6)
+                self.stackItem7.setBallUI(value.num7)
+                self.stackItemPlus.setPlusLabelUI()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+// configureUI
+extension LookUpLottoViewController {
     func configureRoundStack() {
         roundStack.translatesAutoresizingMaskIntoConstraints = false
         roundStack.axis = .horizontal
         roundStack.spacing = 0
         roundStack.distribution = .equalCentering
-        roundStack.isLayoutMarginsRelativeArrangement = true
+        roundStack.isLayoutMarginsRelativeArrangement = false
         
         roundStack.addArrangedSubview(roundLabel)
         roundStack.addArrangedSubview(resultLabel)
@@ -112,7 +135,8 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         ballStack.axis = .horizontal
         ballStack.spacing = 10
         ballStack.distribution = .fillEqually
-        ballStack.isLayoutMarginsRelativeArrangement = true
+        ballStack.alignment = .fill
+        ballStack.isLayoutMarginsRelativeArrangement = false // 레이아웃 마진 제거
         
         ballStack.addArrangedSubview(stackItem1)
         ballStack.addArrangedSubview(stackItem2)
@@ -149,13 +173,15 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         
         roundStack.snp.makeConstraints { make in
             make.top.equalTo(separaterView.snp_bottomMargin).offset(20)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(120)
+            make.centerX.equalTo(view.center)
+            make.width.equalTo(130)
+            make.height.equalTo(30)
         }
         
         ballStack.snp.makeConstraints { make in
             make.top.equalTo(roundStack.snp_bottomMargin).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(33)
+            make.height.equalTo(34)
         }
         
         bonusLabel.snp.makeConstraints { make in
@@ -179,31 +205,7 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         roundLabel.font = .boldSystemFont(ofSize: 20)
         roundLabel.textColor = UIColor.random()
     }
-    
-    func configureNetwork() {
-        
-        let url = "\(APIURL.lottoURL)\(keyRound)"
-        
-        AF.request(url).responseDecodable(of: Lotto.self) { response in
-            switch response.result {
-            case .success(let value):
-                print(value.lottoDate)
-                self.infoOfRoundLabel.text = "\(value.lottoDate) 추첨"
-                self.stackItem1.setBallUI(value.num1)
-                self.stackItem2.setBallUI(value.num2)
-                self.stackItem3.setBallUI(value.num3)
-                self.stackItem4.setBallUI(value.num4)
-                self.stackItem5.setBallUI(value.num5)
-                self.stackItem6.setBallUI(value.num6)
-                self.stackItem7.setBallUI(value.num7)
-                self.stackItemPlus.setPlusLabelUI()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
 }
-
 extension LookUpLottoViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
