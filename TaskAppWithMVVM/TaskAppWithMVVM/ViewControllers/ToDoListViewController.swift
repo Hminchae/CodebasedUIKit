@@ -9,6 +9,21 @@ import UIKit
 
 class ToDoListViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        title = "Thanky's Tasks"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTask))
+    }
+    @objc func addNewTask() {
+        navigationController?.pushViewController(AddNewTaskViewController(),  animated: true)
+    }
+}
+
+/* 📎 For reference only
+class ToDoListViewController: UIViewController {
+    
     lazy var addNewButton: UIButton = {
         let v = UIButton()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -119,3 +134,4 @@ class ToDoListViewController: UIViewController {
     }
 }
 
+*/
