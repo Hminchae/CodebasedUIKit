@@ -18,6 +18,8 @@
 		B15542542C11BAF900DAAB37 /* AddNewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542532C11BAF900DAAB37 /* AddNewTaskViewModel.swift */; };
 		B15542562C11CB9200DAAB37 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542552C11CB9200DAAB37 /* CoreDataManager.swift */; };
 		B15542582C11FAFE00DAAB37 /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542572C11FAFE00DAAB37 /* AddNewTaskViewController.swift */; };
+		B155425A2C12143F00DAAB37 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */; };
+		B155425C2C1235FB00DAAB37 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B15542532C11BAF900DAAB37 /* AddNewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewModel.swift; sourceTree = "<group>"; };
 		B15542552C11CB9200DAAB37 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B15542572C11FAFE00DAAB37 /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 		B155424B2C11AEFF00DAAB37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */,
+				B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,9 +204,11 @@
 				B15542342C11A2A900DAAB37 /* AppDelegate.swift in Sources */,
 				B15542502C11B29C00DAAB37 /* TaskViewModel.swift in Sources */,
 				B15542362C11A2A900DAAB37 /* SceneDelegate.swift in Sources */,
+				B155425C2C1235FB00DAAB37 /* SummaryTableViewCell.swift in Sources */,
 				B15542562C11CB9200DAAB37 /* CoreDataManager.swift in Sources */,
 				B15542582C11FAFE00DAAB37 /* AddNewTaskViewController.swift in Sources */,
 				B15542522C11B67F00DAAB37 /* TaskListViewModel.swift in Sources */,
+				B155425A2C12143F00DAAB37 /* ToDoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
