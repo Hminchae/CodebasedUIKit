@@ -20,6 +20,9 @@
 		B15542582C11FAFE00DAAB37 /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542572C11FAFE00DAAB37 /* AddNewTaskViewController.swift */; };
 		B155425A2C12143F00DAAB37 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */; };
 		B155425C2C1235FB00DAAB37 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */; };
+		B155425F2C123A9300DAAB37 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B155425E2C123A9300DAAB37 /* Lottie */; };
+		B15542612C123B0500DAAB37 /* CelebrationAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542602C123B0500DAAB37 /* CelebrationAnimationView.swift */; };
+		B15542652C12403900DAAB37 /* Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B15542642C12403800DAAB37 /* Lottie.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,8 @@
 		B15542572C11FAFE00DAAB37 /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 		B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		B15542602C123B0500DAAB37 /* CelebrationAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationAnimationView.swift; sourceTree = "<group>"; };
+		B15542642C12403800DAAB37 /* Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B155425F2C123A9300DAAB37 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 		B15542482C11AEBC00DAAB37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B15542642C12403800DAAB37 /* Lottie.json */,
 				B155424C2C11B08D00DAAB37 /* Tasks.xcdatamodeld */,
 				B15542552C11CB9200DAAB37 /* CoreDataManager.swift */,
 			);
@@ -124,6 +131,7 @@
 			children = (
 				B15542592C12143F00DAAB37 /* ToDoTableViewCell.swift */,
 				B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */,
+				B15542602C123B0500DAAB37 /* CelebrationAnimationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +152,9 @@
 			dependencies = (
 			);
 			name = TaskAppWithMVVM;
+			packageProductDependencies = (
+				B155425E2C123A9300DAAB37 /* Lottie */,
+			);
 			productName = TaskAppWithMVVM;
 			productReference = B15542302C11A2A900DAAB37 /* TaskAppWithMVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -172,6 +183,9 @@
 				Base,
 			);
 			mainGroup = B15542272C11A2A900DAAB37;
+			packageReferences = (
+				B155425D2C123A9300DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = B15542312C11A2A900DAAB37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15542652C12403900DAAB37 /* Lottie.json in Resources */,
 				B15542402C11A2AB00DAAB37 /* LaunchScreen.storyboard in Resources */,
 				B155423D2C11A2AB00DAAB37 /* Assets.xcassets in Resources */,
 			);
@@ -202,6 +217,7 @@
 				B15542542C11BAF900DAAB37 /* AddNewTaskViewModel.swift in Sources */,
 				B15542382C11A2A900DAAB37 /* ToDoListViewController.swift in Sources */,
 				B15542342C11A2A900DAAB37 /* AppDelegate.swift in Sources */,
+				B15542612C123B0500DAAB37 /* CelebrationAnimationView.swift in Sources */,
 				B15542502C11B29C00DAAB37 /* TaskViewModel.swift in Sources */,
 				B15542362C11A2A900DAAB37 /* SceneDelegate.swift in Sources */,
 				B155425C2C1235FB00DAAB37 /* SummaryTableViewCell.swift in Sources */,
@@ -431,6 +447,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B155425D2C123A9300DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B155425E2C123A9300DAAB37 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B155425D2C123A9300DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B155424C2C11B08D00DAAB37 /* Tasks.xcdatamodeld */ = {

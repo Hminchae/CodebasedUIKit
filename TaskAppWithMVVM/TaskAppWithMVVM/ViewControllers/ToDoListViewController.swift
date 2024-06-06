@@ -9,13 +9,34 @@ import UIKit
 
 class ToDoListViewController: UIViewController {
     
+    lazy var celebrationAnimationView: CelebrationAnimationView = {
+        let v = CelebrationAnimationView(fileName: "Lottie")
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Thanky's Tasks"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTask))
+        
+        view.addSubview(celebrationAnimationView)
+        NSLayoutConstraint.activate([
+            celebrationAnimationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            celebrationAnimationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            celebrationAnimationView.topAnchor.constraint(equalTo: view.topAnchor),
+            celebrationAnimationView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        celebrationAnimationView.play { finished in
+            print("Done")
+        }
+    }
+    
     @objc func addNewTask() {
         navigationController?.pushViewController(AddNewTaskViewController(),  animated: true)
     }
