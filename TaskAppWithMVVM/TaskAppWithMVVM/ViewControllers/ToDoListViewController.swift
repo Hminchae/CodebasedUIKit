@@ -9,6 +9,8 @@ import UIKit
 
 class ToDoListViewController: UIViewController {
     
+    let viewModel = TaskListViewModel()
+    
     lazy var celebrationAnimationView: CelebrationAnimationView = {
         let v = CelebrationAnimationView(fileName: "Lottie")
         v.translatesAutoresizingMaskIntoConstraints = false

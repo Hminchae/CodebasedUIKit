@@ -20,6 +20,7 @@ class TaskListViewModel {
     
     // 데이터 fetch
     func getAll() {
+        tasks = CoreDataManager.shared.getAll().map(TaskViewModel.init)
     }
     
     func numberOfRows(by section: Int) -> Int {
@@ -42,11 +43,13 @@ class TaskListViewModel {
     
     // 코어 데이터를 호출하여 완료 상태 전환
     func toggleCompleted(task: TaskViewModel) {
+        CoreDataManager.shared.toggleCompleted(id: task.id)
         getAll()
     }
     
     // 코어 데이터를 호출하여 Task 삭제
     func deleteItem(task: TaskViewModel) {
+        CoreDataManager.shared.delete(id: task.id)
         getAll()
     }
 }

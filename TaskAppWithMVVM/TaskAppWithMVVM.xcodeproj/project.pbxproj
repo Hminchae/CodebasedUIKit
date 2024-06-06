@@ -23,6 +23,8 @@
 		B155425F2C123A9300DAAB37 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B155425E2C123A9300DAAB37 /* Lottie */; };
 		B15542612C123B0500DAAB37 /* CelebrationAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542602C123B0500DAAB37 /* CelebrationAnimationView.swift */; };
 		B15542652C12403900DAAB37 /* Lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B15542642C12403800DAAB37 /* Lottie.json */; };
+		B15542672C12420000DAAB37 /* ToDoListViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542662C12420000DAAB37 /* ToDoListViewControllerDataSource.swift */; };
+		B15542692C12426400DAAB37 /* ToDoListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542682C12426400DAAB37 /* ToDoListViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		B155425B2C1235FB00DAAB37 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		B15542602C123B0500DAAB37 /* CelebrationAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationAnimationView.swift; sourceTree = "<group>"; };
 		B15542642C12403800DAAB37 /* Lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie.json; sourceTree = "<group>"; };
+		B15542662C12420000DAAB37 /* ToDoListViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerDataSource.swift; sourceTree = "<group>"; };
+		B15542682C12426400DAAB37 /* ToDoListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				B15542642C12403800DAAB37 /* Lottie.json */,
 				B155424C2C11B08D00DAAB37 /* Tasks.xcdatamodeld */,
 				B15542552C11CB9200DAAB37 /* CoreDataManager.swift */,
+				B15542662C12420000DAAB37 /* ToDoListViewControllerDataSource.swift */,
+				B15542682C12426400DAAB37 /* ToDoListViewControllerDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -219,10 +225,12 @@
 				B15542342C11A2A900DAAB37 /* AppDelegate.swift in Sources */,
 				B15542612C123B0500DAAB37 /* CelebrationAnimationView.swift in Sources */,
 				B15542502C11B29C00DAAB37 /* TaskViewModel.swift in Sources */,
+				B15542672C12420000DAAB37 /* ToDoListViewControllerDataSource.swift in Sources */,
 				B15542362C11A2A900DAAB37 /* SceneDelegate.swift in Sources */,
 				B155425C2C1235FB00DAAB37 /* SummaryTableViewCell.swift in Sources */,
 				B15542562C11CB9200DAAB37 /* CoreDataManager.swift in Sources */,
 				B15542582C11FAFE00DAAB37 /* AddNewTaskViewController.swift in Sources */,
+				B15542692C12426400DAAB37 /* ToDoListViewControllerDelegate.swift in Sources */,
 				B15542522C11B67F00DAAB37 /* TaskListViewModel.swift in Sources */,
 				B155425A2C12143F00DAAB37 /* ToDoTableViewCell.swift in Sources */,
 			);
