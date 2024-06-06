@@ -11,9 +11,24 @@ class ToDoListViewController: UIViewController {
     
     let viewModel = TaskListViewModel()
     
+    lazy var tableView: UITableView = {
+       let v = UITableView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.dataSource = self
+        v.delegate = self
+        v.register(ToDoTableViewCell.self, forCellReuseIdentifier: "ToDoCell")
+        v.register(SummaryTableViewCell.self, forCellReuseIdentifier: "SummaryCell")
+        v.estimatedRowHeight = 200
+        v.rowHeight = UITableView.automaticDimension
+        
+        return v
+    }()
+    
     lazy var celebrationAnimationView: CelebrationAnimationView = {
         let v = CelebrationAnimationView(fileName: "Lottie")
         v.translatesAutoresizingMaskIntoConstraints = false
+        v.isHidden = true
+
         return v
     }()
     
@@ -21,8 +36,17 @@ class ToDoListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Thanky's Tasks"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTask))
+        
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
         view.addSubview(celebrationAnimationView)
         NSLayoutConstraint.activate([
@@ -33,14 +57,22 @@ class ToDoListViewController: UIViewController {
         ])
     }
     
+    /*
     override func viewDidAppear(_ animated: Bool) {
         celebrationAnimationView.play { finished in
             print("Done")
         }
     }
+    */
     
     @objc func addNewTask() {
         navigationController?.pushViewController(AddNewTaskViewController(),  animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getAll()
+        tableView.reloadData()
     }
 }
 

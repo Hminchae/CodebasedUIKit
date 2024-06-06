@@ -24,8 +24,8 @@ class SummaryTableViewCell: UITableViewCell {
     }()
     
     lazy var completedLabel: UILabel = {
-        let compltedLabel = UILabel()
-        compltedLabel.font = .boldSystemFont(ofSize: 20)
+        let completedLabel = UILabel()
+        completedLabel.font = .boldSystemFont(ofSize: 20)
         
         return completedLabel
     }()
