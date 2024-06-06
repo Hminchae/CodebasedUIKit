@@ -106,7 +106,6 @@ class CoreDataManager {
             }
             
             saveContext()
-            
         } catch let error as NSError {
             print("Error toggleing state: \(error.userInfo), \(error.localizedDescription)")
         }
