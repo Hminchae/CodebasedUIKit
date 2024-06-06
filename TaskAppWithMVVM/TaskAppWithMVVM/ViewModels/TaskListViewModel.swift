@@ -18,7 +18,7 @@ class TaskListViewModel {
         tasks.count
     }
     
-    // fetch data from core data and populate tasks
+    // 데이터 fetch
     func getAll() {
     }
     
@@ -40,12 +40,12 @@ class TaskListViewModel {
         tasks[index]
     }
     
-    // call core data to toggle completed state
+    // 코어 데이터를 호출하여 완료 상태 전환
     func toggleCompleted(task: TaskViewModel) {
         getAll()
     }
     
-    // call core data to delete the task
+    // 코어 데이터를 호출하여 Task 삭제
     func deleteItem(task: TaskViewModel) {
         getAll()
     }
