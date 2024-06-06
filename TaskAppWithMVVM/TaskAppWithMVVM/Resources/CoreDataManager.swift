@@ -69,4 +69,65 @@ class CoreDataManager {
         
         return tasks
     }
+    
+    // 새로운 Task를 추가하는 메서드
+    func addNewTask(name: String, dueOn: Date) {
+        let task = Task(context: context)
+        task.name = name
+        task.dueOn = dueOn
+        
+        task.id = UUID()
+        task.completed = false
+        task.completedOn = dueOn.advanced(by: 100000)
+        
+        saveContext()
+    }
+    
+    // Task의 완료상태를 토글 할 메서드
+    func toggleCompleted(id: UUID) {
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let predicate = NSPredicate(format: "id=%@", id.uuidString)
+        fetchRequest.predicate = predicate
+        
+        do {
+//            let fetchedTasks = try context.fetch(fetchRequest)
+//            for task in fetchedTasks {
+//                task.completed = !task.completed
+//                if task.completed {
+//                    task.completedOn = Date()
+//                }
+//            }
+            if let fetchedTask = try context.fetch(fetchRequest).first(where: { $0.id == id }) {
+                fetchedTask.completed = !fetchedTask.completed
+                if fetchedTask.completed {
+                    fetchedTask.completedOn = Date()
+                }
+            }
+            
+            saveContext()
+            
+        } catch let error as NSError {
+            print("Error toggleing state: \(error.userInfo), \(error.localizedDescription)")
+        }
+    }
+    
+    // Task 삭제 메서드
+    func delete(id: UUID) {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "id=%@", id.uuidString)
+        
+        do {
+            let fetchedTask = try context.fetch(fetchRequest)
+            
+            for task in fetchedTask {
+                context.delete(task)
+            }
+            
+            saveContext()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
 }
