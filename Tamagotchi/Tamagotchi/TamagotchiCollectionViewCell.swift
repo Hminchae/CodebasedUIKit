@@ -81,4 +81,13 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
         label.text = model.name
         imageView.image = UIImage(named: model.face)
     }
+    
+    // 터치이벤트
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                
+            }
+        }
+    }
 }

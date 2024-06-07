@@ -89,8 +89,20 @@ extension TamagotchisViewController: UICollectionViewDataSource {
         
         let model = list[indexPath.row]
         cell.configure(with: model)
-
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = list[indexPath.row]
+        
+        let vc = TamagotchiStartViewController()
+        vc.tamagotchiInfo = data
+        
+        vc.modalPresentationStyle = .automatic
+        vc.modalTransitionStyle = .coverVertical
+        
+        present(vc, animated: true)
     }
 }
 
