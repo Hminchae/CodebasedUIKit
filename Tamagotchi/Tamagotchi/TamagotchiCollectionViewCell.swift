@@ -45,17 +45,6 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
         label.text = nil
     }
     
-    // 콘텐츠뷰의 프레임을 상수화한 뒤 layoutSubviews() 함수를 오버라이드
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        let height = contentView.frame.size.height
-//        let width = contentView.frame.size.width
-//        
-//        label.frame = CGRect(x: 5, y: height - 50, width: width - 10, height: 22)
-//        imageView.frame = CGRect(x: 5, y: 0, width: width - 10, height: height - 50)
-//    }
-    
     func configureUI() {
         contentView.backgroundColor = .clear
         contentView.addSubview(label)
@@ -80,14 +69,5 @@ class TamagotchiCollectionViewCell: UICollectionViewCell {
     func configure(with model: Tamagotchi) {
         label.text = model.name
         imageView.image = UIImage(named: model.face)
-    }
-    
-    // 터치이벤트
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                
-            }
-        }
     }
 }

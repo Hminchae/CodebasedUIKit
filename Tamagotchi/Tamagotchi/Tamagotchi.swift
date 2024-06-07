@@ -37,6 +37,5 @@ struct TamagotchiSet {
         Tamagotchi(face: "noImage", name: "준비중이에요", description: nil),
         Tamagotchi(face: "noImage", name: "준비중이에요", description: nil),
         Tamagotchi(face: "noImage", name: "준비중이에요", description: nil),
-        Tamagotchi(face: "noImage", name: "준비중이에요", description: nil),
     ]
 }

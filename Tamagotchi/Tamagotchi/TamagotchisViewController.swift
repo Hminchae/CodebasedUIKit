@@ -98,11 +98,12 @@ extension TamagotchisViewController: UICollectionViewDataSource {
         
         let vc = TamagotchiStartViewController()
         vc.tamagotchiInfo = data
-        
-        vc.modalPresentationStyle = .automatic
-        vc.modalTransitionStyle = .coverVertical
-        
-        present(vc, animated: true)
+        if data.description != nil {
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
+            
+            present(vc, animated: true)
+        }
     }
 }
 

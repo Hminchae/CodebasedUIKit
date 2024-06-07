@@ -68,7 +68,13 @@ class TamagotchiStartViewController: UIViewController {
         let v = UIButton()
         v.setTitle("취소", for: .normal)
         v.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
-        v.setTitleColor(#colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1), for: .normal)
+        
+        v.setTitleColor(#colorLiteral(red: 0.3222457469,
+                                      green: 0.4339936972,
+                                      blue: 0.4861731529,
+                                      alpha: 1),
+                        for: .normal)
+        
         v.backgroundColor = #colorLiteral(red: 0.8921869397, green: 0.930788219, blue: 0.9381119609, alpha: 1)
         v.titleLabel?.font = .systemFont(ofSize: 13)
         
@@ -78,7 +84,14 @@ class TamagotchiStartViewController: UIViewController {
     private let startButton: UIButton = {
         let v = UIButton()
         v.setTitle("시작하기", for: .normal)
-        v.setTitleColor(#colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1), for: .normal)
+        v.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
+        
+        v.setTitleColor(#colorLiteral(red: 0.3222457469,
+                                      green: 0.4339936972,
+                                      blue: 0.4861731529,
+                                      alpha: 1),
+                        for: .normal)
+        
         v.titleLabel?.font = .systemFont(ofSize: 13)
         
         return v
@@ -92,13 +105,19 @@ class TamagotchiStartViewController: UIViewController {
         
         configureUIView()
         configureLayout()
-        
-        print(tamagotchiInfo)
     }
     
     @objc func cancelButtonClicked() {
-        cancelButton.backgroundColor = #colorLiteral(red: 0.8921869397, green: 0.930788219, blue: 0.9381119609, alpha: 1)
         dismiss(animated: true)
+    }
+    
+    @objc func startButtonClicked() {
+        print("클릭!")
+        let vc = DetailTamagotchiViewController()
+        vc.tamagotchiInfo = tamagotchiInfo
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
     func configureLayout() {
@@ -106,7 +125,7 @@ class TamagotchiStartViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
             make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(50)
-            make.verticalEdges.equalTo(view.snp.verticalEdges).inset(180)
+            make.verticalEdges.equalTo(view.snp.verticalEdges).inset(220)
         }
     }
     
@@ -173,6 +192,5 @@ class TamagotchiStartViewController: UIViewController {
             make.trailing.equalTo(startView.snp.trailing)
             make.bottom.equalTo(startView.snp.bottom)
         }
-        
     }
 }

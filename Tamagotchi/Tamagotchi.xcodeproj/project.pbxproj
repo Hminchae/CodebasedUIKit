@@ -18,6 +18,8 @@
 		B15542952C12B84300DAAB37 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */; };
 		B15542972C12C31600DAAB37 /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542962C12C31600DAAB37 /* Tamagotchi.swift */; };
 		B15542992C12E26200DAAB37 /* TamagotchiStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542982C12E26100DAAB37 /* TamagotchiStartViewController.swift */; };
+		B155429B2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155429A2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift */; };
+		B155429D2C13414300DAAB37 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155429C2C13414300DAAB37 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		B15542962C12C31600DAAB37 /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
 		B15542982C12E26100DAAB37 /* TamagotchiStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiStartViewController.swift; sourceTree = "<group>"; };
+		B155429A2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTamagotchiViewController.swift; sourceTree = "<group>"; };
+		B155429C2C13414300DAAB37 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +75,9 @@
 				B155427A2C12AD3C00DAAB37 /* TamagotchisViewController.swift */,
 				B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */,
 				B15542982C12E26100DAAB37 /* TamagotchiStartViewController.swift */,
+				B155429A2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift */,
 				B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */,
+				B155429C2C13414300DAAB37 /* SettingViewController.swift */,
 				B15542962C12C31600DAAB37 /* Tamagotchi.swift */,
 				B155427F2C12AD4300DAAB37 /* Assets.xcassets */,
 				B15542812C12AD4300DAAB37 /* LaunchScreen.storyboard */,
@@ -160,8 +166,10 @@
 			files = (
 				B155427B2C12AD3C00DAAB37 /* TamagotchisViewController.swift in Sources */,
 				B15542932C12B7EC00DAAB37 /* TamagotchiCollectionViewCell.swift in Sources */,
+				B155429B2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift in Sources */,
 				B15542772C12AD3C00DAAB37 /* AppDelegate.swift in Sources */,
 				B15542992C12E26200DAAB37 /* TamagotchiStartViewController.swift in Sources */,
+				B155429D2C13414300DAAB37 /* SettingViewController.swift in Sources */,
 				B15542952C12B84300DAAB37 /* ReuseIdentifierProtocol.swift in Sources */,
 				B15542972C12C31600DAAB37 /* Tamagotchi.swift in Sources */,
 				B15542792C12AD3C00DAAB37 /* SceneDelegate.swift in Sources */,
