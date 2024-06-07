@@ -12,6 +12,11 @@
 		B155427B2C12AD3C00DAAB37 /* TamagotchisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155427A2C12AD3C00DAAB37 /* TamagotchisViewController.swift */; };
 		B15542802C12AD4300DAAB37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B155427F2C12AD4300DAAB37 /* Assets.xcassets */; };
 		B15542832C12AD4300DAAB37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15542812C12AD4300DAAB37 /* LaunchScreen.storyboard */; };
+		B155428C2C12B09800DAAB37 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B155428B2C12B09800DAAB37 /* Lottie */; };
+		B155428F2C12B0B600DAAB37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B155428E2C12B0B600DAAB37 /* SnapKit */; };
+		B15542932C12B7EC00DAAB37 /* TamagotchiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */; };
+		B15542952C12B84300DAAB37 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */; };
+		B15542972C12C31600DAAB37 /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542962C12C31600DAAB37 /* Tamagotchi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,9 @@
 		B155427F2C12AD4300DAAB37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B15542822C12AD4300DAAB37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B15542842C12AD4300DAAB37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiCollectionViewCell.swift; sourceTree = "<group>"; };
+		B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		B15542962C12C31600DAAB37 /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B155428C2C12B09800DAAB37 /* Lottie in Frameworks */,
+				B155428F2C12B0B600DAAB37 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +67,9 @@
 				B15542762C12AD3C00DAAB37 /* AppDelegate.swift */,
 				B15542782C12AD3C00DAAB37 /* SceneDelegate.swift */,
 				B155427A2C12AD3C00DAAB37 /* TamagotchisViewController.swift */,
+				B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */,
+				B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */,
+				B15542962C12C31600DAAB37 /* Tamagotchi.swift */,
 				B155427F2C12AD4300DAAB37 /* Assets.xcassets */,
 				B15542812C12AD4300DAAB37 /* LaunchScreen.storyboard */,
 				B15542842C12AD4300DAAB37 /* Info.plist */,
@@ -80,6 +93,10 @@
 			dependencies = (
 			);
 			name = Tamagotchi;
+			packageProductDependencies = (
+				B155428B2C12B09800DAAB37 /* Lottie */,
+				B155428E2C12B0B600DAAB37 /* SnapKit */,
+			);
 			productName = Tamagotchi;
 			productReference = B15542732C12AD3C00DAAB37 /* Tamagotchi.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +125,10 @@
 				Base,
 			);
 			mainGroup = B155426A2C12AD3C00DAAB37;
+			packageReferences = (
+				B155428A2C12B09800DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				B155428D2C12B0B600DAAB37 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = B15542742C12AD3C00DAAB37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,7 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B155427B2C12AD3C00DAAB37 /* TamagotchisViewController.swift in Sources */,
+				B15542932C12B7EC00DAAB37 /* TamagotchiCollectionViewCell.swift in Sources */,
 				B15542772C12AD3C00DAAB37 /* AppDelegate.swift in Sources */,
+				B15542952C12B84300DAAB37 /* ReuseIdentifierProtocol.swift in Sources */,
+				B15542972C12C31600DAAB37 /* Tamagotchi.swift in Sources */,
 				B15542792C12AD3C00DAAB37 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +385,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B155428A2C12B09800DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		B155428D2C12B0B600DAAB37 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B155428B2C12B09800DAAB37 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B155428A2C12B09800DAAB37 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		B155428E2C12B0B600DAAB37 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B155428D2C12B0B600DAAB37 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B155426B2C12AD3C00DAAB37 /* Project object */;
 }
