@@ -112,11 +112,15 @@ class TamagotchiStartViewController: UIViewController {
     }
     
     @objc func startButtonClicked() {
-        print("클릭!")
+        UserDefaults.standard.set(tamagotchiInfo?.serialNum, forKey: "tamagotchiType")
+        
         let vc = DetailTamagotchiViewController()
         vc.tamagotchiInfo = tamagotchiInfo
+        
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
+        nav.modalTransitionStyle = .crossDissolve
+        
         present(nav, animated: true)
     }
     

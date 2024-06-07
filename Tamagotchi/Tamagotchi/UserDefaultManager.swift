@@ -16,9 +16,11 @@ import Foundation
 */
 
 class UserDefaultManager {
+    static let shared = UserDefaultManager()
+    
     var captainName : String {
         get {
-            return UserDefaults.standard.string(forKey: "captainName") ?? "대장님"
+            return UserDefaults.standard.string(forKey: "captainName") ?? "대장"
         }
         
         set {
@@ -47,13 +49,15 @@ class UserDefaultManager {
     }
     
     // 유저디폴트로 저장프로퍼티 가능?
-    var tamagotchiType : String {
+    var tamagotchiType : Int {
         get {
-            return UserDefaults.standard.string(forKey: "tamagotchiType") ?? "미설정"
+            return UserDefaults.standard.integer(forKey: "tamagotchiType")
         }
         
         set {
             UserDefaults.standard.set(newValue, forKey: "tamagotchiType")
         }
     }
+    
+    private init() { }
 }
