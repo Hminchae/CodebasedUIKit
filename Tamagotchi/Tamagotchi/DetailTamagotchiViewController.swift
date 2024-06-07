@@ -19,11 +19,12 @@ class DetailTamagotchiViewController: UIViewController {
     
     func configureNavigationItem() {
         let profile = UIBarButtonItem(
-            title: "헤이ㅣㅣ",
+            image: UIImage(systemName: "person.circle"),
             style: .plain,
             target: self,
             action: #selector(profileButtonClicked))
         
+        profile.tintColor = #colorLiteral(red: 0.3113029599, green: 0.4182519913, blue: 0.4663134813, alpha: 1)
         print(tamagotchiInfo)
         navigationItem.title = tamagotchiInfo?.name
         navigationItem.rightBarButtonItem = profile
