@@ -22,6 +22,8 @@
 		B155429D2C13414300DAAB37 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155429C2C13414300DAAB37 /* SettingViewController.swift */; };
 		B155429F2C1361A400DAAB37 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */; };
 		B15542A12C14C9B400DAAB37 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A02C14C9B400DAAB37 /* SettingItem.swift */; };
+		B15542A32C14CE0700DAAB37 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */; };
+		B15542A92C14CEAC00DAAB37 /* nameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B155429C2C13414300DAAB37 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		B15542A02C14C9B400DAAB37 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,20 +80,54 @@
 			children = (
 				B15542762C12AD3C00DAAB37 /* AppDelegate.swift */,
 				B15542782C12AD3C00DAAB37 /* SceneDelegate.swift */,
-				B155427A2C12AD3C00DAAB37 /* TamagotchisViewController.swift */,
-				B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */,
-				B15542982C12E26100DAAB37 /* TamagotchiStartViewController.swift */,
-				B155429A2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift */,
-				B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */,
-				B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */,
-				B155429C2C13414300DAAB37 /* SettingViewController.swift */,
-				B15542A02C14C9B400DAAB37 /* SettingItem.swift */,
-				B15542962C12C31600DAAB37 /* Tamagotchi.swift */,
+				B15542A72C14CE3300DAAB37 /* Resources */,
+				B15542A62C14CE1F00DAAB37 /* Setting */,
+				B15542A52C14CE1900DAAB37 /* Main */,
+				B15542A42C14CE1000DAAB37 /* Start */,
 				B155427F2C12AD4300DAAB37 /* Assets.xcassets */,
 				B15542812C12AD4300DAAB37 /* LaunchScreen.storyboard */,
 				B15542842C12AD4300DAAB37 /* Info.plist */,
 			);
 			path = Tamagotchi;
+			sourceTree = "<group>";
+		};
+		B15542A42C14CE1000DAAB37 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B155427A2C12AD3C00DAAB37 /* TamagotchisViewController.swift */,
+				B15542922C12B7EB00DAAB37 /* TamagotchiCollectionViewCell.swift */,
+				B15542982C12E26100DAAB37 /* TamagotchiStartViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		B15542A52C14CE1900DAAB37 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B155429A2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B15542A62C14CE1F00DAAB37 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */,
+				B155429C2C13414300DAAB37 /* SettingViewController.swift */,
+				B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B15542A72C14CE3300DAAB37 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */,
+				B15542942C12B84300DAAB37 /* ReuseIdentifierProtocol.swift */,
+				B15542962C12C31600DAAB37 /* Tamagotchi.swift */,
+				B15542A02C14C9B400DAAB37 /* SettingItem.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +211,11 @@
 				B155427B2C12AD3C00DAAB37 /* TamagotchisViewController.swift in Sources */,
 				B15542932C12B7EC00DAAB37 /* TamagotchiCollectionViewCell.swift in Sources */,
 				B15542A12C14C9B400DAAB37 /* SettingItem.swift in Sources */,
+				B15542A92C14CEAC00DAAB37 /* nameSettingViewController.swift in Sources */,
 				B155429B2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift in Sources */,
 				B15542772C12AD3C00DAAB37 /* AppDelegate.swift in Sources */,
 				B155429F2C1361A400DAAB37 /* UserDefaultManager.swift in Sources */,
+				B15542A32C14CE0700DAAB37 /* SettingTableViewCell.swift in Sources */,
 				B15542992C12E26200DAAB37 /* TamagotchiStartViewController.swift in Sources */,
 				B155429D2C13414300DAAB37 /* SettingViewController.swift in Sources */,
 				B15542952C12B84300DAAB37 /* ReuseIdentifierProtocol.swift in Sources */,
