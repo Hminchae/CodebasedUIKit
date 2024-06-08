@@ -47,23 +47,6 @@ class DetailTamagotchiViewController: UIViewController {
         return v
     }()
     
-    func updateTamaImage() {
-        var imageName: String
-        
-        switch user.tamagotchiType {
-        case 1:
-            imageName = "1-\(user.tamagotchiLevel)"
-        case 2:
-            imageName = "2-\(user.tamagotchiLevel)"
-        case 3:
-            imageName = "3-\(user.tamagotchiLevel)"
-        default:
-            imageName = "1-1"
-        }
-        
-        tamaImageView.image = UIImage(named: imageName)
-    }
-    
     lazy private var tamaNameLabel: UILabel = {
         let v = UILabel()
         v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
@@ -324,6 +307,8 @@ class DetailTamagotchiViewController: UIViewController {
         profile.tintColor = #colorLiteral(red: 0.3113029599, green: 0.4182519913, blue: 0.4663134813, alpha: 1)
         navigationItem.title = "\(user.captainName)님의 다마고치"
         navigationItem.rightBarButtonItem = profile
+        navigationItem.backButtonTitle = ""
+        
     }
     
     @objc func profileButtonClicked() {
@@ -332,6 +317,23 @@ class DetailTamagotchiViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func updateTamaImage() {
+        var imageName: String
+        
+        switch user.tamagotchiType {
+        case 1:
+            imageName = "1-\(user.tamagotchiLevel)"
+        case 2:
+            imageName = "2-\(user.tamagotchiLevel)"
+        case 3:
+            imageName = "3-\(user.tamagotchiLevel)"
+        default:
+            imageName = "1-1"
+        }
+        
+        tamaImageView.image = UIImage(named: imageName)
+    }
+
     // TODO: 텍스트필드 49까지만, 넘으면 얼럿 띄우기
     @objc func riceButtonClicked() {
         if let text = riceTextField.text, !text.isEmpty {
