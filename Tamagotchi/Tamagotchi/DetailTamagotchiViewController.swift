@@ -40,21 +40,29 @@ class DetailTamagotchiViewController: UIViewController {
         return v
     }()
     
-    lazy private var TamaImageView: UIImageView = {
+    lazy private var tamaImageView: UIImageView = {
         let v = UIImageView()
         v.contentMode = .scaleAspectFit
-        switch user.tamagotchiType {
-        case 1:
-            v.image = UIImage(named: "1-\(user.tamagotchiLevel)")
-        case 2:
-            v.image = UIImage(named: "2-\(user.tamagotchiLevel)")
-        case 3:
-            v.image = UIImage(named: "3-\(user.tamagotchiLevel)")
-        default:
-            v.image = UIImage(named: "1-1")
-        }
+        
         return v
     }()
+    
+    func updateTamaImage() {
+        var imageName: String
+        
+        switch user.tamagotchiType {
+        case 1:
+            imageName = "1-\(user.tamagotchiLevel)"
+        case 2:
+            imageName = "2-\(user.tamagotchiLevel)"
+        case 3:
+            imageName = "3-\(user.tamagotchiLevel)"
+        default:
+            imageName = "1-1"
+        }
+        
+        tamaImageView.image = UIImage(named: imageName)
+    }
     
     lazy private var tamaNameLabel: UILabel = {
         let v = UILabel()
@@ -188,6 +196,8 @@ class DetailTamagotchiViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
         bubbleLabel.text = tamagotchiSay.sentence.randomElement()
+        updateTamaImage()
+        
         setUpUI()
     }
     override func viewDidLayoutSubviews() {
@@ -205,7 +215,7 @@ class DetailTamagotchiViewController: UIViewController {
     
     func setUpUI() {
         view.addSubview(bubbleView)
-        view.addSubview(TamaImageView)
+        view.addSubview(tamaImageView)
         view.addSubview(tamaNameLabel)
         view.addSubview(levelStack)
         view.addSubview(riceTextField)
@@ -226,13 +236,13 @@ class DetailTamagotchiViewController: UIViewController {
             make.height.equalTo(150)
         }
         
-        TamaImageView.snp.makeConstraints { make in
+        tamaImageView.snp.makeConstraints { make in
             make.top.equalTo(bubbleView.snp.bottom).offset(5)
             make.centerX.equalTo(view.snp.centerX)
         }
         
         tamaNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(TamaImageView.snp.bottom).offset(5)
+            make.top.equalTo(tamaImageView.snp.bottom).offset(5)
             make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(25)
         }
@@ -240,7 +250,7 @@ class DetailTamagotchiViewController: UIViewController {
         levelStack.snp.makeConstraints { make in
             make.top.equalTo(tamaNameLabel.snp.bottom).offset(10)
             make.centerX.equalTo(view.snp.centerX)
-            make.width.equalTo(170)
+            make.width.equalTo(190)
             make.height.equalTo(20)
         }
         
@@ -331,7 +341,11 @@ class DetailTamagotchiViewController: UIViewController {
         } else {
             user.rice += 1
         }
+        bubbleLabel.text = tamagotchiSay.sentence.randomElement()
+        levelLabel.text = "LV\(user.tamagotchiLevel)"
         riceLabel.text = "밥알 \(user.rice)개"
+        
+        updateTamaImage()
     }
     
     @objc func waterDropButtonClicked() {
@@ -343,7 +357,11 @@ class DetailTamagotchiViewController: UIViewController {
             user.waterDrop += 1
             print(user.tamagotchiLevel)
         }
+        bubbleLabel.text = tamagotchiSay.sentence.randomElement()
+        levelLabel.text = "LV\(user.tamagotchiLevel)"
         waterDropLabel.text = "밥알 \(user.waterDrop)개"
+        
+        updateTamaImage()
     }
 }
 
