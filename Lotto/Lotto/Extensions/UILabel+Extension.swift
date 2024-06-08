@@ -8,12 +8,12 @@
 import UIKit
 
 extension UILabel {
-    func setBallUI(_ text: Int) {
+    func setBallUI(_ text: Int, width: Double) {
         self.text = String(text)
         self.textColor = .white
         self.font = .boldSystemFont(ofSize: 20)
         self.clipsToBounds = true
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = width / 2
         self.textAlignment = .center
         
         switch text {

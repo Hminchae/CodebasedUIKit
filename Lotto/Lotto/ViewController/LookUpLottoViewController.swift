@@ -56,6 +56,8 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
     
     let numbers = Array(1...986).reversed() as [Int]
     
+    var lottoWidth: CGFloat = 0
+    
     let bonusLabel = {
         let label = UILabel()
         label.text = "보너스"
@@ -64,8 +66,6 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         
         return label
     }()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,10 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(anyTapped))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        lottoWidth = ballWidth()
     }
     
     @objc func anyTapped() {
@@ -111,14 +115,15 @@ class LookUpLottoViewController: UIViewController, UITextFieldDelegate {
             switch response.result {
             case .success(let value):
                 print(value.lottoDate)
+                print(self.lottoWidth)
                 self.infoOfRoundLabel.text = "\(value.lottoDate) 추첨"
-                self.stackItem1.setBallUI(value.num1)
-                self.stackItem2.setBallUI(value.num2)
-                self.stackItem3.setBallUI(value.num3)
-                self.stackItem4.setBallUI(value.num4)
-                self.stackItem5.setBallUI(value.num5)
-                self.stackItem6.setBallUI(value.num6)
-                self.stackItem7.setBallUI(value.num7)
+                self.stackItem1.setBallUI(value.num1, width: self.lottoWidth)
+                self.stackItem2.setBallUI(value.num2, width: self.lottoWidth)
+                self.stackItem3.setBallUI(value.num3, width: self.lottoWidth)
+                self.stackItem4.setBallUI(value.num4, width: self.lottoWidth)
+                self.stackItem5.setBallUI(value.num5, width: self.lottoWidth)
+                self.stackItem6.setBallUI(value.num6, width: self.lottoWidth)
+                self.stackItem7.setBallUI(value.num7, width: self.lottoWidth)
                 self.stackItemPlus.setPlusLabelUI()
             case .failure(let error):
                 print(error)
@@ -133,7 +138,7 @@ extension LookUpLottoViewController {
         roundStack.translatesAutoresizingMaskIntoConstraints = false
         roundStack.axis = .horizontal
         roundStack.spacing = 0
-        roundStack.distribution = .equalCentering
+        roundStack.distribution = .fillEqually
         roundStack.isLayoutMarginsRelativeArrangement = false
         
         roundStack.addArrangedSubview(roundLabel)
@@ -160,7 +165,7 @@ extension LookUpLottoViewController {
     
     func configureLayout() {
         lottoRoundTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(45)
         }
@@ -182,20 +187,20 @@ extension LookUpLottoViewController {
         }
         
         roundStack.snp.makeConstraints { make in
-            make.top.equalTo(separaterView.snp_bottomMargin).offset(20)
+            make.top.equalTo(separaterView.snp.bottom).offset(20)
             make.centerX.equalTo(view.center)
-            make.width.equalTo(130)
+            make.width.equalTo(150)
             make.height.equalTo(30)
         }
         
         ballStack.snp.makeConstraints { make in
-            make.top.equalTo(roundStack.snp_bottomMargin).offset(20)
+            make.top.equalTo(roundStack.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(34)
         }
         
         bonusLabel.snp.makeConstraints { make in
-            make.top.equalTo(ballStack.snp_bottomMargin).offset(10)
+            make.top.equalTo(ballStack.snp.bottom).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
@@ -214,6 +219,13 @@ extension LookUpLottoViewController {
         roundLabel.text = "\(keyRound)회"
         roundLabel.font = .boldSystemFont(ofSize: 20)
         roundLabel.textColor = UIColor.random()
+    }
+    
+    func ballWidth() -> CGFloat {
+        let originWidth = view.window?.windowScene?.screen.bounds.width
+        let result = ((originWidth ?? 393) - 110) / 8
+        
+        return result
     }
 }
 extension LookUpLottoViewController : UIPickerViewDelegate, UIPickerViewDataSource {
