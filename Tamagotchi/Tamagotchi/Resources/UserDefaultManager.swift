@@ -92,5 +92,15 @@ class UserDefaultManager {
         }
     }
     
+    var tamaChangedState : Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "tamaChangedState")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "tamaChangedState")
+        }
+    }
+    
     private init() { }
 }

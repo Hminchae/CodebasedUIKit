@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class TamagotchisViewController: UIViewController {
-    
+    let user = UserDefaultManager.shared // 임시, 지울 것
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -38,6 +38,8 @@ class TamagotchisViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
         configureUI()
+        print("\(user.tamagotchiType) <--여기 사람있어요~~")
+        print("\(user.tamaChangedState) <--여기 사람있어요~~")
     }
     
     func configureUI() {

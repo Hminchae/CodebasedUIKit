@@ -10,16 +10,23 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let user = UserDefaultManager.shared
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = TamagotchisViewController()
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
         
+        
+        if user.tamagotchiType == 0 {
+            let vc = TamagotchisViewController()
+            window?.rootViewController = vc
+        } else {
+            let vc = UINavigationController(rootViewController: DetailTamagotchiViewController())
+            window?.rootViewController = vc
+        }
+        
+        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -56,7 +56,6 @@ class DetailTamagotchiViewController: UIViewController {
         v.textAlignment = .center
         v.clipsToBounds = true
         v.layer.cornerRadius = 5
-        v.text = " \((tamagotchiInfo?.name)!) "
         
         return v
     }()
@@ -174,15 +173,21 @@ class DetailTamagotchiViewController: UIViewController {
         return v
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateTamaImage()
+        updateTamaName()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
         bubbleLabel.text = tamagotchiSay.sentence.randomElement()
         updateTamaImage()
+        updateTamaName()
         
         setUpUI()
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addBottomBorderToTextField(textField: riceTextField)
@@ -315,6 +320,22 @@ class DetailTamagotchiViewController: UIViewController {
         let vc = SettingViewController()
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    func updateTamaName() {
+        var tamaName: String
+        
+        switch user.tamagotchiType {
+        case 1:
+            tamaName = "따끔따끔 다마고치"
+        case 2:
+            tamaName = "방실방실 다마고치"
+        case 3:
+            tamaName = "반짝반짝 다마고치"
+        default:
+            tamaName = "따끔따끔 다마고치"
+        }
+        
+        tamaNameLabel.text = tamaName
     }
     
     func updateTamaImage() {

@@ -11,6 +11,7 @@ import SnapKit
 class TamagotchiStartViewController: UIViewController {
     
     var tamagotchiInfo: Tamagotchi?
+    let user = UserDefaultManager.shared
     
     let startView: UIView = {
         let v = UIView()
@@ -81,9 +82,11 @@ class TamagotchiStartViewController: UIViewController {
         return v
     }()
     
-    private let startButton: UIButton = {
+    lazy private var startButton: UIButton = {
         let v = UIButton()
-        v.setTitle("시작하기", for: .normal)
+        let titleStr: String
+        titleStr = user.tamaChangedState ? "변경하기" : "시작하기"
+        v.setTitle(titleStr, for: .normal)
         v.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         
         v.setTitleColor(#colorLiteral(red: 0.3222457469,
@@ -112,16 +115,29 @@ class TamagotchiStartViewController: UIViewController {
     }
     
     @objc func startButtonClicked() {
-        UserDefaults.standard.set(tamagotchiInfo?.serialNum, forKey: "tamagotchiType")
-        
-        let vc = DetailTamagotchiViewController()
-        vc.tamagotchiInfo = tamagotchiInfo
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        nav.modalTransitionStyle = .crossDissolve
-        
-        present(nav, animated: true)
+        // 설정 -> 변경하기 진입 시
+        print(user.tamaChangedState)
+        print(user.tamagotchiType)
+        if user.tamaChangedState {
+            user.tamagotchiType = tamagotchiInfo?.serialNum ?? 0
+            user.tamaChangedState = false
+            print(user.tamaChangedState)
+            print(user.tamagotchiType)
+            dismiss(animated: true)
+            navigationController?.popToRootViewController(animated: true)
+        // 첫 화면에서 진입 시
+        } else {
+            user.tamagotchiType = tamagotchiInfo?.serialNum ?? 0
+            
+            let vc = DetailTamagotchiViewController()
+            vc.tamagotchiInfo = tamagotchiInfo
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            
+            present(nav, animated: true)
+        }
     }
     
     func configureLayout() {
