@@ -9,9 +9,10 @@ import UIKit
 import SnapKit
 
 class SettingViewController: UIViewController {
-
+    
     let list = SettingSet.tamaSettingSet
     let tableView = UITableView()
+    let user = UserDefaultManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +46,21 @@ extension SettingViewController: UITableViewDelegate {
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
         cell.backgroundColor = .clear
-        //cell.selectionStyle = .none
-        cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .disclosureIndicator // 셀 악세서리 스타일 적용
         
         cell.icon.image = UIImage(systemName: list[indexPath.row].settingIcon)
         cell.settingName.text = list[indexPath.row].settingName
-        cell.detailName.text = list[indexPath.row].settingDetailName
+        
+        if indexPath.row == 0 {
+            cell.detailName.text = "\(user.captainName)님"
+        }
+        
         return cell
     }
     
@@ -81,7 +84,14 @@ extension SettingViewController: UITableViewDataSource {
                 style: .cancel)
             let open = UIAlertAction(
                 title: "웅",
-                style: .default)
+                style: .default) { action in
+                    print(self.user.tamagotchiType)
+                    self.user.captainName = "대장"
+                    self.user.rice = 0
+                    self.user.waterDrop = 0
+                    self.user.tamagotchiType = 0
+                    print(self.user.tamagotchiType)
+                }
             // 3.
             alert.addAction(cancel)
             alert.addAction(open)

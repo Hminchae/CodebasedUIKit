@@ -30,6 +30,7 @@ class SettingTableViewCell: UITableViewCell {
         let v = UILabel()
         v.textColor = .lightGray
         v.font = .systemFont(ofSize: 15)
+        v.textAlignment = .right
         
         return v
     }()
@@ -72,7 +73,7 @@ class SettingTableViewCell: UITableViewCell {
         detailName.snp.makeConstraints { make in
             make.centerY.equalTo(contentView.snp.centerY)
             make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(5)
-            make.leading.equalTo(contentView.snp.trailing).inset(50)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-5)
         }
     }
 }
