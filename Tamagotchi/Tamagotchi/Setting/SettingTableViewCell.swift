@@ -13,8 +13,8 @@ class SettingTableViewCell: UITableViewCell {
    let icon: UIImageView = {
         let v = UIImageView()
         v.contentMode = .scaleAspectFit
-        v.tintColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
-        
+        v.tintColor = .fontColor
+       
         return v
     }()
     

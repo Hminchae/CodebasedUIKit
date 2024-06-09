@@ -17,7 +17,7 @@ class SettingNameViewController: UIViewController {
         v.placeholder = "대장님 이름을 입력해주세용"
         v.borderStyle = .none
         v.textAlignment = .left
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.tintColor = .gray
         v.font = .boldSystemFont(ofSize: 15)
         
@@ -31,6 +31,8 @@ class SettingNameViewController: UIViewController {
         configureUI()
         
         captainNameTextField.text = user.captainName
+        
+        self.hideKeyboardWhenTappedBackground()
     }
     
     override func viewDidLayoutSubviews() {
@@ -99,7 +101,20 @@ class SettingNameViewController: UIViewController {
     private func addBottomBorderToTextField(_ textField: UITextField) {
         let border = CALayer()
         border.frame = CGRect(x: 0, y: textField.frame.size.height - 1, width: textField.frame.width, height: 1)
-        border.backgroundColor = #colorLiteral(red: 0.3113029599, green: 0.4182519913, blue: 0.4663134813, alpha: 1).cgColor
+        border.backgroundColor = UIColor.fontColor?.cgColor
         textField.layer.addSublayer(border)
+    }
+}
+
+// 빈 화면 탭 시 키보드 내리기
+extension SettingNameViewController {
+    func hideKeyboardWhenTappedBackground() {
+        let tapEvent = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapEvent.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapEvent)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

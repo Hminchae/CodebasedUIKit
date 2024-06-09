@@ -17,13 +17,13 @@ class TamagotchiStartViewController: UIViewController {
         let v = UIView()
         v.clipsToBounds = true
         v.layer.cornerRadius = 10
-        v.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
+        v.backgroundColor = .bgColor
         return v
     }()
     
     private let label: UILabel = {
         let v = UILabel()
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.font = .boldSystemFont(ofSize: 13)
         v.layer.borderWidth = 1
         v.layer.borderColor = UIColor.lightGray.cgColor
@@ -52,7 +52,7 @@ class TamagotchiStartViewController: UIViewController {
         let v = UILabel()
         v.textAlignment = .center
         v.font = .systemFont(ofSize: 13)
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.numberOfLines = 0
         v.lineBreakMode = .byWordWrapping
         return v
@@ -70,13 +70,8 @@ class TamagotchiStartViewController: UIViewController {
         v.setTitle("취소", for: .normal)
         v.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
         
-        v.setTitleColor(#colorLiteral(red: 0.3222457469,
-                                      green: 0.4339936972,
-                                      blue: 0.4861731529,
-                                      alpha: 1),
-                        for: .normal)
-        
-        v.backgroundColor = #colorLiteral(red: 0.8921869397, green: 0.930788219, blue: 0.9381119609, alpha: 1)
+        v.setTitleColor(UIColor.fontColor, for: .normal)
+        v.backgroundColor = .bgColor
         v.titleLabel?.font = .systemFont(ofSize: 13)
         
         return v
@@ -88,13 +83,7 @@ class TamagotchiStartViewController: UIViewController {
         titleStr = user.tamaChangedState ? "변경하기" : "시작하기"
         v.setTitle(titleStr, for: .normal)
         v.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
-        
-        v.setTitleColor(#colorLiteral(red: 0.3222457469,
-                                      green: 0.4339936972,
-                                      blue: 0.4861731529,
-                                      alpha: 1),
-                        for: .normal)
-        
+        v.setTitleColor(UIColor.fontColor, for: .normal)
         v.titleLabel?.font = .systemFont(ofSize: 13)
         
         return v

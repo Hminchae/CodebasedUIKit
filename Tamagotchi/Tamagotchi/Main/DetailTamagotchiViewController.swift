@@ -32,7 +32,7 @@ class DetailTamagotchiViewController: UIViewController {
     private var bubbleLabel: UILabel = {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.textAlignment = .center
         v.lineBreakMode = .byWordWrapping
         v.numberOfLines = 0
@@ -49,7 +49,7 @@ class DetailTamagotchiViewController: UIViewController {
     
     lazy private var tamaNameLabel: UILabel = {
         let v = UILabel()
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.font = .boldSystemFont(ofSize: 13)
         v.layer.borderWidth = 1
         v.layer.borderColor = UIColor.lightGray.cgColor
@@ -75,7 +75,7 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
         v.text = "LV\(user.tamagotchiLevel)"
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         
         return v
     }()
@@ -84,7 +84,7 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
         v.text = "﹒"
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         
         return v
     }()
@@ -93,7 +93,7 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
         v.text = "밥알 \(user.rice)개"
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         
         return v
     }()
@@ -102,7 +102,7 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
         v.text = "﹒"
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         
         return v
     }()
@@ -111,7 +111,7 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 13)
         v.text = "물방울 \(user.waterDrop)개"
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         
         return v
     }()
@@ -121,7 +121,7 @@ class DetailTamagotchiViewController: UIViewController {
         v.placeholder = "밥주세용"
         v.borderStyle = .none
         v.textAlignment = .center
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.tintColor = .gray
         v.font = .boldSystemFont(ofSize: 17)
         v.keyboardType = .numberPad
@@ -133,11 +133,11 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UIButton()
         v.setTitle("밥먹기", for: .normal)
         v.setImage(UIImage(systemName: "drop.circle"), for: .normal)
-        v.tintColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
-        v.setTitleColor(#colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1), for: .normal)
+        v.tintColor = .fontColor
+        v.setTitleColor(.fontColor, for: .normal)
         v.clipsToBounds = true
         v.layer.borderWidth = 1.5
-        v.layer.borderColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.layer.borderColor = UIColor.fontColor?.cgColor
         v.layer.cornerRadius = 8
         v.titleLabel?.font = .boldSystemFont(ofSize: 15)
         v.addTarget(self, action: #selector(riceButtonClicked), for: .touchUpInside)
@@ -149,7 +149,7 @@ class DetailTamagotchiViewController: UIViewController {
         v.placeholder = "물주세용"
         v.borderStyle = .none
         v.textAlignment = .center
-        v.textColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.textColor = .fontColor
         v.tintColor = .gray
         v.font = .boldSystemFont(ofSize: 17)
         v.keyboardType = .numberPad
@@ -161,11 +161,11 @@ class DetailTamagotchiViewController: UIViewController {
         let v = UIButton()
         v.setTitle("물먹기", for: .normal)
         v.setImage(UIImage(systemName: "leaf.circle"), for: .normal)
-        v.tintColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
-        v.setTitleColor(#colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1), for: .normal)
+        v.tintColor = .fontColor
+        v.setTitleColor(.fontColor, for: .normal)
         v.clipsToBounds = true
         v.layer.borderWidth = 1.5
-        v.layer.borderColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1)
+        v.layer.borderColor = UIColor.fontColor?.cgColor
         v.layer.cornerRadius = 8
         v.titleLabel?.font = .boldSystemFont(ofSize: 15)
         v.addTarget(self, action: #selector(waterDropButtonClicked), for: .touchUpInside)
@@ -180,12 +180,14 @@ class DetailTamagotchiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
+        view.backgroundColor = .bgColor
         bubbleLabel.text = tamagotchiSay.sentence.randomElement()
         updateTamaImage()
         updateTamaName()
         
         setUpUI()
+        
+        self.hideKeyboardWhenTappedBackground()
     }
     
     override func viewDidLayoutSubviews() {
@@ -197,7 +199,7 @@ class DetailTamagotchiViewController: UIViewController {
     private func addBottomBorderToTextField(textField: UITextField) {
         let border = CALayer()
         border.frame = CGRect(x: 0, y: textField.frame.size.height - 1, width: textField.frame.width, height: 1)
-        border.backgroundColor = #colorLiteral(red: 0.3222457469, green: 0.4339936972, blue: 0.4861731529, alpha: 1).cgColor
+        border.backgroundColor = UIColor.fontColor?.cgColor
         textField.layer.addSublayer(border)
     }
     
@@ -309,7 +311,7 @@ class DetailTamagotchiViewController: UIViewController {
             target: self,
             action: #selector(profileButtonClicked))
         
-        profile.tintColor = #colorLiteral(red: 0.3113029599, green: 0.4182519913, blue: 0.4663134813, alpha: 1)
+        profile.tintColor = .fontColor
         navigationItem.title = "\(user.captainName)님의 다마고치"
         navigationItem.rightBarButtonItem = profile
         navigationItem.backButtonTitle = ""
@@ -359,7 +361,21 @@ class DetailTamagotchiViewController: UIViewController {
     @objc func riceButtonClicked() {
         if let text = riceTextField.text, !text.isEmpty {
             if let riceToAdd = Int(text) {
-                user.rice += riceToAdd
+                if riceToAdd > 0 && riceToAdd < 100 {
+                    user.rice += riceToAdd
+                } else {
+                    let alert = UIAlertController(
+                        title: "밥알 개수를 조정해주세요!",
+                        message: "저는 한번에 99개까지만 먹어용!",
+                        preferredStyle: .alert)
+
+                    let confirm = UIAlertAction(
+                        title: "알았어 :D",
+                        style: .default)
+                    
+                    alert.addAction(confirm)
+                    present(alert, animated: true)
+                }
             }
         } else {
             user.rice += 1
@@ -374,7 +390,21 @@ class DetailTamagotchiViewController: UIViewController {
     @objc func waterDropButtonClicked() {
         if let text = waterTextField.text, !text.isEmpty {
             if let waterToAdd = Int(text) {
-                user.waterDrop += waterToAdd
+                if waterToAdd > 0 && waterToAdd < 50 {
+                    user.waterDrop += waterToAdd
+                } else {
+                    let alert = UIAlertController(
+                        title: "물방울 개수를 조정해주세요!",
+                        message: "저는 한번에 49개까지만 먹어용!",
+                        preferredStyle: .alert)
+
+                    let confirm = UIAlertAction(
+                        title: "알았어 :D",
+                        style: .default)
+                    
+                    alert.addAction(confirm)
+                    present(alert, animated: true)
+                }
             }
         } else {
             user.waterDrop += 1
@@ -388,4 +418,15 @@ class DetailTamagotchiViewController: UIViewController {
     }
 }
 
-
+// 빈 화면 탭 시 키보드 내리기
+extension DetailTamagotchiViewController {
+    func hideKeyboardWhenTappedBackground() {
+        let tapEvent = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapEvent.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapEvent)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

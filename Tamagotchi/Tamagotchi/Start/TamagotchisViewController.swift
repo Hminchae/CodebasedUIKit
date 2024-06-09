@@ -9,7 +9,10 @@ import UIKit
 import SnapKit
 
 class TamagotchisViewController: UIViewController {
-    let user = UserDefaultManager.shared // 임시, 지울 것
+    
+    let user = UserDefaultManager.shared
+    let list: [Tamagotchi] = TamagotchiSet.tamagotchiSet
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -25,21 +28,20 @@ class TamagotchisViewController: UIViewController {
     
     let topTitle: UILabel = {
         let v = UILabel()
-        v.text = "다마고찌 선택하기"
         v.font = .boldSystemFont(ofSize: 17)
         v.textColor = .black
         v.textAlignment = .center
         
         return v
     }()
-    
+ 
     override func viewDidLoad() {
         print(#function)
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.9602500796, green: 0.989430964, blue: 0.9885126948, alpha: 1)
+        view.backgroundColor = .bgColor
         configureUI()
-        print("\(user.tamagotchiType) <--여기 사람있어요~~")
-        print("\(user.tamaChangedState) <--여기 사람있어요~~")
+        configureTitle()
+        
     }
     
     func configureUI() {
@@ -68,12 +70,19 @@ class TamagotchisViewController: UIViewController {
         }
     }
     
-    let list: [Tamagotchi] = TamagotchiSet.tamagotchiSet
+    func configureTitle() {
+        if user.tamaChangedState {
+            navigationItem.title = "타마고치 변경하기"
+            topTitle.isHidden = true
+        } else {
+            topTitle.text = "다마고찌 선택하기"
+            topTitle.isHidden = false
+        }
+    }
+
 }
 
-extension TamagotchisViewController: UICollectionViewDelegate {
-    
-}
+extension TamagotchisViewController: UICollectionViewDelegate { }
 
 extension TamagotchisViewController: UICollectionViewDataSource {
     
