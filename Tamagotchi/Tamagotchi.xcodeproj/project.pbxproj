@@ -23,7 +23,7 @@
 		B155429F2C1361A400DAAB37 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */; };
 		B15542A12C14C9B400DAAB37 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A02C14C9B400DAAB37 /* SettingItem.swift */; };
 		B15542A32C14CE0700DAAB37 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */; };
-		B15542A92C14CEAC00DAAB37 /* nameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */; };
+		B15542AB2C15851300DAAB37 /* SettingNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15542AA2C15851300DAAB37 /* SettingNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,7 @@
 		B155429E2C1361A400DAAB37 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		B15542A02C14C9B400DAAB37 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameSettingViewController.swift; sourceTree = "<group>"; };
+		B15542AA2C15851300DAAB37 /* SettingNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 			children = (
 				B15542A22C14CE0700DAAB37 /* SettingTableViewCell.swift */,
 				B155429C2C13414300DAAB37 /* SettingViewController.swift */,
-				B15542A82C14CEAC00DAAB37 /* nameSettingViewController.swift */,
+				B15542AA2C15851300DAAB37 /* SettingNameViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -210,8 +210,8 @@
 			files = (
 				B155427B2C12AD3C00DAAB37 /* TamagotchisViewController.swift in Sources */,
 				B15542932C12B7EC00DAAB37 /* TamagotchiCollectionViewCell.swift in Sources */,
+				B15542AB2C15851300DAAB37 /* SettingNameViewController.swift in Sources */,
 				B15542A12C14C9B400DAAB37 /* SettingItem.swift in Sources */,
-				B15542A92C14CEAC00DAAB37 /* nameSettingViewController.swift in Sources */,
 				B155429B2C133FCF00DAAB37 /* DetailTamagotchiViewController.swift in Sources */,
 				B15542772C12AD3C00DAAB37 /* AppDelegate.swift in Sources */,
 				B155429F2C1361A400DAAB37 /* UserDefaultManager.swift in Sources */,
