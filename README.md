@@ -1,4 +1,4 @@
-## MovieBoxOffice
+## Tamagotchi
 > 귀여운 다마고치를 키울 수 있는 앱
 
 Keyword : `SnapKit`, `UICollectionViewController`
