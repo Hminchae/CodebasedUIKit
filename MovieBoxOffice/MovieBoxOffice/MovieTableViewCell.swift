@@ -62,7 +62,7 @@ class MovieTableViewCell: UITableViewCell {
         }
         
         rankingLabel.snp.makeConstraints { make in
-            make.top.equalTo(allView.safeAreaLayoutGuide).inset(14)
+            make.top.equalTo(allView.snp.top).inset(14)
             make.leading.equalTo(allView.safeAreaLayoutGuide).offset(20)
             make.width.equalTo(35)
         }
