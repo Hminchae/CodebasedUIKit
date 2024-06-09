@@ -71,7 +71,7 @@ class TamagotchiStartViewController: UIViewController {
         v.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
         
         v.setTitleColor(UIColor.fontColor, for: .normal)
-        v.backgroundColor = .bgColor
+        v.backgroundColor = #colorLiteral(red: 0.8921869397, green: 0.930788219, blue: 0.9381119609, alpha: 1)
         v.titleLabel?.font = .systemFont(ofSize: 13)
         
         return v
@@ -133,8 +133,8 @@ class TamagotchiStartViewController: UIViewController {
         startView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
-            make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(50)
-            make.verticalEdges.equalTo(view.snp.verticalEdges).inset(220)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(startView.snp.width).multipliedBy(1.3)
         }
     }
     
@@ -192,7 +192,7 @@ class TamagotchiStartViewController: UIViewController {
             make.bottom.equalTo(startView.snp.bottom)
             make.leading.equalTo(startView.snp.leading)
             make.width.equalTo(startButton)
-            make.height.equalTo(40)
+            make.height.equalTo(45)
         }
         
         startButton.snp.makeConstraints { make in

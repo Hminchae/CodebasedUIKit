@@ -240,7 +240,7 @@ class DetailTamagotchiViewController: UIViewController {
         levelStack.snp.makeConstraints { make in
             make.top.equalTo(tamaNameLabel.snp.bottom).offset(10)
             make.centerX.equalTo(view.snp.centerX)
-            make.width.equalTo(190)
+            make.width.equalTo(160)
             make.height.equalTo(20)
         }
         
@@ -357,7 +357,6 @@ class DetailTamagotchiViewController: UIViewController {
         tamaImageView.image = UIImage(named: imageName)
     }
 
-    // TODO: 텍스트필드 49까지만, 넘으면 얼럿 띄우기
     @objc func riceButtonClicked() {
         if let text = riceTextField.text, !text.isEmpty {
             if let riceToAdd = Int(text) {
@@ -408,7 +407,6 @@ class DetailTamagotchiViewController: UIViewController {
             }
         } else {
             user.waterDrop += 1
-            print(user.tamagotchiLevel)
         }
         bubbleLabel.text = tamagotchiSay.sentence.randomElement()
         levelLabel.text = "LV\(user.tamagotchiLevel)"
