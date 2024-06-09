@@ -328,13 +328,13 @@ class DetailTamagotchiViewController: UIViewController {
         
         switch user.tamagotchiType {
         case 1:
-            tamaName = "따끔따끔 다마고치"
+            tamaName = " 따끔따끔 다마고치    "
         case 2:
-            tamaName = "방실방실 다마고치"
+            tamaName = " 방실방실 다마고치    "
         case 3:
-            tamaName = "반짝반짝 다마고치"
+            tamaName = " 반짝반짝 다마고치    "
         default:
-            tamaName = "따끔따끔 다마고치"
+            tamaName = " 따끔따끔 다마고치    "
         }
         
         tamaNameLabel.text = tamaName

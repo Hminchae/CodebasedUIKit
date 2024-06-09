@@ -75,8 +75,8 @@ class UserDefaultManager {
             return 8
         case 90..<100:
             return 9
-        case 10...:
-            return 10
+        case 100...:
+            return 9
         default:
             return 1
         }

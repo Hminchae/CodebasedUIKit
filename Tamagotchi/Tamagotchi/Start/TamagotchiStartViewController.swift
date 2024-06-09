@@ -105,13 +105,9 @@ class TamagotchiStartViewController: UIViewController {
     
     @objc func startButtonClicked() {
         // 설정 -> 변경하기 진입 시
-        print(user.tamaChangedState)
-        print(user.tamagotchiType)
         if user.tamaChangedState {
             user.tamagotchiType = tamagotchiInfo?.serialNum ?? 0
             user.tamaChangedState = false
-            print(user.tamaChangedState)
-            print(user.tamagotchiType)
             dismiss(animated: true)
             navigationController?.popToRootViewController(animated: true)
         // 첫 화면에서 진입 시
@@ -148,7 +144,7 @@ class TamagotchiStartViewController: UIViewController {
         startView.addSubview(startButton)
 
         imageView.image = UIImage(named: tamagotchiInfo?.face ?? "")
-        label.text = " \((tamagotchiInfo?.name)!)  "
+        label.text = " \((tamagotchiInfo?.name)!)    "
         detailLabel.text = tamagotchiInfo?.description
         
         configureUIViewLayout()

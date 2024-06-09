@@ -72,10 +72,10 @@ class TamagotchisViewController: UIViewController {
     
     func configureTitle() {
         if user.tamaChangedState {
-            navigationItem.title = "타마고치 변경하기"
+            navigationItem.title = "다마고치 변경하기"
             topTitle.isHidden = true
         } else {
-            topTitle.text = "다마고찌 선택하기"
+            topTitle.text = "다마고치 선택하기"
             topTitle.isHidden = false
         }
     }
