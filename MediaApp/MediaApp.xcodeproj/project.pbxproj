@@ -24,6 +24,7 @@
 		B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1AF2C16FD59009C00B1 /* Trend.swift */; };
 		B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */; };
 		B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B42C17495A009C00B1 /* MediaAPI.swift */; };
+		B182B1B82C174EAA009C00B1 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B72C174EAA009C00B1 /* Genres.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B182B1AF2C16FD59009C00B1 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
 		B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B182B1B42C17495A009C00B1 /* MediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAPI.swift; sourceTree = "<group>"; };
+		B182B1B72C174EAA009C00B1 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,9 @@
 		B182B1802C16DEF1009C00B1 /* MediaApp */ = {
 			isa = PBXGroup;
 			children = (
-				B182B1B32C174948009C00B1 /* Enum */,
+				B182B1A12C16E3A7009C00B1 /* APIKey.swift */,
+				B182B1B62C174E8E009C00B1 /* Models */,
+				B182B1B32C174948009C00B1 /* Enums */,
 				B182B1812C16DEF1009C00B1 /* AppDelegate.swift */,
 				B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */,
 				B182B1992C16E109009C00B1 /* Trend */,
@@ -87,8 +91,6 @@
 				B182B18A2C16DEF4009C00B1 /* Assets.xcassets */,
 				B182B18C2C16DEF4009C00B1 /* LaunchScreen.storyboard */,
 				B182B18F2C16DEF4009C00B1 /* Info.plist */,
-				B182B1A12C16E3A7009C00B1 /* APIKey.swift */,
-				B182B1AF2C16FD59009C00B1 /* Trend.swift */,
 			);
 			path = MediaApp;
 			sourceTree = "<group>";
@@ -128,12 +130,21 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		B182B1B32C174948009C00B1 /* Enum */ = {
+		B182B1B32C174948009C00B1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				B182B1B42C17495A009C00B1 /* MediaAPI.swift */,
 			);
-			path = Enum;
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		B182B1B62C174E8E009C00B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B182B1AF2C16FD59009C00B1 /* Trend.swift */,
+				B182B1B72C174EAA009C00B1 /* Genres.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 				B182B1862C16DEF2009C00B1 /* TrendViewController.swift in Sources */,
 				B182B1982C16E103009C00B1 /* TrendTableViewCell.swift in Sources */,
 				B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */,
+				B182B1B82C174EAA009C00B1 /* Genres.swift in Sources */,
 				B182B1A22C16E3A7009C00B1 /* APIKey.swift in Sources */,
 				B182B1822C16DEF1009C00B1 /* AppDelegate.swift in Sources */,
 				B182B1842C16DEF2009C00B1 /* SceneDelegate.swift in Sources */,

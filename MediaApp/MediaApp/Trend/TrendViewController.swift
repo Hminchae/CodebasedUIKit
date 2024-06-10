@@ -14,6 +14,7 @@ import Kingfisher
 class TrendViewController: UIViewController {
     
     var list: [Result] = []
+    var genres: [Genre] = []
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class TrendViewController: UIViewController {
         
         print(#function)
         callRequest()
+        callGenreRequest()
         configureTableView()
         configureNavigationItem()
     }
@@ -86,8 +88,26 @@ class TrendViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 print("Success")
+                //print(value.results)
                 self.list = value.results
                 self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func callGenreRequest() {
+        let url = MediaAPI.genreURL.url
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        AF.request(url, headers: header).responseDecodable(of: Genres.self) { response in
+            switch response.result {
+            case .success(let value):
+                print("Success")
+                self.genres = value.genres
             case .failure(let error):
                 print(error)
             }
@@ -107,9 +127,14 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         let data = list[indexPath.row]
         let url = URL(string: MediaAPI.imageURL(imagePath: data.backdropPath).url)
-
+        
+        Task {
+            let category = await updateCategoryName(cell, genreID: data.genreIDS[0])
+            cell.categoryLabel.text = "#\(category)"
+        }
+        
         cell.dateLabel.text = data.releaseDate
-        cell.categoryLabel.text = "\(data.genreIDS.count)"
+        
         cell.mediaImageView.kf.setImage(with: url)
         cell.trendTitleLabel.text = data.title
         cell.trendSubtitleLabel.text = data.overview
@@ -119,6 +144,21 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
         
         return cell
+    }
+    
+    func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
+        print(#function)
+        print(genreID)
+        var result = ""
+        print(genres)
+        for i in genres {
+            if i.id == genreID {
+                print(i.name)
+                result = i.name
+            }
+        }
+        
+        return result
     }
     
     @objc func readMoreButtonClicked() {

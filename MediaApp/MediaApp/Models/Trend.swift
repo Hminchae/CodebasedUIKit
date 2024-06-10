@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrendMovie: Codable {
+struct TrendMovie: Decodable {
     let page: Int
     let results: [Result]
     let totalPages, totalResults: Int
@@ -19,7 +19,7 @@ struct TrendMovie: Codable {
     }
 }
 
-struct Result: Codable {
+struct Result: Decodable {
     let backdropPath: String
     let id: Int
     let originalTitle: String?
@@ -59,12 +59,12 @@ struct Result: Codable {
     }
 }
 
-enum MediaType: String, Codable {
+enum MediaType: String, Decodable {
     case movie = "movie"
     case tv = "tv"
 }
 
-enum OriginalLanguage: String, Codable {
+enum OriginalLanguage: String, Decodable {
     case en = "en"
     case fr = "fr"
     case ja = "ja"
