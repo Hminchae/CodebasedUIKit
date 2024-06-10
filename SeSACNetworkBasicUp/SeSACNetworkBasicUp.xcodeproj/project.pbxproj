@@ -21,6 +21,8 @@
 		B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */; };
 		B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419F2C1013E300DAAB37 /* CollectionViewController.swift */; };
 		B15541A22C10140D00DAAB37 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541A12C10140D00DAAB37 /* APIKey.swift */; };
+		B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1712C168B06009C00B1 /* BookViewController.swift */; };
+		B182B1742C1695B8009C00B1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1732C1695B8009C00B1 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		B155419F2C1013E300DAAB37 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B15541A12C10140D00DAAB37 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B182B1712C168B06009C00B1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		B182B1732C1695B8009C00B1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		B15541782C0FE4E800DAAB37 /* SeSACNetworkBasicUp */ = {
 			isa = PBXGroup;
 			children = (
+				B182B1702C168AF0009C00B1 /* Book */,
 				B15541792C0FE4E800DAAB37 /* AppDelegate.swift */,
 				B155417B2C0FE4E800DAAB37 /* SceneDelegate.swift */,
 				B155417D2C0FE4E800DAAB37 /* ViewController.swift */,
@@ -85,6 +90,15 @@
 				B15541872C0FE4EA00DAAB37 /* Info.plist */,
 			);
 			path = SeSACNetworkBasicUp;
+			sourceTree = "<group>";
+		};
+		B182B1702C168AF0009C00B1 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				B182B1712C168B06009C00B1 /* BookViewController.swift */,
+				B182B1732C1695B8009C00B1 /* Book.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +188,9 @@
 				B15541A22C10140D00DAAB37 /* APIKey.swift in Sources */,
 				B155419C2C0FFD9A00DAAB37 /* MarketViewController.swift in Sources */,
 				B155417A2C0FE4E800DAAB37 /* AppDelegate.swift in Sources */,
+				B182B1742C1695B8009C00B1 /* Book.swift in Sources */,
 				B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */,
+				B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */,
 				B155417C2C0FE4E800DAAB37 /* SceneDelegate.swift in Sources */,
 				B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */,
 			);
