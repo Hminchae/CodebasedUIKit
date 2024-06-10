@@ -73,16 +73,16 @@ class TrendViewController: UIViewController {
     }
     
     func callRequest() {
-        let url = "\(Constants.baseUrl)/3/movie/popular"
+        let url = MediaAPI.trendURL.url
         let header: HTTPHeaders = [
             "Authorization": Constants.apiKey,
             "accept": "application/json"
         ]
         let para: Parameters = [
             "language" : "ko-KR",
-            "time_window" : "day"
+            "time_window" : "week"
         ]
-        AF.request(url, method: .get, parameters: para, headers: header).responseDecodable(of: TrendAll.self) { response in
+        AF.request(url, method: .get, parameters: para, headers: header).responseDecodable(of: TrendMovie.self) { response in
             switch response.result {
             case .success(let value):
                 print("Success")
@@ -106,7 +106,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath) as! TrendTableViewCell
         
         let data = list[indexPath.row]
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(data.backdropPath)")
+        let url = URL(string: MediaAPI.imageURL(imagePath: data.backdropPath).url)
 
         cell.dateLabel.text = data.releaseDate
         cell.categoryLabel.text = "\(data.genreIDS.count)"
@@ -116,7 +116,13 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gradeBackLabel.text = "\(round(data.voteAverage * 10)/10)"
         cell.selectionStyle = .none
         
+        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
+        
         return cell
     }
+    
+    @objc func readMoreButtonClicked() {
+        let vc = CreditViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
-

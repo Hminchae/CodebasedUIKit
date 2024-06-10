@@ -122,7 +122,7 @@ class TrendTableViewCell: UITableViewCell {
         let v = UIButton()
         v.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         v.tintColor = .black
-        
+
         return v
     }()
     

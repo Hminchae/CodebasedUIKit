@@ -23,6 +23,7 @@
 		B182B1AE2C16FAF9009C00B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B182B1AD2C16FAF9009C00B1 /* Kingfisher */; };
 		B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1AF2C16FD59009C00B1 /* Trend.swift */; };
 		B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */; };
+		B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B42C17495A009C00B1 /* MediaAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B182B1A12C16E3A7009C00B1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B182B1AF2C16FD59009C00B1 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
 		B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B182B1B42C17495A009C00B1 /* MediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		B182B1802C16DEF1009C00B1 /* MediaApp */ = {
 			isa = PBXGroup;
 			children = (
+				B182B1B32C174948009C00B1 /* Enum */,
 				B182B1812C16DEF1009C00B1 /* AppDelegate.swift */,
 				B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */,
 				B182B1992C16E109009C00B1 /* Trend */,
@@ -123,6 +126,14 @@
 				B182B19F2C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B182B1B32C174948009C00B1 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				B182B1B42C17495A009C00B1 /* MediaAPI.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				B182B1962C16E054009C00B1 /* UIColor+extension.swift in Sources */,
 				B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */,
 				B182B19C2C16E14C009C00B1 /* CreditViewController.swift in Sources */,
+				B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
