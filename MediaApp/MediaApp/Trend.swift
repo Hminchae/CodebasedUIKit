@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct Welcome: Codable {
+struct TrendAll: Codable {
     let page: Int
     let results: [Result]
     let totalPages, totalResults: Int
@@ -20,7 +19,6 @@ struct Welcome: Codable {
     }
 }
 
-// MARK: - Result
 struct Result: Codable {
     let adult: Bool
     let backdropPath: String

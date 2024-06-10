@@ -22,6 +22,7 @@
 		B182B1AB2C16FAE8009C00B1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B182B1AA2C16FAE8009C00B1 /* Alamofire */; };
 		B182B1AE2C16FAF9009C00B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B182B1AD2C16FAF9009C00B1 /* Kingfisher */; };
 		B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1AF2C16FD59009C00B1 /* Trend.swift */; };
+		B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B182B19F2C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		B182B1A12C16E3A7009C00B1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B182B1AF2C16FD59009C00B1 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
+		B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B182B1952C16E054009C00B1 /* UIColor+extension.swift */,
+				B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				B182B1842C16DEF2009C00B1 /* SceneDelegate.swift in Sources */,
 				B182B1A02C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift in Sources */,
 				B182B1962C16E054009C00B1 /* UIColor+extension.swift in Sources */,
+				B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */,
 				B182B19C2C16E14C009C00B1 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
