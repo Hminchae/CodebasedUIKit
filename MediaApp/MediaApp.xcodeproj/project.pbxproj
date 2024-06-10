@@ -25,6 +25,7 @@
 		B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */; };
 		B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B42C17495A009C00B1 /* MediaAPI.swift */; };
 		B182B1B82C174EAA009C00B1 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B72C174EAA009C00B1 /* Genres.swift */; };
+		B182B1BA2C1767CD009C00B1 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B92C1767CD009C00B1 /* Credit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B182B1B42C17495A009C00B1 /* MediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAPI.swift; sourceTree = "<group>"; };
 		B182B1B72C174EAA009C00B1 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		B182B1B92C1767CD009C00B1 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +82,11 @@
 		B182B1802C16DEF1009C00B1 /* MediaApp */ = {
 			isa = PBXGroup;
 			children = (
+				B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */,
+				B182B1812C16DEF1009C00B1 /* AppDelegate.swift */,
 				B182B1A12C16E3A7009C00B1 /* APIKey.swift */,
 				B182B1B62C174E8E009C00B1 /* Models */,
 				B182B1B32C174948009C00B1 /* Enums */,
-				B182B1812C16DEF1009C00B1 /* AppDelegate.swift */,
-				B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */,
 				B182B1992C16E109009C00B1 /* Trend */,
 				B182B19E2C16E196009C00B1 /* Protocol */,
 				B182B19D2C16E171009C00B1 /* Extension */,
@@ -143,6 +145,7 @@
 			children = (
 				B182B1AF2C16FD59009C00B1 /* Trend.swift */,
 				B182B1B72C174EAA009C00B1 /* Genres.swift */,
+				B182B1B92C1767CD009C00B1 /* Credit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				B182B1982C16E103009C00B1 /* TrendTableViewCell.swift in Sources */,
 				B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */,
 				B182B1B82C174EAA009C00B1 /* Genres.swift in Sources */,
+				B182B1BA2C1767CD009C00B1 /* Credit.swift in Sources */,
 				B182B1A22C16E3A7009C00B1 /* APIKey.swift in Sources */,
 				B182B1822C16DEF1009C00B1 /* AppDelegate.swift in Sources */,
 				B182B1842C16DEF2009C00B1 /* SceneDelegate.swift in Sources */,

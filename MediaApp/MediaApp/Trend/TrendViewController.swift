@@ -46,6 +46,7 @@ class TrendViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = menu
         navigationItem.rightBarButtonItem = search
+        navigationItem.backButtonTitle = "" // 다음에 올 네비게이션의 백버튼 타이틀을 공백으로 변경
     }
     
     @objc func menuButtonClicked() {
@@ -70,7 +71,7 @@ class TrendViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
-        tableView.rowHeight = 450 // 임시
+        tableView.rowHeight = 450 
         tableView.separatorStyle = .none
     }
     
@@ -88,7 +89,7 @@ class TrendViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 print("Success")
-                //print(value.results)
+                print(value.results)
                 self.list = value.results
                 self.tableView.reloadData()
             case .failure(let error):
@@ -122,7 +123,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(#function)
         let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath) as! TrendTableViewCell
         
         let data = list[indexPath.row]
@@ -141,28 +141,28 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.gradeBackLabel.text = "\(round(data.voteAverage * 10)/10)"
         cell.selectionStyle = .none
         
-        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
+        let movieId = list[indexPath.row].id
         
+        cell.readMoreButton.tag = list[indexPath.row].id
+        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
         return cell
     }
     
     func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
-        print(#function)
-        print(genreID)
         var result = ""
-        print(genres)
         for i in genres {
             if i.id == genreID {
-                print(i.name)
                 result = i.name
             }
         }
-        
         return result
     }
     
-    @objc func readMoreButtonClicked() {
+    @objc func readMoreButtonClicked(_ sender: UIButton) {
+        let id = sender.tag
         let vc = CreditViewController()
+        
+        vc.targetId = id
         navigationController?.pushViewController(vc, animated: true)
     }
 }
