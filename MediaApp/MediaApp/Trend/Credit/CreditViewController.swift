@@ -20,7 +20,8 @@ class CreditViewController: UIViewController {
     
     lazy private var mainImageView: UIImageView = {
         let v = UIImageView()
-        v.contentMode = .scaleAspectFill
+        v.contentMode = .scaleToFill
+        //v.clipsToBounds = true
         
         if let imageUrl = targetMainImageUrl {
             let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).url)
@@ -88,14 +89,14 @@ class CreditViewController: UIViewController {
         super.viewDidLoad()
       
         view.backgroundColor = .white
-        title = "출연/제작"
+        navigationItem.title = "출연/제작"
         self.navigationController?.navigationBar.tintColor = .pointColor // 백버튼의 틴트 색상을 변경
         //print(targetId)
         if let targetId = targetId {
             callRequest(targetId)
         }
         configureView()
-        tableView.backgroundColor = .green
+        tableView.backgroundColor = .clear
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -152,7 +153,7 @@ class CreditViewController: UIViewController {
         mainImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)//.offset(60)
             make.horizontalEdges.equalTo(view.snp.horizontalEdges)
-            make.height.equalTo(100)
+            make.height.equalTo(view.safeAreaLayoutGuide.snp.width).multipliedBy(0.5)
         }
         
         overViewTitleLabel.snp.makeConstraints { make in
