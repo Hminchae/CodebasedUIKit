@@ -86,7 +86,7 @@ class CreditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         view.backgroundColor = .white
         title = "출연/제작"
         self.navigationController?.navigationBar.tintColor = .pointColor // 백버튼의 틴트 색상을 변경
@@ -150,7 +150,7 @@ class CreditViewController: UIViewController {
     
     func configureLayout() {
         mainImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
+            make.top.equalTo(view.safeAreaLayoutGuide)//.offset(60)
             make.horizontalEdges.equalTo(view.snp.horizontalEdges)
             make.height.equalTo(100)
         }
@@ -216,6 +216,8 @@ class CreditViewController: UIViewController {
                 print("Success")
                 //print(value.cast)
                 self.list = value.cast
+                self.tableView.reloadData()
+                
             case .failure(let error):
                 print(error)
             }
@@ -241,7 +243,7 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         cell.actorName.text = list[indexPath.row].originalName
         cell.roleName.text = list[indexPath.row].name
         cell.selectionStyle = .none
-    
+        
         return cell
-    }  
+    }
 }

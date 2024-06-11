@@ -47,6 +47,7 @@ class CreditTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
+        contentView.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
