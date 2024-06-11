@@ -115,9 +115,9 @@
 		B182B1992C16E109009C00B1 /* Trend */ = {
 			isa = PBXGroup;
 			children = (
-				B1642D142C184510003032F9 /* Search */,
 				B182B1852C16DEF2009C00B1 /* TrendViewController.swift */,
 				B182B1972C16E103009C00B1 /* TrendTableViewCell.swift */,
+				B1642D142C184510003032F9 /* Search */,
 				B182B19A2C16E114009C00B1 /* Credit */,
 			);
 			path = Trend;

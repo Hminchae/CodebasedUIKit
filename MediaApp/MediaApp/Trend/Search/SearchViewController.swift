@@ -9,33 +9,73 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let searchBar = UISearchBar()
-    let collectionView = UICollectionView()
-
+    let popButton = UIButton()
+    let searchField = UITextField()
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = .white
         
-        view.addSubview(searchBar)
-        view.addSubview(collectionView)
-        view.backgroundColor = .blue
-        collectionView.backgroundColor = .gray
+        configureView()
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
+        collectionView.backgroundColor = .white
         
-        searchBar.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(30)
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func configureView() {
+        view.addSubview(popButton)
+        view.addSubview(searchField)
+        view.addSubview(collectionView)
+        
+        configureUI()
+        configureLayout()
+    }
+    
+    private func configureUI() {
+        popButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        popButton.tintColor = .pointColor
+        popButton.addTarget(self, action: #selector(popButtonClicked), for: .touchUpInside)
+        
+        searchField.placeholder = " 영화를 검색하세요"
+        searchField.borderStyle = .roundedRect
+        searchField.tintColor = .pointColor
+        searchField.clipsToBounds = true
+        searchField.layer.cornerRadius = 15
+        searchField.layer.borderWidth = 1
+        searchField.layer.borderColor = UIColor.pointColor?.cgColor
+    }
+    
+    private func configureLayout() {
+        popButton.snp.makeConstraints { make in
+            make.centerY.equalTo(searchField.snp.centerY)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.size.equalTo(25)
         }
+        
+        searchField.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.equalTo(popButton.snp.trailing).offset(5)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.height.equalTo(35)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(5)
-            make.verticalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(searchField.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.snp.bottom)
         }
     }
     
-    func collectionViewLayout() -> UICollectionViewFlowLayout {
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width - 40
         
@@ -47,8 +87,11 @@ class SearchViewController: UIViewController {
         
         return layout
     }
+    
+    @objc func popButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
 }
-
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         100
