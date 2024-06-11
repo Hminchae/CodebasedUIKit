@@ -13,9 +13,18 @@ import Kingfisher
 
 class SearchViewController: UIViewController {
     
-    var isEnd = false
+    lazy var currentSearchQueryTotalPAge: Int = {
+       return list.total_pages
+    }()
+    
+    var isEnd: Bool {
+        get {
+            return currentSearchQueryTotalPAge == page ? true : false
+        }
+    }// page 가 토탈 페이지에 도달했을 때
+    
     var page = 1
-    var preSearchuery: String = ""
+    var preSearchQuery: String = "" // 이전 검색 기록
     
     let popButton = UIButton()
     let searchField = UITextField()
@@ -37,6 +46,7 @@ class SearchViewController: UIViewController {
         searchField.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
         collectionView.backgroundColor = .white
         
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
@@ -131,7 +141,7 @@ class SearchViewController: UIViewController {
                 print("SUCCESS")
                 if self.page == 1 {
                     self.list = value // 새로운 검색어
-                    self.collectionView.scrollsToTop = true
+                    self.collectionView.scrollToItem(at: IndexPath(item: -1, section: 0), at: .init(rawValue: 0), animated: true)
                 } else {
                     self.list.results.append(contentsOf: value.results) // 기존 검색어
                 }
@@ -147,9 +157,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let targetStr = textField.text {
-            callRequest(query: targetStr, page: self.page)
-        }
+        guard let text = searchField.text, !text.isEmpty, text != preSearchQuery else { return false }
+            
+        preSearchQuery = text
+        page = 1
+        callRequest(query: text, page: page)
+        
         return true
     }
 }
@@ -173,15 +186,23 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        print("prefetch", indexPaths)
-        
-        indexPaths.forEach { indexPath in
+     indexPaths.forEach { indexPath in
             if list.results.count - 2 == indexPath.row && !isEnd {
                 page += 1
                 if let query = searchField.text {
                     callRequest(query: query, page: page)
                 }
                 print(page)
+            }
+        }
+    }
+    
+    // 취소기능
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        print("취소", indexPaths)
+        indexPaths.forEach { indexPath in
+            if let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell {
+                cell.mainImageView.kf.cancelDownloadTask()
             }
         }
     }
