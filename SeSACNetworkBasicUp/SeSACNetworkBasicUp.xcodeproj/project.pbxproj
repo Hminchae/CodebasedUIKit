@@ -21,6 +21,10 @@
 		B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */; };
 		B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155419F2C1013E300DAAB37 /* CollectionViewController.swift */; };
 		B15541A22C10140D00DAAB37 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15541A12C10140D00DAAB37 /* APIKey.swift */; };
+		B1642D0D2C17E630003032F9 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D0C2C17E630003032F9 /* BookTableViewCell.swift */; };
+		B1642D0F2C17F387003032F9 /* KakaoBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D0E2C17F387003032F9 /* KakaoBook.swift */; };
+		B1642D112C182C41003032F9 /* BookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D102C182C41003032F9 /* BookCollectionViewController.swift */; };
+		B1642D132C182E70003032F9 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */; };
 		B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1712C168B06009C00B1 /* BookViewController.swift */; };
 		B182B1742C1695B8009C00B1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1732C1695B8009C00B1 /* Book.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,10 @@
 		B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		B155419F2C1013E300DAAB37 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B15541A12C10140D00DAAB37 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B1642D0C2C17E630003032F9 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		B1642D0E2C17F387003032F9 /* KakaoBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoBook.swift; sourceTree = "<group>"; };
+		B1642D102C182C41003032F9 /* BookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewController.swift; sourceTree = "<group>"; };
+		B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		B182B1712C168B06009C00B1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		B182B1732C1695B8009C00B1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				B182B1712C168B06009C00B1 /* BookViewController.swift */,
+				B1642D0C2C17E630003032F9 /* BookTableViewCell.swift */,
 				B182B1732C1695B8009C00B1 /* Book.swift */,
+				B1642D0E2C17F387003032F9 /* KakaoBook.swift */,
+				B1642D102C182C41003032F9 /* BookCollectionViewController.swift */,
+				B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -186,11 +198,15 @@
 				B155419A2C0FF26600DAAB37 /* Lotto.swift in Sources */,
 				B155417E2C0FE4E800DAAB37 /* ViewController.swift in Sources */,
 				B15541A22C10140D00DAAB37 /* APIKey.swift in Sources */,
+				B1642D0D2C17E630003032F9 /* BookTableViewCell.swift in Sources */,
+				B1642D0F2C17F387003032F9 /* KakaoBook.swift in Sources */,
 				B155419C2C0FFD9A00DAAB37 /* MarketViewController.swift in Sources */,
 				B155417A2C0FE4E800DAAB37 /* AppDelegate.swift in Sources */,
 				B182B1742C1695B8009C00B1 /* Book.swift in Sources */,
 				B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */,
 				B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */,
+				B1642D112C182C41003032F9 /* BookCollectionViewController.swift in Sources */,
+				B1642D132C182E70003032F9 /* BookCollectionViewCell.swift in Sources */,
 				B155417C2C0FE4E800DAAB37 /* SceneDelegate.swift in Sources */,
 				B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */,
 			);

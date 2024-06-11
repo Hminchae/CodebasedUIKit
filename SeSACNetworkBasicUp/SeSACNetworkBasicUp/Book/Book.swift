@@ -30,3 +30,4 @@ struct BookInfo: Decodable {
 /*
  https://quicktype.io/ : 구조체 정리하기 귀찮을때 사용할 수 있음
  */
+
