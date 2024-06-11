@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1642D0B2C17D071003032F9 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D0A2C17D071003032F9 /* CreditTableViewCell.swift */; };
 		B182B1822C16DEF1009C00B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1812C16DEF1009C00B1 /* AppDelegate.swift */; };
 		B182B1842C16DEF2009C00B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */; };
 		B182B1862C16DEF2009C00B1 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1852C16DEF2009C00B1 /* TrendViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1642D0A2C17D071003032F9 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		B182B17E2C16DEF1009C00B1 /* MediaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B182B1812C16DEF1009C00B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B182B1832C16DEF1009C00B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B182B19B2C16E14C009C00B1 /* CreditViewController.swift */,
+				B1642D0A2C17D071003032F9 /* CreditTableViewCell.swift */,
 			);
 			path = Credit;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				B182B1962C16E054009C00B1 /* UIColor+extension.swift in Sources */,
 				B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */,
 				B182B19C2C16E14C009C00B1 /* CreditViewController.swift in Sources */,
+				B1642D0B2C17D071003032F9 /* CreditTableViewCell.swift in Sources */,
 				B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

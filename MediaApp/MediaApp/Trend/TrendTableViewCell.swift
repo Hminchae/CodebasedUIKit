@@ -149,12 +149,10 @@ class TrendTableViewCell: UITableViewCell {
     }
     
     func configureLayout() {
-        print(#function)
         setGradeView()
         setContainerView()
         configureContainerViewLayout()
-        
-        let viewSize: CGSize?
+
         
         // 날짜
         dateLabel.snp.makeConstraints { make in

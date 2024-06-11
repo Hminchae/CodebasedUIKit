@@ -20,7 +20,6 @@ class TrendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(#function)
         callRequest()
         callGenreRequest()
         configureTableView()
@@ -89,7 +88,7 @@ class TrendViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 print("Success")
-                print(value.results)
+
                 self.list = value.results
                 self.tableView.reloadData()
             case .failure(let error):
@@ -139,12 +138,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.trendTitleLabel.text = data.title
         cell.trendSubtitleLabel.text = data.overview
         cell.gradeBackLabel.text = "\(round(data.voteAverage * 10)/10)"
+        cell.readMoreButton.tag = indexPath.row
+        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
         cell.selectionStyle = .none
         
-        let movieId = list[indexPath.row].id
-        
-        cell.readMoreButton.tag = list[indexPath.row].id
-        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
         return cell
     }
     
@@ -159,10 +156,14 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func readMoreButtonClicked(_ sender: UIButton) {
-        let id = sender.tag
+        let id = list[sender.tag].id
+        let imageUrl = list[sender.tag].backdropPath
+        let overView = list[sender.tag].overview
         let vc = CreditViewController()
         
         vc.targetId = id
+        vc.targetMainImageUrl = imageUrl
+        vc.targetOverView = overView
         navigationController?.pushViewController(vc, animated: true)
     }
 }
