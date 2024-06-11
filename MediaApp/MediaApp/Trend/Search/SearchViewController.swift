@@ -7,10 +7,24 @@
 
 import UIKit
 
+import Alamofire
+import SnapKit
+import Kingfisher
+
 class SearchViewController: UIViewController {
+    
+    var isEnd = false
+    var page = 1
+    var preSearchuery: String = ""
     
     let popButton = UIButton()
     let searchField = UITextField()
+    
+    var list = Search(page: 0,
+                      results: [],
+                      total_pages: 0,
+                      total_results: 0)
+    
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     override func viewDidLoad() {
@@ -20,6 +34,7 @@ class SearchViewController: UIViewController {
         
         configureView()
         
+        searchField.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
@@ -77,13 +92,13 @@ class SearchViewController: UIViewController {
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width - 40
+        let width = UIScreen.main.bounds.width - 15
         
-        layout.itemSize = CGSize(width: width/3, height: width/3)
+        layout.itemSize = CGSize(width: width/2, height: width * 0.8)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         
         return layout
     }
@@ -91,15 +106,83 @@ class SearchViewController: UIViewController {
     @objc func popButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func callRequest(query: String, page: Int) {
+        let url = MediaAPI.movieSearch.url
+        
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        
+        let para: Parameters = [
+            "query": query,
+            "language": "ko-KR",
+            "page": page
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: para,
+                   headers: header)
+        .responseDecodable(of: Search.self) { response in
+            switch response.result {
+            case .success(let value):
+                print("SUCCESS")
+                if self.page == 1 {
+                    self.list = value // 새로운 검색어
+                    self.collectionView.scrollsToTop = true
+                } else {
+                    self.list.results.append(contentsOf: value.results) // 기존 검색어
+                }
+                self.collectionView.reloadData()
+                
+            case .failure(let error):
+                print("Failed")
+                print(error)
+            }
+        }
+    }
 }
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let targetStr = textField.text {
+            callRequest(query: targetStr, page: self.page)
+        }
+        return true
+    }
+}
+
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        100
+        list.results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let data = list.results[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as! SearchCollectionViewCell
-        
+        if let url = data.poster_path {
+            let url = URL(string: MediaAPI.imageURL(imagePath: url).url)
+            cell.mainImageView.kf.setImage(with: url)
+        }
+        print(data)
         return cell
+    }
+}
+
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print("prefetch", indexPaths)
+        
+        indexPaths.forEach { indexPath in
+            if list.results.count - 2 == indexPath.row && !isEnd {
+                page += 1
+                if let query = searchField.text {
+                    callRequest(query: query, page: page)
+                }
+                print(page)
+            }
+        }
     }
 }

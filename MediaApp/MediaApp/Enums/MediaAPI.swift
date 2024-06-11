@@ -12,6 +12,7 @@ enum MediaAPI {
     case creditURL(movieId: Int)
     case imageURL(imagePath: String)
     case genreURL
+    case movieSearch
     
     var url: String {
         switch self {
@@ -23,6 +24,8 @@ enum MediaAPI {
             return "https://image.tmdb.org/t/p/original/\(path)"
         case .genreURL:
             return "https://api.themoviedb.org/3/genre/movie/list"
+        case .movieSearch:
+            return "https://api.themoviedb.org/3/search/movie"
         }
     }
 }

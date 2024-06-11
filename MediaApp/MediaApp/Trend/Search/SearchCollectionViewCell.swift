@@ -6,12 +6,27 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
+    
+    let mainImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5
+        
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+    
+        contentView.addSubview(mainImageView)
         
-        backgroundColor = .cyan
+        mainImageView.snp.makeConstraints { make in
+            make.edges.equalTo(contentView.snp.edges)
+        }
     }
     
     required init?(coder: NSCoder) {
