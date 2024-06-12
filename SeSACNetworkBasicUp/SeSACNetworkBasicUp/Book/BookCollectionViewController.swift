@@ -13,13 +13,18 @@ class BookCollectionViewController: UIViewController {
     
     func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width - 40
+        let sectionSpacing: CGFloat = 20
+        let cellSpacing: CGFloat = 16
+        let width = UIScreen.main.bounds.width - (sectionSpacing * 2) - (cellSpacing * 3)
         
-        layout.itemSize = CGSize(width: width/3, height: width/3)
+        layout.itemSize = CGSize(width: width/4, height: width/4)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumLineSpacing = cellSpacing
+        layout.minimumInteritemSpacing = cellSpacing
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing,
+                                           left: sectionSpacing,
+                                           bottom: sectionSpacing,
+                                           right: sectionSpacing)
         
         return layout
     }

@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class MarketTableViewCell: UITableViewCell {
-    static let identifier = "MarketTableViewCell"
     let nameLabel = UILabel()
     
     // ✏️ NIB == XIB >>> XIB가 없다면 이 코드는 실행 X

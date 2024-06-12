@@ -25,6 +25,10 @@
 		B1642D0F2C17F387003032F9 /* KakaoBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D0E2C17F387003032F9 /* KakaoBook.swift */; };
 		B1642D112C182C41003032F9 /* BookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D102C182C41003032F9 /* BookCollectionViewController.swift */; };
 		B1642D132C182E70003032F9 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */; };
+		B1642D1C2C1927A2003032F9 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D1B2C1927A1003032F9 /* ReuseIdentifierProtocol.swift */; };
+		B1642D1F2C193464003032F9 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D1E2C193464003032F9 /* SignViewController.swift */; };
+		B1642D222C19370C003032F9 /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D212C19370C003032F9 /* BlackRadiusTextField.swift */; };
+		B1642D262C194892003032F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D252C194892003032F9 /* Constant.swift */; };
 		B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1712C168B06009C00B1 /* BookViewController.swift */; };
 		B182B1742C1695B8009C00B1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1732C1695B8009C00B1 /* Book.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +50,10 @@
 		B1642D0E2C17F387003032F9 /* KakaoBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoBook.swift; sourceTree = "<group>"; };
 		B1642D102C182C41003032F9 /* BookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewController.swift; sourceTree = "<group>"; };
 		B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1642D1B2C1927A1003032F9 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		B1642D1E2C193464003032F9 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		B1642D212C19370C003032F9 /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
+		B1642D252C194892003032F9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B182B1712C168B06009C00B1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		B182B1732C1695B8009C00B1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,20 +92,55 @@
 		B15541782C0FE4E800DAAB37 /* SeSACNetworkBasicUp */ = {
 			isa = PBXGroup;
 			children = (
-				B182B1702C168AF0009C00B1 /* Book */,
 				B15541792C0FE4E800DAAB37 /* AppDelegate.swift */,
 				B155417B2C0FE4E800DAAB37 /* SceneDelegate.swift */,
-				B155417D2C0FE4E800DAAB37 /* ViewController.swift */,
-				B155419B2C0FFD9A00DAAB37 /* MarketViewController.swift */,
-				B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */,
-				B15541A12C10140D00DAAB37 /* APIKey.swift */,
-				B155419F2C1013E300DAAB37 /* CollectionViewController.swift */,
-				B15541992C0FF26500DAAB37 /* Lotto.swift */,
+				B1642D1B2C1927A1003032F9 /* ReuseIdentifierProtocol.swift */,
+				B1642D242C194856003032F9 /* Constant */,
+				B1642D202C1936CC003032F9 /* CustomView */,
+				B1642D1D2C193449003032F9 /* Sign */,
+				B1642D232C19466C003032F9 /* Market */,
+				B182B1702C168AF0009C00B1 /* Book */,
 				B15541822C0FE4EA00DAAB37 /* Assets.xcassets */,
 				B15541842C0FE4EA00DAAB37 /* LaunchScreen.storyboard */,
 				B15541872C0FE4EA00DAAB37 /* Info.plist */,
 			);
 			path = SeSACNetworkBasicUp;
+			sourceTree = "<group>";
+		};
+		B1642D1D2C193449003032F9 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D1E2C193464003032F9 /* SignViewController.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		B1642D202C1936CC003032F9 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D212C19370C003032F9 /* BlackRadiusTextField.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		B1642D232C19466C003032F9 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				B155417D2C0FE4E800DAAB37 /* ViewController.swift */,
+				B15541992C0FF26500DAAB37 /* Lotto.swift */,
+				B155419B2C0FFD9A00DAAB37 /* MarketViewController.swift */,
+				B155419D2C10041300DAAB37 /* MarketTableViewCell.swift */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		B1642D242C194856003032F9 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B15541A12C10140D00DAAB37 /* APIKey.swift */,
+				B1642D252C194892003032F9 /* Constant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B182B1702C168AF0009C00B1 /* Book */ = {
@@ -106,9 +149,10 @@
 				B182B1712C168B06009C00B1 /* BookViewController.swift */,
 				B1642D0C2C17E630003032F9 /* BookTableViewCell.swift */,
 				B182B1732C1695B8009C00B1 /* Book.swift */,
-				B1642D0E2C17F387003032F9 /* KakaoBook.swift */,
 				B1642D102C182C41003032F9 /* BookCollectionViewController.swift */,
 				B1642D122C182E70003032F9 /* BookCollectionViewCell.swift */,
+				B155419F2C1013E300DAAB37 /* CollectionViewController.swift */,
+				B1642D0E2C17F387003032F9 /* KakaoBook.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -197,12 +241,16 @@
 			files = (
 				B155419A2C0FF26600DAAB37 /* Lotto.swift in Sources */,
 				B155417E2C0FE4E800DAAB37 /* ViewController.swift in Sources */,
+				B1642D222C19370C003032F9 /* BlackRadiusTextField.swift in Sources */,
 				B15541A22C10140D00DAAB37 /* APIKey.swift in Sources */,
+				B1642D1F2C193464003032F9 /* SignViewController.swift in Sources */,
 				B1642D0D2C17E630003032F9 /* BookTableViewCell.swift in Sources */,
 				B1642D0F2C17F387003032F9 /* KakaoBook.swift in Sources */,
+				B1642D1C2C1927A2003032F9 /* ReuseIdentifierProtocol.swift in Sources */,
 				B155419C2C0FFD9A00DAAB37 /* MarketViewController.swift in Sources */,
 				B155417A2C0FE4E800DAAB37 /* AppDelegate.swift in Sources */,
 				B182B1742C1695B8009C00B1 /* Book.swift in Sources */,
+				B1642D262C194892003032F9 /* Constant.swift in Sources */,
 				B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */,
 				B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */,
 				B1642D112C182C41003032F9 /* BookCollectionViewController.swift in Sources */,

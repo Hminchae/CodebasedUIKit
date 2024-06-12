@@ -25,13 +25,13 @@ class ViewController: UIViewController {
         configureUI()
     }
     
-    func configureHierachy() {
+    private func configureHierachy() {
         view.addSubview(numberTextField)
         view.addSubview(checkButton)
         view.addSubview(resultLabel)
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         numberTextField.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)

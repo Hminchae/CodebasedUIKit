@@ -8,8 +8,6 @@
 import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
-    
-    static let identifier = "BookCollectionViewCell"
     override init(frame: CGRect) {
         super.init(frame: frame)
         
