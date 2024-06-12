@@ -129,7 +129,7 @@ class DetailTamagotchiViewController: UIViewController {
         return v
     }()
     
-    private var riceButton: UIButton = {
+    lazy private var riceButton: UIButton = {
         let v = UIButton()
         v.setTitle("밥먹기", for: .normal)
         v.setImage(UIImage(systemName: "drop.circle"), for: .normal)
@@ -157,7 +157,7 @@ class DetailTamagotchiViewController: UIViewController {
         return v
     }()
     
-    private var waterDropButton: UIButton = {
+    lazy private var waterDropButton: UIButton = {
         let v = UIButton()
         v.setTitle("물먹기", for: .normal)
         v.setImage(UIImage(systemName: "leaf.circle"), for: .normal)

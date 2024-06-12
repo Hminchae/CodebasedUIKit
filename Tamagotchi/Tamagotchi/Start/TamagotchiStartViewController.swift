@@ -65,7 +65,7 @@ class TamagotchiStartViewController: UIViewController {
         return v
     }()
     
-    private let cancelButton: UIButton = {
+    lazy private var cancelButton: UIButton = {
         let v = UIButton()
         v.setTitle("취소", for: .normal)
         v.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
