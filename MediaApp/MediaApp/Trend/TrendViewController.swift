@@ -19,13 +19,13 @@ class TrendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .bg
         
         callRequest()
         callGenreRequest()
         configureTableView()
         configureNavigationItem()
     }
-    
     
     func configureNavigationItem() {
         let menu = UIBarButtonItem(
@@ -58,7 +58,7 @@ class TrendViewController: UIViewController {
     }
     
     func configureTableView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .bg
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
@@ -67,7 +67,7 @@ class TrendViewController: UIViewController {
             make.bottom.equalTo(view.snp.bottom)
         }
         
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .bg
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)

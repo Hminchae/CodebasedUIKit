@@ -23,7 +23,7 @@ class CreditTableViewCell: UITableViewCell {
     let actorName: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 15)
-        v.textColor = .black
+        v.textColor = .white
         
         return v
     }()

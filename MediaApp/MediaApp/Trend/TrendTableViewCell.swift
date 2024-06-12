@@ -14,7 +14,7 @@ class TrendTableViewCell: UITableViewCell {
     let dateLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 13)
-        v.textColor = .darkGray
+        v.textColor = .white
         
         return v
     }()
@@ -22,7 +22,7 @@ class TrendTableViewCell: UITableViewCell {
     let categoryLabel: UILabel = {
         let v = UILabel()
         v.font = .boldSystemFont(ofSize: 17)
-        v.textColor = .black
+        v.textColor = .white
         
         return v
     }()
@@ -33,15 +33,19 @@ class TrendTableViewCell: UITableViewCell {
         v.layer.cornerRadius = 10
         v.layer.borderColor = UIColor.darkGray.cgColor
         v.layer.borderWidth = 0.2
-        
+        v.backgroundColor = .container
+        v.layer.masksToBounds = true // layer 의 경계를 넘어서 그려질 수 있음
+        v.layer.shadowOpacity = 1 // 그림자 불투명도 0 ~ 1
+        v.layer.shadowOffset = .zero // 그림자 위치 지정
+        v.layer.shadowRadius = 5 // 그림자 흐림
         return v
     }()
     
     private let clipButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = .white
-        v.tintColor = .black
-        v.setImage(UIImage(systemName: "paperclip"), for: .normal)
+        v.backgroundColor = .black.withAlphaComponent(0.7)
+        v.tintColor = .white
+        v.setImage(UIImage(systemName: "popcorn"), for: .normal)
         v.layer.cornerRadius = 15
         
         return v
@@ -81,7 +85,10 @@ class TrendTableViewCell: UITableViewCell {
     
     private let gradeBackLabelView: UIView = {
         let v = UIView()
-        v.backgroundColor = .white
+        v.backgroundColor = .white.withAlphaComponent(0.5)
+        v.layer.shadowOpacity = 1 // 그림자 불투명도 0 ~ 1
+        v.layer.shadowOffset = .zero // 그림자 위치 지정
+        v.layer.shadowRadius = 25 // 그림자 흐림
         
         return v
     }()
@@ -89,7 +96,7 @@ class TrendTableViewCell: UITableViewCell {
     let trendTitleLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 17, weight: .medium)
-        v.textColor = .black
+        v.textColor = .white
         
         return v
     }()
@@ -97,14 +104,14 @@ class TrendTableViewCell: UITableViewCell {
     let trendSubtitleLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 13)
-        v.textColor = .darkGray
+        v.textColor = .lightGray
         
         return v
     }()
     
     private let separator: UIView = {
         let v = UIView()
-        v.backgroundColor = .darkGray
+        v.backgroundColor = .lightGray
         
         return v
     }()
@@ -112,7 +119,7 @@ class TrendTableViewCell: UITableViewCell {
     let readMoreLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 13)
-        v.textColor = .black
+        v.textColor = .white
         v.text = "자세히 보기"
         
         return v
@@ -121,7 +128,7 @@ class TrendTableViewCell: UITableViewCell {
     let readMoreButton: UIButton = {
         let v = UIButton()
         v.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        v.tintColor = .black
+        v.tintColor = .white
 
         return v
     }()
@@ -136,6 +143,7 @@ class TrendTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .bg
         
         contentView.addSubview(dateLabel)
         contentView.addSubview(categoryLabel)
@@ -153,7 +161,6 @@ class TrendTableViewCell: UITableViewCell {
         setContainerView()
         configureContainerViewLayout()
 
-        
         // 날짜
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(10)

@@ -16,7 +16,7 @@ class SearchTextField: UITextField {
         borderStyle = .none
         layer.cornerRadius = CGFloat(Constant.Radius.searchBar)
         backgroundColor = UIColor.container
-        font = .systemFont(ofSize: 15)
+        font = Constant.Font.normal15
     }
     
     required init?(coder: NSCoder) {

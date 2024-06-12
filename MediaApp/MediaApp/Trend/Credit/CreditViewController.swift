@@ -56,7 +56,7 @@ class CreditViewController: UIViewController {
     lazy private var overViewLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 13)
-        v.textColor = .black
+        v.textColor = .white
         v.text = targetOverView
         v.textAlignment = .left
         
@@ -65,7 +65,7 @@ class CreditViewController: UIViewController {
     
     lazy private var expandableButton: UIButton = {
         let v = UIButton()
-        v.tintColor = .black
+        v.tintColor = .white
         v.addTarget(self, action: #selector(expandableButtonClicked), for: .touchUpInside)
         
         return v
@@ -94,7 +94,7 @@ class CreditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        view.backgroundColor = .white
+        view.backgroundColor = .bg
         navigationItem.title = "출연/제작"
         self.navigationController?.navigationBar.tintColor = .point// 백버튼의 틴트 색상을 변경
         //print(targetId)

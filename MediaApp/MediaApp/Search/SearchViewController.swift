@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = .white
+        view.backgroundColor = .bg
         
         configureView()
         
@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
     }
