@@ -40,8 +40,8 @@ class TrendViewController: UIViewController {
             target: self,
             action: #selector(searchButtonClicked))
         
-        menu.tintColor = .pointColor
-        search.tintColor = .pointColor
+        menu.tintColor = .point
+        search.tintColor = .point
         
         navigationItem.leftBarButtonItem = menu
         navigationItem.rightBarButtonItem = search
@@ -160,11 +160,11 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let id = list[sender.tag].id
         let imageUrl = list[sender.tag].backdropPath
         let overView = list[sender.tag].overview
-        let vc = CreditViewController()
+        let vc = NewCreditViewController()
         
-        vc.targetId = id
-        vc.targetMainImageUrl = imageUrl
-        vc.targetOverView = overView
+//        vc.targetId = id
+//        vc.targetMainImageUrl = imageUrl
+//        vc.targetOverView = overView
         navigationController?.pushViewController(vc, animated: true)
     }
 }

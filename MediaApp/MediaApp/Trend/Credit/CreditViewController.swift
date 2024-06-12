@@ -18,6 +18,12 @@ class CreditViewController: UIViewController {
     var targetOverView: String?
     var list: [Cast] = []
     
+    private let containerView: UIView = {
+        let v = UIView()
+        v.backgroundColor = .clear
+        return v
+    }()
+    
     lazy private var mainImageView: UIImageView = {
         let v = UIImageView()
         v.contentMode = .scaleToFill
@@ -90,7 +96,7 @@ class CreditViewController: UIViewController {
       
         view.backgroundColor = .white
         navigationItem.title = "출연/제작"
-        self.navigationController?.navigationBar.tintColor = .pointColor // 백버튼의 틴트 색상을 변경
+        self.navigationController?.navigationBar.tintColor = .point// 백버튼의 틴트 색상을 변경
         //print(targetId)
         if let targetId = targetId {
             callRequest(targetId)

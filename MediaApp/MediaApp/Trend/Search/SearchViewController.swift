@@ -67,16 +67,16 @@ class SearchViewController: UIViewController {
     
     private func configureUI() {
         popButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        popButton.tintColor = .pointColor
+        popButton.tintColor = .point
         popButton.addTarget(self, action: #selector(popButtonClicked), for: .touchUpInside)
         
         searchField.placeholder = " 영화를 검색하세요"
         searchField.borderStyle = .roundedRect
-        searchField.tintColor = .pointColor
+        searchField.tintColor = .point
         searchField.clipsToBounds = true
         searchField.layer.cornerRadius = 15
         searchField.layer.borderWidth = 1
-        searchField.layer.borderColor = UIColor.pointColor?.cgColor
+        searchField.layer.borderColor = UIColor.point.cgColor
     }
     
     private func configureLayout() {

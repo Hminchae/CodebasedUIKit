@@ -65,6 +65,7 @@ class CreditTableViewCell: UITableViewCell {
     func configureLayout() {
         actorProfieImageView.snp.makeConstraints { make in
             make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(5)
+            //make.centerY.equalTo(contentView.snp.centerX)
             make.leading.equalTo(contentView.snp.leading).offset(20)
             make.width.equalTo(45)
         }

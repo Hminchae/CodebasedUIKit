@@ -65,7 +65,7 @@ class TrendTableViewCell: UITableViewCell {
     
     private let gradeFrontLabelView: UIView = {
         let v = UIView()
-        v.backgroundColor = .pointColor
+        v.backgroundColor = .point
         
         return v
     }()
