@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1642D412C1A7648003032F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D402C1A7648003032F9 /* AppDelegate.swift */; };
+		B1642D432C1A7648003032F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D422C1A7648003032F9 /* SceneDelegate.swift */; };
+		B1642D452C1A7648003032F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D442C1A7648003032F9 /* ViewController.swift */; };
+		B1642D4A2C1A7649003032F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1642D492C1A7649003032F9 /* Assets.xcassets */; };
+		B1642D4D2C1A7649003032F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1642D4B2C1A7649003032F9 /* LaunchScreen.storyboard */; };
+		B1642D562C1A7AD6003032F9 /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D552C1A7AD6003032F9 /* PointButton.swift */; };
+		B1642D582C1A7BE4003032F9 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D572C1A7BE4003032F9 /* Resource.swift */; };
+		B1642D5B2C1A7FC5003032F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1642D5A2C1A7FC5003032F9 /* SnapKit */; };
+		B1642D5E2C1A7FD2003032F9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1642D5D2C1A7FD2003032F9 /* Kingfisher */; };
+		B1642D612C1A7FE8003032F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1642D602C1A7FE8003032F9 /* Alamofire */; };
+		B1642D642C1A7FF5003032F9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1642D632C1A7FF5003032F9 /* Toast */; };
+		B1642D672C1A8072003032F9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1642D662C1A8072003032F9 /* IQKeyboardManagerSwift */; };
+		B1642D702C1A822C003032F9 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D682C1A822C003032F9 /* BirthdayViewController.swift */; };
+		B1642D712C1A822C003032F9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D692C1A822C003032F9 /* SignInViewController.swift */; };
+		B1642D722C1A822C003032F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6A2C1A822C003032F9 /* MainViewController.swift */; };
+		B1642D732C1A822C003032F9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6B2C1A822C003032F9 /* SignUpViewController.swift */; };
+		B1642D742C1A822C003032F9 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6C2C1A822C003032F9 /* PhoneViewController.swift */; };
+		B1642D752C1A822C003032F9 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6D2C1A822C003032F9 /* SignTextField.swift */; };
+		B1642D762C1A822C003032F9 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6E2C1A822C003032F9 /* PasswordViewController.swift */; };
+		B1642D772C1A822C003032F9 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6F2C1A822C003032F9 /* NicknameViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B1642D3D2C1A7648003032F9 /* SeSACWeek5Summery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACWeek5Summery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1642D402C1A7648003032F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1642D422C1A7648003032F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B1642D442C1A7648003032F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1642D492C1A7649003032F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1642D4C2C1A7649003032F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B1642D4E2C1A7649003032F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1642D552C1A7AD6003032F9 /* PointButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
+		B1642D572C1A7BE4003032F9 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		B1642D682C1A822C003032F9 /* BirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
+		B1642D692C1A822C003032F9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B1642D6A2C1A822C003032F9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B1642D6B2C1A822C003032F9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B1642D6C2C1A822C003032F9 /* PhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		B1642D6D2C1A822C003032F9 /* SignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
+		B1642D6E2C1A822C003032F9 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		B1642D6F2C1A822C003032F9 /* NicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1642D3A2C1A7648003032F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1642D672C1A8072003032F9 /* IQKeyboardManagerSwift in Frameworks */,
+				B1642D642C1A7FF5003032F9 /* Toast in Frameworks */,
+				B1642D612C1A7FE8003032F9 /* Alamofire in Frameworks */,
+				B1642D5E2C1A7FD2003032F9 /* Kingfisher in Frameworks */,
+				B1642D5B2C1A7FC5003032F9 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1642D342C1A7648003032F9 = {
+			isa = PBXGroup;
+			children = (
+				B1642D3F2C1A7648003032F9 /* SeSACWeek5Summery */,
+				B1642D3E2C1A7648003032F9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1642D3E2C1A7648003032F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D3D2C1A7648003032F9 /* SeSACWeek5Summery.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1642D3F2C1A7648003032F9 /* SeSACWeek5Summery */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D402C1A7648003032F9 /* AppDelegate.swift */,
+				B1642D422C1A7648003032F9 /* SceneDelegate.swift */,
+				B1642D442C1A7648003032F9 /* ViewController.swift */,
+				B1642D542C1A7AB5003032F9 /* CustomView */,
+				B1642D6F2C1A822C003032F9 /* NicknameViewController.swift */,
+				B1642D6B2C1A822C003032F9 /* SignUpViewController.swift */,
+				B1642D692C1A822C003032F9 /* SignInViewController.swift */,
+				B1642D6C2C1A822C003032F9 /* PhoneViewController.swift */,
+				B1642D6A2C1A822C003032F9 /* MainViewController.swift */,
+				B1642D6E2C1A822C003032F9 /* PasswordViewController.swift */,
+				B1642D682C1A822C003032F9 /* BirthdayViewController.swift */,
+				B1642D492C1A7649003032F9 /* Assets.xcassets */,
+				B1642D4B2C1A7649003032F9 /* LaunchScreen.storyboard */,
+				B1642D4E2C1A7649003032F9 /* Info.plist */,
+				B1642D572C1A7BE4003032F9 /* Resource.swift */,
+			);
+			path = SeSACWeek5Summery;
+			sourceTree = "<group>";
+		};
+		B1642D542C1A7AB5003032F9 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D6D2C1A822C003032F9 /* SignTextField.swift */,
+				B1642D552C1A7AD6003032F9 /* PointButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1642D3C2C1A7648003032F9 /* SeSACWeek5Summery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1642D512C1A7649003032F9 /* Build configuration list for PBXNativeTarget "SeSACWeek5Summery" */;
+			buildPhases = (
+				B1642D392C1A7648003032F9 /* Sources */,
+				B1642D3A2C1A7648003032F9 /* Frameworks */,
+				B1642D3B2C1A7648003032F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeSACWeek5Summery;
+			packageProductDependencies = (
+				B1642D5A2C1A7FC5003032F9 /* SnapKit */,
+				B1642D5D2C1A7FD2003032F9 /* Kingfisher */,
+				B1642D602C1A7FE8003032F9 /* Alamofire */,
+				B1642D632C1A7FF5003032F9 /* Toast */,
+				B1642D662C1A8072003032F9 /* IQKeyboardManagerSwift */,
+			);
+			productName = SeSACWeek5Summery;
+			productReference = B1642D3D2C1A7648003032F9 /* SeSACWeek5Summery.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1642D352C1A7648003032F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					B1642D3C2C1A7648003032F9 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = B1642D382C1A7648003032F9 /* Build configuration list for PBXProject "SeSACWeek5Summery" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1642D342C1A7648003032F9;
+			packageReferences = (
+				B1642D592C1A7FC5003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1642D5C2C1A7FD2003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B1642D5F2C1A7FE8003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B1642D622C1A7FF5003032F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B1642D652C1A8072003032F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
+			productRefGroup = B1642D3E2C1A7648003032F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1642D3C2C1A7648003032F9 /* SeSACWeek5Summery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1642D3B2C1A7648003032F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1642D4D2C1A7649003032F9 /* LaunchScreen.storyboard in Resources */,
+				B1642D4A2C1A7649003032F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1642D392C1A7648003032F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1642D712C1A822C003032F9 /* SignInViewController.swift in Sources */,
+				B1642D742C1A822C003032F9 /* PhoneViewController.swift in Sources */,
+				B1642D452C1A7648003032F9 /* ViewController.swift in Sources */,
+				B1642D752C1A822C003032F9 /* SignTextField.swift in Sources */,
+				B1642D412C1A7648003032F9 /* AppDelegate.swift in Sources */,
+				B1642D762C1A822C003032F9 /* PasswordViewController.swift in Sources */,
+				B1642D562C1A7AD6003032F9 /* PointButton.swift in Sources */,
+				B1642D582C1A7BE4003032F9 /* Resource.swift in Sources */,
+				B1642D772C1A822C003032F9 /* NicknameViewController.swift in Sources */,
+				B1642D432C1A7648003032F9 /* SceneDelegate.swift in Sources */,
+				B1642D732C1A822C003032F9 /* SignUpViewController.swift in Sources */,
+				B1642D702C1A822C003032F9 /* BirthdayViewController.swift in Sources */,
+				B1642D722C1A822C003032F9 /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B1642D4B2C1A7649003032F9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1642D4C2C1A7649003032F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1642D4F2C1A7649003032F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1642D502C1A7649003032F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1642D522C1A7649003032F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8L5QZ969G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SeSACWeek5Summery/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "4주차 요약";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSACWeek5Summery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B1642D532C1A7649003032F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8L5QZ969G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SeSACWeek5Summery/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "4주차 요약";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSACWeek5Summery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1642D382C1A7648003032F9 /* Build configuration list for PBXProject "SeSACWeek5Summery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1642D4F2C1A7649003032F9 /* Debug */,
+				B1642D502C1A7649003032F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1642D512C1A7649003032F9 /* Build configuration list for PBXNativeTarget "SeSACWeek5Summery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1642D522C1A7649003032F9 /* Debug */,
+				B1642D532C1A7649003032F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1642D592C1A7FC5003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		B1642D5C2C1A7FD2003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		B1642D5F2C1A7FE8003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		B1642D622C1A7FF5003032F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		B1642D652C1A8072003032F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1642D5A2C1A7FC5003032F9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642D592C1A7FC5003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B1642D5D2C1A7FD2003032F9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642D5C2C1A7FD2003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		B1642D602C1A7FE8003032F9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642D5F2C1A7FE8003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B1642D632C1A7FF5003032F9 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642D622C1A7FF5003032F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		B1642D662C1A8072003032F9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642D652C1A8072003032F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B1642D352C1A7648003032F9 /* Project object */;
+}
