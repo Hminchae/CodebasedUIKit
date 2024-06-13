@@ -27,6 +27,8 @@
 		B1642D752C1A822C003032F9 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6D2C1A822C003032F9 /* SignTextField.swift */; };
 		B1642D762C1A822C003032F9 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6E2C1A822C003032F9 /* PasswordViewController.swift */; };
 		B1642D772C1A822C003032F9 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D6F2C1A822C003032F9 /* NicknameViewController.swift */; };
+		B1642D7A2C1A98EC003032F9 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D792C1A98EC003032F9 /* TextFieldStyle.swift */; };
+		B1642D7C2C1ABCEA003032F9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D7B2C1ABCEA003032F9 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		B1642D6D2C1A822C003032F9 /* SignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
 		B1642D6E2C1A822C003032F9 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		B1642D6F2C1A822C003032F9 /* NicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		B1642D792C1A98EC003032F9 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		B1642D7B2C1ABCEA003032F9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		B1642D3F2C1A7648003032F9 /* SeSACWeek5Summery */ = {
 			isa = PBXGroup;
 			children = (
+				B1642D782C1A98D9003032F9 /* Enum */,
 				B1642D402C1A7648003032F9 /* AppDelegate.swift */,
 				B1642D422C1A7648003032F9 /* SceneDelegate.swift */,
 				B1642D442C1A7648003032F9 /* ViewController.swift */,
@@ -99,6 +104,7 @@
 				B1642D4B2C1A7649003032F9 /* LaunchScreen.storyboard */,
 				B1642D4E2C1A7649003032F9 /* Info.plist */,
 				B1642D572C1A7BE4003032F9 /* Resource.swift */,
+				B1642D7B2C1ABCEA003032F9 /* TabBarController.swift */,
 			);
 			path = SeSACWeek5Summery;
 			sourceTree = "<group>";
@@ -110,6 +116,14 @@
 				B1642D552C1A7AD6003032F9 /* PointButton.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		B1642D782C1A98D9003032F9 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D792C1A98EC003032F9 /* TextFieldStyle.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,7 @@
 				B1642D712C1A822C003032F9 /* SignInViewController.swift in Sources */,
 				B1642D742C1A822C003032F9 /* PhoneViewController.swift in Sources */,
 				B1642D452C1A7648003032F9 /* ViewController.swift in Sources */,
+				B1642D7C2C1ABCEA003032F9 /* TabBarController.swift in Sources */,
 				B1642D752C1A822C003032F9 /* SignTextField.swift in Sources */,
 				B1642D412C1A7648003032F9 /* AppDelegate.swift in Sources */,
 				B1642D762C1A822C003032F9 /* PasswordViewController.swift in Sources */,
@@ -209,6 +224,7 @@
 				B1642D732C1A822C003032F9 /* SignUpViewController.swift in Sources */,
 				B1642D702C1A822C003032F9 /* BirthdayViewController.swift in Sources */,
 				B1642D722C1A822C003032F9 /* MainViewController.swift in Sources */,
+				B1642D7A2C1A98EC003032F9 /* TextFieldStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

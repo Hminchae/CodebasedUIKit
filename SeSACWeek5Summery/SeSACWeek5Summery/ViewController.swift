@@ -12,6 +12,7 @@ import SnapKit
 class ViewController: UIViewController {
 
     let signButton = PointButton(title: "로그인")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

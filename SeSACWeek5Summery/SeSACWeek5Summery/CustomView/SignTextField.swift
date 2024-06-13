@@ -7,6 +7,29 @@
 
 import UIKit
 
+class LoginTextField: UITextField {
+    
+    init(style: TextFieldStyle) {
+        super.init(frame: .zero)
+        
+        textColor = Color.black
+        placeholder = "\(style.rawValue)"
+        textAlignment = .center
+        borderStyle = .none
+        layer.cornerRadius = 10
+        layer.borderWidth = 1
+        layer.borderColor = Color.black.cgColor
+        
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
+}
+
 class SignTextField: UITextField {
     
     init(placeholderText: String) {
@@ -29,4 +52,3 @@ class SignTextField: UITextField {
 
     
 }
-

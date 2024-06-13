@@ -76,15 +76,17 @@ class BirthdayViewController: UIViewController {
         nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
     }
     
+    // push: Backbutton/gesture 없애기 -> 쌓여있던 화면은 ?
     @objc func nextButtonClicked() {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-         
-        let navigationController = UINavigationController(rootViewController: MainViewController())
         
-        sceneDelegate?.window?.rootViewController = navigationController
+        UserDefaults.standard.set(true, forKey: "isUser")
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        let vc = UINavigationController(rootViewController: MainViewController())
+        sceneDelegate?.window?.rootViewController = vc
         sceneDelegate?.window?.makeKeyAndVisible()
-
     }
 
     
