@@ -14,6 +14,7 @@
 		B1642DFD2C1FBBB3003032F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1642DFC2C1FBBB3003032F9 /* Assets.xcassets */; };
 		B1642E002C1FBBB3003032F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1642DFE2C1FBBB3003032F9 /* LaunchScreen.storyboard */; };
 		B1642E092C1FBE44003032F9 /* Yeongdeok.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1642E082C1FBE44003032F9 /* Yeongdeok.otf */; };
+		B1642E0C2C1FCBBA003032F9 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B1642DFF2C1FBBB3003032F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1642E012C1FBBB3003032F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1642E082C1FBE44003032F9 /* Yeongdeok.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yeongdeok.otf; sourceTree = "<group>"; };
+		B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		B1642DF22C1FBBB1003032F9 /* SeSACHardwareAuthorization */ = {
 			isa = PBXGroup;
 			children = (
+				B1642E0A2C1FCBA3003032F9 /* Extension */,
 				B1642E072C1FBE35003032F9 /* Resource */,
 				B1642DF32C1FBBB1003032F9 /* AppDelegate.swift */,
 				B1642DF52C1FBBB1003032F9 /* SceneDelegate.swift */,
@@ -76,6 +79,14 @@
 				B1642E082C1FBE44003032F9 /* Yeongdeok.otf */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		B1642E0A2C1FCBA3003032F9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1642DF82C1FBBB1003032F9 /* ViewController.swift in Sources */,
+				B1642E0C2C1FCBBA003032F9 /* UIButton+Extension.swift in Sources */,
 				B1642DF42C1FBBB1003032F9 /* AppDelegate.swift in Sources */,
 				B1642DF62C1FBBB1003032F9 /* SceneDelegate.swift in Sources */,
 			);
