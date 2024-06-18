@@ -5,16 +5,25 @@
 //  Created by 황민채 on 6/17/24.
 //
 
+/*
+ CLLocation+Mapkit
+ Class/Struct
+ Typecasting
+ Do-Try Catch / Error Handling
+ Decodable
+ 
+ */
 import UIKit
 
 /* ✅
  1. Custom Font
  - 용량: 캭햝뷁 : regular bold italic
  - 저작권 tmi. sf
- - 채팅/댓글/
+ - 채팅/댓글 vs 네비게이션
  */
 class ViewController: UIViewController {
     
+    @IBOutlet weak var swiftButton: UIButton!
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var logoLabel: UILabel!
     
@@ -44,8 +53,10 @@ class ViewController: UIViewController {
         // ✏️ UIButton.configuration+Extension
         testButton.configuration = .blackStyle()
         testButton.addTarget(self, action: #selector(testButtonClicked), for: .touchUpInside)
+        swiftButton.addTarget(self, action: #selector(swiftButtonClicked), for: .touchUpInside)
         
     }
+    
     @objc func testButtonClicked(_ sender: UIButton) {
         //🔔
         // 1. 콘텐츠
@@ -66,6 +77,15 @@ class ViewController: UIViewController {
         
         UNUserNotificationCenter.current().add(request)
     }
+    
+    @objc func swiftButtonClicked() {
+        let vc = DoCatchViewController()
+        present(vc, animated: true)
+    }
+
+}
+
+
 /*
  🚨 Notification 관련 정책
  - identifier: 고유값 / 64개까지만
@@ -75,4 +95,3 @@ class ViewController: UIViewController {
  - 알림센터에 보이고 있는지, 사용자에게 전달되었는지 알 수 없음
  - 단, 사용자가 알림을 '클릭'했을 때만 확인 가능(delegate)
  */
-}

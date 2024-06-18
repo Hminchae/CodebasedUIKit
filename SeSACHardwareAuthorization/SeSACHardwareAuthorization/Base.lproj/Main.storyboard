@@ -34,12 +34,19 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yge-G2-iRG">
+                                <rect key="frame" x="86" y="513" width="205" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="logoLabel" destination="6tv-aq-smA" id="v5o-h1-GrG"/>
+                        <outlet property="swiftButton" destination="yge-G2-iRG" id="vxb-ig-cRU"/>
                         <outlet property="testButton" destination="XJh-bL-19f" id="37P-dq-LuU"/>
                     </connections>
                 </viewController>
