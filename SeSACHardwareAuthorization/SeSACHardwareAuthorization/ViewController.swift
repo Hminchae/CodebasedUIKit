@@ -31,12 +31,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // 💤 실제 폰트명(패밀리-세부)과 파일명은 다름
         logoLabel.font = UIFont(name: "Yeongdeok-Sea", size: 80)
-        for family in UIFont.familyNames {
-            print(family)
-            for name in UIFont.fontNames(forFamilyName: family) {
-                print(">>> \(name)")
-            }
-        }
+//        for family in UIFont.familyNames {
+//            print(family)
+//            for name in UIFont.fontNames(forFamilyName: family) {
+//                print(">>> \(name)")
+//            }
+//        }
         
         // 🔘 버튼의 구조체 자체를 변경하는 방법
         /*
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     @objc func swiftButtonClicked() {
-        let vc = DoCatchViewController()
+        let vc = LocationViewController()
         present(vc, animated: true)
     }
 

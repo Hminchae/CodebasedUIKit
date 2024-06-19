@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>위치를 허용해주세요. 원래는 목적과 이유와 어디에 사용이 되는지 꼭 구체적으로 작성! 아니면 리젝</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Yeongdeok.otf</string>

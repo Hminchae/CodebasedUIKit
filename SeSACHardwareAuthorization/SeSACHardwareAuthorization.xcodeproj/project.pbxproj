@@ -16,8 +16,8 @@
 		B1642E092C1FBE44003032F9 /* Yeongdeok.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1642E082C1FBE44003032F9 /* Yeongdeok.otf */; };
 		B1642E0C2C1FCBBA003032F9 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */; };
 		B1642E132C211002003032F9 /* DoCatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E122C211002003032F9 /* DoCatchViewController.swift */; };
-		B1642E162C21106C003032F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E152C21106C003032F9 /* SnapKit */; };
-		B1642E182C21106C003032F9 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E172C21106C003032F9 /* SnapKit-Dynamic */; };
+		B1642E1B2C226567003032F9 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E1A2C226567003032F9 /* LocationViewController.swift */; };
+		B1642E1D2C226FA3003032F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E1C2C226FA3003032F9 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +32,7 @@
 		B1642E082C1FBE44003032F9 /* Yeongdeok.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yeongdeok.otf; sourceTree = "<group>"; };
 		B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B1642E122C211002003032F9 /* DoCatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCatchViewController.swift; sourceTree = "<group>"; };
+		B1642E1A2C226567003032F9 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1642E162C21106C003032F9 /* SnapKit in Frameworks */,
-				B1642E182C21106C003032F9 /* SnapKit-Dynamic in Frameworks */,
+				B1642E1D2C226FA3003032F9 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +66,7 @@
 		B1642DF22C1FBBB1003032F9 /* SeSACHardwareAuthorization */ = {
 			isa = PBXGroup;
 			children = (
+				B1642E192C226556003032F9 /* Location */,
 				B1642DF32C1FBBB1003032F9 /* AppDelegate.swift */,
 				B1642DF52C1FBBB1003032F9 /* SceneDelegate.swift */,
 				B1642E0A2C1FCBA3003032F9 /* Extension */,
@@ -96,6 +97,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B1642E192C226556003032F9 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E1A2C226567003032F9 /* LocationViewController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,8 +122,7 @@
 			);
 			name = SeSACHardwareAuthorization;
 			packageProductDependencies = (
-				B1642E152C21106C003032F9 /* SnapKit */,
-				B1642E172C21106C003032F9 /* SnapKit-Dynamic */,
+				B1642E1C2C226FA3003032F9 /* SnapKit */,
 			);
 			productName = SeSACHardwareAuthorization;
 			productReference = B1642DF02C1FBBB1003032F9 /* SeSACHardwareAuthorization.app */;
@@ -178,6 +186,7 @@
 				B1642DF82C1FBBB1003032F9 /* ViewController.swift in Sources */,
 				B1642E0C2C1FCBBA003032F9 /* UIButton+Extension.swift in Sources */,
 				B1642E132C211002003032F9 /* DoCatchViewController.swift in Sources */,
+				B1642E1B2C226567003032F9 /* LocationViewController.swift in Sources */,
 				B1642DF42C1FBBB1003032F9 /* AppDelegate.swift in Sources */,
 				B1642DF62C1FBBB1003032F9 /* SceneDelegate.swift in Sources */,
 			);
@@ -346,9 +355,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSACHardwareAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -374,9 +387,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSACHardwareAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -415,15 +432,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B1642E152C21106C003032F9 /* SnapKit */ = {
+		B1642E1C2C226FA3003032F9 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B1642E142C21106C003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		B1642E172C21106C003032F9 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1642E142C21106C003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
