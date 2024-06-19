@@ -14,10 +14,10 @@ class SignViewController: UIViewController {
     lazy var nicknameField = {
         let view = BlackRadiusTextField()
         view.placeholder = "닉네임을 입력해보세요"
-        view.placeholder = Field.nickname.rawValue // -> enum raw value
-        view.placeholder = Field1.nickname // enum static let
+        view.placeholder = Constant.Field.nickname.rawValue // -> enum raw value
+        view.placeholder = Constant.Field1.nickname // enum static let
         //print(APIURL().kakaoBookUrl)
-        view.font = Font.bold15
+        view.font = Constant.Font.bold15
         
         return view
     }()
