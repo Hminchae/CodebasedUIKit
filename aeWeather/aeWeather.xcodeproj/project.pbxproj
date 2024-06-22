@@ -12,6 +12,13 @@
 		B1642E362C26EA23003032F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E352C26EA23003032F9 /* MainViewController.swift */; };
 		B1642E3B2C26EA24003032F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1642E3A2C26EA24003032F9 /* Assets.xcassets */; };
 		B1642E3E2C26EA24003032F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1642E3C2C26EA24003032F9 /* LaunchScreen.storyboard */; };
+		B1642E462C26EBB4003032F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E452C26EBB4003032F9 /* NetworkManager.swift */; };
+		B1642E492C26EBEA003032F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E482C26EBEA003032F9 /* SnapKit */; };
+		B1642E4C2C26EBF8003032F9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E4B2C26EBF8003032F9 /* Kingfisher */; };
+		B1642E4F2C26EC0B003032F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E4E2C26EC0B003032F9 /* Alamofire */; };
+		B1642E522C26EDD6003032F9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E512C26EDD6003032F9 /* APIKey.swift */; };
+		B1642E602C27085F003032F9 /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E5F2C27085F003032F9 /* APIInfo.swift */; };
+		B1642E632C270DBF003032F9 /* letter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1642E622C270DBF003032F9 /* letter.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,10 @@
 		B1642E3A2C26EA24003032F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1642E3D2C26EA24003032F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1642E3F2C26EA24003032F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1642E452C26EBB4003032F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B1642E512C26EDD6003032F9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B1642E5F2C27085F003032F9 /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
+		B1642E622C270DBF003032F9 /* letter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = letter.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1642E4F2C26EC0B003032F9 /* Alamofire in Frameworks */,
+				B1642E4C2C26EBF8003032F9 /* Kingfisher in Frameworks */,
+				B1642E492C26EBEA003032F9 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +68,34 @@
 		B1642E302C26EA23003032F9 /* aeWeather */ = {
 			isa = PBXGroup;
 			children = (
+				B1642E612C270987003032F9 /* Resource */,
+				B1642E502C26EC19003032F9 /* Model */,
 				B1642E312C26EA23003032F9 /* AppDelegate.swift */,
 				B1642E332C26EA23003032F9 /* SceneDelegate.swift */,
+				B1642E452C26EBB4003032F9 /* NetworkManager.swift */,
 				B1642E352C26EA23003032F9 /* MainViewController.swift */,
+				B1642E512C26EDD6003032F9 /* APIKey.swift */,
+				B1642E5F2C27085F003032F9 /* APIInfo.swift */,
 				B1642E3A2C26EA24003032F9 /* Assets.xcassets */,
 				B1642E3C2C26EA24003032F9 /* LaunchScreen.storyboard */,
 				B1642E3F2C26EA24003032F9 /* Info.plist */,
 			);
 			path = aeWeather;
+			sourceTree = "<group>";
+		};
+		B1642E502C26EC19003032F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B1642E612C270987003032F9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E622C270DBF003032F9 /* letter.ttf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +114,11 @@
 			dependencies = (
 			);
 			name = aeWeather;
+			packageProductDependencies = (
+				B1642E482C26EBEA003032F9 /* SnapKit */,
+				B1642E4B2C26EBF8003032F9 /* Kingfisher */,
+				B1642E4E2C26EC0B003032F9 /* Alamofire */,
+			);
 			productName = aeWeather;
 			productReference = B1642E2E2C26EA23003032F9 /* aeWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +147,11 @@
 				Base,
 			);
 			mainGroup = B1642E252C26EA23003032F9;
+			packageReferences = (
+				B1642E472C26EBEA003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1642E4A2C26EBF8003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B1642E4D2C26EC0A003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B1642E2F2C26EA23003032F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1642E632C270DBF003032F9 /* letter.ttf in Resources */,
 				B1642E3E2C26EA24003032F9 /* LaunchScreen.storyboard in Resources */,
 				B1642E3B2C26EA24003032F9 /* Assets.xcassets in Resources */,
 			);
@@ -134,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1642E462C26EBB4003032F9 /* NetworkManager.swift in Sources */,
 				B1642E362C26EA23003032F9 /* MainViewController.swift in Sources */,
+				B1642E602C27085F003032F9 /* APIInfo.swift in Sources */,
 				B1642E322C26EA23003032F9 /* AppDelegate.swift in Sources */,
 				B1642E342C26EA23003032F9 /* SceneDelegate.swift in Sources */,
+				B1642E522C26EDD6003032F9 /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +331,7 @@
 				DEVELOPMENT_TEAM = A8L5QZ969G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeWeather/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ae 웨더";
+				INFOPLIST_KEY_CFBundleDisplayName = "날씨편지";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -316,7 +364,7 @@
 				DEVELOPMENT_TEAM = A8L5QZ969G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aeWeather/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ae 웨더";
+				INFOPLIST_KEY_CFBundleDisplayName = "날씨편지";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -361,6 +409,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1642E472C26EBEA003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		B1642E4A2C26EBF8003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		B1642E4D2C26EC0A003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1642E482C26EBEA003032F9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642E472C26EBEA003032F9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B1642E4B2C26EBF8003032F9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642E4A2C26EBF8003032F9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		B1642E4E2C26EC0B003032F9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1642E4D2C26EC0A003032F9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1642E262C26EA23003032F9 /* Project object */;
 }
