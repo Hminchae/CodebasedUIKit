@@ -26,6 +26,8 @@
 		B1642E6E2C27DF63003032F9 /* GowunBatang-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1642E6C2C27DF63003032F9 /* GowunBatang-Bold.ttf */; };
 		B1642E712C27E202003032F9 /* rainVideo2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1642E6F2C27E201003032F9 /* rainVideo2.mp4 */; };
 		B1642E722C27E202003032F9 /* fineVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1642E702C27E202003032F9 /* fineVideo.mp4 */; };
+		B1642E742C27E5D7003032F9 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E732C27E5D7003032F9 /* Letter.swift */; };
+		B1642E762C27E850003032F9 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E752C27E850003032F9 /* UserDefaultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		B1642E6C2C27DF63003032F9 /* GowunBatang-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GowunBatang-Bold.ttf"; sourceTree = "<group>"; };
 		B1642E6F2C27E201003032F9 /* rainVideo2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rainVideo2.mp4; sourceTree = "<group>"; };
 		B1642E702C27E202003032F9 /* fineVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fineVideo.mp4; sourceTree = "<group>"; };
+		B1642E732C27E5D7003032F9 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		B1642E752C27E850003032F9 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +86,11 @@
 		B1642E302C26EA23003032F9 /* aeWeather */ = {
 			isa = PBXGroup;
 			children = (
+				B1642E312C26EA23003032F9 /* AppDelegate.swift */,
+				B1642E332C26EA23003032F9 /* SceneDelegate.swift */,
 				B1642E682C27A633003032F9 /* Service */,
 				B1642E612C270987003032F9 /* Resource */,
 				B1642E502C26EC19003032F9 /* Model */,
-				B1642E312C26EA23003032F9 /* AppDelegate.swift */,
-				B1642E332C26EA23003032F9 /* SceneDelegate.swift */,
 				B1642E352C26EA23003032F9 /* MainViewController.swift */,
 				B1642E512C26EDD6003032F9 /* APIKey.swift */,
 				B1642E642C27A4FF003032F9 /* rainVideo.mp4 */,
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B1642E692C27B712003032F9 /* Weather.swift */,
+				B1642E732C27E5D7003032F9 /* Letter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			children = (
 				B1642E662C27A629003032F9 /* LocationManager.swift */,
 				B1642E452C26EBB4003032F9 /* NetworkManager.swift */,
+				B1642E752C27E850003032F9 /* UserDefaultManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -216,6 +222,8 @@
 				B1642E6A2C27B712003032F9 /* Weather.swift in Sources */,
 				B1642E462C26EBB4003032F9 /* NetworkManager.swift in Sources */,
 				B1642E362C26EA23003032F9 /* MainViewController.swift in Sources */,
+				B1642E742C27E5D7003032F9 /* Letter.swift in Sources */,
+				B1642E762C27E850003032F9 /* UserDefaultManager.swift in Sources */,
 				B1642E602C27085F003032F9 /* APIInfo.swift in Sources */,
 				B1642E672C27A629003032F9 /* LocationManager.swift in Sources */,
 				B1642E322C26EA23003032F9 /* AppDelegate.swift in Sources */,
