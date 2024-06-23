@@ -14,13 +14,12 @@ class MainViewController: UIViewController {
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
     
-//    private let backgroundImageView = {
-//        let imageView = UIImageView()
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.image = UIImage(named: "rain")
-//        
-//        return imageView
-//    }()
+    private let backgroundView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.6)
+        
+        return view
+    }()
     
     private let locationIconImageView = {
         let imageView = UIImageView()
@@ -32,11 +31,10 @@ class MainViewController: UIViewController {
     
     private let locationLabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont(name: "GowunBatang-Regular", size: 18)
         label.textAlignment = .left
         label.textColor = .black
         label.text = "서울시 동작구"
-        
         return label
     }()
     
@@ -47,11 +45,10 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         
         return button
     }()
-
+    
     lazy private var refreshButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
@@ -59,14 +56,15 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         
         return button
     }()
     
+    private let letterView = UIView()
+    
     private let toUserLabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Ownglyph_jooreeletter-Rg", size: 24)
+        label.font = UIFont(name: "GowunBatang-Regular", size: 20)
         label.textAlignment = .left
         label.textColor = .black
         label.text = "To. User"
@@ -76,7 +74,7 @@ class MainViewController: UIViewController {
     
     private let letterContentsLabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Ownglyph_jooreeletter-Rg", size: 24)
+        label.font = UIFont(name: "GowunBatang-Regular", size: 20)
         label.textAlignment = .left
         label.textColor = .black
         label.text = "안녕하세요 민채님\n지금은 9도 예요.\n78% 만큼 습해요.\n1m/s의 바람이 불어요\n\n오늘도 행복한 하루가 되길 바래요."
@@ -85,19 +83,20 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    private let dateLabel = {
+    lazy private var dateLabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Ownglyph_jooreeletter-Rg", size: 20)
+        label.font = UIFont(name: "GowunBatang-Regular", size: 16)
         label.textAlignment = .left
         label.textColor = .black
+        label.text = self.makeDate()
         
         return label
     }()
     
     private let fromWeatherLabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Ownglyph_jooreeletter-Rg", size: 24)
-        label.text = "From. 너의 날씨"
+        label.font = UIFont(name: "GowunBatang-Regular", size: 20)
+        label.text = "From. 날씨"
         label.textAlignment = .left
         label.textColor = .black
         
@@ -111,108 +110,126 @@ class MainViewController: UIViewController {
         configureUI()
         setupBackgroundVideo()
         
+        requestUserLocation()
+    }
+    
+    private func requestUserLocation() {
+        LocationManager.shared.updateUserLocation = { coordinate in
+            print(coordinate.latitude, coordinate.longitude)
+        }
     }
     
     private func configureUI() {
-        //view.addSubview(backgroundImageView)
+        view.addSubview(backgroundView)
         view.addSubview(locationIconImageView)
         view.addSubview(locationLabel)
         view.addSubview(settingButton)
         view.addSubview(refreshButton)
-        view.addSubview(toUserLabel)
-        view.addSubview(letterContentsLabel)
-        view.addSubview(dateLabel)
-        view.addSubview(fromWeatherLabel)
+        view.addSubview(letterView)
         
+        configureLetterView()
         configureLayout()
     }
     
-    private func configureLayout() {
-//        backgroundImageView.snp.makeConstraints { make in
-//            make.edges.equalTo(view.snp.edges)
-//        }
-        
-        locationIconImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(view.snp.leading).offset(20)
-            make.centerY.equalTo(locationLabel.snp.centerY)
-            make.size.equalTo(30)
-        }
-        
-        locationLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(locationIconImageView.snp.trailing).offset(8)
-            make.height.equalTo(30)
-        }
-        
-        refreshButton.snp.makeConstraints { make in
-            make.trailing.equalTo(view.snp.trailing).inset(20)
-            make.centerY.equalTo(locationLabel.snp.centerY)
-            make.size.equalTo(30)
-        }
-        
-        settingButton.snp.makeConstraints { make in
-            make.centerY.equalTo(locationLabel.snp.centerY)
-            make.trailing.equalTo(refreshButton.snp.leading).inset(-8)
-            make.size.equalTo(30)
-        }
+    private func configureLetterView() {
+        letterView.addSubview(toUserLabel)
+        letterView.addSubview(letterContentsLabel)
+        letterView.addSubview(dateLabel)
+        letterView.addSubview(fromWeatherLabel)
         
         toUserLabel.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(100)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.top.equalTo(letterView.snp.top)
+            make.horizontalEdges.equalTo(letterView.snp.horizontalEdges)
             make.height.equalTo(20)
         }
         
         letterContentsLabel.snp.makeConstraints { make in
             make.top.equalTo(toUserLabel.snp.bottom).offset(30)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.horizontalEdges.equalTo(letterView.snp.horizontalEdges)
             make.height.equalTo(200)
         }
         
         dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(letterContentsLabel.snp.bottom).offset(30)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(50)
-            make.height.equalTo(20)
+            make.top.equalTo(letterContentsLabel.snp.bottom).offset(50)
+            make.leading.equalTo(letterView.snp.leading)
+            make.height.equalTo(18)
         }
         
         fromWeatherLabel.snp.makeConstraints { make in
-            make.top.equalTo(letterContentsLabel.snp.bottom).offset(30)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.bottom.equalTo(dateLabel.snp.bottom)
+            make.trailing.equalTo(letterView.snp.trailing)
             make.height.equalTo(20)
         }
     }
     
+    private func configureLayout() {
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalTo(view.snp.edges)
+        }
+        
+        refreshButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.trailing.equalTo(view.snp.trailing).inset(30)
+            make.size.equalTo(23)
+        }
+        
+        settingButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.trailing.equalTo(refreshButton.snp.leading).inset(-10)
+            make.size.equalTo(23)
+        }
+        
+        locationIconImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(settingButton.snp.bottom)
+            make.leading.equalTo(view.snp.leading).offset(30)
+            make.size.equalTo(15)
+        }
+        
+        locationLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(settingButton.snp.bottom)
+            make.leading.equalTo(locationIconImageView.snp.trailing).offset(8)
+            make.height.equalTo(18)
+        }
+        
+        letterView.snp.makeConstraints { make in
+            make.centerY.equalTo(view.snp.centerY).offset(-50)
+            make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(30)
+            make.height.equalTo(300)
+        }
+    }
+    
     private func setupBackgroundVideo() {
-           guard let path = Bundle.main.path(forResource: "rainVideo", ofType: "mp4") else {
-               print("Background video not found.")
-               return
-           }
-
-           let url = URL(fileURLWithPath: path)
-           player = AVPlayer(url: url)
-           playerLayer = AVPlayerLayer(player: player)
-           playerLayer?.frame = view.bounds
-           playerLayer?.videoGravity = .resizeAspectFill
-           view.layer.insertSublayer(playerLayer!, at: 0)
-
-           player?.actionAtItemEnd = .none
-           NotificationCenter.default.addObserver(
-               self,
-               selector: #selector(playerItemDidReachEnd),
-               name: .AVPlayerItemDidPlayToEndTime,
-               object: player?.currentItem
-           )
-
-           player?.play()
-       }
-
-       @objc func playerItemDidReachEnd() {
-           player?.seek(to: .zero)  // 비디오 루프를 위해 처음으로 이동
-       }
-       
-       deinit {
-           NotificationCenter.default.removeObserver(self)
-       }
+        guard let path = Bundle.main.path(forResource: "fineVideo", ofType: "mp4") else {
+            print("Background video not found.")
+            return
+        }
+        
+        let url = URL(fileURLWithPath: path)
+        player = AVPlayer(url: url)
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.frame = view.bounds
+        playerLayer?.videoGravity = .resizeAspectFill
+        view.layer.insertSublayer(playerLayer!, at: 0)
+        
+        player?.actionAtItemEnd = .none
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerItemDidReachEnd),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.currentItem
+        )
+        
+        player?.play()
+    }
+    
+    // 비디오 루프를 위해 처음으로 이동
+    @objc func playerItemDidReachEnd() {
+        player?.seek(to: .zero)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc private func settingButtonClicked() {
         
@@ -220,6 +237,14 @@ class MainViewController: UIViewController {
     
     @objc private func refreshButtonClicked() {
         
+    }
+    
+    func makeDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월 dd일 HH시 mm분"
+        let currentDate = formatter.string(from: Date())
+        
+        return currentDate
     }
 }
 
