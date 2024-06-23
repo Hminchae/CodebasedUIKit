@@ -17,7 +17,6 @@
 		B1642E4C2C26EBF8003032F9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E4B2C26EBF8003032F9 /* Kingfisher */; };
 		B1642E4F2C26EC0B003032F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E4E2C26EC0B003032F9 /* Alamofire */; };
 		B1642E522C26EDD6003032F9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E512C26EDD6003032F9 /* APIKey.swift */; };
-		B1642E602C27085F003032F9 /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E5F2C27085F003032F9 /* APIInfo.swift */; };
 		B1642E632C270DBF003032F9 /* letter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1642E622C270DBF003032F9 /* letter.ttf */; };
 		B1642E652C27A4FF003032F9 /* rainVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1642E642C27A4FF003032F9 /* rainVideo.mp4 */; };
 		B1642E672C27A629003032F9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E662C27A629003032F9 /* LocationManager.swift */; };
@@ -40,7 +39,6 @@
 		B1642E3F2C26EA24003032F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1642E452C26EBB4003032F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B1642E512C26EDD6003032F9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		B1642E5F2C27085F003032F9 /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		B1642E622C270DBF003032F9 /* letter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = letter.ttf; sourceTree = "<group>"; };
 		B1642E642C27A4FF003032F9 /* rainVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rainVideo.mp4; sourceTree = "<group>"; };
 		B1642E662C27A629003032F9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -88,15 +86,11 @@
 			children = (
 				B1642E312C26EA23003032F9 /* AppDelegate.swift */,
 				B1642E332C26EA23003032F9 /* SceneDelegate.swift */,
+				B1642E512C26EDD6003032F9 /* APIKey.swift */,
+				B1642E352C26EA23003032F9 /* MainViewController.swift */,
 				B1642E682C27A633003032F9 /* Service */,
 				B1642E612C270987003032F9 /* Resource */,
 				B1642E502C26EC19003032F9 /* Model */,
-				B1642E352C26EA23003032F9 /* MainViewController.swift */,
-				B1642E512C26EDD6003032F9 /* APIKey.swift */,
-				B1642E642C27A4FF003032F9 /* rainVideo.mp4 */,
-				B1642E6F2C27E201003032F9 /* rainVideo2.mp4 */,
-				B1642E702C27E202003032F9 /* fineVideo.mp4 */,
-				B1642E5F2C27085F003032F9 /* APIInfo.swift */,
 				B1642E3A2C26EA24003032F9 /* Assets.xcassets */,
 				B1642E3C2C26EA24003032F9 /* LaunchScreen.storyboard */,
 				B1642E3F2C26EA24003032F9 /* Info.plist */,
@@ -116,9 +110,8 @@
 		B1642E612C270987003032F9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				B1642E6C2C27DF63003032F9 /* GowunBatang-Bold.ttf */,
-				B1642E6B2C27DF63003032F9 /* GowunBatang-Regular.ttf */,
-				B1642E622C270DBF003032F9 /* letter.ttf */,
+				B1642E8B2C287306003032F9 /* Videos */,
+				B1642E8A2C2872F5003032F9 /* Fonts */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -131,6 +124,26 @@
 				B1642E752C27E850003032F9 /* UserDefaultManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		B1642E8A2C2872F5003032F9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E6C2C27DF63003032F9 /* GowunBatang-Bold.ttf */,
+				B1642E6B2C27DF63003032F9 /* GowunBatang-Regular.ttf */,
+				B1642E622C270DBF003032F9 /* letter.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B1642E8B2C287306003032F9 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E642C27A4FF003032F9 /* rainVideo.mp4 */,
+				B1642E6F2C27E201003032F9 /* rainVideo2.mp4 */,
+				B1642E702C27E202003032F9 /* fineVideo.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +237,6 @@
 				B1642E362C26EA23003032F9 /* MainViewController.swift in Sources */,
 				B1642E742C27E5D7003032F9 /* Letter.swift in Sources */,
 				B1642E762C27E850003032F9 /* UserDefaultManager.swift in Sources */,
-				B1642E602C27085F003032F9 /* APIInfo.swift in Sources */,
 				B1642E672C27A629003032F9 /* LocationManager.swift in Sources */,
 				B1642E322C26EA23003032F9 /* AppDelegate.swift in Sources */,
 				B1642E342C26EA23003032F9 /* SceneDelegate.swift in Sources */,
