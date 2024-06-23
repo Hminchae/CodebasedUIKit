@@ -23,6 +23,13 @@ class MainViewController: UIViewController {
                                            sys: Sys(country: "", sunrise: 0, sunset: 0),
                                            id: 0,
                                            name: "")
+    
+    private var siAndGu: String = "" {
+        didSet {
+            locationLabel.text = siAndGu
+        }
+    }
+    
     private let backgroundView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.6)
@@ -38,12 +45,12 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let locationLabel = {
+    private var locationLabel = {
         let label = UILabel()
         label.font = UIFont(name: "GowunBatang-Regular", size: 18)
         label.textAlignment = .left
         label.textColor = .black
-        label.text = "서울시 동작구"
+        
         return label
     }()
     
@@ -123,11 +130,14 @@ class MainViewController: UIViewController {
     }
     
     private func requestUserLocation() {
-        LocationManager.shared.updateUserLocation = { coordinate in
-            print(coordinate)
-            NetworkManager.shared.getWeather(lat: coordinate.latitude, lon: coordinate.longitude) { value in
-                print(value)
-                self.configureData(data: value)
+        let locationManager = LocationManager.shared
+        locationManager.updateUserLocation = { coordinate in
+            locationManager.reverseGeocodeLocation(coordinate) { address in
+                self.siAndGu = address
+                NetworkManager.shared.getWeather(lat: coordinate.coordinate.latitude, lon: coordinate.coordinate.longitude) { value in
+                    print(value)
+                    self.configureData(data: value)
+                }
             }
         }
     }

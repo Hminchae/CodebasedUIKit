@@ -11,7 +11,9 @@ import CoreLocation
 class LocationManager: NSObject {
     static let shared = LocationManager()
     private let locationManager = CLLocationManager()
-    var updateUserLocation: ((CLLocationCoordinate2D) -> Void)?
+    
+    var updateUserLocation: ((CLLocation) -> Void)?
+    private let geocoder = CLGeocoder()
     
     override init() {
         super.init()
@@ -56,27 +58,39 @@ extension LocationManager {
 
 // 위치 관련 프로토콜 선언 : CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
-    // 5️⃣ 사용자 위치를 성공적으로 가지고 온 경우
-    // 코드 구성에 따라 여러번 호출이 될 수 도 있다
-    // didUpdateLocations
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let coordinate = locations.last?.coordinate {
+        if let coordinate = locations.last {
             updateUserLocation?(coordinate)
             locationManager.stopUpdatingLocation()
         }
     }
-    // 사용자 위치를 가지고 오지 못했음
+    // 위치 업데이트 실패
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function)
     }
-    // 사용자 권한 상태가 변경이 될 때(iOSS14)
-    // 사용자가 허용했었는데 아이폰 설정에서 나중에 허용을 거부한다면..
+    // 권한 상태 변경 iOS14+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print(#function, "iOS14+")
         checkDeviceLocationAuthorization()
     }
-    
+    // 권한 상태 변경 iOS14-
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print(#function, "iOS14-")
+    }
+    
+
+    func reverseGeocodeLocation(_ location: CLLocation, completion: @escaping (String) -> Void) {
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print("역 지오코딩 실패: \(error)")
+                completion("주소를 찾을 수 없습니다.")
+            } else if let placemark = placemarks?.first {
+                let address = [placemark.locality, placemark.subLocality].compactMap { $0 }.joined(separator: ", ")
+                completion(address)  
+            } else {
+                completion("주소 정보가 없습니다.")
+            }
+        }
     }
 }
