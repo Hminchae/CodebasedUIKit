@@ -12,8 +12,12 @@ enum MediaAPI {
     case creditURL(movieId: Int)
     case imageURL(imagePath: String)
     case genreURL
+    
     case movieSearch
     case movieDiscover
+    case movieSimilar(movieId: Int)
+    case movieRecommend(movieId: Int)
+    case moviePoster(movieId: Int)
     
     var url: String {
         switch self {
@@ -29,6 +33,12 @@ enum MediaAPI {
             return "https://api.themoviedb.org/3/search/movie"
         case .movieDiscover:
             return "https://api.themoviedb.org/3/discover/movie"
+        case .movieSimilar(let id):
+            return "https://api.themoviedb.org/3/movie/\(id)/similar"
+        case .movieRecommend(let id):
+            return "https://api.themoviedb.org/3/movie/\(id)/recommendations"
+        case .moviePoster(let id):
+            return "https://api.themoviedb.org/3/movie/\(id)/images"
         }
     }
 }

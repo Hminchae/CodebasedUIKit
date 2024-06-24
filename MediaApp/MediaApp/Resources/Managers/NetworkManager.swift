@@ -53,6 +53,7 @@ class NetworkManager {
         }
     }
     
+    // SearchVC - 검색 API
     func searchCallRequest(query: String, page: Int, completionHandler: @escaping (Result<Search, Error>) -> Void) {
         let url = MediaAPI.movieSearch.url
         
@@ -71,6 +72,85 @@ class NetworkManager {
                    parameters: para,
                    headers: header)
         .responseDecodable(of: Search.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    // Search Detail VC - 비슷한 영화 API
+    func similarCallRequest(id: Int, page: Int, completionHandler: @escaping (Result<Search, Error>) -> Void) {
+        let url = MediaAPI.movieSimilar(movieId: id).url
+        
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        let para: Parameters = [
+            "language": "ko-KR"
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: para,
+                   headers: header)
+        .responseDecodable(of: Search.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    // Search Detail VC - 추천 API
+    func recommendCallRequest(id: Int, page: Int, completionHandler: @escaping (Result<Search, Error>) -> Void) {
+        let url = MediaAPI.movieRecommend(movieId: id).url
+        
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        let para: Parameters = [
+            "language": "ko-KR",
+            "page": page
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: para,
+                   headers: header)
+        .responseDecodable(of: Search.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func moviePosterCallRequest(id: Int, page: Int, completionHandler: @escaping (Result<Poster, Error>) -> Void) {
+        let url = MediaAPI.moviePoster(movieId: id).url
+        
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        let para: Parameters = [
+            "language": "ko-KR",
+            "page": page
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: para,
+                   headers: header)
+        .responseDecodable(of: Poster.self) { response in
             switch response.result {
             case .success(let value):
                 completionHandler(.success(value))
