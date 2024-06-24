@@ -29,6 +29,7 @@
 		B1642D1F2C193464003032F9 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D1E2C193464003032F9 /* SignViewController.swift */; };
 		B1642D222C19370C003032F9 /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D212C19370C003032F9 /* BlackRadiusTextField.swift */; };
 		B1642D262C194892003032F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642D252C194892003032F9 /* Constant.swift */; };
+		B1642EB02C291DF5003032F9 /* LottoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642EAF2C291DF5003032F9 /* LottoManager.swift */; };
 		B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1712C168B06009C00B1 /* BookViewController.swift */; };
 		B182B1742C1695B8009C00B1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1732C1695B8009C00B1 /* Book.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		B1642D1E2C193464003032F9 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B1642D212C19370C003032F9 /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
 		B1642D252C194892003032F9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B1642EAF2C291DF5003032F9 /* LottoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoManager.swift; sourceTree = "<group>"; };
 		B182B1712C168B06009C00B1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		B182B1732C1695B8009C00B1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 				B15541792C0FE4E800DAAB37 /* AppDelegate.swift */,
 				B155417B2C0FE4E800DAAB37 /* SceneDelegate.swift */,
 				B1642D1B2C1927A1003032F9 /* ReuseIdentifierProtocol.swift */,
+				B1642EAF2C291DF5003032F9 /* LottoManager.swift */,
 				B1642D242C194856003032F9 /* Constant */,
 				B1642D202C1936CC003032F9 /* CustomView */,
 				B1642D1D2C193449003032F9 /* Sign */,
@@ -254,6 +257,7 @@
 				B15541A02C1013E300DAAB37 /* CollectionViewController.swift in Sources */,
 				B182B1722C168B06009C00B1 /* BookViewController.swift in Sources */,
 				B1642D112C182C41003032F9 /* BookCollectionViewController.swift in Sources */,
+				B1642EB02C291DF5003032F9 /* LottoManager.swift in Sources */,
 				B1642D132C182E70003032F9 /* BookCollectionViewCell.swift in Sources */,
 				B155417C2C0FE4E800DAAB37 /* SceneDelegate.swift in Sources */,
 				B155419E2C10041300DAAB37 /* MarketTableViewCell.swift in Sources */,

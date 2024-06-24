@@ -79,21 +79,10 @@ class ViewController: UIViewController {
     // 2️⃣ respnseString 으로 확인
     // 3️⃣ nil
     
-    @objc func checkButtonClicked() {
-        print(#function)
-        let url = "\(APIURL.lottoURL)\(numberTextField.text!)"
-
-        AF.request(url).responseDecodable(of: Lotto.self) { response in
-            switch response.result {
-            case .success(let value):
-                print(value)
-                
-                self.resultLabel.text = "\(value.drwNoDate)\n1등 당첨금액: \(value.totSellamnt.formatted())"
-            case .failure(let error):
-                print(error)
-                self.resultLabel.text = "올바른 값을 입력해주세요."
-            }
+    @objc func checkButtonClicked() { LottoManager.callRequest(number: numberTextField.text!) { number in
+            self.resultLabel.text = number
         }
+        
     }
 }
 
