@@ -13,16 +13,36 @@ import Kingfisher
 
 class TrendViewController: UIViewController {
     
-    var list: [Result] = []
+    var list: [MovieDetail] = []
     var genres: [Genre] = []
     let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .bg
+   
+        NetworkManager.shared.trendMovieCallRequest { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let value):
+                    self.list = value.results
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         
-        callRequest()
-        callGenreRequest()
+        NetworkManager.shared.genreCallRequest { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let value):
+                    self.genres = value.genres
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         configureTableView()
         configureNavigationItem()
     }
@@ -71,48 +91,8 @@ class TrendViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
-        tableView.rowHeight = 450 
+        tableView.rowHeight = 450
         tableView.separatorStyle = .none
-    }
-    
-    func callRequest() {
-        let url = MediaAPI.trendURL.url
-        let header: HTTPHeaders = [
-            "Authorization": Constants.apiKey,
-            "accept": "application/json"
-        ]
-        let para: Parameters = [
-            "language" : "ko-KR",
-            "time_window" : "week"
-        ]
-        AF.request(url, method: .get, parameters: para, headers: header).responseDecodable(of: TrendMovie.self) { response in
-            switch response.result {
-            case .success(let value):
-                print("Success")
-
-                self.list = value.results
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func callGenreRequest() {
-        let url = MediaAPI.genreURL.url
-        let header: HTTPHeaders = [
-            "Authorization": Constants.apiKey,
-            "accept": "application/json"
-        ]
-        AF.request(url, headers: header).responseDecodable(of: Genres.self) { response in
-            switch response.result {
-            case .success(let value):
-                print("Success")
-                self.genres = value.genres
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }
 
@@ -162,9 +142,9 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let overView = list[sender.tag].overview
         let vc = NewCreditViewController()
         
-//        vc.targetId = id
-//        vc.targetMainImageUrl = imageUrl
-//        vc.targetOverView = overView
+        //        vc.targetId = id
+        //        vc.targetMainImageUrl = imageUrl
+        //        vc.targetOverView = overView
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 struct TrendMovie: Decodable {
     let page: Int
-    let results: [Result]
+    let results: [MovieDetail]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ struct TrendMovie: Decodable {
     }
 }
 
-struct Result: Decodable {
+struct MovieDetail: Decodable {
     let backdropPath: String
     let id: Int
     let originalTitle: String?
@@ -27,7 +27,6 @@ struct Result: Decodable {
     let mediaType: MediaType
     let adult: Bool
     let title: String?
-    let originalLanguage: OriginalLanguage
     let genreIDS: [Int]
     let popularity: Double
     let releaseDate: String?
@@ -45,7 +44,6 @@ struct Result: Decodable {
         case posterPath = "poster_path"
         case mediaType = "media_type"
         case adult, title
-        case originalLanguage = "original_language"
         case genreIDS = "genre_ids"
         case popularity
         case releaseDate = "release_date"
@@ -62,11 +60,4 @@ struct Result: Decodable {
 enum MediaType: String, Decodable {
     case movie = "movie"
     case tv = "tv"
-}
-
-enum OriginalLanguage: String, Decodable {
-    case en = "en"
-    case fr = "fr"
-    case ja = "ja"
-    case zh = "zh"
 }
