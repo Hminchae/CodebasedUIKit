@@ -131,40 +131,21 @@ class SearchViewController: UIViewController {
         return layout
     }
     
-    func callRequest(query: String, page: Int) {
-        let url = MediaAPI.movieSearch.url
-        
-        let header: HTTPHeaders = [
-            "Authorization": Constants.apiKey,
-            "accept": "application/json"
-        ]
-        
-        let para: Parameters = [
-            "query": query,
-            "language": "ko-KR",
-            "page": page
-        ]
-        
-        AF.request(url,
-                   method: .get,
-                   parameters: para,
-                   headers: header)
-        .responseDecodable(of: Search.self) { response in
-            switch response.result {
-            case .success(let value):
-                print("SUCCESS")
-                if self.page == 1 {
-                    self.list = value // 새로운 검색어
-                    self.collectionView.scrollToItem(at: IndexPath(item: -1, section: 0), at: .init(rawValue: 0), animated: true)
-                } else {
-                    self.list.results.append(contentsOf: value.results) // 기존 검색어
-                }
-                self.collectionView.reloadData()
-                
-            case .failure(let error):
-                print("Failed")
-                print(error)
+    private func handleNetworkResult(_ result: Result<Search, Error>) {
+        switch result {
+        case .success(let value):
+            print("SUCCESS")
+            if self.page == 1 {
+                self.list = value // 새로운 검색어
+                self.collectionView.scrollToItem(at: IndexPath(item: -1, section: 0), at: .init(rawValue: 0), animated: true)
+            } else {
+                self.list.results.append(contentsOf: value.results) // 기존 검색어
             }
+            self.collectionView.reloadData()
+            
+        case .failure(let error):
+            print("Failed")
+            print(error)
         }
     }
 }
@@ -192,7 +173,11 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
             if list.results.count - 2 == indexPath.row && !isEnd {
                 page += 1
                 if let query = searchBar.text {
-                    callRequest(query: query, page: page)
+                    NetworkManager.shared.searchCallRequest(query: query, page: page) { result in
+                        DispatchQueue.main.async {
+                            self.handleNetworkResult(result)
+                        }
+                    }
                 }
                 print(page)
             }
@@ -217,7 +202,11 @@ extension SearchViewController: UISearchBarDelegate {
         
         preSearchQuery = target
         page = 1
-        callRequest(query: target, page: page)
+        NetworkManager.shared.searchCallRequest(query: target, page: page) { result in
+            DispatchQueue.main.async {
+                self.handleNetworkResult(result)
+            }
+        }
         
         emptyView.isHidden = true
         configureCollectionView()

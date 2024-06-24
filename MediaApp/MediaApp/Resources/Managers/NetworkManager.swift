@@ -14,7 +14,7 @@ class NetworkManager {
     
     private init() { }
     
-    // 트렌드 무비
+    // TrendVC - 트렌드 무비
     func trendMovieCallRequest(completionHandler: @escaping (Result<TrendMovie, Error>) -> Void) {
         let url = MediaAPI.trendURL.url
         let header: HTTPHeaders = [
@@ -36,7 +36,7 @@ class NetworkManager {
         }
     }
     
-    // 장르 API
+    // TrendVC - 장르 API
     func genreCallRequest(completionHandler: @escaping (Result<Genres, Error>) -> Void) {
         let url = MediaAPI.genreURL.url
         let header: HTTPHeaders = [
@@ -44,6 +44,33 @@ class NetworkManager {
             "accept": "application/json"
         ]
         AF.request(url, headers: header).responseDecodable(of: Genres.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func searchCallRequest(query: String, page: Int, completionHandler: @escaping (Result<Search, Error>) -> Void) {
+        let url = MediaAPI.movieSearch.url
+        
+        let header: HTTPHeaders = [
+            "Authorization": Constants.apiKey,
+            "accept": "application/json"
+        ]
+        let para: Parameters = [
+            "query": query,
+            "language": "ko-KR",
+            "page": page
+        ]
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: para,
+                   headers: header)
+        .responseDecodable(of: Search.self) { response in
             switch response.result {
             case .success(let value):
                 completionHandler(.success(value))
