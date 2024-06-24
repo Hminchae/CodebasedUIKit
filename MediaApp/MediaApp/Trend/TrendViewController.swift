@@ -54,27 +54,26 @@ class TrendViewController: UIViewController {
             target: self,
             action: #selector(menuButtonClicked))
         
-        let search = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass"),
+        let noti = UIBarButtonItem(
+            image: UIImage(systemName: "bell.fill"),
             style: .plain,
             target: self,
-            action: #selector(searchButtonClicked))
+            action: #selector(notiButtonClicked))
         
         menu.tintColor = .point
-        search.tintColor = .point
+        noti.tintColor = .point
         
         navigationItem.leftBarButtonItem = menu
-        navigationItem.rightBarButtonItem = search
+        navigationItem.rightBarButtonItem = noti
         navigationItem.backButtonTitle = "" // 다음에 올 네비게이션의 백버튼 타이틀을 공백으로 변경
     }
     
     @objc func menuButtonClicked() {
-        
+        //TODO: 영화와 드라마 전환 버튼 구현
     }
     
-    @objc func searchButtonClicked() {
-        let vc = SearchViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    @objc func notiButtonClicked() {
+        //TODO: 알림모아보기 구현
     }
     
     func configureTableView() {
@@ -83,7 +82,7 @@ class TrendViewController: UIViewController {
         
         tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide.snp.horizontalEdges)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.snp.bottom)
         }
         

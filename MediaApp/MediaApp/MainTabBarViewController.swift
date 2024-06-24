@@ -34,6 +34,7 @@ class MainTabBarViewController: UITabBarController {
                                          selectedImage: UIImage(systemName: "person.fill"))
         
         tabBar.tintColor = .white
+        
         setViewControllers([trend, search, wish, myPage], animated: true)
     }
 }

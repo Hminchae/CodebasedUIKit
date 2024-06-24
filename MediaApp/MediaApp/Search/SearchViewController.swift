@@ -10,8 +10,13 @@ import UIKit
 import Alamofire
 import SnapKit
 import Kingfisher
+import Lottie
 
 class SearchViewController: UIViewController {
+    
+    private let user = UserDefaultManager.shared
+    
+    lazy private var searchList: [String] = user.mySearchList
     
     lazy var currentSearchQueryTotalPAge: Int = {
        return list.total_pages
@@ -26,24 +31,38 @@ class SearchViewController: UIViewController {
     var page = 1
     var preSearchQuery: String = "" // 이전 검색 기록
     
-    let popButton = UIButton()
-    let searchField = UITextField()
-    
     var list = Search(page: 0,
                       results: [],
                       total_pages: 0,
                       total_results: 0)
     
+    private var searchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "영화, 시리즈 등을 검색하세요"
+        searchBar.searchBarStyle = .minimal
+        
+        return searchBar
+    }()
+    
+    private var emptyView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }()
+    
+    private let lottieView = LottieAnimationView()
+    
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .bg
+        navigationController?.navigationBar.isHidden = true
         
         configureView()
         
-        searchField.delegate = self
+        searchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
@@ -52,51 +71,50 @@ class SearchViewController: UIViewController {
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
     private func configureView() {
-        view.addSubview(popButton)
-        view.addSubview(searchField)
-        view.addSubview(collectionView)
+        view.addSubview(searchBar)
+        view.addSubview(emptyView)
         
-        configureUI()
+        configureEmptyView()
         configureLayout()
     }
     
-    private func configureUI() {
-        popButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        popButton.tintColor = .point
-        popButton.addTarget(self, action: #selector(popButtonClicked), for: .touchUpInside)
+    private func configureEmptyView() {
+        print("??")
+        emptyView.addSubview(lottieView)
         
-        searchField.placeholder = " 영화를 검색하세요"
-        searchField.borderStyle = .roundedRect
-        searchField.tintColor = .point
-        searchField.clipsToBounds = true
-        searchField.layer.cornerRadius = 15
-        searchField.layer.borderWidth = 1
-        searchField.layer.borderColor = UIColor.point.cgColor
+        lottieView.animation = LottieAnimation.named("empty")
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .autoReverse
+        
+        lottieView.play()
+        
+        lottieView.snp.makeConstraints { make in
+            make.center.equalTo(emptyView.snp.center)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(5)
+            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     private func configureLayout() {
-        popButton.snp.makeConstraints { make in
-            make.centerY.equalTo(searchField.snp.centerY)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.size.equalTo(25)
-        }
-        
-        searchField.snp.makeConstraints { make in
+        searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(popButton.snp.trailing).offset(5)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(5)
             make.height.equalTo(35)
         }
         
+    }
+    
+    private func configureCollectionView() {
+        view.addSubview(collectionView)
+        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchField.snp.bottom).offset(5)
+            make.top.equalTo(searchBar.snp.bottom).offset(5)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -111,10 +129,6 @@ class SearchViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         
         return layout
-    }
-    
-    @objc func popButtonClicked() {
-        navigationController?.popViewController(animated: true)
     }
     
     func callRequest(query: String, page: Int) {
@@ -155,18 +169,6 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = searchField.text, !text.isEmpty, text != preSearchQuery else { return false }
-            
-        preSearchQuery = text
-        page = 1
-        callRequest(query: text, page: page)
-        
-        return true
-    }
-}
-
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         list.results.count
@@ -189,7 +191,7 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
      indexPaths.forEach { indexPath in
             if list.results.count - 2 == indexPath.row && !isEnd {
                 page += 1
-                if let query = searchField.text {
+                if let query = searchBar.text {
                     callRequest(query: query, page: page)
                 }
                 print(page)
@@ -204,6 +206,29 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
             if let cell = collectionView.cellForItem(at: indexPath) as? SearchCollectionViewCell {
                 cell.mainImageView.kf.cancelDownloadTask()
             }
+        }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let target = searchBar.text, !target.isEmpty, target != preSearchQuery else { return }
+        
+        preSearchQuery = target
+        page = 1
+        callRequest(query: target, page: page)
+        
+        emptyView.isHidden = true
+        configureCollectionView()
+        
+        if !user.mySearchList.contains(target) {
+            user.mySearchList.append(target)
+        } else {
+            var tempArr: [String] = user.mySearchList
+            tempArr = tempArr.filter { $0 != target }
+            tempArr.append(target)
+            user.mySearchList = tempArr
         }
     }
 }
