@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     @objc func swiftButtonClicked() {
-        let vc = LocationViewController()
+        let vc = NASAViewController()
         present(vc, animated: true)
     }
 

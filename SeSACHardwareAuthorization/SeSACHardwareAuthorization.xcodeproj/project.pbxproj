@@ -18,6 +18,8 @@
 		B1642E132C211002003032F9 /* DoCatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E122C211002003032F9 /* DoCatchViewController.swift */; };
 		B1642E1B2C226567003032F9 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E1A2C226567003032F9 /* LocationViewController.swift */; };
 		B1642E1D2C226FA3003032F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1642E1C2C226FA3003032F9 /* SnapKit */; };
+		B1642E202C23B4EF003032F9 /* NASAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E1F2C23B4EF003032F9 /* NASAViewController.swift */; };
+		B1642E222C23EFC2003032F9 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E212C23EFC2003032F9 /* EndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		B1642E0B2C1FCBBA003032F9 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B1642E122C211002003032F9 /* DoCatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCatchViewController.swift; sourceTree = "<group>"; };
 		B1642E1A2C226567003032F9 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		B1642E1F2C23B4EF003032F9 /* NASAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAViewController.swift; sourceTree = "<group>"; };
+		B1642E212C23EFC2003032F9 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		B1642DF22C1FBBB1003032F9 /* SeSACHardwareAuthorization */ = {
 			isa = PBXGroup;
 			children = (
+				B1642E1E2C23B4AA003032F9 /* GCD */,
 				B1642E192C226556003032F9 /* Location */,
 				B1642DF32C1FBBB1003032F9 /* AppDelegate.swift */,
 				B1642DF52C1FBBB1003032F9 /* SceneDelegate.swift */,
@@ -103,6 +108,15 @@
 				B1642E1A2C226567003032F9 /* LocationViewController.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		B1642E1E2C23B4AA003032F9 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				B1642E1F2C23B4EF003032F9 /* NASAViewController.swift */,
+				B1642E212C23EFC2003032F9 /* EndPoint.swift */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,10 +199,12 @@
 			files = (
 				B1642DF82C1FBBB1003032F9 /* ViewController.swift in Sources */,
 				B1642E0C2C1FCBBA003032F9 /* UIButton+Extension.swift in Sources */,
+				B1642E222C23EFC2003032F9 /* EndPoint.swift in Sources */,
 				B1642E132C211002003032F9 /* DoCatchViewController.swift in Sources */,
 				B1642E1B2C226567003032F9 /* LocationViewController.swift in Sources */,
 				B1642DF42C1FBBB1003032F9 /* AppDelegate.swift in Sources */,
 				B1642DF62C1FBBB1003032F9 /* SceneDelegate.swift in Sources */,
+				B1642E202C23B4EF003032F9 /* NASAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
