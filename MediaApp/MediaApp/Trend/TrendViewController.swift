@@ -125,6 +125,15 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = list[indexPath.row].id
+        let imageUrl = list[indexPath.row].backdropPath
+        let overView = list[indexPath.row].overview
+        let vc = DetailViewController()
+        vc.movieId = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
         var result = ""
         for i in genres {
@@ -136,14 +145,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func readMoreButtonClicked(_ sender: UIButton) {
-        let id = list[sender.tag].id
-        let imageUrl = list[sender.tag].backdropPath
-        let overView = list[sender.tag].overview
-        let vc = NewCreditViewController()
         
-        //        vc.targetId = id
-        //        vc.targetMainImageUrl = imageUrl
-        //        vc.targetOverView = overView
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
