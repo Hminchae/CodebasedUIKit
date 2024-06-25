@@ -7,66 +7,122 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    private let tableView = UITableView()
+import Kingfisher
+
+class DetailViewController: BaseViewController {
     
-    private let sectionTitles: [String] = ["비슷한 영화", "추천하는 영화"]
+    var movieId: Int?
+    
+    lazy private var tableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 200
+        tableView.register(DetailTableViewCell.self,
+                           forCellReuseIdentifier: DetailTableViewCell.identifier)
+        return tableView
+    }()
+    
+    var detailImageList: [[SearchResult]] = [[], []]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNetwork()
     }
     
-    private func configureTableView() {
+    override func configureHierarchy() {
         view.addSubview(tableView)
+    }
+    
+    override func configureLayout() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    override func configureView() {
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .bg
+    }
+    
+    // TODO: id 전 뷰에서 넘겨주기 필요
+    private func configureNetwork() {
+        guard let movieId = movieId else { return }
+        let group = DispatchGroup()
         
-        tableView.register(DetailCollectionTableViewCell.self, forCellReuseIdentifier: DetailCollectionTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        // tableView.tableHeaderView = headerView
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.similarCallRequest(id: movieId, page: 1) { result in
+                switch result {
+                case .success(let value):
+                    print(value)
+                    self.detailImageList[0] = value.results
+                case .failure(let error):
+                    print(error)
+                }
+                group.leave()
+            }
+        }
+        
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.recommendCallRequest(id: movieId, page: 1) { result in
+                switch result {
+                case .success(let value):
+                    self.detailImageList[1] = value.results
+                case .failure(let error):
+                    print(error)
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        detailImageList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailCollectionTableViewCell.identifier, for: indexPath) as? DetailCollectionTableViewCell else {
-            return UITableViewCell()
-        }
-        switch indexPath.section {
-        case Detail.Sections.recommendMovies.rawValue:
-            NetworkManager.shared.recommendCallRequest(id: 683722, page: 1) { result in
-                DispatchQueue.main.async {
-                    self.setTableViewAfterCall(result)
-                }
-            }
-        case Detail.Sections.similarMovies.rawValue:
-            NetworkManager.shared.recommendCallRequest(id: 683722, page: 1) { result in
-                DispatchQueue.main.async {
-                    self.setTableViewAfterCall(result)
-                }
-            }
-        default:
-            print("error")
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+        
+        cell.collectionView.dataSource = self
+        cell.collectionView.delegate = self
+        cell.collectionView.tag = indexPath.row
+        cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        cell.collectionView.reloadData()
+        cell.collectionView.backgroundColor = .bg
+        cell.collectionView.indicatorStyle = .black
+        
+        if indexPath.row == 0 {
+            cell.titleLabel.text = "비슷한 영화"
+        } else if indexPath.row == 1 {
+            cell.titleLabel.text = "추천하는 영화"
         }
         
         return cell
     }
+}
+
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return detailImageList[collectionView.tag].count
+    }
     
-    private func setTableViewAfterCall(_ result: Result<Search, Error>) {
-        switch result {
-        case .success(let value):
-            print("SUCCESS")
-            
-        case .failure(let error):
-            print("Failed")
-            print(error)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
+        
+        let data = detailImageList[collectionView.tag][indexPath.row]
+        if let imageUrl = data.poster_path {
+            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).url)
+            cell.posterImageView.kf.setImage(with: url)
         }
+        
+        return cell
     }
 }
