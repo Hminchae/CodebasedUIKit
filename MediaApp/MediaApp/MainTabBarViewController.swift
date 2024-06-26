@@ -35,6 +35,16 @@ class MainTabBarViewController: UITabBarController {
         
         tabBar.tintColor = .white
         
+        let appearance = UITabBarAppearance()
+        
+        appearance.backgroundColor = .bg.withAlphaComponent(0.4)
+        tabBar.standardAppearance = appearance
+        
+        if #available(iOS 15.0, *) {
+                // set tabbar opacity
+                tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        }
+        
         setViewControllers([trend, search, wish, myPage], animated: true)
     }
 }

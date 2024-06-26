@@ -50,6 +50,7 @@
 		B192F20D2C2AEEB9005A2A1F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F20C2C2AEEB9005A2A1F /* BaseViewController.swift */; };
 		B192F20F2C2AEECC005A2A1F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F20E2C2AEECC005A2A1F /* BaseTableViewCell.swift */; };
 		B192F2112C2AEEDB005A2A1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */; };
+		B192F2182C2C6582005A2A1F /* DetailPosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		B192F20C2C2AEEB9005A2A1F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B192F20E2C2AEECC005A2A1F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				B162ABB72C29C8B500CA46ED /* DetailCollectionViewCell.swift */,
 				B162ABBB2C29CFFE00CA46ED /* DetailTableViewCell.swift */,
+				B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				B162ABB22C29C5B000CA46ED /* Poster.swift in Sources */,
 				B192F20B2C2AEEAB005A2A1F /* BaseView.swift in Sources */,
 				B192F20F2C2AEECC005A2A1F /* BaseTableViewCell.swift in Sources */,
+				B192F2182C2C6582005A2A1F /* DetailPosterTableViewCell.swift in Sources */,
 				B192F20D2C2AEEB9005A2A1F /* BaseViewController.swift in Sources */,
 				B182B1862C16DEF2009C00B1 /* TrendViewController.swift in Sources */,
 				B1642D2A2C19F399003032F9 /* NewCreidtCollectionViewCell.swift in Sources */,
