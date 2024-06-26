@@ -28,7 +28,8 @@
 		B192F2022C2A8D24005A2A1F /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2012C2A8D24005A2A1F /* Trend.swift */; };
 		B192F2042C2A8D96005A2A1F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2032C2A8D96005A2A1F /* NetworkManager.swift */; };
 		B192F2062C2A8DB9005A2A1F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2052C2A8DB9005A2A1F /* APIKey.swift */; };
-		B192F2082C2A955A005A2A1F /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2072C2A955A005A2A1F /* TMDBAPI.swift */; };
+		B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */; };
+		B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2152C2BC153005A2A1F /* TMDBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +53,8 @@
 		B192F2012C2A8D24005A2A1F /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
 		B192F2032C2A8D96005A2A1F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B192F2052C2A8DB9005A2A1F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		B192F2072C2A955A005A2A1F /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
+		B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
+		B192F2152C2BC153005A2A1F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		B192F1FD2C2A8CB4005A2A1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B192F2142C2BC141005A2A1F /* URLSession */,
 				B192F1FE2C2A8CBD005A2A1F /* TMDB */,
 				B192F2052C2A8DB9005A2A1F /* APIKey.swift */,
 			);
@@ -155,9 +158,17 @@
 			children = (
 				B192F2012C2A8D24005A2A1F /* Trend.swift */,
 				B192F2032C2A8D96005A2A1F /* NetworkManager.swift */,
-				B192F2072C2A955A005A2A1F /* TMDBAPI.swift */,
+				B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */,
 			);
 			path = TMDB;
+			sourceTree = "<group>";
+		};
+		B192F2142C2BC141005A2A1F /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				B192F2152C2BC153005A2A1F /* TMDBManager.swift */,
+			);
+			path = URLSession;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,13 +261,14 @@
 				B1642E9D2C2909D5003032F9 /* ViewController.swift in Sources */,
 				B1642E992C2909D5003032F9 /* AppDelegate.swift in Sources */,
 				B192F1E72C2A5116005A2A1F /* BaseView.swift in Sources */,
-				B192F2082C2A955A005A2A1F /* TMDBAPI.swift in Sources */,
 				B1642E9B2C2909D5003032F9 /* SceneDelegate.swift in Sources */,
 				B192F2062C2A8DB9005A2A1F /* APIKey.swift in Sources */,
 				B192F2042C2A8D96005A2A1F /* NetworkManager.swift in Sources */,
+				B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */,
 				B192F1FC2C2A6FD4005A2A1F /* PosterCollectionViewCell.swift in Sources */,
 				B192F1E52C2A506A005A2A1F /* PosterViewController.swift in Sources */,
 				B192F1FA2C2A629F005A2A1F /* SearchView.swift in Sources */,
+				B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

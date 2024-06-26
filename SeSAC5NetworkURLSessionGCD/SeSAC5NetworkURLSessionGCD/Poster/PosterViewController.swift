@@ -33,9 +33,11 @@ class PosterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configurePosterImage()
+        TMDBManager.shared.callRequest()
         
-        //aboutGCD()
+//        DispatchQueue.main.asyncAfter(deadline: .now() +2 ) { 💡의도적으로 시간을 두고 갱신을 하는 방법도 있음
+//            tableView.reloadData()
+//        }
     }
     
     override func configureHierarchy() {
@@ -52,48 +54,38 @@ class PosterViewController: BaseViewController {
         
     }
     
-    func configurePosterImage() {
-        let group = DispatchGroup()
-        
-        group.enter() //+1
-        DispatchQueue.global().async(group: group) {
-            NetworkManager.shared.trendMovieCallRequest { result in
-                switch result {
-                case .success(let value):
-                    self.imageList[0] = value.results
-                    print("11111111111")
-                case .failure(let error):
-                    print(error)
-                }
-                group.leave() // -1
-            }
-        }
-        
-        group.enter() //+2
-        DispatchQueue.global().async(group: group) {
-            NetworkManager.shared.trendTVCallRequest { result in
-                switch result {
-                case .success(let value):
-                    self.imageList[1] = value.results
-                    print("2222222222222")
-                case .failure(let error):
-                    print(error)
-                }
-                group.leave() // -1
-            }
-        }
-        
-        // 0 일때..비로소
-        group.notify(queue: .main) {
-            self.tableView.reloadData()
-            print("네트워크 알바생 업무 끝났어용 ❤️")
-        }
-    }
-    
-    // serial, concurrent, / sync async
-    // main global
-    // global qos
-    // dispatchgroup
+//    func configurePosterImage() {
+//        let group = DispatchGroup()
+//        
+//        group.enter()
+//        DispatchQueue.global().async(group: group) {
+//            NetworkManager.shared.trending(api: .trendingMovie) { movies, error in
+//                if let error = error {
+//                    print("영화 로딩 중 에러 발생: \(error)")
+//                } else if let movies = movies {
+//                    self.imageList[0] = movies
+//                }
+//                group.leave()
+//            }
+//        }
+//        
+//        group.enter()
+//        DispatchQueue.global().async(group: group) {
+//            NetworkManager.shared.trending(api: .trendingTV) { tvShows, error in
+//                if let error = error {
+//                    print("error")
+//                } else if let tvShow = tvShows { // 첫 번째 TV 쇼를 가져옵니다.
+//                    self.imageList[1] = tvShow // 두 번째 인덱스에 TV 쇼 포스터 할당
+//                }
+//                group.leave()
+//            }
+//        }
+//        
+//        group.notify(queue: .main) {
+//            self.tableView.reloadData()
+//            print("네트워크 작업 완료 ❤️")
+//        }
+//    }
     
     func aboutGCD() {
         let group = DispatchGroup()
