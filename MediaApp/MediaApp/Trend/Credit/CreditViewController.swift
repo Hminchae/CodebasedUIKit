@@ -30,7 +30,7 @@ class CreditViewController: UIViewController {
         //v.clipsToBounds = true
         
         if let imageUrl = targetMainImageUrl {
-            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).url)
+            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
             v.kf.setImage(with: url)
         }
         
@@ -209,7 +209,7 @@ class CreditViewController: UIViewController {
     }
     
     func callRequest(_ id: Int) {
-        let url = MediaAPI.creditURL(movieId: id).url
+        let url = MediaAPI.creditURL(movieId: id).entireUrl
         let header: HTTPHeaders = [
             "Authorization": Constants.apiKey,
             "accept": "application/json"
@@ -244,7 +244,7 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         print(list[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: CreditTableViewCell.identifier, for: indexPath) as! CreditTableViewCell
         if let url = list[indexPath.row].profilePath {
-            let url = URL(string: MediaAPI.imageURL(imagePath: url).url)
+            let url = URL(string: MediaAPI.imageURL(imagePath: url).entireUrl)
             cell.actorProfieImageView.kf.setImage(with: url)
         }
         cell.actorName.text = list[indexPath.row].originalName

@@ -7,38 +7,75 @@
 
 import Foundation
 
+import Alamofire
+
 enum MediaAPI {
     case trendURL
     case creditURL(movieId: Int)
     case imageURL(imagePath: String)
     case genreURL
     
-    case movieSearch
+    case movieSearch(query: String, page: Int)
     case movieDiscover
     case movieSimilar(movieId: Int)
     case movieRecommend(movieId: Int)
     case moviePoster(movieId: Int)
     
-    var url: String {
+    var baseUrl: String {
+        return "https://api.themoviedb.org/"
+    }
+    
+    var endPointUrl: String {
         switch self {
         case .trendURL:
-            return "https://api.themoviedb.org/3/trending/movie/day"
+            return "3/trending/movie/day"
         case .creditURL(let id):
-            return "https://api.themoviedb.org/3/movie/\(id)/credits"
+            return "3/movie/\(id)/credits"
         case .imageURL(let path):
             return "https://image.tmdb.org/t/p/original/\(path)"
         case .genreURL:
-            return "https://api.themoviedb.org/3/genre/movie/list"
+            return "3/genre/movie/list"
         case .movieSearch:
-            return "https://api.themoviedb.org/3/search/movie"
+            return "3/search/movie"
         case .movieDiscover:
-            return "https://api.themoviedb.org/3/discover/movie"
+            return "3/discover/movie"
         case .movieSimilar(let id):
-            return "https://api.themoviedb.org/3/movie/\(id)/similar"
+            return "3/movie/\(id)/similar"
         case .movieRecommend(let id):
-            return "https://api.themoviedb.org/3/movie/\(id)/recommendations"
+            return "3/movie/\(id)/recommendations"
         case .moviePoster(let id):
-            return "https://api.themoviedb.org/3/movie/\(id)/images"
+            return "3/movie/\(id)/images"
+        }
+    }
+    
+    var entireUrl: String {
+        switch self {
+        case .imageURL:
+            return endPointUrl
+        default:
+            return baseUrl + endPointUrl
+        }
+    }
+    
+    var header: HTTPHeaders {
+        ["Authorization": Constants.apiKey,
+         "accept": "application/json"]
+    }
+    
+    var method: HTTPMethod {
+        return .get
+    }
+    
+    var parameter: Parameters {
+        switch self {
+        case .trendURL:
+            return ["language": "ko-KR", "time_window" : "week"]
+        case .movieSearch(let query, let page):
+            return ["query": query, "language": "ko-KR", "page": page]
+        case .creditURL, .movieSimilar, .movieRecommend, .moviePoster:
+            return ["language": "ko-KR"]
+        default:
+            return ["":""]
         }
     }
 }

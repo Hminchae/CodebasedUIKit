@@ -17,7 +17,7 @@ class DetailViewController: BaseViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 200
+        tableView.rowHeight = 220
         tableView.register(DetailTableViewCell.self,
                            forCellReuseIdentifier: DetailTableViewCell.identifier)
         return tableView
@@ -43,16 +43,19 @@ class DetailViewController: BaseViewController {
     override func configureView() {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .bg
+        
+        navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
     }
     
-    // TODO: id 전 뷰에서 넘겨주기 필요
     private func configureNetwork() {
         guard let movieId = movieId else { return }
         let group = DispatchGroup()
         
         group.enter()
         DispatchQueue.global().async(group: group) {
-            NetworkManager.shared.similarCallRequest(id: movieId, page: 1) { result in
+            NetworkManager.shared.searchCallRequest(
+                api: .movieSimilar(movieId: movieId)
+            ) { result in
                 switch result {
                 case .success(let value):
                     print(value)
@@ -66,7 +69,9 @@ class DetailViewController: BaseViewController {
         
         group.enter()
         DispatchQueue.global().async(group: group) {
-            NetworkManager.shared.recommendCallRequest(id: movieId, page: 1) { result in
+            NetworkManager.shared.searchCallRequest(
+                api: .movieRecommend(movieId: movieId)
+            ) { result in
                 switch result {
                 case .success(let value):
                     self.detailImageList[1] = value.results
@@ -119,7 +124,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let data = detailImageList[collectionView.tag][indexPath.row]
         if let imageUrl = data.poster_path {
-            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).url)
+            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
             cell.posterImageView.kf.setImage(with: url)
         }
         

@@ -13,6 +13,7 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .bg
         // Do any additional setup after loading the view.
+        print(MediaAPI.trendURL.entireUrl)
     }
     
 

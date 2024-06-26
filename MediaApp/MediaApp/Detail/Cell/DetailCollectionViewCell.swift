@@ -32,7 +32,7 @@ class DetailCollectionViewCell: BaseCollectionViewCell {
         posterImageView.backgroundColor = .black.withAlphaComponent(0.7)
         posterImageView.clipsToBounds = true
         posterImageView.layer.masksToBounds = true
-        posterImageView.layer.cornerRadius = 10
+        posterImageView.layer.cornerRadius = 8
         posterImageView.contentMode = .scaleAspectFill
     }
 }

@@ -20,31 +20,48 @@ class TrendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .bg
-   
-        NetworkManager.shared.trendMovieCallRequest { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let value):
-                    self.list = value.results
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
+        
+        configureNetwork()
+        configureTableView()
+        configureNavigationItem()
+    }
+    
+    func configureNetwork() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.trendMovieCallRequest(api: .trendURL) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let value):
+                        self.list = value.results
+                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print(error)
+                    }
                 }
+                group.leave()
             }
         }
         
-        NetworkManager.shared.genreCallRequest { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let value):
-                    self.genres = value.genres
-                case .failure(let error):
-                    print(error)
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.genreCallRequest(api: .genreURL) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let value):
+                        self.genres = value.genres
+                    case .failure(let error):
+                        print(error)
+                    }
                 }
+                group.leave()
             }
         }
-        configureTableView()
-        configureNavigationItem()
+        group.notify(queue: .main) {
+            self.tableView.reloadData()
+        }
     }
     
     func configureNavigationItem() {
@@ -105,7 +122,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier, for: indexPath) as! TrendTableViewCell
         
         let data = list[indexPath.row]
-        let url = URL(string: MediaAPI.imageURL(imagePath: data.backdropPath).url)
+        let url = URL(string: MediaAPI.imageURL(imagePath: data.backdropPath).entireUrl)
         
         Task {
             let category = await updateCategoryName(cell, genreID: data.genreIDS[0])

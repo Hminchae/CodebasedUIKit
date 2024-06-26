@@ -159,7 +159,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let data = list.results[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as! SearchCollectionViewCell
         if let url = data.poster_path {
-            let url = URL(string: MediaAPI.imageURL(imagePath: url).url)
+            let url = URL(string: MediaAPI.imageURL(imagePath: url).entireUrl)
             cell.mainImageView.kf.setImage(with: url)
         }
         print(data)
@@ -173,7 +173,7 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
             if list.results.count - 2 == indexPath.row && !isEnd {
                 page += 1
                 if let query = searchBar.text {
-                    NetworkManager.shared.searchCallRequest(query: query, page: page) { result in
+                    NetworkManager.shared.searchCallRequest(api: .movieSearch(query: query, page: page)) { result in
                         DispatchQueue.main.async {
                             self.handleNetworkResult(result)
                         }
@@ -202,7 +202,8 @@ extension SearchViewController: UISearchBarDelegate {
         
         preSearchQuery = target
         page = 1
-        NetworkManager.shared.searchCallRequest(query: target, page: page) { result in
+        
+        NetworkManager.shared.searchCallRequest(api: .movieSearch(query: target, page: page)) { result in
             DispatchQueue.main.async {
                 self.handleNetworkResult(result)
             }
