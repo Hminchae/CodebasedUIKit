@@ -33,7 +33,14 @@ class PosterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TMDBManager.shared.callRequest()
+        //TMDBManager.shared.callRequest(completionHandler: (Lotto?, thankyError?) -> Void)
+        TMDBManager.shared.callRequest { lotto, error in
+            if let error = error {
+                print("에러~~")
+            } else if let lotto = lotto {
+                print(lotto)
+            }
+        }
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() +2 ) { 💡의도적으로 시간을 두고 갱신을 하는 방법도 있음
 //            tableView.reloadData()
