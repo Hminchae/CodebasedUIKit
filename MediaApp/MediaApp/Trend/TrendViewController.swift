@@ -83,6 +83,7 @@ class TrendViewController: UIViewController {
         navigationItem.leftBarButtonItem = menu
         navigationItem.rightBarButtonItem = noti
         navigationItem.backButtonTitle = "" // 다음에 올 네비게이션의 백버튼 타이틀을 공백으로 변경
+        self.navigationController?.navigationBar.tintColor = .point
     }
     
     @objc func menuButtonClicked() {
@@ -96,7 +97,7 @@ class TrendViewController: UIViewController {
     func configureTableView() {
         view.backgroundColor = .bg
         view.addSubview(tableView)
-        
+   
         tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide.snp.horizontalEdges)
             make.top.equalTo(view.safeAreaLayoutGuide)
@@ -149,7 +150,9 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = DetailViewController()
         vc.movieId = id
         vc.imagePath = imageUrl
+        vc.movieName = list[indexPath.row].title
         navigationController?.pushViewController(vc, animated: true)
+        //present(vc, animated: true)
     }
     
     func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {

@@ -39,7 +39,7 @@ class DetailTableViewCell: BaseTableViewCell {
         collectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(contentView)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(15)
+            //make.bottom.equalTo(collectionView).inset(20)
         }
     }
     

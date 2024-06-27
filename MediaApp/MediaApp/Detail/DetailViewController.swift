@@ -7,12 +7,14 @@
 
 import UIKit
 
+import SnapKit
 import Kingfisher
 
 class DetailViewController: BaseViewController {
     
     var movieId: Int?
     var imagePath: String?
+    var movieName: String?
     
     lazy private var tableView = {
         let tableView = UITableView()
@@ -32,15 +34,19 @@ class DetailViewController: BaseViewController {
         super.viewDidLoad()
         configureNetwork()
     }
-    
+
     override func configureHierarchy() {
         view.addSubview(tableView)
     }
     
-    override func configureLayout() {
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top)
-            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let topSafeArea = view.safeAreaInsets.top
+        
+        tableView.snp.remakeConstraints { make in
+            make.top.equalToSuperview().offset(-topSafeArea)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview()
         }
     }
     
@@ -49,6 +55,12 @@ class DetailViewController: BaseViewController {
         tableView.backgroundColor = .bg
         
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
+        
+        navigationItem.largeTitleDisplayMode = .automatic
+        if let movieName = movieName {
+            print(movieName)
+            navigationItem.title = movieName
+        }
     }
     
     private func configureNetwork() {
@@ -62,7 +74,6 @@ class DetailViewController: BaseViewController {
             ) { result in
                 switch result {
                 case .success(let value):
-                    print(value)
                     self.detailImageList[0] = value.results
                 case .failure(let error):
                     print(error)
@@ -98,16 +109,16 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 350
-        case 1:
-            return 200
-        default:
-            return 0
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch indexPath.section {
+//        case 0:
+//            return 400
+//        case 1:
+//            return 215
+//        default:
+//            return UITableView.automaticDimension
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -124,7 +135,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailPosterTableViewCell.identifier, for: indexPath) as! DetailPosterTableViewCell
-           
+            
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.collectionView.tag = indexPath.row
@@ -134,8 +145,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.indicatorStyle = .black
             
             return cell
-        case 1: 
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+            
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.collectionView.tag = indexPath.row
@@ -170,6 +182,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPosterCollectionCell.identifier, for: indexPath) as! DetailPosterCollectionCell
         switch indexPath.section {
         case 0:

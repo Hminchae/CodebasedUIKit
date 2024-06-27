@@ -16,9 +16,9 @@ class DetailPosterTableViewCell: BaseTableViewCell {
         let layout = UICollectionViewFlowLayout()
         let sectionSpacing: CGFloat = 0
         let cellSpacing: CGFloat = 0
-//        let width = UIScreen.main.bounds.width
-//        
-//        layout.itemSize = CGSize(width: width, height: 300)
+        let width = UIScreen.main.bounds.width
+        
+        layout.itemSize = CGSize(width: width, height: 500)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
@@ -37,8 +37,7 @@ class DetailPosterTableViewCell: BaseTableViewCell {
     override func configureLayout() {
         collectionView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView)
-            make.height.equalTo(350)
-            make.bottom.equalTo(contentView.snp.bottom).inset(15)
+            make.height.equalTo(500)
         }
     }
     

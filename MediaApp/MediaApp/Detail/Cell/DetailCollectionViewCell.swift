@@ -11,12 +11,7 @@ import UIKit
 class DetailCollectionViewCell: BaseCollectionViewCell {
     
     let posterImageView = UIImageView()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        configureView()
-    }
-    
+
     override func configureHierarchy() {
         contentView.addSubview(posterImageView)
     }
@@ -28,7 +23,7 @@ class DetailCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        posterImageView.backgroundColor = .black.withAlphaComponent(0.7)
+        posterImageView.backgroundColor = .systemPink//.black.withAlphaComponent(0.7)
         posterImageView.clipsToBounds = true
         posterImageView.layer.masksToBounds = true
         posterImageView.layer.cornerRadius = 8
