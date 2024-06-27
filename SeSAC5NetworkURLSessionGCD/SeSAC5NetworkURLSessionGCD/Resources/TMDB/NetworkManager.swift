@@ -5,37 +5,37 @@
 ////  Created by 황민채 on 6/25/24.
 ////
 //
-//import Foundation
-//
-//import Alamofire
-//
-//class NetworkManager {
-//    static let shared = NetworkManager()
-//    
-//    private init() { }
-//    
-//    typealias trendingnHandler = ([MovieDetail], String?) -> Void
-//    
-//    func trending(api: TMDBRequest, completionHandler: @escaping trendingnHandler) {
-//        AF.request(api.endPoint,
-//                   method: api.method,
-//                   parameters: api.parameter,
-//                   encoding: URLEncoding(destination: .queryString),
-//                   headers: api.header)
-//        .validate(statusCode: 200..<500)
-//        .responseDecodable(of: Trending.self) { response in
-//            switch response.result {
-//            case .success(let value):
-//                completionHandler(value.results, nil)
-//            case .failure(let error):
-//                completionHandler(nil, "잠시 후 다시 시도해주세요.")
-//                
-//                print(error)
-//            }
-//        }
-//    }
-//    
-//    func moviePoster() {
+import Foundation
+
+import Alamofire
+
+class NetworkManager {
+    static let shared = NetworkManager()
+    
+    private init() { }
+    
+    typealias trendingnHandler = ([MovieDetail]?, String?) -> Void
+    
+    func trending<T: Decodable>(api: TMDBRequest, model: T.Type, completionHandler: @escaping (T?, thankyError?) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameter,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header)
+        .validate(statusCode: 200..<500)
+        .responseDecodable(of: T.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value, nil)
+            case .failure(let error):
+                completionHandler(nil, .failedRequest)
+                
+                print(error)
+            }
+        }
+    }
+    
+//    func moviePoster<T: Decodable>() {
 //        print(#function)
 //        let url = "https://api.themoviedb.org/3/movie/10300/images"
 //        
@@ -47,7 +47,7 @@
 //                   method: .get,
 //                   headers: header)
 //        .validate(statusCode: 200..<500)
-//        .responseDecodable(of: TrendMovie.self) { response in
+//        .responseDecodable(of: T.self) { response in
 //            
 //            switch response.result {
 //            case .success(let value):
@@ -84,4 +84,4 @@
 //            }
 //        }
 //    }
-//}
+}

@@ -30,6 +30,7 @@
 		B192F2062C2A8DB9005A2A1F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2052C2A8DB9005A2A1F /* APIKey.swift */; };
 		B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */; };
 		B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2152C2BC153005A2A1F /* TMDBManager.swift */; };
+		B1CE5EB02C2D38B7000F4AA1 /* UI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		B192F2052C2A8DB9005A2A1F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 		B192F2152C2BC153005A2A1F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
+		B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B1642EAD2C290BE0003032F9 /* UIViewController+Extension.swift */,
+				B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B192F1F82C2A59F9005A2A1F /* SearchViewController.swift in Sources */,
+				B1CE5EB02C2D38B7000F4AA1 /* UI+Extension.swift in Sources */,
 				B192F1EC2C2A5259005A2A1F /* PosterTableViewCell.swift in Sources */,
 				B192F1EA2C2A5191005A2A1F /* BaseTableViewCell.swift in Sources */,
 				B192F2022C2A8D24005A2A1F /* Trend.swift in Sources */,
