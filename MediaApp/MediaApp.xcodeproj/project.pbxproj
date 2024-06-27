@@ -51,6 +51,7 @@
 		B192F20F2C2AEECC005A2A1F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F20E2C2AEECC005A2A1F /* BaseTableViewCell.swift */; };
 		B192F2112C2AEEDB005A2A1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */; };
 		B192F2182C2C6582005A2A1F /* DetailPosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */; };
+		B192F21A2C2C6A37005A2A1F /* DetailPosterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		B192F20E2C2AEECC005A2A1F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterTableViewCell.swift; sourceTree = "<group>"; };
+		B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				B162ABB72C29C8B500CA46ED /* DetailCollectionViewCell.swift */,
 				B162ABBB2C29CFFE00CA46ED /* DetailTableViewCell.swift */,
 				B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */,
+				B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				B182B1862C16DEF2009C00B1 /* TrendViewController.swift in Sources */,
 				B1642D2A2C19F399003032F9 /* NewCreidtCollectionViewCell.swift in Sources */,
 				B1642D2E2C19F752003032F9 /* MainTabBarViewController.swift in Sources */,
+				B192F21A2C2C6A37005A2A1F /* DetailPosterCollectionCell.swift in Sources */,
 				B182B1982C16E103009C00B1 /* TrendTableViewCell.swift in Sources */,
 				B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */,
 				B162ABA52C29A5F600CA46ED /* MyPageViewController.swift in Sources */,

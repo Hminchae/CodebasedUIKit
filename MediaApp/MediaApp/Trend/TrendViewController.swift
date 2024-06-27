@@ -148,6 +148,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let overView = list[indexPath.row].overview
         let vc = DetailViewController()
         vc.movieId = id
+        vc.imagePath = imageUrl
         navigationController?.pushViewController(vc, animated: true)
     }
     
