@@ -20,11 +20,10 @@ class DetailViewController: BaseViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
+        // tableView.rowHeight = UITableView.automaticDimension
         tableView.register(DetailTableViewCell.self,
                            forCellReuseIdentifier: DetailTableViewCell.identifier)
-        tableView.register(DetailPosterTableViewCell.self,
-                           forCellReuseIdentifier: DetailPosterTableViewCell.identifier)
+        
         return tableView
     }()
     
@@ -32,9 +31,10 @@ class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableViewHeader()
         configureNetwork()
     }
-
+    
     override func configureHierarchy() {
         view.addSubview(tableView)
     }
@@ -56,11 +56,15 @@ class DetailViewController: BaseViewController {
         
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
         
-        navigationItem.largeTitleDisplayMode = .automatic
-        if let movieName = movieName {
-            print(movieName)
-            navigationItem.title = movieName
-        }
+        navigationItem.title = movieName
+    }
+    
+    func setupTableViewHeader() {
+        let headerView = DetailHeaderCollectionView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 450))
+        headerView.collectionView.dataSource = self
+        headerView.collectionView.delegate = self
+        headerView.collectionView.tag = 100
+        tableView.tableHeaderView = headerView
     }
     
     private func configureNetwork() {
@@ -106,108 +110,59 @@ class DetailViewController: BaseViewController {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.section {
-//        case 0:
-//            return 400
-//        case 1:
-//            return 215
-//        default:
-//            return UITableView.automaticDimension
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return detailImageList.count
-        default:
-            return 0
-        }
+        return detailImageList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DetailPosterTableViewCell.identifier, for: indexPath) as! DetailPosterTableViewCell
-            
-            cell.collectionView.dataSource = self
-            cell.collectionView.delegate = self
-            cell.collectionView.tag = indexPath.row
-            cell.collectionView.register(DetailPosterCollectionCell.self, forCellWithReuseIdentifier: DetailPosterCollectionCell.identifier)
-            cell.collectionView.reloadData()
-            cell.collectionView.backgroundColor = .bg
-            cell.collectionView.indicatorStyle = .black
-            
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
-            
-            cell.collectionView.dataSource = self
-            cell.collectionView.delegate = self
-            cell.collectionView.tag = indexPath.row
-            cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
-            cell.collectionView.reloadData()
-            cell.collectionView.backgroundColor = .bg
-            cell.collectionView.indicatorStyle = .black
-            
-            if indexPath.row == 0 {
-                cell.titleLabel.text = "비슷한 영화"
-            } else if indexPath.row == 1 {
-                cell.titleLabel.text = "추천하는 영화"
-            }
-            
-            return cell
-        default:
-            fatalError("error")
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+        
+        cell.collectionView.dataSource = self
+        cell.collectionView.delegate = self
+        cell.collectionView.tag = indexPath.row
+        cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        cell.collectionView.reloadData()
+        cell.collectionView.backgroundColor = .bg
+        cell.collectionView.indicatorStyle = .black
+        
+        if indexPath.row == 0 {
+            cell.titleLabel.text = "비슷한 영화"
+        } else if indexPath.row == 1 {
+            cell.titleLabel.text = "추천하는 영화"
         }
+        
+        return cell
     }
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1 // 임시
-        case 1:
+        if collectionView.tag == 100 {
+            return 1
+        } else {
             return detailImageList[collectionView.tag].count
-        default:
-            return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPosterCollectionCell.identifier, for: indexPath) as! DetailPosterCollectionCell
-        switch indexPath.section {
-        case 0:
+        if collectionView.tag == 100 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPosterCollectionCell.identifier, for: indexPath) as! DetailPosterCollectionCell
-            
             if let imagePath = imagePath {
                 let url = URL(string: MediaAPI.imageURL(imagePath: imagePath).entireUrl)
                 cell.posterHeaderImageView.kf.setImage(with: url)
             }
-            
             return cell
-            
-        case 1:
+        }  else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
-            
             let data = detailImageList[collectionView.tag][indexPath.row]
             if let imageUrl = data.poster_path {
                 let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
                 cell.posterImageView.kf.setImage(with: url)
             }
-            
             return cell
-            
-        default:
-            fatalError("error")
         }
     }
 }

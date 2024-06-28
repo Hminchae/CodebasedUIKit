@@ -178,8 +178,8 @@
 		B162ABB42C29C7E300CA46ED /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B162ABB72C29C8B500CA46ED /* DetailCollectionViewCell.swift */,
 				B162ABBB2C29CFFE00CA46ED /* DetailTableViewCell.swift */,
+				B162ABB72C29C8B500CA46ED /* DetailCollectionViewCell.swift */,
 				B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */,
 				B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */,
 			);

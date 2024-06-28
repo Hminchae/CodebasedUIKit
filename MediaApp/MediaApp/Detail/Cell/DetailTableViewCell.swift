@@ -32,14 +32,16 @@ class DetailTableViewCell: BaseTableViewCell {
     
     override func configureLayout() {
         titleLabel.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(contentView).inset(20)
+            make.top.equalToSuperview().offset(10)
+            make.left.right.equalTo(contentView).inset(20)
             make.height.equalTo(20)
         }
-        
+
         collectionView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(contentView)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            //make.bottom.equalTo(collectionView).inset(20)
+            make.left.right.equalTo(contentView)
+            make.bottom.equalTo(contentView).offset(-10)
+            make.height.equalTo(160)
         }
     }
     

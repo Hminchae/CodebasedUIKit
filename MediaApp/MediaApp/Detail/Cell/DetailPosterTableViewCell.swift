@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailPosterTableViewCell: BaseTableViewCell {
+class DetailHeaderCollectionView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout())
@@ -18,7 +18,7 @@ class DetailPosterTableViewCell: BaseTableViewCell {
         let cellSpacing: CGFloat = 0
         let width = UIScreen.main.bounds.width
         
-        layout.itemSize = CGSize(width: width, height: 500)
+        layout.itemSize = CGSize(width: width, height: 450)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
@@ -30,18 +30,18 @@ class DetailPosterTableViewCell: BaseTableViewCell {
         return layout
     }
     
-    override func configureHierarchy() {
-        contentView.addSubview(collectionView)
-    }
-    
     override func configureLayout() {
         collectionView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(contentView)
-            make.height.equalTo(500)
+            make.edges.equalToSuperview()
         }
+    }
+    override func configureHierarchy() {
+        addSubview(collectionView)
     }
     
     override func configureView() {
-        
+        collectionView.register(DetailPosterCollectionCell.self, forCellWithReuseIdentifier: DetailPosterCollectionCell.identifier)
+        collectionView.backgroundColor = .bg
+        collectionView.indicatorStyle = .black
     }
 }
