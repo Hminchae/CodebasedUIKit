@@ -14,7 +14,8 @@ class DetailViewController: BaseViewController {
     
     var movieId: Int?
     var imagePath: String?
-    var movieName: String?
+    var movieTitle: String?
+    var movieOverView: String?
     
     lazy private var tableView = {
         let tableView = UITableView()
@@ -55,8 +56,6 @@ class DetailViewController: BaseViewController {
         tableView.backgroundColor = .bg
         
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
-        
-        navigationItem.title = movieName
     }
     
     func setupTableViewHeader() {
@@ -150,18 +149,25 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 100 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPosterCollectionCell.identifier, for: indexPath) as! DetailPosterCollectionCell
-            if let imagePath = imagePath {
+            
+            if let imagePath = imagePath, let title = movieTitle, let overView = movieOverView  {
                 let url = URL(string: MediaAPI.imageURL(imagePath: imagePath).entireUrl)
                 cell.posterHeaderImageView.kf.setImage(with: url)
+                cell.movieTitleLabel.text = movieTitle
+                cell.movieOverViewLabel.text = movieOverView
+                cell.isVisibleOverView = true
             }
+            
             return cell
         }  else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
             let data = detailImageList[collectionView.tag][indexPath.row]
+            
             if let imageUrl = data.poster_path {
                 let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
                 cell.posterImageView.kf.setImage(with: url)
             }
+            
             return cell
         }
     }

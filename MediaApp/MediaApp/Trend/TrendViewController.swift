@@ -144,13 +144,14 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = list[indexPath.row].id
-        let imageUrl = list[indexPath.row].backdropPath
-        let overView = list[indexPath.row].overview
         let vc = DetailViewController()
-        vc.movieId = id
-        vc.imagePath = imageUrl
-        vc.movieName = list[indexPath.row].title
+        let data = list[indexPath.row]
+        
+        vc.movieId = data.id
+        vc.imagePath = data.backdropPath
+        vc.movieTitle = data.title
+        vc.movieOverView = data.overview
+        
         navigationController?.pushViewController(vc, animated: true)
         //present(vc, animated: true)
     }

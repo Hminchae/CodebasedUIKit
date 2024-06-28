@@ -22,29 +22,29 @@ enum MediaAPI {
     case moviePoster(movieId: Int)
     
     var baseUrl: String {
-        return "https://api.themoviedb.org/"
+        return "https://api.themoviedb.org/3/"
     }
     
     var endPointUrl: String {
         switch self {
         case .trendURL:
-            return "3/trending/movie/day"
+            return "trending/movie/day"
         case .creditURL(let id):
-            return "3/movie/\(id)/credits"
+            return "movie/\(id)/credits"
         case .imageURL(let path):
             return "https://image.tmdb.org/t/p/original/\(path)"
         case .genreURL:
-            return "3/genre/movie/list"
+            return "genre/movie/list"
         case .movieSearch:
-            return "3/search/movie"
+            return "search/movie"
         case .movieDiscover:
-            return "3/discover/movie"
+            return "discover/movie"
         case .movieSimilar(let id):
-            return "3/movie/\(id)/similar"
+            return "movie/\(id)/similar"
         case .movieRecommend(let id):
-            return "3/movie/\(id)/recommendations"
+            return "movie/\(id)/recommendations"
         case .moviePoster(let id):
-            return "3/movie/\(id)/images"
+            return "movie/\(id)/images"
         }
     }
     

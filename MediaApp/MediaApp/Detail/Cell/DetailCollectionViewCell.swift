@@ -23,7 +23,7 @@ class DetailCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        posterImageView.backgroundColor = .systemPink//.black.withAlphaComponent(0.7)
+        posterImageView.backgroundColor = .black.withAlphaComponent(0.7)
         posterImageView.clipsToBounds = true
         posterImageView.layer.masksToBounds = true
         posterImageView.layer.cornerRadius = 8

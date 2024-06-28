@@ -52,6 +52,7 @@
 		B192F2112C2AEEDB005A2A1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */; };
 		B192F2182C2C6582005A2A1F /* DetailPosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */; };
 		B192F21A2C2C6A37005A2A1F /* DetailPosterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */; };
+		B1CE5EB42C2E81EE000F4AA1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		B192F2172C2C6582005A2A1F /* DetailPosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterTableViewCell.swift; sourceTree = "<group>"; };
 		B192F2192C2C6A37005A2A1F /* DetailPosterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPosterCollectionCell.swift; sourceTree = "<group>"; };
+		B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +126,6 @@
 				B162AB9E2C2994C500CA46ED /* Constants */,
 				B182B1B32C174948009C00B1 /* Enums */,
 				B182B19D2C16E171009C00B1 /* Extension */,
-				B182B19E2C16E196009C00B1 /* Protocol */,
 				B182B1B62C174E8E009C00B1 /* Models */,
 			);
 			path = Resources;
@@ -253,8 +254,9 @@
 		B182B19D2C16E171009C00B1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B182B1952C16E054009C00B1 /* UIColor+extension.swift */,
 				B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */,
+				B182B1952C16E054009C00B1 /* UIColor+extension.swift */,
+				B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				B182B1B42C17495A009C00B1 /* MediaAPI.swift */,
+				B182B19E2C16E196009C00B1 /* Protocol */,
 				B1642D322C19FB45003032F9 /* Constant.swift */,
 				B162ABB92C29CA7000CA46ED /* Detail.swift */,
 			);
@@ -396,6 +399,7 @@
 				B1642D2E2C19F752003032F9 /* MainTabBarViewController.swift in Sources */,
 				B192F21A2C2C6A37005A2A1F /* DetailPosterCollectionCell.swift in Sources */,
 				B182B1982C16E103009C00B1 /* TrendTableViewCell.swift in Sources */,
+				B1CE5EB42C2E81EE000F4AA1 /* UIView+Extension.swift in Sources */,
 				B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */,
 				B162ABA52C29A5F600CA46ED /* MyPageViewController.swift in Sources */,
 				B1642D1A2C186189003032F9 /* Search.swift in Sources */,
