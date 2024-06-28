@@ -66,7 +66,7 @@ class NetworkManager {
         }
     }
     
-    func moviePosterCallRequest(api: MediaAPI, id: Int, page: Int, completionHandler: @escaping (Result<Poster, Error>) -> Void) {
+    func moviePosterCallRequest(api: MediaAPI, completionHandler: @escaping (Result<Poster, Error>) -> Void) {
     
         AF.request(api.entireUrl,
                    method: api.method,

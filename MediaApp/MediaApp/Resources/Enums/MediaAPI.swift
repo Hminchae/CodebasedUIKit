@@ -72,7 +72,7 @@ enum MediaAPI {
             return ["language": "ko-KR", "time_window" : "week"]
         case .movieSearch(let query, let page):
             return ["query": query, "language": "ko-KR", "page": page]
-        case .creditURL, .movieSimilar, .movieRecommend, .moviePoster:
+        case .creditURL, .movieSimilar, .movieRecommend:
             return ["language": "ko-KR"]
         default:
             return ["":""]

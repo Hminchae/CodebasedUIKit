@@ -29,11 +29,13 @@ class DetailViewController: BaseViewController {
     }()
     
     var detailImageList: [[SearchResult]] = [[], []]
+    var posterImageList: [PosterBackdrop] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableViewHeader()
         configureNetwork()
+        
     }
     
     override func configureHierarchy() {
@@ -46,7 +48,7 @@ class DetailViewController: BaseViewController {
         
         tableView.snp.remakeConstraints { make in
             make.top.equalToSuperview().offset(-topSafeArea)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.snp.bottom)
             make.horizontalEdges.equalToSuperview()
         }
     }
@@ -100,8 +102,26 @@ class DetailViewController: BaseViewController {
             }
         }
         
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.moviePosterCallRequest(
+                api: .moviePoster(movieId: movieId)
+            ) { result in
+                switch result {
+                case .success(let value):
+                    self.posterImageList = value.backdrops
+                case .failure(let error):
+                    print(error)
+                }
+                group.leave()
+            }
+        }
+        
         group.notify(queue: .main) {
             self.tableView.reloadData()
+            if let headerView = self.tableView.tableHeaderView as? DetailHeaderCollectionView {
+                headerView.collectionView.reloadData()
+            }
         }
     }
 }
@@ -140,7 +160,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 100 {
-            return 1
+            print(posterImageList.count)
+            return posterImageList.count
         } else {
             return detailImageList[collectionView.tag].count
         }
@@ -149,12 +170,17 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 100 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPosterCollectionCell.identifier, for: indexPath) as! DetailPosterCollectionCell
+            print(posterImageList[indexPath.row])
+            print("에에에ㅔ엥???")
+            let data = posterImageList[indexPath.row]
+            print(data.file_path)
             
-            if let imagePath = imagePath, let title = movieTitle, let overView = movieOverView  {
-                let url = URL(string: MediaAPI.imageURL(imagePath: imagePath).entireUrl)
-                cell.posterHeaderImageView.kf.setImage(with: url)
-                cell.movieTitleLabel.text = movieTitle
-                cell.movieOverViewLabel.text = movieOverView
+            let url = URL(string: MediaAPI.imageURL(imagePath: data.file_path).entireUrl)
+            cell.posterHeaderImageView.kf.setImage(with: url)
+            
+            if let title = movieTitle, let overView = movieOverView  {
+                cell.movieTitleLabel.text = title
+                cell.movieOverViewLabel.text = overView
                 cell.isVisibleOverView = true
             }
             

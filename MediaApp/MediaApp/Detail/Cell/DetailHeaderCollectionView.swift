@@ -19,7 +19,7 @@ class DetailHeaderCollectionView: BaseView {
         let width = UIScreen.main.bounds.width
         
         layout.itemSize = CGSize(width: width, height: 450)
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
         layout.sectionInset = UIEdgeInsets(top: sectionSpacing,

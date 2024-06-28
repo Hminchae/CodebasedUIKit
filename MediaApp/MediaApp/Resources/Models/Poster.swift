@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct Poster: Codable {
-    let backdrops: [Backdrop]
+struct Poster: Decodable {
+    let backdrops: [PosterBackdrop]
     let id: Int
-    let posters: [Backdrop]
 }
 
-struct Backdrop: Codable {
+struct PosterBackdrop: Decodable {
     let file_path: String
 }
