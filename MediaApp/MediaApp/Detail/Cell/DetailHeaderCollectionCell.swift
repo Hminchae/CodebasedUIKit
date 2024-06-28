@@ -7,9 +7,10 @@
 
 import UIKit
 
-class DetailPosterCollectionCell: BaseCollectionViewCell {
+class DetailHeaderCollectionCell: BaseCollectionViewCell {
     
     let posterHeaderImageView = UIImageView()
+    let movieLogoImageView = UIImageView()
     
     var isVisibleOverView: Bool = true {
         didSet {
@@ -50,22 +51,26 @@ class DetailPosterCollectionCell: BaseCollectionViewCell {
         posterHeaderImageView.contentMode = .scaleAspectFill
         posterHeaderImageView.clipsToBounds = true
         
-        movieTitleLabel.font = .boldSystemFont(ofSize: 22)
-        movieTitleLabel.textColor = .white
+//        movieTitleLabel.font = .boldSystemFont(ofSize: 30)
+//        movieTitleLabel.textColor = .white
+//        movieTitleLabel.textAlignment = .center
+        movieLogoImageView.contentMode = .scaleAspectFit
+        movieLogoImageView.clipsToBounds = true
         
         movieOverViewLabel.font = .systemFont(ofSize: 13)
         movieOverViewLabel.textColor = .white
         movieOverViewLabel.lineBreakMode = .byWordWrapping
         movieOverViewLabel.numberOfLines = 0
+        movieOverViewLabel.textAlignment = .center
     }
     
     private func configureGradientView() {
-        gradientView.addSubview(movieTitleLabel)
+        gradientView.addSubview(movieLogoImageView)
         gradientView.addSubview(movieOverViewLabel)
         
-        movieTitleLabel.snp.makeConstraints { make in
+        movieLogoImageView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(gradientView.snp.horizontalEdges).inset(12)
-            make.height.equalTo(22)
+            make.height.equalTo(40)
             make.bottom.equalTo(movieOverViewLabel.snp.top).offset(-12)
         }
         

@@ -1,5 +1,5 @@
 //
-//  DetailPosterTableViewCell.swift
+//  DetailHeaderView.swift
 //  MediaApp
 //
 //  Created by 황민채 on 6/27/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHeaderCollectionView: BaseView {
+class DetailHeaderView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout())
@@ -40,7 +40,7 @@ class DetailHeaderCollectionView: BaseView {
     }
     
     override func configureView() {
-        collectionView.register(DetailPosterCollectionCell.self, forCellWithReuseIdentifier: DetailPosterCollectionCell.identifier)
+        collectionView.register(DetailHeaderCollectionCell.self, forCellWithReuseIdentifier: DetailHeaderCollectionCell.identifier)
         collectionView.backgroundColor = .bg
         collectionView.indicatorStyle = .black
     }

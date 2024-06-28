@@ -10,6 +10,7 @@ import Foundation
 struct Poster: Decodable {
     let backdrops: [PosterBackdrop]
     let id: Int
+    let logos: [PosterBackdrop]
 }
 
 struct PosterBackdrop: Decodable {
