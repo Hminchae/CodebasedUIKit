@@ -13,7 +13,7 @@ import Kingfisher
 class DetailViewController: BaseViewController {
     
     var movieId: Int?
-
+    
     lazy var movieTitle = ""
     lazy var movieOverView = ""
     var movieLogoPath: String?
@@ -126,7 +126,9 @@ class DetailViewController: BaseViewController {
                 switch result {
                 case .success(let value):
                     self.posterImageList = value.backdrops
-                    self.movieLogoPath = value.logos[0].file_path
+                    if let logo = value.logos.first {
+                        self.movieLogoPath = logo.file_path
+                    }
                 case .failure(let error):
                     print(error)
                 }
@@ -189,8 +191,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCollectionCell.identifier, for: indexPath) as! DetailHeaderCollectionCell
             let data = posterImageList[indexPath.row]
             
-            let url = URL(string: MediaAPI.imageURL(imagePath: data.file_path).entireUrl)
-            cell.posterHeaderImageView.kf.setImage(with: url)
+            if let imagePath = data.file_path {
+                let url = URL(string: MediaAPI.imageURL(imagePath: imagePath).entireUrl)
+                cell.posterHeaderImageView.kf.setImage(with: url)
+            }
             
             cell.movieTitleLabel.text = movieTitle
             cell.movieOverViewLabel.text = movieOverView
@@ -217,6 +221,16 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag != 100 {
+            let data = detailImageList[collectionView.tag][indexPath.row]
+            let movieId = data.id
+            let vc = DetailViewController()
+            vc.movieId = movieId
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
