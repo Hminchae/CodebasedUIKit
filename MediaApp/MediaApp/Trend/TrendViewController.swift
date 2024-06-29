@@ -66,22 +66,14 @@ class TrendViewController: UIViewController {
     }
     
     func configureNavigationItem() {
-        let menu = UIBarButtonItem(
-            image: UIImage(systemName: "line.3.horizontal"),
-            style: .plain,
-            target: self,
-            action: #selector(menuButtonClicked))
-        
         let noti = UIBarButtonItem(
             image: UIImage(systemName: "bell.fill"),
             style: .plain,
             target: self,
             action: #selector(notiButtonClicked))
         
-        menu.tintColor = .point
         noti.tintColor = .point
         
-        //navigationItem.leftBarButtonItem = menu
         navigationItem.rightBarButtonItem = noti
         navigationItem.backButtonTitle = "" // 다음에 올 네비게이션의 백버튼 타이틀을 공백으로 변경
         self.navigationController?.navigationBar.tintColor = .point
