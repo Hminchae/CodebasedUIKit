@@ -192,8 +192,8 @@
 		B1642D142C184510003032F9 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5EBC2C305B81000F4AA1 /* Cell */,
 				B1642D152C184546003032F9 /* SearchViewController.swift */,
-				B1642D172C18455A003032F9 /* SearchCollectionViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -326,6 +326,14 @@
 			isa = PBXGroup;
 			children = (
 				B1CE5EBA2C301C5B000F4AA1 /* MyPageTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1CE5EBC2C305B81000F4AA1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1642D172C18455A003032F9 /* SearchCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

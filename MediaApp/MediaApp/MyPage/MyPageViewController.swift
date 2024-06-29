@@ -72,6 +72,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

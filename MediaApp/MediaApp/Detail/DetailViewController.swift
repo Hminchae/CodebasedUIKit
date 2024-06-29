@@ -13,9 +13,9 @@ import Kingfisher
 class DetailViewController: BaseViewController {
     
     var movieId: Int?
-    
     lazy var movieTitle = ""
     lazy var movieOverView = ""
+    
     var movieLogoPath: String?
     
     lazy private var tableView = {
@@ -33,9 +33,11 @@ class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableViewHeader()
         configureNetwork()
         
+        navigationItem.backButtonTitle = ""
     }
     
     override func configureHierarchy() {
@@ -58,7 +60,7 @@ class DetailViewController: BaseViewController {
         tableView.backgroundColor = .bg
         
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
-    }
+    } 
     
     func setupTableViewHeader() {
         let headerView = DetailHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 450))
@@ -166,6 +168,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.collectionView.reloadData()
         cell.collectionView.backgroundColor = .bg
         cell.collectionView.indicatorStyle = .black
+        cell.selectionStyle = .none
         
         if indexPath.row == 0 {
             cell.titleLabel.text = "비슷한 영화"
@@ -229,6 +232,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let data = detailImageList[collectionView.tag][indexPath.row]
             let movieId = data.id
             let vc = DetailViewController()
+            
             vc.movieId = movieId
             navigationController?.pushViewController(vc, animated: true)
         }

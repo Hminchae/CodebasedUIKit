@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
     lazy private var searchList: [String] = user.mySearchList
     
     lazy var currentSearchQueryTotalPAge: Int = {
-       return list.total_pages
+        return list.total_pages
     }()
     
     var isEnd: Bool {
@@ -57,10 +57,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationController?.navigationBar.isHidden = true
         
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = .point
         
         configureView()
         
@@ -114,7 +114,7 @@ class SearchViewController: UIViewController {
         view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(5)
+            make.top.equalTo(searchBar.snp.bottom).offset(8)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.snp.bottom)
         }
@@ -122,12 +122,12 @@ class SearchViewController: UIViewController {
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width - 15
+        let width = UIScreen.main.bounds.width - 20
         
-        layout.itemSize = CGSize(width: width/2, height: width * 0.8)
+        layout.itemSize = CGSize(width: width/3, height: width / 3 * 1.5)
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         
         return layout
@@ -181,7 +181,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-     indexPaths.forEach { indexPath in
+        indexPaths.forEach { indexPath in
             if list.results.count - 2 == indexPath.row && !isEnd {
                 page += 1
                 if let query = searchBar.text {
@@ -204,6 +204,15 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
                 cell.mainImageView.kf.cancelDownloadTask()
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = list.results[indexPath.row]
+        let movieId = data.id
+        let vc = DetailViewController()
+        
+        vc.movieId = data.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
