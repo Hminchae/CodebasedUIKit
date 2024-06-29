@@ -9,7 +9,7 @@ import UIKit
 
 final class MyPageTableViewCell: BaseTableViewCell {
     
-    private let titleLabel = {
+    var titleLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
         label.textColor = .white
@@ -23,7 +23,7 @@ final class MyPageTableViewCell: BaseTableViewCell {
     
     override func configureLayout() {
         titleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(15)
+            make.horizontalEdges.equalToSuperview().inset(8)
             make.verticalEdges.equalToSuperview().inset(3)
         }
     }
