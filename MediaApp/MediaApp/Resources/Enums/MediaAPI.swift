@@ -15,6 +15,7 @@ enum MediaAPI {
     case imageURL(imagePath: String)
     case genreURL
     
+    case movieDetail(movieID: Int)
     case movieSearch(query: String, page: Int)
     case movieDiscover
     case movieSimilar(movieId: Int)
@@ -45,6 +46,8 @@ enum MediaAPI {
             return "movie/\(id)/recommendations"
         case .moviePoster(let id):
             return "movie/\(id)/images"
+        case .movieDetail(let id):
+            return "movie/\(id)"
         }
     }
     
@@ -72,7 +75,7 @@ enum MediaAPI {
             return ["language": "ko-KR", "time_window" : "week"]
         case .movieSearch(let query, let page):
             return ["query": query, "language": "ko-KR", "page": page]
-        case .creditURL, .movieSimilar, .movieRecommend:
+        case .creditURL, .movieSimilar, .movieRecommend, .movieDetail:
             return ["language": "ko-KR"]
         default:
             return ["":""]

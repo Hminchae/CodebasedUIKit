@@ -126,7 +126,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let url = URL(string: MediaAPI.imageURL(imagePath: data.backdropPath).entireUrl)
         
         Task {
-            let category = await updateCategoryName(cell, genreID: data.genreIDS[0])
+            let category = await updateCategoryName(cell, genreID: data.genreIDS?[0] ?? 0)
             cell.categoryLabel.text = "#\(category)"
         }
         
@@ -148,9 +148,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         let data = list[indexPath.row]
         
         vc.movieId = data.id
-        vc.imagePath = data.backdropPath
-        vc.movieTitle = data.title
-        vc.movieOverView = data.overview
         
         navigationController?.pushViewController(vc, animated: true)
         //present(vc, animated: true)

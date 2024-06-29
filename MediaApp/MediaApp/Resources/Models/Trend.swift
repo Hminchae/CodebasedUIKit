@@ -24,10 +24,9 @@ struct MovieDetail: Decodable {
     let id: Int
     let originalTitle: String?
     let overview, posterPath: String
-    let mediaType: MediaType
     let adult: Bool
     let title: String?
-    let genreIDS: [Int]
+    let genreIDS: [Int]?
     let popularity: Double
     let releaseDate: String?
     let video: Bool?
@@ -42,7 +41,6 @@ struct MovieDetail: Decodable {
         case originalTitle = "original_title"
         case overview
         case posterPath = "poster_path"
-        case mediaType = "media_type"
         case adult, title
         case genreIDS = "genre_ids"
         case popularity
@@ -55,9 +53,4 @@ struct MovieDetail: Decodable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
-}
-
-enum MediaType: String, Decodable {
-    case movie = "movie"
-    case tv = "tv"
 }

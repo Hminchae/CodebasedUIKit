@@ -14,15 +14,14 @@ class DetailViewController: BaseViewController {
     
     var movieId: Int?
 
-    var movieTitle: String?
-    var movieOverView: String?
+    lazy var movieTitle = ""
+    lazy var movieOverView = ""
     var movieLogoPath: String?
     
     lazy private var tableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        // tableView.rowHeight = UITableView.automaticDimension
         tableView.register(DetailTableViewCell.self,
                            forCellReuseIdentifier: DetailTableViewCell.identifier)
         
@@ -71,6 +70,23 @@ class DetailViewController: BaseViewController {
     private func configureNetwork() {
         guard let movieId = movieId else { return }
         let group = DispatchGroup()
+        
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.detailMovieCallRequest(api: .movieDetail(movieID: movieId)
+            ) { result in
+                switch result {
+                case .success(let value):
+                    if let title = value.title {
+                        self.movieTitle = title
+                    }
+                    self.movieOverView = value.overview
+                case .failure(let error):
+                    print(error)
+                }
+                group.leave()
+            }
+        }
         
         group.enter()
         DispatchQueue.global().async(group: group) {
@@ -176,10 +192,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let url = URL(string: MediaAPI.imageURL(imagePath: data.file_path).entireUrl)
             cell.posterHeaderImageView.kf.setImage(with: url)
             
-            if let title = movieTitle, let overView = movieOverView, let logoPath = movieLogoPath  {
-                cell.movieTitleLabel.text = title
-                cell.movieOverViewLabel.text = overView
-                
+            cell.movieTitleLabel.text = movieTitle
+            cell.movieOverViewLabel.text = movieOverView
+            
+            if let logoPath = movieLogoPath  {
                 let logoUrl = URL(string: MediaAPI.imageURL(imagePath: logoPath).entireUrl)
                 cell.movieLogoImageView.kf.setImage(with: logoUrl)
             }

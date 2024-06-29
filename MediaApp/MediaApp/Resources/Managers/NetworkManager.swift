@@ -32,6 +32,24 @@ class NetworkManager {
         }
     }
     
+    // Movie Detail
+    func detailMovieCallRequest(api: MediaAPI, completionHandler: @escaping (Result< MovieDetail, Error>) -> Void) {
+    
+        AF.request(api.entireUrl,
+                   method: api.method,
+                   parameters: api.parameter,
+                   headers: api.header)
+        .responseDecodable(of: MovieDetail.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+               
+            }
+        }
+    }
+    
     // TrendVC - 장르 API
     func genreCallRequest(api: MediaAPI, completionHandler: @escaping (Result<Genres, Error>) -> Void) {
     
