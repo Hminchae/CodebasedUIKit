@@ -13,7 +13,7 @@ import Kingfisher
 class DetailViewController: BaseViewController {
     
     var movieId: Int?
-    var imagePath: String?
+
     var movieTitle: String?
     var movieOverView: String?
     var movieLogoPath: String?
@@ -64,9 +64,7 @@ class DetailViewController: BaseViewController {
     func setupTableViewHeader() {
         let headerView = DetailHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 450))
         headerView.collectionView.dataSource = self
-        headerView.collectionView.delegate = self
         headerView.collectionView.tag = 100
-        headerView.collectionView.isPagingEnabled = true // 자석처럼 페이지 넘김
         tableView.tableHeaderView = headerView
     }
     
@@ -124,6 +122,7 @@ class DetailViewController: BaseViewController {
             self.tableView.reloadData()
             if let headerView = self.tableView.tableHeaderView as? DetailHeaderView {
                 headerView.collectionView.reloadData()
+                headerView.pageControl.numberOfPages = self.posterImageList.count
             }
         }
     }
@@ -180,11 +179,15 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if let title = movieTitle, let overView = movieOverView, let logoPath = movieLogoPath  {
                 cell.movieTitleLabel.text = title
                 cell.movieOverViewLabel.text = overView
-                cell.isVisibleOverView = true
                 
                 let logoUrl = URL(string: MediaAPI.imageURL(imagePath: logoPath).entireUrl)
-                print(logoUrl)
                 cell.movieLogoImageView.kf.setImage(with: logoUrl)
+            }
+            
+            if indexPath.row == 0 {
+                cell.isVisibleOverView = true
+            } else {
+                cell.isVisibleOverView = false
             }
             
             return cell

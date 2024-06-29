@@ -54,6 +54,7 @@ class DetailHeaderCollectionCell: BaseCollectionViewCell {
 //        movieTitleLabel.font = .boldSystemFont(ofSize: 30)
 //        movieTitleLabel.textColor = .white
 //        movieTitleLabel.textAlignment = .center
+        
         movieLogoImageView.contentMode = .scaleAspectFit
         movieLogoImageView.clipsToBounds = true
         
@@ -76,7 +77,7 @@ class DetailHeaderCollectionCell: BaseCollectionViewCell {
         
         movieOverViewLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(gradientView.snp.horizontalEdges).inset(12)
-            make.bottom.equalTo(gradientView.snp.bottom).inset(15)
+            make.bottom.equalTo(gradientView.snp.bottom).inset(30)
         }
     }
 }
