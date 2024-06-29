@@ -53,6 +53,7 @@
 		B192F2182C2C6582005A2A1F /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2172C2C6582005A2A1F /* DetailHeaderView.swift */; };
 		B192F21A2C2C6A37005A2A1F /* DetailHeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2192C2C6A37005A2A1F /* DetailHeaderCollectionCell.swift */; };
 		B1CE5EB42C2E81EE000F4AA1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */; };
+		B1CE5EBB2C301C5B000F4AA1 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EBA2C301C5B000F4AA1 /* MyPageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		B192F2172C2C6582005A2A1F /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		B192F2192C2C6A37005A2A1F /* DetailHeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCollectionCell.swift; sourceTree = "<group>"; };
 		B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B1CE5EBA2C301C5B000F4AA1 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,12 +221,12 @@
 				B162AB9D2C2994A000CA46ED /* SystemFiles */,
 				B162AB9C2C29940000CA46ED /* Resources */,
 				B162ABB32C29C7D500CA46ED /* Detail */,
-				B1642D142C184510003032F9 /* Search */,
 				B182B1992C16E109009C00B1 /* Trend */,
+				B1642D142C184510003032F9 /* Search */,
+				B1CE5EB82C3019F3000F4AA1 /* WishList */,
+				B1CE5EB72C3017F5000F4AA1 /* MyPage */,
 				B182B18A2C16DEF4009C00B1 /* Assets.xcassets */,
 				B182B18F2C16DEF4009C00B1 /* Info.plist */,
-				B162ABA22C29A5C200CA46ED /* WishViewController.swift */,
-				B162ABA42C29A5F600CA46ED /* MyPageViewController.swift */,
 			);
 			path = MediaApp;
 			sourceTree = "<group>";
@@ -234,12 +236,12 @@
 			children = (
 				B182B1852C16DEF2009C00B1 /* TrendViewController.swift */,
 				B182B1972C16E103009C00B1 /* TrendTableViewCell.swift */,
-				B182B19A2C16E114009C00B1 /* Credit */,
+				B182B19A2C16E114009C00B1 /* Credit-Legacy */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
 		};
-		B182B19A2C16E114009C00B1 /* Credit */ = {
+		B182B19A2C16E114009C00B1 /* Credit-Legacy */ = {
 			isa = PBXGroup;
 			children = (
 				B1642D272C19F376003032F9 /* NewCreditViewController.swift */,
@@ -248,7 +250,7 @@
 				B182B19B2C16E14C009C00B1 /* CreditViewController.swift */,
 				B1642D0A2C17D071003032F9 /* CreditTableViewCell.swift */,
 			);
-			path = Credit;
+			path = "Credit-Legacy";
 			sourceTree = "<group>";
 		};
 		B182B19D2C16E171009C00B1 /* Extension */ = {
@@ -301,6 +303,31 @@
 				B192F2102C2AEEDB005A2A1F /* BaseCollectionViewCell.swift */,
 			);
 			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		B1CE5EB72C3017F5000F4AA1 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5EB92C301B8B000F4AA1 /* Cell */,
+				B162ABA42C29A5F600CA46ED /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		B1CE5EB82C3019F3000F4AA1 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				B162ABA22C29A5C200CA46ED /* WishViewController.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		B1CE5EB92C301B8B000F4AA1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5EBA2C301C5B000F4AA1 /* MyPageTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +448,7 @@
 				B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */,
 				B182B19C2C16E14C009C00B1 /* CreditViewController.swift in Sources */,
 				B1642D0B2C17D071003032F9 /* CreditTableViewCell.swift in Sources */,
+				B1CE5EBB2C301C5B000F4AA1 /* MyPageTableViewCell.swift in Sources */,
 				B162ABA72C29A89F00CA46ED /* UserDefaultManager.swift in Sources */,
 				B1642D282C19F376003032F9 /* NewCreditViewController.swift in Sources */,
 				B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */,

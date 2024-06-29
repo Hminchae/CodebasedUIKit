@@ -19,7 +19,8 @@ class TrendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .bg
+        title = "Trend"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         configureNetwork()
         configureTableView()
@@ -80,14 +81,14 @@ class TrendViewController: UIViewController {
         menu.tintColor = .point
         noti.tintColor = .point
         
-        navigationItem.leftBarButtonItem = menu
+        //navigationItem.leftBarButtonItem = menu
         navigationItem.rightBarButtonItem = noti
         navigationItem.backButtonTitle = "" // 다음에 올 네비게이션의 백버튼 타이틀을 공백으로 변경
         self.navigationController?.navigationBar.tintColor = .point
     }
     
     @objc func menuButtonClicked() {
-        //TODO: 영화와 드라마 전환 버튼 구현
+        //TODO: Weak/Day 전환 버튼 구현
     }
     
     @objc func notiButtonClicked() {

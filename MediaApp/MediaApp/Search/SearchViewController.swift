@@ -57,8 +57,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .bg
-        navigationController?.navigationBar.isHidden = true
+        //navigationController?.navigationBar.isHidden = true
+        
+        title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         configureView()
         
@@ -69,6 +71,8 @@ class SearchViewController: UIViewController {
         collectionView.backgroundColor = .clear
         
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
+        
+        scrollViewWillBeginDecelerating(collectionView)
     }
     
     private func configureView() {
@@ -80,7 +84,6 @@ class SearchViewController: UIViewController {
     }
     
     private func configureEmptyView() {
-        print("??")
         emptyView.addSubview(lottieView)
         
         lottieView.animation = LottieAnimation.named("empty")
@@ -105,7 +108,6 @@ class SearchViewController: UIViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(5)
             make.height.equalTo(35)
         }
-        
     }
     
     private func configureCollectionView() {
@@ -146,6 +148,16 @@ class SearchViewController: UIViewController {
         case .failure(let error):
             print("Failed")
             print(error)
+        }
+    }
+    
+    // 아래로 스크롤시 네비게이션바 hidden = true
+    // 위로 스크롤 시 네비게이션바 hidden = false
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }
 }
