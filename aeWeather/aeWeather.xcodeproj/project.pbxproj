@@ -27,6 +27,8 @@
 		B1642E722C27E202003032F9 /* fineVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1642E702C27E202003032F9 /* fineVideo.mp4 */; };
 		B1642E742C27E5D7003032F9 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E732C27E5D7003032F9 /* Letter.swift */; };
 		B1642E762C27E850003032F9 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1642E752C27E850003032F9 /* UserDefaultManager.swift */; };
+		B1CE5ECB2C316F3F000F4AA1 /* spring.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1CE5ECA2C316F3E000F4AA1 /* spring.mp4 */; };
+		B1CE5ECD2C317076000F4AA1 /* snow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1CE5ECC2C317076000F4AA1 /* snow.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		B1642E702C27E202003032F9 /* fineVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fineVideo.mp4; sourceTree = "<group>"; };
 		B1642E732C27E5D7003032F9 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		B1642E752C27E850003032F9 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		B1CE5ECA2C316F3E000F4AA1 /* spring.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = spring.mp4; sourceTree = "<group>"; };
+		B1CE5ECC2C317076000F4AA1 /* snow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = snow.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				B1642E642C27A4FF003032F9 /* rainVideo.mp4 */,
+				B1CE5ECC2C317076000F4AA1 /* snow.mp4 */,
 				B1642E6F2C27E201003032F9 /* rainVideo2.mp4 */,
+				B1CE5ECA2C316F3E000F4AA1 /* spring.mp4 */,
 				B1642E702C27E202003032F9 /* fineVideo.mp4 */,
 			);
 			path = Videos;
@@ -218,9 +224,11 @@
 				B1642E722C27E202003032F9 /* fineVideo.mp4 in Resources */,
 				B1642E652C27A4FF003032F9 /* rainVideo.mp4 in Resources */,
 				B1642E3E2C26EA24003032F9 /* LaunchScreen.storyboard in Resources */,
+				B1CE5ECD2C317076000F4AA1 /* snow.mp4 in Resources */,
 				B1642E712C27E202003032F9 /* rainVideo2.mp4 in Resources */,
 				B1642E6E2C27DF63003032F9 /* GowunBatang-Bold.ttf in Resources */,
 				B1642E3B2C26EA24003032F9 /* Assets.xcassets in Resources */,
+				B1CE5ECB2C316F3F000F4AA1 /* spring.mp4 in Resources */,
 				B1642E6D2C27DF63003032F9 /* GowunBatang-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

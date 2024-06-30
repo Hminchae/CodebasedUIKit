@@ -24,10 +24,12 @@ class LocationManager: NSObject {
 extension LocationManager {
     // iOS 위치 서비스 활성화 여부 체크
     func checkDeviceLocationAuthorization() {
-        if CLLocationManager.locationServicesEnabled() {
-            checkCurrentLocationAuthorization()
-        } else {
-            print("위치 서비스가 꺼져 있어서, 위치 권한을 요청을 할 수 없어요")
+        DispatchQueue.global().async { [self] in
+            if CLLocationManager.locationServicesEnabled() {
+                self.checkCurrentLocationAuthorization()
+            } else {
+                print("위치 서비스가 꺼져 있어서, 위치 권한을 요청을 할 수 없어요")
+            }
         }
     }
     // 현재 사용자 위치 권한 상태 확인

@@ -224,7 +224,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupBackgroundVideo() {
-        guard let path = Bundle.main.path(forResource: "fineVideo", ofType: "mp4") else {
+        guard let path = Bundle.main.path(forResource: "snow", ofType: "mp4") else {
             print("Background video not found.")
             return
         }
