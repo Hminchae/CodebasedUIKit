@@ -41,9 +41,9 @@ final class UserDefaultManager {
     }
     
     // 무비 위시리스트
-    var movieWishList: [String] {
+    var movieWishList: [Int] {
         get {
-            return UserDefaults.standard.array(forKey: "movieWishList") as? [String] ?? []
+            return UserDefaults.standard.array(forKey: "movieWishList") as? [Int] ?? []
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "movieWishList")

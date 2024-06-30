@@ -41,11 +41,8 @@ class TrendTableViewCell: UITableViewCell {
         return v
     }()
     
-    private let clipButton: UIButton = {
+    var clipButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = .black.withAlphaComponent(0.7)
-        v.tintColor = .white
-        v.setImage(UIImage(systemName: "popcorn"), for: .normal)
         v.layer.cornerRadius = 15
         
         return v

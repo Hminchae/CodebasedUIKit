@@ -13,6 +13,8 @@ import Kingfisher
 
 class TrendViewController: UIViewController {
     
+    private var user = UserDefaultManager.shared
+    
     var list: [MovieDetail] = []
     var genres: [Genre] = []
     let tableView = UITableView()
@@ -90,7 +92,7 @@ class TrendViewController: UIViewController {
     func configureTableView() {
         view.backgroundColor = .bg
         view.addSubview(tableView)
-   
+        
         tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide.snp.horizontalEdges)
             make.top.equalTo(view.safeAreaLayoutGuide)
@@ -129,9 +131,17 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.trendTitleLabel.text = data.title
         cell.trendSubtitleLabel.text = data.overview
         cell.gradeBackLabel.text = "\(round(data.voteAverage * 10)/10)"
-        cell.readMoreButton.tag = indexPath.row
-        cell.readMoreButton.addTarget(self, action: #selector(readMoreButtonClicked), for: .touchUpInside)
+        
         cell.selectionStyle = .none
+        
+        // 위시리스트 버튼 관련
+        let isWishList = user.movieWishList.contains(data.id)
+        
+        cell.clipButton.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) :.black.withAlphaComponent(0.7)
+        cell.clipButton.tintColor = isWishList ? .point :.white
+        cell.clipButton.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
+        cell.clipButton.tag = indexPath.row
+        cell.clipButton.addTarget(self, action: #selector(wishButtonClicked), for: .touchUpInside)
         
         return cell
     }
@@ -156,7 +166,26 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         return result
     }
     
-    @objc func readMoreButtonClicked(_ sender: UIButton) {
+    @objc private func wishButtonClicked(_ sender: UIButton) {
+        let index = sender.tag
+        let id = list[index].id
         
+        if !user.movieWishList.contains(id) {
+            print("이이잉")
+            user.movieWishList.append(id)
+        } else {
+            print("이이이")
+            var tempArr = user.movieWishList
+            tempArr = tempArr.filter { $0 != id }
+            
+            user.movieWishList = tempArr
+        }
+        
+        if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? TrendTableViewCell {
+            let isWishList = user.movieWishList.contains(id)
+            cell.clipButton.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) : .black.withAlphaComponent(0.7)
+            cell.clipButton.tintColor = isWishList ? .point : .white
+            cell.clipButton.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
+        }
     }
 }
