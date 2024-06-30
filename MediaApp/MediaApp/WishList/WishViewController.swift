@@ -15,7 +15,7 @@ class WishViewController: UIViewController {
     
     var movieId: Int? = 786892 // 임시
     var collectionView: UICollectionView!
-    var movieDetailInfo: MovieDetail?
+    var movieDetailInfo: [MovieDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,12 @@ class WishViewController: UIViewController {
         
         configureCollectionView()
         configureNetwork()
+        
+        print(user.movieWishList)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     private func configureCollectionView() {
@@ -36,35 +42,37 @@ class WishViewController: UIViewController {
         }
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(WishCollectionViewCell.self, forCellWithReuseIdentifier: WishCollectionViewCell.identifier)
         collectionView.contentInsetAdjustmentBehavior = .always
     }
     
     private func configureNetwork() {
-        guard let movieId = movieId else { return }
+        guard user.movieWishList != [] else { return }
         
-        DispatchQueue.global().async {
-            NetworkManager.shared.detailMovieCallRequest(api: .movieDetail(movieID: movieId)
-            ) { result in
-                switch result {
-                case .success(let value):
-                    DispatchQueue.main.async {
-                        print(value)
-                        self.movieDetailInfo = value
+        for movieId in user.movieWishList {
+            DispatchQueue.global().async {
+                NetworkManager.shared.detailMovieCallRequest(api: .movieDetail(movieID: movieId)
+                ) { result in
+                    switch result {
+                    case .success(let value):
+                        DispatchQueue.main.async {
+                            self.movieDetailInfo.append(value)
+                            self.collectionView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
                     }
-                case .failure(let error):
-                    print(error)
                 }
             }
         }
     }
 }
 
-extension WishViewController: UICollectionViewDataSource {
+extension WishViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        9
-        //return user.movieWishList.count
+        return movieDetailInfo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,29 +80,39 @@ extension WishViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        if let movieDetailInfo = movieDetailInfo {
-            let imageUrl = movieDetailInfo.backdropPath
-            let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
-            cell.movieImageView.kf.setImage(with: url)
-            cell.movieTitleLabel.text = movieDetailInfo.title
-            cell.releaseDateLabel.text = movieDetailInfo.releaseDate?.transDateString(from: "yyyy-MM-dd", to: "yyyy.MM.dd")
-            cell.voteAverageLabel.text = String(Double(Int(movieDetailInfo.voteAverage * 10)) / 10)
-            
-            // 봤어요 버튼 관련
-            let sawMovie = user.movieSawDictionary[movieDetailInfo.id] ?? false
-            
-            cell.sawButton.tintColor = sawMovie ? .point : .white
-            cell.sawButton.setImage(sawMovie ? UIImage(systemName: "sunglasses.fill") : UIImage(systemName: "sunglasses") , for: .normal)
-            cell.sawButton.tag = indexPath.row
-            cell.sawButton.addTarget(self, action: #selector(sawButtonClicked), for: .touchUpInside)
-        }
+        let data = movieDetailInfo[indexPath.row]
+        
+        let imageUrl = data.backdropPath
+        let url = URL(string: MediaAPI.imageURL(imagePath: imageUrl).entireUrl)
+        cell.movieImageView.kf.setImage(with: url)
+        
+        cell.movieTitleLabel.text = data.title
+        cell.releaseDateLabel.text = data.releaseDate?.transDateString(from: "yyyy-MM-dd", to: "yyyy.MM.dd")
+        cell.voteAverageLabel.text = String(Double(Int(data.voteAverage * 10)) / 10)
+        
+        // 봤어요 버튼 관련
+        let sawMovie = user.movieSawDictionary[data.id] ?? false
+        
+        cell.sawButton.tintColor = sawMovie ? .point : .white
+        cell.sawButton.setImage(sawMovie ? UIImage(systemName: "sunglasses.fill") : UIImage(systemName: "sunglasses") , for: .normal)
+        cell.sawButton.tag = indexPath.row
+        cell.sawButton.addTarget(self, action: #selector(sawButtonClicked), for: .touchUpInside)
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        let data = movieDetailInfo[indexPath.row]
+        
+        vc.movieId = data.id
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc private func sawButtonClicked(_ sender: UIButton) {
         let index = sender.tag
-        guard let targetId = movieId else { return }
+        let targetId = user.movieWishList[index]
         
         user.movieSawDictionary[targetId] = !(user.movieSawDictionary[targetId] ?? false)
         

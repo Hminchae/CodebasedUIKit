@@ -29,6 +29,10 @@ class TrendViewController: UIViewController {
         configureNavigationItem()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func configureNetwork() {
         let group = DispatchGroup()
         
@@ -134,12 +138,9 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        // 위시리스트 버튼 관련
+        // 위시리스트(클립) 버튼 관련
         let isWishList = user.movieWishList.contains(data.id)
-        
-        cell.clipButton.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) :.black.withAlphaComponent(0.7)
-        cell.clipButton.tintColor = isWishList ? .point :.white
-        cell.clipButton.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
+        setClipButtonAppearance(for: cell.clipButton, movieId: data.id)
         cell.clipButton.tag = indexPath.row
         cell.clipButton.addTarget(self, action: #selector(wishButtonClicked), for: .touchUpInside)
         
@@ -153,7 +154,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         vc.movieId = data.id
         
         navigationController?.pushViewController(vc, animated: true)
-        //present(vc, animated: true)
     }
     
     func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
@@ -182,10 +182,14 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? TrendTableViewCell {
-            let isWishList = user.movieWishList.contains(id)
-            cell.clipButton.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) : .black.withAlphaComponent(0.7)
-            cell.clipButton.tintColor = isWishList ? .point : .white
-            cell.clipButton.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
+            setClipButtonAppearance(for: sender, movieId: id)
         }
+    }
+    
+    private func setClipButtonAppearance(for button: UIButton, movieId: Int) {
+        let isWishList = user.movieWishList.contains(movieId)
+        button.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) : .black.withAlphaComponent(0.7)
+        button.tintColor = isWishList ? .point : .white
+        button.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
     }
 }
