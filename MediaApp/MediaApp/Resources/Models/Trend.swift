@@ -34,7 +34,8 @@ struct MovieDetail: Decodable {
     let voteCount: Int
     let originalName, name, firstAirDate: String?
     let originCountry: [String]?
-
+    let runtime: Int?
+    
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
         case id
@@ -52,5 +53,6 @@ struct MovieDetail: Decodable {
         case name
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
+        case runtime
     }
 }

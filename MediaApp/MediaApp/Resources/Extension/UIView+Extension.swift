@@ -24,4 +24,19 @@ extension UIView {
         gradient.frame = bounds
         layer.insertSublayer(gradient, at: 0)
     }
+    
+    func setDashedLineView() {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.gray.cgColor
+        shapeLayer.lineWidth = 1
+        shapeLayer.lineDashPattern = [6, 3]
+        
+        let path = CGMutablePath()
+        path.addLines(between: [CGPoint(x: 0, y: self.bounds.midY),
+                                CGPoint(x: self.bounds.width, y: self.bounds.midY)])
+        shapeLayer.path = path
+        shapeLayer.frame = self.bounds
+        
+        self.layer.addSublayer(shapeLayer)
+    }
 }
