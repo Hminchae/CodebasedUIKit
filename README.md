@@ -11,6 +11,15 @@ Trend|Detail|Search|WishList|MyPage
 |:--:|:--:|:--:|:--:|:--:|
 ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 39 52](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/bbaa14fc-6a5e-45a5-bd06-99c86f5d64b2) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 39 55](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/d4748101-3c2d-4249-b4f8-eaaae60326b7) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 00](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/e9103d6d-f1e6-40de-bc11-93f56711bddf) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 06](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/968826d7-7d40-4929-ad94-169567949a01) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 13](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/00284a6a-3267-4f0d-b257-77f291f0fe48)
 
+## 날씨의 편지
+> 날씨에게서 온 편지
+
+Keyword : `Open Weather API`, `동기/비동기`, `AVPlayer`, `AVFoundation`
+
+|메인|제작중..|제작중..|
+|:--:|:--:|:--:|
+|![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 19 40 43](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/f40a6bff-b56b-4da5-a15b-bb0667af10b3)|![simulator_screenshot_8A0627B9-A054-4629-8E1E-CE35FC0ECDB4](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/05869c87-b542-4881-994a-3efe5a884273)| ![simulator_screenshot_EE418DAB-41AA-4D19-8011-BF52B5F2E9E1](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/8c90f6e1-2bf2-40a4-bc5d-cb33516b97e0)
+
 
 
 
