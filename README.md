@@ -1,3 +1,19 @@
+## 무비무비
+> 좋아하는 영화를 검색하고 저장하는 앱
+
+Keyword : `TMDB API`, `BaseView`, `동기/비동기`
+
+|시연영상|
+|:--:|
+| ![Simulator Screen Recording - iPhone 15 Pro - 2024-06-30 at 17 38 14](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/8549a589-3e22-4c87-9f75-faa5e0c7900f) |
+
+Trend|Detail|Search|WishList|MyPage
+|:--:|:--:|:--:|:--:|:--:|
+![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 39 52](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/bbaa14fc-6a5e-45a5-bd06-99c86f5d64b2) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 39 55](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/d4748101-3c2d-4249-b4f8-eaaae60326b7) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 00](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/e9103d6d-f1e6-40de-bc11-93f56711bddf) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 06](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/968826d7-7d40-4929-ad94-169567949a01) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 17 40 13](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/00284a6a-3267-4f0d-b257-77f291f0fe48)
+
+
+
+
 ## Tamagotchi
 > 귀여운 다마고치를 키울 수 있는 앱
 
