@@ -157,7 +157,7 @@ class WishCollectionViewCell: BaseCollectionViewCell {
         
         // 릴리즈 날짜
         releaseDateTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(movieTitleLabel.snp.bottom).offset(15)
+            make.top.equalTo(movieTitleLabel.snp.bottom).offset(18)
             make.trailing.equalTo(leftSeparator.snp.leading).offset(-1)
             make.width.equalTo(90)
             make.height.equalTo(15)
@@ -179,7 +179,7 @@ class WishCollectionViewCell: BaseCollectionViewCell {
         
         // 투표 평점
         voteAverageTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(movieTitleLabel.snp.bottom).offset(15)
+            make.top.equalTo(movieTitleLabel.snp.bottom).offset(18)
             make.centerX.equalTo(containerView.snp.centerX)
             make.width.equalTo(90)
             make.height.equalTo(15)
