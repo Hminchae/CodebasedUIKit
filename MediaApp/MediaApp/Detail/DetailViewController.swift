@@ -12,6 +12,8 @@ import Kingfisher
 
 class DetailViewController: BaseViewController {
     
+    private var user = UserDefaultManager.shared
+    
     var movieId: Int?
     lazy var movieTitle = ""
     lazy var movieOverView = ""
@@ -31,13 +33,21 @@ class DetailViewController: BaseViewController {
     var detailImageList: [[SearchResult]] = [[], []]
     var posterImageList: [PosterBackdrop] = []
     
+    let clipButton = {
+        let button = UIButton()
+        button.clipsToBounds = true
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 15
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableViewHeader()
         configureNetwork()
         
-        navigationItem.backButtonTitle = ""
     }
     
     override func configureHierarchy() {
@@ -59,14 +69,55 @@ class DetailViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .bg
         
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .point
-    } 
+        navigationItem.backButtonTitle = ""
+        
+        guard let movieId = movieId else { return }
+        
+        let isWishList = user.movieWishList.contains(movieId)
+        clipButton.snp.makeConstraints { make in
+            make.size.equalTo(30)
+        }
+        
+        clipButton.addTarget(self, action: #selector(wishButtonClicked), for: .touchUpInside)
+        setClipButtonAppearance(for: clipButton, movieId: movieId)
+        
+        let barButtonItem = UIBarButtonItem(customView: clipButton)
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
     
     func setupTableViewHeader() {
         let headerView = DetailHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 450))
         headerView.collectionView.dataSource = self
         headerView.collectionView.tag = 100
         tableView.tableHeaderView = headerView
+    }
+    
+    @objc private func wishButtonClicked(_ sender: UIButton) {
+        guard let movieId = movieId else { return }
+        let isWishList = user.movieWishList.contains(movieId)
+        
+        if !user.movieWishList.contains(movieId) {
+            user.movieWishList.append(movieId)
+        } else {
+            var tempArr = user.movieWishList
+            tempArr = tempArr.filter { $0 != movieId }
+            
+            user.movieWishList = tempArr
+        }
+        
+        setClipButtonAppearance(for: sender, movieId: movieId)
+    }
+    
+    private func setClipButtonAppearance(for button: UIButton, movieId: Int) {
+        let isWishList = user.movieWishList.contains(movieId)
+        button.backgroundColor = isWishList ? .black.withAlphaComponent(0.3) : .black.withAlphaComponent(0.7)
+        button.tintColor = isWishList ? .point : .white
+        button.setImage(isWishList ? UIImage(systemName: "popcorn.fill") : UIImage(systemName: "popcorn"), for: .normal)
     }
     
     private func configureNetwork() {
