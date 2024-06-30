@@ -9,11 +9,12 @@ import UIKit
 
 class WishViewController: UIViewController {
     
-    var movieId: Int? = 786892
+    private var user = UserDefaultManager.shared
     
     let flowLayout = ZoomAndSnapFlowLayout()
-    var collectionView: UICollectionView!
     
+    var movieId: Int? = 786892 // 임시
+    var collectionView: UICollectionView!
     var movieDetailInfo: MovieDetail?
     
     override func viewDidLoad() {
@@ -62,7 +63,8 @@ class WishViewController: UIViewController {
 extension WishViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        9
+        //return user.movieWishList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,8 +81,9 @@ extension WishViewController: UICollectionViewDataSource {
             cell.voteAverageLabel.text = String(Double(Int(movieDetailInfo.voteAverage * 10)) / 10)
             
             // 봤어요 버튼 관련
-            cell.sawButton.backgroundColor = sawMovie ? .white : .black.withAlphaComponent(0.5)
-            cell.sawButton.tintColor = sawMovie ? .black : .white
+            let sawMovie = user.movieSawDictionary[movieDetailInfo.id] ?? false
+            
+            cell.sawButton.tintColor = sawMovie ? .point : .white
             cell.sawButton.setImage(sawMovie ? UIImage(systemName: "sunglasses.fill") : UIImage(systemName: "sunglasses") , for: .normal)
             cell.sawButton.tag = indexPath.row
             cell.sawButton.addTarget(self, action: #selector(sawButtonClicked), for: .touchUpInside)
@@ -93,7 +96,13 @@ extension WishViewController: UICollectionViewDataSource {
         let index = sender.tag
         guard let targetId = movieId else { return }
         
-        basketDictionary[targetId] = !(basketDictionary[targetId] ?? false)
-        collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        user.movieSawDictionary[targetId] = !(user.movieSawDictionary[targetId] ?? false)
+        
+        // 버튼만 깜빡이도록
+        if let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? WishCollectionViewCell {
+            let sawMovie = user.movieSawDictionary[targetId] ?? false
+            cell.sawButton.tintColor = sawMovie ? .point : .white
+            cell.sawButton.setImage(sawMovie ? UIImage(systemName: "sunglasses.fill") : UIImage(systemName: "sunglasses"), for: .normal)
+        }
     }
 }

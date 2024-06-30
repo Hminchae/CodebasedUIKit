@@ -103,11 +103,7 @@ class WishCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    var sawButton = { // 봤어요 버튼
-        let button = UIButton()
-        
-        return button
-    }()
+    var sawButton = UIButton()
     
     override func configureHierarchy() {
         contentView.addSubview(containerView)
@@ -177,8 +173,8 @@ class WishCollectionViewCell: BaseCollectionViewCell {
         leftSeparator.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.trailing.equalTo(voteAverageTitleLabel.snp.leading).offset(-1)
-            make.top.equalTo(releaseDateTitleLabel.snp.top).offset(-2)
-            make.bottom.equalTo(releaseDateLabel.snp.bottom).offset(2)
+            make.top.equalTo(releaseDateTitleLabel.snp.top).offset(2)
+            make.bottom.equalTo(releaseDateLabel.snp.bottom).offset(-2)
         }
         
         // 투표 평점
@@ -199,14 +195,14 @@ class WishCollectionViewCell: BaseCollectionViewCell {
         rightSeparator.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.leading.equalTo(voteAverageTitleLabel.snp.trailing).offset(1)
-            make.top.equalTo(releaseDateTitleLabel.snp.top).offset(-2)
-            make.bottom.equalTo(releaseDateLabel.snp.bottom).offset(2)
+            make.top.equalTo(releaseDateTitleLabel.snp.top).offset(2)
+            make.bottom.equalTo(releaseDateLabel.snp.bottom).offset(-2)
         }
         
         sawButton.snp.makeConstraints { make in
-            make.top.equalTo(voteAverageTitleLabel.snp.bottom).offset(1)
-            make.leading.equalTo(rightSeparator.snp.trailing).offset(5)
-            make.width.equalTo(30)
+            make.centerY.equalTo(voteAverageLabel.snp.top)
+            make.centerX.equalTo(voteAverageLabel.snp.trailing).offset(45)
+            make.size.equalTo(50)
         }
     }
 }
