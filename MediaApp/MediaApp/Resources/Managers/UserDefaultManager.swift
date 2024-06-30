@@ -37,4 +37,24 @@ final class UserDefaultManager {
             UserDefaults.standard.set(newValue, forKey: "mySearchList")
         }
     }
+    
+    // 무비 위시리스트
+    var movieWishList: [String] {
+        get {
+            return UserDefaults.standard.array(forKey: "movieWishList") as? [String] ?? []
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "movieWishList")
+        }
+    }
+    
+    // 무비 봤어요 딕셔너리 = id : Bool 형태로 저장
+    var movieSawDictionary: [String: Bool] {
+        get {
+            return UserDefaults.standard.dictionary(forKey: "movieSawDictionary") as? [String: Bool] ?? [:]
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "movieSawDictionary")
+        }
+    }
 }
