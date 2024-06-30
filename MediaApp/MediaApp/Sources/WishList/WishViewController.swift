@@ -13,7 +13,6 @@ class WishViewController: UIViewController {
     
     let flowLayout = ZoomAndSnapFlowLayout()
     
-    var movieId: Int? = 786892 // 임시
     var collectionView: UICollectionView!
     var movieDetailInfo: [MovieDetail] = []
     
@@ -22,11 +21,10 @@ class WishViewController: UIViewController {
         
         title = "WishList"
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = .point
         
         configureCollectionView()
         configureNetwork()
-        
-        print(user.movieWishList)
     }
     
     override func viewWillAppear(_ animated: Bool) {
