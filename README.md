@@ -20,7 +20,14 @@ Keyword : `Open Weather API`, `동기/비동기`, `AVPlayer`, `AVFoundation`
 |:--:|:--:|:--:|
 |![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 19 40 43](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/f40a6bff-b56b-4da5-a15b-bb0667af10b3)|![simulator_screenshot_8A0627B9-A054-4629-8E1E-CE35FC0ECDB4](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/05869c87-b542-4881-994a-3efe5a884273)| ![simulator_screenshot_EE418DAB-41AA-4D19-8011-BF52B5F2E9E1](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/8c90f6e1-2bf2-40a4-bc5d-cb33516b97e0)
 
+## Task App
+> ToDo를 기록하는 앱
 
+Keyword : `MVVM`, `CoreData`, `Lottie`
+
+|메인|Task 등록|완료 시|Task 삭제|
+|:--:|:--:|:--:|:--:|
+![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 22 57 31](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/d904c242-60d8-4f8c-8035-6d927b3e060d) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 22 57 59](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/de461ac7-a56d-4a5f-bb8b-a705c914a053) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 22 58 50](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/bdc857b2-3d5e-40a2-bd43-308734eceb13) | ![Simulator Screenshot - iPhone 15 Pro - 2024-06-30 at 22 59 03](https://github.com/Hminchae/UIKitAndCodebase/assets/103357078/b8043a81-f23e-44ae-bb45-31f4e07f06a8)
 
 
 ## Tamagotchi
