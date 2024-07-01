@@ -31,6 +31,8 @@
 		B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */; };
 		B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2152C2BC153005A2A1F /* TMDBManager.swift */; };
 		B1CE5EB02C2D38B7000F4AA1 /* UI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */; };
+		B1CE5F1A2C322FE6000F4AA1 /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */; };
+		B1CE5F1C2C323642000F4AA1 /* NasaEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,9 @@
 		B192F2122C2BAA33005A2A1F /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 		B192F2152C2BC153005A2A1F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extension.swift"; sourceTree = "<group>"; };
+		B1CE5F172C322F02000F4AA1 /* SeSAC5NetworkURLSessionGCD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSAC5NetworkURLSessionGCD.entitlements; sourceTree = "<group>"; };
+		B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
+		B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,8 @@
 		B1642E972C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5F182C322FCD000F4AA1 /* NASA */,
+				B1CE5F172C322F02000F4AA1 /* SeSAC5NetworkURLSessionGCD.entitlements */,
 				B192F1FD2C2A8CB4005A2A1F /* Resources */,
 				B1642E9A2C2909D5003032F9 /* SceneDelegate.swift */,
 				B1642E982C2909D5003032F9 /* AppDelegate.swift */,
@@ -172,6 +179,15 @@
 				B192F2152C2BC153005A2A1F /* TMDBManager.swift */,
 			);
 			path = URLSession;
+			sourceTree = "<group>";
+		};
+		B1CE5F182C322FCD000F4AA1 /* NASA */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */,
+				B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */,
+			);
+			path = NASA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +284,10 @@
 				B1642E9B2C2909D5003032F9 /* SceneDelegate.swift in Sources */,
 				B192F2062C2A8DB9005A2A1F /* APIKey.swift in Sources */,
 				B192F2042C2A8D96005A2A1F /* NetworkManager.swift in Sources */,
+				B1CE5F1C2C323642000F4AA1 /* NasaEnum.swift in Sources */,
 				B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */,
 				B192F1FC2C2A6FD4005A2A1F /* PosterCollectionViewCell.swift in Sources */,
+				B1CE5F1A2C322FE6000F4AA1 /* NasaViewController.swift in Sources */,
 				B192F1E52C2A506A005A2A1F /* PosterViewController.swift in Sources */,
 				B192F1FA2C2A629F005A2A1F /* SearchView.swift in Sources */,
 				B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */,
@@ -422,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSAC5NetworkURLSessionGCD/SeSAC5NetworkURLSessionGCD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8L5QZ969G;
@@ -450,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSAC5NetworkURLSessionGCD/SeSAC5NetworkURLSessionGCD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8L5QZ969G;
