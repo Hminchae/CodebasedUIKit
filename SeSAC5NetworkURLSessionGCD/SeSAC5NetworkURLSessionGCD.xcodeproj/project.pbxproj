@@ -32,8 +32,33 @@
 		B192F2162C2BC153005A2A1F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192F2152C2BC153005A2A1F /* TMDBManager.swift */; };
 		B1CE5EB02C2D38B7000F4AA1 /* UI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */; };
 		B1CE5F1A2C322FE6000F4AA1 /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */; };
-		B1CE5F1C2C323642000F4AA1 /* NasaEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */; };
+		B1CE5F242C325945000F4AA1 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F232C325945000F4AA1 /* KeyboardViewController.swift */; };
+		B1CE5F282C325945000F4AA1 /* CustomKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B1CE5F212C325945000F4AA1 /* CustomKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1CE5F262C325945000F4AA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1642E8D2C2909D5003032F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1CE5F202C325945000F4AA1;
+			remoteInfo = CustomKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1CE5F2C2C325945000F4AA1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B1CE5F282C325945000F4AA1 /* CustomKeyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B1642E952C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC5NetworkURLSessionGCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +86,9 @@
 		B1CE5EAF2C2D38B7000F4AA1 /* UI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extension.swift"; sourceTree = "<group>"; };
 		B1CE5F172C322F02000F4AA1 /* SeSAC5NetworkURLSessionGCD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSAC5NetworkURLSessionGCD.entitlements; sourceTree = "<group>"; };
 		B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
-		B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaEnum.swift; sourceTree = "<group>"; };
+		B1CE5F212C325945000F4AA1 /* CustomKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CustomKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CE5F232C325945000F4AA1 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		B1CE5F252C325945000F4AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +102,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1CE5F1E2C325945000F4AA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B1642E972C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD */,
+				B1CE5F222C325945000F4AA1 /* CustomKeyboard */,
 				B1642E962C2909D5003032F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				B1642E952C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD.app */,
+				B1CE5F212C325945000F4AA1 /* CustomKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,9 +221,17 @@
 			isa = PBXGroup;
 			children = (
 				B1CE5F192C322FE6000F4AA1 /* NasaViewController.swift */,
-				B1CE5F1B2C323642000F4AA1 /* NasaEnum.swift */,
 			);
 			path = NASA;
+			sourceTree = "<group>";
+		};
+		B1CE5F222C325945000F4AA1 /* CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5F232C325945000F4AA1 /* KeyboardViewController.swift */,
+				B1CE5F252C325945000F4AA1 /* Info.plist */,
+			);
+			path = CustomKeyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,10 +244,12 @@
 				B1642E912C2909D5003032F9 /* Sources */,
 				B1642E922C2909D5003032F9 /* Frameworks */,
 				B1642E932C2909D5003032F9 /* Resources */,
+				B1CE5F2C2C325945000F4AA1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B1CE5F272C325945000F4AA1 /* PBXTargetDependency */,
 			);
 			name = SeSAC5NetworkURLSessionGCD;
 			packageProductDependencies = (
@@ -214,6 +260,23 @@
 			productName = SeSAC5NetworkURLSessionGCD;
 			productReference = B1642E952C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B1CE5F202C325945000F4AA1 /* CustomKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1CE5F292C325945000F4AA1 /* Build configuration list for PBXNativeTarget "CustomKeyboard" */;
+			buildPhases = (
+				B1CE5F1D2C325945000F4AA1 /* Sources */,
+				B1CE5F1E2C325945000F4AA1 /* Frameworks */,
+				B1CE5F1F2C325945000F4AA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomKeyboard;
+			productName = CustomKeyboard;
+			productReference = B1CE5F212C325945000F4AA1 /* CustomKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -226,6 +289,9 @@
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					B1642E942C2909D5003032F9 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					B1CE5F202C325945000F4AA1 = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
@@ -249,6 +315,7 @@
 			projectRoot = "";
 			targets = (
 				B1642E942C2909D5003032F9 /* SeSAC5NetworkURLSessionGCD */,
+				B1CE5F202C325945000F4AA1 /* CustomKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +328,13 @@
 				B1642EA52C2909D7003032F9 /* LaunchScreen.storyboard in Resources */,
 				B1642EA22C2909D7003032F9 /* Assets.xcassets in Resources */,
 				B1642EA02C2909D5003032F9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CE5F1F2C325945000F4AA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +358,6 @@
 				B1642E9B2C2909D5003032F9 /* SceneDelegate.swift in Sources */,
 				B192F2062C2A8DB9005A2A1F /* APIKey.swift in Sources */,
 				B192F2042C2A8D96005A2A1F /* NetworkManager.swift in Sources */,
-				B1CE5F1C2C323642000F4AA1 /* NasaEnum.swift in Sources */,
 				B192F2132C2BAA33005A2A1F /* TMDBRequest.swift in Sources */,
 				B192F1FC2C2A6FD4005A2A1F /* PosterCollectionViewCell.swift in Sources */,
 				B1CE5F1A2C322FE6000F4AA1 /* NasaViewController.swift in Sources */,
@@ -294,7 +367,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1CE5F1D2C325945000F4AA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1CE5F242C325945000F4AA1 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1CE5F272C325945000F4AA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1CE5F202C325945000F4AA1 /* CustomKeyboard */;
+			targetProxy = B1CE5F262C325945000F4AA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1642E9E2C2909D5003032F9 /* Main.storyboard */ = {
@@ -438,6 +527,7 @@
 		B1642EAA2C2909D7003032F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SeSAC5NetworkURLSessionGCD/SeSAC5NetworkURLSessionGCD.entitlements;
@@ -467,6 +557,7 @@
 		B1642EAB2C2909D7003032F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SeSAC5NetworkURLSessionGCD/SeSAC5NetworkURLSessionGCD.entitlements;
@@ -493,6 +584,56 @@
 			};
 			name = Release;
 		};
+		B1CE5F2A2C325945000F4AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8L5QZ969G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CustomKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSAC5NetworkURLSessionGCD.CustomKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1CE5F2B2C325945000F4AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8L5QZ969G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CustomKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thanky.SeSAC5NetworkURLSessionGCD.CustomKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -510,6 +651,15 @@
 			buildConfigurations = (
 				B1642EAA2C2909D7003032F9 /* Debug */,
 				B1642EAB2C2909D7003032F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1CE5F292C325945000F4AA1 /* Build configuration list for PBXNativeTarget "CustomKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1CE5F2A2C325945000F4AA1 /* Debug */,
+				B1CE5F2B2C325945000F4AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

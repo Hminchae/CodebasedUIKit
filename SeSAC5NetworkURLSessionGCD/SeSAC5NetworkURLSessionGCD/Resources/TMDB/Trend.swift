@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Trending: Decodable {
+protocol Configure: AnyObject { // 클래스에서만
+    func setupUI() // dynamic dispatch
+    func text()
+}
+internal struct Trending: Decodable {
     let page: Int
     let results: [MovieDetail]
     let totalPages, totalResults: Int

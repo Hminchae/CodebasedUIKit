@@ -10,7 +10,14 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class PosterViewController: BaseViewController {
+/*
+ 컴파일 최적화 : 서로 파일/코드가 영향이 없게. 필요한 것들만 연결고리가 만들어지게 하여야 함!
+ - final : 클래스에 대한 상속 X 재정의가 안 된다는 것
+ - 접근 제어 : Private
+ => Method Dispatch (static Dispatch / Dynamic Dispatch)
+ */
+
+final class PosterViewController: BaseViewController {
     
     // ✅ self 때문에, 미리 생성되지 않도록 lazy를 사용해줌
     lazy var tableView = {
@@ -94,7 +101,7 @@ class PosterViewController: BaseViewController {
 //        }
 //    }
     
-    func aboutGCD() {
+    func aboutGCD() { // Dynamic dispatch > (final 클래스가 된 이후) static dispatch
         let group = DispatchGroup()
         
         DispatchQueue.global().async(group: group) {
@@ -141,11 +148,11 @@ extension PosterViewController: UITableViewDelegate, UITableViewDataSource {
         cell.collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: PosterCollectionViewCell.id)
         cell.collectionView.reloadData()
         
-        if indexPath.row == 0 {
-            cell.titleLabel.text = "트렌드 영화"
-        } else if indexPath.row == 1 {
-            cell.titleLabel.text = "트렌드 시리즈"
-        }
+//        if indexPath.row == 0 {
+//            cell.titleLabel.text = "트렌드 영화"
+//        } else if indexPath.row == 1 {
+//            cell.titleLabel.text = "트렌드 시리즈"
+//        }
         return cell
     }
 }

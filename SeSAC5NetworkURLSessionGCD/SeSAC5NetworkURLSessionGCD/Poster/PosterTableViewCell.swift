@@ -10,7 +10,7 @@ import UIKit
 class PosterTableViewCell: BaseTableViewCell {
     static let id = "PosterTableViewCell"
     
-    let titleLabel = {
+    private let titleLabel = {
         let view = UILabel()
         view.font = .boldSystemFont(ofSize: 17)
         view.text = "비슷한 영화"
@@ -22,7 +22,7 @@ class PosterTableViewCell: BaseTableViewCell {
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout())
     
-    static func layout() -> UICollectionViewLayout {
+    static private func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 160)
         layout.minimumLineSpacing = 10
