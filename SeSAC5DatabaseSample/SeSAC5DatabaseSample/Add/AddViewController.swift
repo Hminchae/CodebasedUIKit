@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import SnapKit
+import RealmSwift
 
 class AddViewController: BaseViewController {
      
@@ -31,7 +33,14 @@ class AddViewController: BaseViewController {
     
     @objc func saveButtonClicked() {
         print(#function)
-          
+          // Create 1️⃣
+        let realm = try! Realm() // 데이터가 있는 위치를 찾아가는 코드
+        
+        let data = TodoTable(momoTitle: "메모 제목 \(Int.random(in: 1...100))", memoContent: nil, money: Int.random(in: 1...100) * 1000, category: "식비", resisterDate: Date())
+        try! realm.write {
+            realm.add(data)
+            print("Realm Create Succeed")
+        }
     }
     
     override func configureView() {

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+
 import SnapKit
- 
+import RealmSwift
   
 class MainViewController: BaseViewController {
 
@@ -18,7 +19,10 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function)
+        let realm = try! Realm()
+        print(realm.configuration.fileURL)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function)
