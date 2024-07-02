@@ -123,6 +123,7 @@ extension NasaViewController: URLSessionDataDelegate {
             
             return .allow
         } else {
+            nasaImageView.image = UIImage(systemName: "star.fill")
             return .cancel
         }
     }
@@ -139,6 +140,7 @@ extension NasaViewController: URLSessionDataDelegate {
         print(#function, error)
         if let error = error {
             progressLabel.text = "문제가 발생했습니다."
+            nasaImageView.image = UIImage(systemName: "star.fill")
         } else {
             print("성공") // completionHandler 호출 시점과 동일
             
