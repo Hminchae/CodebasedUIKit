@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WishCollectionViewCell: BaseCollectionViewCell {
+final class WishCollectionViewCell: BaseCollectionViewCell {
     
     private var containerView = {
         let view = UIView()

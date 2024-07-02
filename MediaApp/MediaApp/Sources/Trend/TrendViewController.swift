@@ -11,7 +11,7 @@ import Alamofire
 import SnapKit
 import Kingfisher
 
-class TrendViewController: UIViewController {
+final class TrendViewController: UIViewController {
     
     private var user = UserDefaultManager.shared
     

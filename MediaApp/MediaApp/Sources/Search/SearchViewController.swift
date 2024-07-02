@@ -12,7 +12,7 @@ import SnapKit
 import Kingfisher
 import Lottie
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     private let user = UserDefaultManager.shared
     

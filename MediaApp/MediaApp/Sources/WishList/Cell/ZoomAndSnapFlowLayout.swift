@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
+final class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
     let activeDistance: CGFloat = 200
     let zoomFactor: CGFloat = 0.3

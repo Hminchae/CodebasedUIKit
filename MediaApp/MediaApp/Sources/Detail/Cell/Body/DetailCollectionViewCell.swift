@@ -8,7 +8,7 @@
 import UIKit
 
 
-class DetailCollectionViewCell: BaseCollectionViewCell {
+final class DetailCollectionViewCell: BaseCollectionViewCell {
     
     let posterImageView = UIImageView()
 

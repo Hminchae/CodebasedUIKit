@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHeaderView: BaseView {
+final class DetailHeaderView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     

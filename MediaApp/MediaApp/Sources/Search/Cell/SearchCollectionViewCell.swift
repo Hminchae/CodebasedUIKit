@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchCollectionViewCell: UICollectionViewCell {
+final class SearchCollectionViewCell: UICollectionViewCell {
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()

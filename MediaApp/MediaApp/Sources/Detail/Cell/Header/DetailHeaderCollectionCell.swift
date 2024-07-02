@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHeaderCollectionCell: BaseCollectionViewCell {
+final class DetailHeaderCollectionCell: BaseCollectionViewCell {
     
     let posterHeaderImageView = UIImageView()
     let movieLogoImageView = UIImageView()

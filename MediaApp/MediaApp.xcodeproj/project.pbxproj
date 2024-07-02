@@ -27,7 +27,6 @@
 		B182B1862C16DEF2009C00B1 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1852C16DEF2009C00B1 /* TrendViewController.swift */; };
 		B182B18B2C16DEF4009C00B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B182B18A2C16DEF4009C00B1 /* Assets.xcassets */; };
 		B182B18E2C16DEF4009C00B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B182B18C2C16DEF4009C00B1 /* LaunchScreen.storyboard */; };
-		B182B1962C16E054009C00B1 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1952C16E054009C00B1 /* UIColor+extension.swift */; };
 		B182B1982C16E103009C00B1 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1972C16E103009C00B1 /* TrendTableViewCell.swift */; };
 		B182B1A02C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B19F2C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift */; };
 		B182B1A22C16E3A7009C00B1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1A12C16E3A7009C00B1 /* APIKey.swift */; };
@@ -36,7 +35,6 @@
 		B182B1AB2C16FAE8009C00B1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B182B1AA2C16FAE8009C00B1 /* Alamofire */; };
 		B182B1AE2C16FAF9009C00B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B182B1AD2C16FAF9009C00B1 /* Kingfisher */; };
 		B182B1B02C16FD59009C00B1 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1AF2C16FD59009C00B1 /* Trend.swift */; };
-		B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */; };
 		B182B1B52C17495A009C00B1 /* MediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B42C17495A009C00B1 /* MediaAPI.swift */; };
 		B182B1B82C174EAA009C00B1 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B72C174EAA009C00B1 /* Genres.swift */; };
 		B182B1BA2C1767CD009C00B1 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182B1B92C1767CD009C00B1 /* Credit.swift */; };
@@ -76,12 +74,10 @@
 		B182B18A2C16DEF4009C00B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B182B18D2C16DEF4009C00B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B182B18F2C16DEF4009C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B182B1952C16E054009C00B1 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		B182B1972C16E103009C00B1 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		B182B19F2C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		B182B1A12C16E3A7009C00B1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B182B1AF2C16FD59009C00B1 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
-		B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B182B1B42C17495A009C00B1 /* MediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAPI.swift; sourceTree = "<group>"; };
 		B182B1B72C174EAA009C00B1 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		B182B1B92C1767CD009C00B1 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
@@ -231,8 +227,6 @@
 		B182B19D2C16E171009C00B1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B182B1B12C171C08009C00B1 /* UIViewController+Extension.swift */,
-				B182B1952C16E054009C00B1 /* UIColor+extension.swift */,
 				B1CE5EB32C2E81EE000F4AA1 /* UIView+Extension.swift */,
 				B1CE5EC42C311B19000F4AA1 /* String+Extension.swift */,
 			);
@@ -474,8 +468,6 @@
 				B182B1A02C16E1BC009C00B1 /* ReuseIdentifierProtocol.swift in Sources */,
 				B162ABA32C29A5C200CA46ED /* WishViewController.swift in Sources */,
 				B1CE5EBE2C306A23000F4AA1 /* ZoomAndSnapFlowLayout.swift in Sources */,
-				B182B1962C16E054009C00B1 /* UIColor+extension.swift in Sources */,
-				B182B1B22C171C08009C00B1 /* UIViewController+Extension.swift in Sources */,
 				B1CE5EBB2C301C5B000F4AA1 /* MyPageTableViewCell.swift in Sources */,
 				B162ABA72C29A89F00CA46ED /* UserDefaultManager.swift in Sources */,
 				B1CE5EC52C311B19000F4AA1 /* String+Extension.swift in Sources */,

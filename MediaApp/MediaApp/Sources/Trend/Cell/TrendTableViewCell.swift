@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class TrendTableViewCell: UITableViewCell {
+final class TrendTableViewCell: UITableViewCell {
     
     let dateLabel: UILabel = {
         let v = UILabel()

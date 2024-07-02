@@ -7,14 +7,14 @@
 
 import UIKit
 
-class WishViewController: UIViewController {
+final class WishViewController: UIViewController {
     
     private var user = UserDefaultManager.shared
     
-    let flowLayout = ZoomAndSnapFlowLayout()
+    private let flowLayout = ZoomAndSnapFlowLayout()
     
-    var collectionView: UICollectionView!
-    var movieDetailInfo: [MovieDetail] = []
+    private var collectionView: UICollectionView!
+    private var movieDetailInfo: [MovieDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

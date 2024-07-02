@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailTableViewCell: BaseTableViewCell {
+final class DetailTableViewCell: BaseTableViewCell {
     
     let titleLabel = UILabel()
     

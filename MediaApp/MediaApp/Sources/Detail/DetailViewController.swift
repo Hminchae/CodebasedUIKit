@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class DetailViewController: BaseViewController {
+final class DetailViewController: BaseViewController {
     
     private var user = UserDefaultManager.shared
     
