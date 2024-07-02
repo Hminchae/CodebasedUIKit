@@ -15,10 +15,10 @@ final class DetailViewController: BaseViewController {
     private var user = UserDefaultManager.shared
     
     var movieId: Int?
-    lazy var movieTitle = ""
-    lazy var movieOverView = ""
+    private lazy var movieTitle = ""
+    private lazy var movieOverView = ""
     
-    var movieLogoPath: String?
+    private var movieLogoPath: String?
     
     lazy private var tableView = {
         let tableView = UITableView()
@@ -30,10 +30,10 @@ final class DetailViewController: BaseViewController {
         return tableView
     }()
     
-    var detailImageList: [[SearchResult]] = [[], []]
-    var posterImageList: [PosterBackdrop] = []
+    private var detailImageList: [[SearchResult]] = [[], []]
+    private var posterImageList: [PosterBackdrop] = []
     
-    let clipButton = {
+    private let clipButton = {
         let button = UIButton()
         button.clipsToBounds = true
         button.layer.masksToBounds = true

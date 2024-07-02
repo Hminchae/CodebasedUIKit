@@ -113,7 +113,7 @@ final class TrendTableViewCell: UITableViewCell {
         return v
     }()
     
-    let readMoreLabel: UILabel = {
+    private let readMoreLabel: UILabel = {
         let v = UILabel()
         v.font = .systemFont(ofSize: 13)
         v.textColor = .white
@@ -122,7 +122,7 @@ final class TrendTableViewCell: UITableViewCell {
         return v
     }()
     
-    let readMoreButton: UIButton = {
+    private let readMoreButton: UIButton = {
         let v = UIButton()
         v.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         v.tintColor = .white
@@ -153,7 +153,7 @@ final class TrendTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         setGradeView()
         setContainerView()
         configureContainerViewLayout()
@@ -179,7 +179,7 @@ final class TrendTableViewCell: UITableViewCell {
         }
     }
     
-    func configureContainerViewLayout() {
+    private func configureContainerViewLayout() {
         mediaImageView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(containerView.snp.horizontalEdges)
             make.top.equalTo(containerView.snp.top)
@@ -238,7 +238,7 @@ final class TrendTableViewCell: UITableViewCell {
         }
     }
     
-    func setContainerView() {
+    private func setContainerView() {
         containerView.addSubview(mediaImageView)
         containerView.addSubview(gradeFrontLabelView)
         containerView.addSubview(gradeBackLabelView)
@@ -250,7 +250,7 @@ final class TrendTableViewCell: UITableViewCell {
         containerView.addSubview(clipButton)
     }
     
-    func setGradeView() {
+    private func setGradeView() {
         gradeFrontLabelView.addSubview(gradeFrontLabel)
         gradeBackLabelView.addSubview(gradeBackLabel)
         

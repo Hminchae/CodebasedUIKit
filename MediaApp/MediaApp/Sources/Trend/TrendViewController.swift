@@ -15,9 +15,9 @@ final class TrendViewController: UIViewController {
     
     private var user = UserDefaultManager.shared
     
-    var list: [MovieDetail] = []
-    var genres: [Genre] = []
-    let tableView = UITableView()
+    private var list: [MovieDetail] = []
+    private var genres: [Genre] = []
+    private let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ final class TrendViewController: UIViewController {
         }
     }
     
-    func configureNavigationItem() {
+    private func configureNavigationItem() {
         let noti = UIBarButtonItem(
             image: UIImage(systemName: "bell.fill"),
             style: .plain,
@@ -93,7 +93,7 @@ final class TrendViewController: UIViewController {
         //TODO: 알림모아보기 구현
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         view.backgroundColor = .bg
         view.addSubview(tableView)
         
@@ -138,8 +138,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        // 위시리스트(클립) 버튼 관련
-        let isWishList = user.movieWishList.contains(data.id)
         setClipButtonAppearance(for: cell.clipButton, movieId: data.id)
         cell.clipButton.tag = indexPath.row
         cell.clipButton.addTarget(self, action: #selector(wishButtonClicked), for: .touchUpInside)
@@ -156,7 +154,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
+    private func updateCategoryName(_ cell: UITableViewCell, genreID: Int) async -> String {
         var result = ""
         for i in genres {
             if i.id == genreID {

@@ -9,8 +9,8 @@ import UIKit
 
 final class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
-    let activeDistance: CGFloat = 200
-    let zoomFactor: CGFloat = 0.3
+    private let activeDistance: CGFloat = 200
+    private let zoomFactor: CGFloat = 0.3
 
     override init() {
         super.init()

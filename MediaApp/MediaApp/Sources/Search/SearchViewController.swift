@@ -22,16 +22,16 @@ final class SearchViewController: UIViewController {
         return list.total_pages
     }()
     
-    var isEnd: Bool {
+    private var isEnd: Bool {
         get {
             return currentSearchQueryTotalPAge == page ? true : false
         }
     }// page 가 토탈 페이지에 도달했을 때
     
-    var page = 1
-    var preSearchQuery: String = "" // 이전 검색 기록
+    private var page = 1
+    private var preSearchQuery: String = "" // 이전 검색 기록
     
-    var list = Search(page: 0,
+    private var list = Search(page: 0,
                       results: [],
                       total_pages: 0,
                       total_results: 0)
@@ -53,7 +53,7 @@ final class SearchViewController: UIViewController {
     
     private let lottieView = LottieAnimationView()
     
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
