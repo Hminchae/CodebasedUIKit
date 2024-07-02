@@ -9,11 +9,30 @@ import UIKit
 
 import SnapKit
 
-class MainViewController: BaseViewController {
-
+final class MainViewController: BaseViewController {
+    
+    let mainView = MainView()
+   
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationItem()
+    }
+    
+    private func configureNavigationItem() {
+        let edit = UIBarButtonItem(
+            title: "편집",
+            style: .plain,
+            target: self,
+            action: #selector(editButtonClicked))
         
+        navigationItem.rightBarButtonItem = edit
+    }
+    
+    @objc private func editButtonClicked() {
+        print("편집")
     }
 }
-

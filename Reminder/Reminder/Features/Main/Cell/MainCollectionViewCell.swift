@@ -11,7 +11,8 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     
     private var containerView = {
         let view = UIView()
-        view.backgroundColor = .systemBackground.withAlphaComponent(0.5)
+        view.backgroundColor = .container
+        view.layer.cornerRadius = 8
         
         return view
     }()
@@ -20,6 +21,7 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
+        imageView.tintColor = .white
         
         return imageView
     }()
@@ -34,7 +36,7 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     
     var categoryTotalToDoLabel = {
         let label = UILabel()
-        label.font = REFont.b20
+        label.font = REFont.b22
         label.textColor = .label
         
         return label
