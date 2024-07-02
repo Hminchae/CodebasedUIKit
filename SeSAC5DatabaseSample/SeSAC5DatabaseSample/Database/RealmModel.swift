@@ -16,6 +16,7 @@ class TodoTable: Object {
     @Persisted var money: Int // 금액(필수)
     @Persisted var category: String // 필수
     @Persisted var resisterDate: Date // 필수
+    @Persisted var favorite: Bool // 필수
     
     convenience init(momoTitle: String, memoContent: String?, money: Int, category: String, resisterDate: Date) {
         self.init()
@@ -24,5 +25,6 @@ class TodoTable: Object {
         self.money = money
         self.category = category
         self.resisterDate = resisterDate
+        self.favorite = false
     }
 }

@@ -10,17 +10,17 @@ import UIKit
 import SnapKit
 import RealmSwift
   
-class MainViewController: BaseViewController {
+final class MainViewController: BaseViewController {
 
-    let tableView = UITableView()
-    
-    var list = Array(repeating: "테스트", count: 10)
+    private let tableView = UITableView()
+    private var list: Results<TodoTable>!
+    private let realm = try! Realm()
      
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function)
-        let realm = try! Realm()
-        print(realm.configuration.fileURL)
+        list = realm.objects(TodoTable.self).sorted(byKeyPath: "money", ascending: true)
+        //print(realm.configuration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +70,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id) as! ListTableViewCell
-        cell.testUI() 
+        
+        let data = list[indexPath.row]
+        cell.titleLabel.text = data.momoTitle
+        cell.subTitleLabel.text = data.category
+        cell.overviewLabel.text = data.money.formatted() + "원"
+        
         return cell
     }
       
