@@ -20,7 +20,7 @@ final class MainViewController: BaseViewController {
         super.viewDidLoad()
         print(#function)
         list = realm.objects(TodoTable.self).sorted(byKeyPath: "money", ascending: true)
-        //print(realm.configuration.fileURL)
+        print(realm.configuration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,5 +79,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
       
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 셀 클릭 시 묻지도 따지지도 않고 바로 삭제
+        let data = realm.object(ofType: TodoTable.self, forPrimaryKey: list[indexPath.row].id)!
+        //let todoToDelete = list[indexPath.row]
+        // 1. 추가나 삭제 등 데이터가 바뀌면 테이블뷰도 갱신
+        // 2. 왜 항상 try 구문 내에서 코드를 써야 하나?
+        // 3. 테이블 컬럼이 변경되면 왜 앱이 꺼짐?
+        
+        try! realm.write {
+            realm.delete(data)
+        }
+    }
 }
