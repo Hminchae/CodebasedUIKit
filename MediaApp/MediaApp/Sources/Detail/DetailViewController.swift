@@ -11,7 +11,6 @@ import SnapKit
 import Kingfisher
 
 final class DetailViewController: BaseViewController {
-    
     private var user = UserDefaultManager.shared
     
     var movieId: Int?
@@ -26,12 +25,15 @@ final class DetailViewController: BaseViewController {
         tableView.dataSource = self
         tableView.register(DetailTableViewCell.self,
                            forCellReuseIdentifier: DetailTableViewCell.identifier)
+        tableView.register(DetailVideoTableViewCell.self,
+                           forCellReuseIdentifier: DetailVideoTableViewCell.identifier)
         
         return tableView
     }()
     
     private var detailImageList: [[SearchResult]] = [[], []]
     private var posterImageList: [PosterBackdrop] = []
+    private var videoList: [VideoDetail] = []
     
     private let clipButton = {
         let button = UIButton()
@@ -188,6 +190,21 @@ final class DetailViewController: BaseViewController {
                 group.leave()
             }
         }
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            NetworkManager.shared.videoInfoCallRequest(
+                api: .movieVideo(movieId: movieId)
+            ) { result in
+                switch result {
+                case .success(let value):
+                    print(value)
+                    self.videoList = value.results
+                case .failure(let error):
+                    print(error)
+                }
+                group.leave()
+            }
+        }
         
         group.notify(queue: .main) {
             self.tableView.reloadData()
@@ -202,46 +219,75 @@ final class DetailViewController: BaseViewController {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailImageList.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return detailImageList.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
-        
-        cell.collectionView.dataSource = self
-        cell.collectionView.delegate = self
-        cell.collectionView.tag = indexPath.row
-        cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
-        cell.collectionView.reloadData()
-        cell.collectionView.backgroundColor = .bg
-        cell.collectionView.indicatorStyle = .black
-        cell.selectionStyle = .none
-        
-        if indexPath.row == 0 {
-            cell.titleLabel.text = "비슷한 영화"
-        } else if indexPath.row == 1 {
-            cell.titleLabel.text = "추천하는 영화"
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailVideoTableViewCell.identifier, for: indexPath) as! DetailVideoTableViewCell
+            
+            cell.collectionView.dataSource = self
+            cell.collectionView.delegate = self
+            cell.collectionView.tag = 200
+            cell.collectionView.register(DetailVideoCollectionViewCell.self, forCellWithReuseIdentifier: DetailVideoCollectionViewCell.identifier)
+            cell.collectionView.reloadData()
+            cell.collectionView.backgroundColor = .bg
+            cell.collectionView.indicatorStyle = .black
+            cell.selectionStyle = .none
+            
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+            
+            cell.collectionView.dataSource = self
+            cell.collectionView.delegate = self
+            cell.collectionView.tag = indexPath.row
+            cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+            cell.collectionView.reloadData()
+            cell.collectionView.backgroundColor = .bg
+            cell.collectionView.indicatorStyle = .black
+            cell.selectionStyle = .none
+            
+            if indexPath.row == 0 {
+                cell.titleLabel.text = "비슷한 영화"
+            } else if indexPath.row == 1 {
+                cell.titleLabel.text = "추천하는 영화"
+            }
+            
+            return cell
+        default:
+            return UITableViewCell()
         }
-        
-        return cell
     }
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 100 {
+        switch collectionView.tag {
+        case 100:
             return posterImageList.count
-        } else {
+        case 200:
+            return videoList.count
+        default:
             return detailImageList[collectionView.tag].count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 100 {
+        switch collectionView.tag {
+        case 100:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCollectionCell.identifier, for: indexPath) as! DetailHeaderCollectionCell
             let data = posterImageList[indexPath.row]
             
@@ -265,7 +311,13 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             return cell
-        }  else {
+        case 200:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailVideoCollectionViewCell.identifier, for: indexPath) as! DetailVideoCollectionViewCell
+            
+            cell.posterImageView.image = UIImage(systemName: "star.fill")
+            
+            return cell
+        default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
             let data = detailImageList[collectionView.tag][indexPath.row]
             

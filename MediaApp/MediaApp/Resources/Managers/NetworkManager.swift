@@ -99,4 +99,22 @@ final class NetworkManager {
             }
         }
     }
+    
+    // Movie Video
+    func videoInfoCallRequest(api: MediaAPI, completionHandler: @escaping (Result<Video, Error>) -> Void) {
+    
+        AF.request(api.entireUrl,
+                   method: api.method,
+                   parameters: api.parameter,
+                   headers: api.header)
+        .responseDecodable(of: Video.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+               
+            }
+        }
+    }
 }
