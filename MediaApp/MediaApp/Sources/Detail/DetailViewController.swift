@@ -241,11 +241,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.collectionView.tag = 200
-            cell.collectionView.register(DetailVideoCollectionViewCell.self, forCellWithReuseIdentifier: DetailVideoCollectionViewCell.identifier)
+            cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
             cell.collectionView.reloadData()
             cell.collectionView.backgroundColor = .bg
             cell.collectionView.indicatorStyle = .black
             cell.selectionStyle = .none
+            cell.titleLabel.text = "트레일러"
             
             return cell
         case 1:
@@ -312,9 +313,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             return cell
         case 200:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailVideoCollectionViewCell.identifier, for: indexPath) as! DetailVideoCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
             
-            cell.posterImageView.image = UIImage(systemName: "star.fill")
+            let url = URL(string: MediaAPI.youTubeThumbnail(movieKey: videoList[indexPath.row].key).entireUrl)
+            cell.posterImageView.kf.setImage(with: url)
             
             return cell
         default:
@@ -331,7 +333,15 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag != 100 {
+        switch collectionView.tag {
+        case 100:
+            print("")
+        case 200:
+            let vc = YouTubePlayViewController()
+
+            vc.link = MediaAPI.youTube(movieKey: videoList[indexPath.row].key).entireUrl
+            navigationController?.pushViewController(vc, animated: true)
+        default:
             let data = detailImageList[collectionView.tag][indexPath.row]
             let movieId = data.id
             let vc = DetailViewController()

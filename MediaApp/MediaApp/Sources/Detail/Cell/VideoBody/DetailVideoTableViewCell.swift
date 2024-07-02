@@ -17,7 +17,7 @@ final class DetailVideoTableViewCell: BaseTableViewCell {
     static func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 200, height: 100)
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
@@ -40,8 +40,7 @@ final class DetailVideoTableViewCell: BaseTableViewCell {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.left.right.equalTo(contentView)
-            make.bottom.equalTo(contentView).offset(-10)
-            make.width.equalTo(200)
+            make.bottom.equalTo(contentView).offset(-10) 
             make.height.equalTo(100)
         }
     }

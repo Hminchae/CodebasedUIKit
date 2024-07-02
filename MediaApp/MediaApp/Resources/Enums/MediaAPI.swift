@@ -24,6 +24,7 @@ enum MediaAPI {
     case movieVideo(movieId: Int)
     
     case youTube(movieKey: String)
+    case youTubeThumbnail(movieKey: String)
     
     var baseUrl: String {
         return "https://api.themoviedb.org/3/"
@@ -55,14 +56,14 @@ enum MediaAPI {
             return "movie/\(id)/videos"
         case .youTube(let movieKey):
             return "https://www.youtube.com/watch?v=\(movieKey)"
+        case .youTubeThumbnail(let movieKey):
+            return "https://img.youtube.com/vi/\(movieKey)/hqdefault.jpg"
         }
     }
     
     var entireUrl: String {
         switch self {
-        case .imageURL:
-            return endPointUrl
-        case .youTube:
+        case .imageURL, .youTube, .youTubeThumbnail:
             return endPointUrl
         default:
             return baseUrl + endPointUrl
