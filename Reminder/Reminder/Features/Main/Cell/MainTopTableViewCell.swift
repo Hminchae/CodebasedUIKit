@@ -12,20 +12,14 @@ final class MainTopTableViewCell: BaseTableViewCell {
     lazy var collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: collectionViewLayout())
     
-    private func collectionViewLayout() -> UICollectionViewFlowLayout {
+    private func collectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        let sectionSpacing: CGFloat = 12
-        let cellSpacing: CGFloat = 12
-        let width = UIScreen.main.bounds.width - (sectionSpacing * 2) - (cellSpacing * 3)
-        
-        layout.itemSize = CGSize(width: width/2, height: width/4)
+        let frame = UIScreen.main.bounds
+        layout.itemSize = CGSize(width: (frame.width - 30) / 2, height: 100)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = cellSpacing
-        layout.minimumInteritemSpacing = cellSpacing
-        layout.sectionInset = UIEdgeInsets(top: sectionSpacing,
-                                           left: sectionSpacing,
-                                           bottom: sectionSpacing,
-                                           right: sectionSpacing)
         
         return layout
     }

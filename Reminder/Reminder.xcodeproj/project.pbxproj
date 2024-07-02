@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B1CE5F6B2C343F23000F4AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F6A2C343F23000F4AA1 /* AppDelegate.swift */; };
 		B1CE5F6D2C343F23000F4AA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F6C2C343F23000F4AA1 /* SceneDelegate.swift */; };
-		B1CE5F6F2C343F23000F4AA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F6E2C343F23000F4AA1 /* MainViewController.swift */; };
 		B1CE5F742C343F25000F4AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CE5F732C343F25000F4AA1 /* Assets.xcassets */; };
 		B1CE5F772C343F25000F4AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CE5F752C343F25000F4AA1 /* LaunchScreen.storyboard */; };
 		B1CE5F862C34431C000F4AA1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F852C34431C000F4AA1 /* BaseView.swift */; };
@@ -24,16 +23,19 @@
 		B1CE5F9D2C3445A2000F4AA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5F9C2C3445A2000F4AA1 /* SnapKit */; };
 		B1CE5F9F2C345118000F4AA1 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F9E2C345118000F4AA1 /* MainCollectionViewCell.swift */; };
 		B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */; };
-		B1CE5FA42C3457FC000F4AA1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA32C3457FC000F4AA1 /* MainView.swift */; };
+		B1CE5FA42C3457FC000F4AA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA32C3457FC000F4AA1 /* MainViewController.swift */; };
 		B1CE5FA82C3460D4000F4AA1 /* MainTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA72C3460D4000F4AA1 /* MainTopTableViewCell.swift */; };
 		B1CE5FAA2C3460E6000F4AA1 /* MainBottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA92C3460E6000F4AA1 /* MainBottomTableViewCell.swift */; };
+		B1CE5FAE2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */; };
+		B1CE5FB02C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */; };
+		B1CE5FB32C34C0E9000F4AA1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */; };
+		B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B1CE5F672C343F23000F4AA1 /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CE5F6A2C343F23000F4AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CE5F6C2C343F23000F4AA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1CE5F6E2C343F23000F4AA1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B1CE5F732C343F25000F4AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1CE5F762C343F25000F4AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1CE5F782C343F25000F4AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,9 +49,13 @@
 		B1CE5F962C3444FA000F4AA1 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 		B1CE5F9E2C345118000F4AA1 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
-		B1CE5FA32C3457FC000F4AA1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B1CE5FA32C3457FC000F4AA1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B1CE5FA72C3460D4000F4AA1 /* MainTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopTableViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FA92C3460E6000F4AA1 /* MainBottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomTableViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderContentsTableViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		B1CE5F7E2C344160000F4AA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FB12C34C0C9000F4AA1 /* Models */,
 				B1CE5FA22C345145000F4AA1 /* Protocol */,
 				B1CE5F842C3442E3000F4AA1 /* Base */,
 				B1CE5F812C3441B8000F4AA1 /* DesignSource */,
@@ -145,8 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CE5FAB2C3460EC000F4AA1 /* Cell */,
-				B1CE5F6E2C343F23000F4AA1 /* MainViewController.swift */,
-				B1CE5FA32C3457FC000F4AA1 /* MainView.swift */,
+				B1CE5FA32C3457FC000F4AA1 /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 		B1CE5F922C3444A6000F4AA1 /* NewReminder */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FAC2C34BCE7000F4AA1 /* Cell */,
 				B1CE5F942C3444DE000F4AA1 /* NewReminderViewController.swift */,
 			);
 			path = NewReminder;
@@ -201,6 +208,24 @@
 				B1CE5FA92C3460E6000F4AA1 /* MainBottomTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1CE5FAC2C34BCE7000F4AA1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */,
+				B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1CE5FB12C34C0C9000F4AA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */,
+				B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,19 +309,22 @@
 				B1CE5F972C3444FA000F4AA1 /* NewListViewController.swift in Sources */,
 				B1CE5F882C344330000F4AA1 /* BaseViewController.swift in Sources */,
 				B1CE5F8C2C344370000F4AA1 /* BaseCollectionViewCell.swift in Sources */,
-				B1CE5F6F2C343F23000F4AA1 /* MainViewController.swift in Sources */,
 				B1CE5F6B2C343F23000F4AA1 /* AppDelegate.swift in Sources */,
 				B1CE5FAA2C3460E6000F4AA1 /* MainBottomTableViewCell.swift in Sources */,
+				B1CE5FAE2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift in Sources */,
 				B1CE5F6D2C343F23000F4AA1 /* SceneDelegate.swift in Sources */,
 				B1CE5FA82C3460D4000F4AA1 /* MainTopTableViewCell.swift in Sources */,
 				B1CE5F8E2C3443B1000F4AA1 /* REFont.swift in Sources */,
 				B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */,
+				B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */,
+				B1CE5FB02C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift in Sources */,
 				B1CE5F9F2C345118000F4AA1 /* MainCollectionViewCell.swift in Sources */,
-				B1CE5FA42C3457FC000F4AA1 /* MainView.swift in Sources */,
+				B1CE5FA42C3457FC000F4AA1 /* MainViewController.swift in Sources */,
 				B1CE5F912C344461000F4AA1 /* ListDetailViewController.swift in Sources */,
 				B1CE5F952C3444DE000F4AA1 /* NewReminderViewController.swift in Sources */,
 				B1CE5F8A2C344359000F4AA1 /* BaseTableViewCell.swift in Sources */,
 				B1CE5F862C34431C000F4AA1 /* BaseView.swift in Sources */,
+				B1CE5FB32C34C0E9000F4AA1 /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
