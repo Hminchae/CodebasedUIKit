@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class MainViewController: BaseViewController {
 
     override func viewDidLoad() {

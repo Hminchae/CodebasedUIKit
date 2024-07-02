@@ -22,6 +22,8 @@
 		B1CE5F972C3444FA000F4AA1 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F962C3444FA000F4AA1 /* NewListViewController.swift */; };
 		B1CE5F9A2C344573000F4AA1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5F992C344573000F4AA1 /* RealmSwift */; };
 		B1CE5F9D2C3445A2000F4AA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5F9C2C3445A2000F4AA1 /* SnapKit */; };
+		B1CE5F9F2C345118000F4AA1 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F9E2C345118000F4AA1 /* MainCollectionViewCell.swift */; };
+		B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B1CE5F902C344461000F4AA1 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		B1CE5F942C3444DE000F4AA1 /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
 		B1CE5F962C3444FA000F4AA1 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
+		B1CE5F9E2C345118000F4AA1 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +89,10 @@
 		B1CE5F7E2C344160000F4AA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FA22C345145000F4AA1 /* Protocol */,
 				B1CE5F842C3442E3000F4AA1 /* Base */,
 				B1CE5F812C3441B8000F4AA1 /* DesignSource */,
+				B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CE5F6E2C343F23000F4AA1 /* MainViewController.swift */,
+				B1CE5F9E2C345118000F4AA1 /* MainCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -170,6 +177,13 @@
 				B1CE5F962C3444FA000F4AA1 /* NewListViewController.swift */,
 			);
 			path = NewList;
+			sourceTree = "<group>";
+		};
+		B1CE5FA22C345145000F4AA1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +271,8 @@
 				B1CE5F6B2C343F23000F4AA1 /* AppDelegate.swift in Sources */,
 				B1CE5F6D2C343F23000F4AA1 /* SceneDelegate.swift in Sources */,
 				B1CE5F8E2C3443B1000F4AA1 /* REFont.swift in Sources */,
+				B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */,
+				B1CE5F9F2C345118000F4AA1 /* MainCollectionViewCell.swift in Sources */,
 				B1CE5F912C344461000F4AA1 /* ListDetailViewController.swift in Sources */,
 				B1CE5F952C3444DE000F4AA1 /* NewReminderViewController.swift in Sources */,
 				B1CE5F8A2C344359000F4AA1 /* BaseTableViewCell.swift in Sources */,
