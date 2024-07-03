@@ -30,6 +30,7 @@
 		B1CE5FB02C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */; };
 		B1CE5FB32C34C0E9000F4AA1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */; };
 		B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */; };
+		B1CE5FB72C34CBB4000F4AA1 /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwift.swift; sourceTree = "<group>"; };
+		B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CE5F902C344461000F4AA1 /* ListDetailViewController.swift */,
+				B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */,
 			);
 			path = ListDetail;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				B1CE5F972C3444FA000F4AA1 /* NewListViewController.swift in Sources */,
 				B1CE5F882C344330000F4AA1 /* BaseViewController.swift in Sources */,
+				B1CE5FB72C34CBB4000F4AA1 /* ListDetailTableViewCell.swift in Sources */,
 				B1CE5F8C2C344370000F4AA1 /* BaseCollectionViewCell.swift in Sources */,
 				B1CE5F6B2C343F23000F4AA1 /* AppDelegate.swift in Sources */,
 				B1CE5FAA2C3460E6000F4AA1 /* MainBottomTableViewCell.swift in Sources */,

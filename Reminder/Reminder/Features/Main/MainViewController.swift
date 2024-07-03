@@ -177,6 +177,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("에에")
+        let vc = ListDetailViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
