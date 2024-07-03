@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainCollectionViewCell: BaseCollectionViewCell {
+final class MainHeaderCollectionViewCell: BaseCollectionViewCell {
     
     private var containerView = {
         let view = UIView()
@@ -56,7 +56,6 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         
         categoryIconContainer.layer.cornerRadius = 15
         categoryIconContainer.clipsToBounds = true
-        categoryIconContainer.addSubview(categoryIconImageView)
         
         categoryIconImageView.tintColor = .white
         categoryIconImageView.contentMode = .scaleAspectFit

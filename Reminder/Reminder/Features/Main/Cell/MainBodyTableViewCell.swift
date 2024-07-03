@@ -9,53 +9,46 @@ import UIKit
 
 import SnapKit
 
-final class MainBottomTableViewCell: BaseTableViewCell {
+final class MainBodyTableViewCell: BaseTableViewCell {
     
-   var toDoTitleLabel = {
+    var categoryIconContainer = UIView()
+    var categoryIconImageView = UIImageView()
+    
+    var toDoTitleLabel = {
         let label = UILabel()
-        label.font = REFont.b14
+        label.font = REFont.m16
         label.textColor = .label
         label.textAlignment = .left
         
         return label
     }()
     
-    var listIconImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "list.bullet")
-        imageView.tintColor = .white
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
-        
-        return imageView
-    }()
-    
     var toDoCountLabel = {
         let label = UILabel()
         label.font = REFont.b14
-        label.textColor = .label
+        label.textColor = .lightGray
         label.textAlignment = .right
         
         return label
     }()
     
     override func configureHierarchy() {
-        contentView.addSubview(listIconImageView)
+        contentView.addSubview(categoryIconContainer)
         contentView.addSubview(toDoTitleLabel)
         contentView.addSubview(toDoCountLabel)
     }
     
     override func configureLayout() {
-        listIconImageView.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(5)
+
+        categoryIconContainer.snp.makeConstraints { make in
+            make.centerY.equalTo(toDoTitleLabel.snp.centerY)
             make.leading.equalTo(contentView.snp.leading).offset(5)
-            make.height.equalTo(30).priority(.high) // 우선순위를 high로 설정
-            make.width.equalTo(30)
+            make.size.equalTo(30)
         }
         
         toDoTitleLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(5)
-            make.leading.equalTo(listIconImageView.snp.trailing).offset(5)
+            make.leading.equalTo(categoryIconContainer.snp.trailing).offset(8)
         }
         
         toDoCountLabel.snp.makeConstraints { make in
@@ -66,6 +59,22 @@ final class MainBottomTableViewCell: BaseTableViewCell {
     }
     
     override func configureView() {
+        cofigureIconContainerView()
+    }
+    
+    func cofigureIconContainerView() {
+        categoryIconContainer.addSubview(categoryIconImageView)
         
+        categoryIconContainer.layer.cornerRadius = 15
+        categoryIconContainer.clipsToBounds = true
+        
+        categoryIconImageView.tintColor = .white
+        categoryIconImageView.contentMode = .scaleAspectFit
+        categoryIconImageView.image = UIImage(systemName: "list.bullet")
+        
+        categoryIconImageView.snp.makeConstraints { make in
+            make.center.equalTo(categoryIconContainer)
+            make.size.equalTo(20)
+        }
     }
 }

@@ -17,9 +17,10 @@ enum View {
     
     enum MainCategory: String, CaseIterable {
         case today = "오늘"
-        case completed = "완료됨"
         case expacted = "예정"
         case all = "전체"
+        case flag = "깃발 표시"
+        case completed = "완료됨"
         
         var icon: String {
             switch self {
@@ -31,6 +32,8 @@ enum View {
                 return "calendar"
             case .all:
                 return "tray.fill"
+            case .flag:
+                return "flag.fill"
             }
         }
         
@@ -44,6 +47,8 @@ enum View {
                 return UIColor.systemRed
             case .all:
                 return UIColor.systemGray4
+            case .flag:
+                return UIColor.systemOrange
             }
         }
     }

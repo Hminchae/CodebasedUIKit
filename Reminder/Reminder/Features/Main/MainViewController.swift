@@ -10,20 +10,18 @@ import UIKit
 final class MainViewController: BaseViewController {
     
     // MARK: 뷰
-    lazy private var tableView = {
-        let tableView = UITableView()
+    private lazy var tableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(MainTopTableViewCell.self,
-                           forCellReuseIdentifier: MainTopTableViewCell.identifier)
-        tableView.register(MainBottomTableViewCell.self,
-                           forCellReuseIdentifier: MainBottomTableViewCell.identifier)
+        tableView.register(MainBodyTableViewCell.self,
+                           forCellReuseIdentifier: MainBodyTableViewCell.identifier)
         
         return tableView
     }()
     
     // 뷰 하단 아이템들
-    private let bottomLeftItemView = UIView()
+    private let bottomItemView = UIView()
     
     private lazy var newReminderButton = {
         let button = UIButton()
@@ -59,17 +57,17 @@ final class MainViewController: BaseViewController {
     
     override func configureHierarchy() {
         view.addSubview(tableView)
-        view.addSubview(bottomLeftItemView)
+        view.addSubview(bottomItemView)
     }
     
     override func configureLayout() {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
-            make.bottom.equalTo(bottomLeftItemView.snp.top)
+            make.horizontalEdges.equalTo(view.snp.horizontalEdges)
+            make.bottom.equalTo(bottomItemView.snp.top)
         }
         
-        bottomLeftItemView.snp.makeConstraints { make in
+        bottomItemView.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(10)
             make.height.equalTo(40)
@@ -77,6 +75,7 @@ final class MainViewController: BaseViewController {
     }
     
     override func configureView() {
+        setupTableViewHeader()
         setupBottomLeftItem()
     }
     
@@ -102,18 +101,24 @@ final class MainViewController: BaseViewController {
     }
     
     private func setupBottomLeftItem() {
-        bottomLeftItemView.addSubview(newReminderButton)
-        bottomLeftItemView.addSubview(addListButton)
+        bottomItemView.addSubview(newReminderButton)
+        bottomItemView.addSubview(addListButton)
         
         newReminderButton.snp.makeConstraints { make in
-            make.leading.equalTo(bottomLeftItemView.snp.leading)
-            make.top.equalTo(bottomLeftItemView.snp.top).offset(5)
+            make.leading.equalTo(bottomItemView.snp.leading)
+            make.top.equalTo(bottomItemView.snp.top).offset(5)
         }
         
         addListButton.snp.makeConstraints { make in
-            make.trailing.equalTo(bottomLeftItemView.snp.trailing)
-            make.top.equalTo(bottomLeftItemView.snp.top).offset(5)
+            make.trailing.equalTo(bottomItemView.snp.trailing)
+            make.top.equalTo(bottomItemView.snp.top).offset(5)
         }
+    }
+    
+    func setupTableViewHeader() {
+        let headerView = MainHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300))
+        headerView.collectionView.dataSource = self
+        tableView.tableHeaderView = headerView
     }
     
     // MARK: 버튼 액션
@@ -135,59 +140,26 @@ final class MainViewController: BaseViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 5
-        default:
-            return 0
-        }
+         return 5
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainTopTableViewCell.identifier, for: indexPath)
-            guard let cell = cell as? MainTopTableViewCell else { return UITableViewCell() }
-            
-            cell.collectionView.dataSource = self
-            cell.collectionView.delegate = self
-            cell.collectionView.tag = 100
-            cell.collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
-            
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainBottomTableViewCell.identifier, for: indexPath)
-            guard let cell = cell as? MainBottomTableViewCell else { return UITableViewCell() }
-            cell.toDoCountLabel.text = "0"
-            cell.toDoTitleLabel.text = "어렵다.."
-            cell.accessoryType = .disclosureIndicator
-            
-            return cell
-        default:
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainBodyTableViewCell.identifier, for: indexPath)
+        guard let cell = cell as? MainBodyTableViewCell else { return UITableViewCell() }
+        cell.categoryIconContainer.backgroundColor = .red
+        cell.toDoCountLabel.text = "0"
+        cell.toDoTitleLabel.text = "어렵다.."
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 300 // 여기에 list / 2 + 1 * 100 만큼 ..?
-        case 1:
-            return 40
-        default:
-            return 0
-        }
+        return 50
     }
-    
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -196,8 +168,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainHeaderCollectionViewCell.identifier, for: indexPath) as? MainHeaderCollectionViewCell else { return UICollectionViewCell() }
+        
         let data = View.MainCategory.allCases[indexPath.row]
+        
         cell.categoryIconImageView.image = UIImage(systemName: data.icon)
         cell.categoryIconContainer.backgroundColor = data.iconColor
         
