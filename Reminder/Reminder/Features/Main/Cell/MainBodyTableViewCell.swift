@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 
+// 컴포넌트 셀 : 아이콘과 타이틀, 숫자가 있는 셀
 final class MainBodyTableViewCell: BaseTableViewCell {
     
     var categoryIconContainer = UIView()

@@ -7,24 +7,25 @@
 
 import UIKit
 
-final class NewReminderDetailTableViewCell: BaseTableViewCell {
+// 컴포넌트 셀 : 제목 하나만 있는 셀
+final class TitleTableViewCell: BaseTableViewCell {
     
-    let listTitleLabel = {
+    let titleLabel = {
         let label = UILabel()
-        label.font = REFont.m12
+        label.font = REFont.m16
         label.textColor = .label
         
         return label
     }()
     
     override func configureHierarchy() {
-        contentView.addSubview(listTitleLabel)
+        contentView.addSubview(titleLabel)
     }
     
     override func configureLayout() {
-        listTitleLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(10)
-            make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(10)
+            make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(5)
         }
     }
 }

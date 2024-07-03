@@ -11,8 +11,8 @@ import RealmSwift
 
 class TodoTable: Object {
     @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted(indexed: true) var momoTitle: String // 메모제목(필수)
-    @Persisted var momoContent: String? // 메모 내용(옵션)
+    @Persisted(indexed: true) var momoTitle: String
+    @Persisted var momoContent: String?
     
     convenience init(momoTitle: String, memoContent: String?) {
         self.init()

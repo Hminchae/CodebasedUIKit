@@ -27,10 +27,11 @@
 		B1CE5FA82C3460D4000F4AA1 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA72C3460D4000F4AA1 /* MainHeaderView.swift */; };
 		B1CE5FAA2C3460E6000F4AA1 /* MainBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FA92C3460E6000F4AA1 /* MainBodyTableViewCell.swift */; };
 		B1CE5FAE2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */; };
-		B1CE5FB02C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */; };
+		B1CE5FB02C34BF50000F4AA1 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FAF2C34BF50000F4AA1 /* TitleTableViewCell.swift */; };
 		B1CE5FB32C34C0E9000F4AA1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */; };
 		B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */; };
 		B1CE5FB72C34CBB4000F4AA1 /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */; };
+		B1CE5FBC2C3559E0000F4AA1 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,10 +55,11 @@
 		B1CE5FA72C3460D4000F4AA1 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		B1CE5FA92C3460E6000F4AA1 /* MainBodyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBodyTableViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderContentsTableViewCell.swift; sourceTree = "<group>"; };
-		B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FAF2C34BF50000F4AA1 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwift.swift; sourceTree = "<group>"; };
 		B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		B1CE5F7F2C34416A000F4AA1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FAC2C34BCE7000F4AA1 /* ReUseCell */,
 				B1CE5F932C3444B3000F4AA1 /* NewList */,
 				B1CE5F922C3444A6000F4AA1 /* NewReminder */,
 				B1CE5F8F2C34440C000F4AA1 /* ListDetail */,
@@ -182,7 +185,6 @@
 		B1CE5F922C3444A6000F4AA1 /* NewReminder */ = {
 			isa = PBXGroup;
 			children = (
-				B1CE5FAC2C34BCE7000F4AA1 /* Cell */,
 				B1CE5F942C3444DE000F4AA1 /* NewReminderViewController.swift */,
 			);
 			path = NewReminder;
@@ -213,13 +215,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		B1CE5FAC2C34BCE7000F4AA1 /* Cell */ = {
+		B1CE5FAC2C34BCE7000F4AA1 /* ReUseCell */ = {
 			isa = PBXGroup;
 			children = (
 				B1CE5FAD2C34BD0B000F4AA1 /* NewReminderContentsTableViewCell.swift */,
-				B1CE5FAF2C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift */,
+				B1CE5FAF2C34BF50000F4AA1 /* TitleTableViewCell.swift */,
 			);
-			path = Cell;
+			path = ReUseCell;
 			sourceTree = "<group>";
 		};
 		B1CE5FB12C34C0C9000F4AA1 /* Models */ = {
@@ -227,6 +229,7 @@
 			children = (
 				B1CE5FB22C34C0E9000F4AA1 /* Enums.swift */,
 				B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */,
+				B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,9 +324,10 @@
 				B1CE5F8E2C3443B1000F4AA1 /* REFont.swift in Sources */,
 				B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */,
 				B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */,
-				B1CE5FB02C34BF50000F4AA1 /* NewReminderDetailTableViewCell.swift in Sources */,
+				B1CE5FB02C34BF50000F4AA1 /* TitleTableViewCell.swift in Sources */,
 				B1CE5F9F2C345118000F4AA1 /* MainHeaderCollectionViewCell.swift in Sources */,
 				B1CE5FA42C3457FC000F4AA1 /* MainViewController.swift in Sources */,
+				B1CE5FBC2C3559E0000F4AA1 /* Reminder.swift in Sources */,
 				B1CE5F912C344461000F4AA1 /* ListDetailViewController.swift in Sources */,
 				B1CE5F952C3444DE000F4AA1 /* NewReminderViewController.swift in Sources */,
 				B1CE5F8A2C344359000F4AA1 /* BaseTableViewCell.swift in Sources */,

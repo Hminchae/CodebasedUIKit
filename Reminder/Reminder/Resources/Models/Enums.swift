@@ -53,3 +53,10 @@ enum View {
         }
     }
 }
+
+enum Value {
+    enum Category: String, CaseIterable { // 이거 나중엔 추가되도록 해야하는데..
+        case reminder = "미리 알림"
+        case toDo = "할일"
+    }
+}

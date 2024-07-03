@@ -9,16 +9,21 @@ import UIKit
 
 import RealmSwift
 
-class NewReminderViewController: BaseViewController {
+protocol NewReminderContentsDelegate {
+    func passTitle(_ text: String)
+    func passMemo(_ text: String)
+}
 
+class NewReminderViewController: BaseViewController {
+    
     lazy private var tableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(NewReminderContentsTableViewCell.self,
                            forCellReuseIdentifier: NewReminderContentsTableViewCell.identifier)
-        tableView.register(NewReminderDetailTableViewCell.self,
-                           forCellReuseIdentifier: NewReminderDetailTableViewCell.identifier)
+        tableView.register(TitleTableViewCell.self,
+                           forCellReuseIdentifier: TitleTableViewCell.identifier)
         
         return tableView
     }()
@@ -40,45 +45,16 @@ class NewReminderViewController: BaseViewController {
         return button
     }()
     
-    let titleTextField = {
-        let textField = UITextField()
-        textField.placeholder = "제목"
-        textField.font = REFont.m12
-        textField.tintColor = .darkGray
-        textField.textColor = .label
-        
-        return textField
-    }()
-    
-    let separatorView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        
-        return view
-    }()
-    let memoTextField = {
-        let textField = UITextField()
-        textField.placeholder = "메모"
-        textField.font = REFont.m12
-        textField.tintColor = .darkGray
-        textField.textColor = .label
-        
-        return textField
-    }()
+    private var tempReminder: Reminder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tempReminder = Reminder(title: "", category: .reminder)
     }
     
     override func configureHierarchy() {
         view.addSubview(addButton)
         view.addSubview(cancelButton)
-        
-        view.addSubview(titleTextField)
-        view.addSubview(separatorView)
-        view.addSubview(memoTextField)
-        
         view.addSubview(tableView)
     }
     
@@ -95,56 +71,24 @@ class NewReminderViewController: BaseViewController {
             make.height.equalTo(20)
         }
         
-        titleTextField.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(10)
-            make.top.equalTo(addButton.snp.bottom).offset(10)
-            make.height.equalTo(50)
-        }
-        
-        separatorView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(10)
-            make.top.equalTo(titleTextField.snp.bottom)
-            make.height.equalTo(1)
-        }
-        
-        memoTextField.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(view.snp.horizontalEdges).inset(10)
-            make.top.equalTo(separatorView.snp.bottom)
-            make.height.equalTo(150)
-        }
-        
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(memoTextField.snp.bottom).offset(15)
+            make.top.equalTo(addButton.snp.bottom).offset(15)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     @objc private func addButtonClicked() {
         let realm = try! Realm() // 데이터가 있는 위치를 찾아가는 코드
-        
-        guard let title = titleTextField.text, !title.isEmpty,
-              let memo = memoTextField.text
-        else {
-            // 1.
-            let alert = UIAlertController(
-                title: "제목이 비어있습니다!!",
-                message: "제목은 옵셔널이 아니라서 입력해야합니다ㅡㅡ",
-                preferredStyle: .alert)
-            
-            // 2.
-            let confirm = UIAlertAction(
-                title: "확인",
-                style: .default)
-            
-            // 3.
-            alert.addAction(confirm)
-            
-            // 4.
+
+        guard let reminder = tempReminder, !reminder.title.isEmpty else {
+            let alert = UIAlertController(title: "제목이 비어 있습니다", message: "제목을 입력해주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
             present(alert, animated: true)
+            
             return
         }
         
-        let data = TodoTable(momoTitle: title, memoContent: memo)
+        let data = TodoTable(momoTitle: reminder.title, memoContent: reminder.memo)
         try! realm.write {
             realm.add(data)
             print("Realm Create Succeed")
@@ -179,12 +123,13 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewReminderContentsTableViewCell.identifier, for: indexPath)
             guard let cell = cell as? NewReminderContentsTableViewCell else { return UITableViewCell() }
-   
+            cell.delegate = self
+            
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: NewReminderDetailTableViewCell.identifier, for: indexPath)
-            guard let cell = cell as? NewReminderDetailTableViewCell else { return UITableViewCell() }
-            cell.listTitleLabel.text = View.NewREList.allCases[indexPath.row].rawValue
+            let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath)
+            guard let cell = cell as? TitleTableViewCell else { return UITableViewCell() }
+            cell.titleLabel.text = View.NewREList.allCases[indexPath.row].rawValue
             
             return cell
         default:
@@ -197,9 +142,20 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             return 180
         case 1:
-            return 30
+            return 50
         default:
             return 0
         }
+    }
+}
+
+extension NewReminderViewController: NewReminderContentsDelegate {
+    func passTitle(_ text: String) {
+        print(#function, text)
+        tempReminder?.title = text
+    }
+    
+    func passMemo(_ text: String) {
+        tempReminder?.memo = text
     }
 }
