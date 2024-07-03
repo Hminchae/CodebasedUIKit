@@ -9,7 +9,11 @@ import UIKit
 
 import SnapKit
 import RealmSwift
+import Toast
 
+protocol PassCategoryDataDelegate {
+    func passCategoryValue(_ text: String)
+}
 class AddViewController: BaseViewController {
     
     let moneyButton = UIButton()
@@ -20,6 +24,7 @@ class AddViewController: BaseViewController {
     let titleTextField = UITextField()
     let contentTextField = UITextField()
     
+    var showToast: (() -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +45,7 @@ class AddViewController: BaseViewController {
         // 1. 텍스트필드에 작성한 텍스트가 저장되도록 수정
         // 2. 제목이 비어있다면(isEmpty) 저장되지않고 얼럿 띄우기
         // 3. 저장 완료 이후에는 메인 화면으로 전환
-        
+        view.makeToast("저장되었음")
         // Create 1️⃣ Realm 위치 찾기
         let realm = try! Realm() // 데이터가 있는 위치를 찾아가는 코드
         
@@ -71,6 +76,8 @@ class AddViewController: BaseViewController {
             realm.add(data)
             print("Realm Create Succeed")
         }
+        
+        showToast?()
         
         navigationController?.popViewController(animated: true)
     }
@@ -171,13 +178,27 @@ class AddViewController: BaseViewController {
     @objc func moneyButtonClicked() {
         
         let vc = MoneyViewController()
+        vc.nickname = { [weak self] money in
+            print("으아아아아", money)
+            self?.moneyButton.setTitle(money, for: .normal)
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func categoryButtonClicked() {
         
         let vc = CategoryViewController()
+        vc.sendCategory = self // 👈 현재 쓰고 있는 인스턴스
+//        vc.sendCategory = { [weak self] category in
+//            self?.categoryButton.setTitle(category, for: .normal)
+//        }
         navigationController?.pushViewController(vc, animated: true)
-        
+    }
+}
+
+extension AddViewController: PassCategoryDataDelegate {
+    func passCategoryValue(_ text: String) {
+        print(#function, text)
+        categoryButton.setTitle(text, for: .normal)
     }
 }

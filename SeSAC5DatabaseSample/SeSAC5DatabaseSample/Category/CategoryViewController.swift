@@ -11,6 +11,8 @@ import SnapKit
 class CategoryViewController: BaseViewController {
 
     let categoryTextField = UITextField()
+
+    var sendCategory: AddViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,8 @@ class CategoryViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-          
+        let categoryValue = categoryTextField.text ?? "식비"
+        sendCategory?.passCategoryValue(categoryValue)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
