@@ -25,9 +25,24 @@ class AddViewController: BaseViewController {
     let contentTextField = UITextField()
     
     var showToast: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(memoReceivedNotification),
+            name: NSNotification.Name("memoReceived"), 
+            object: nil
+        )
+    
+    }
+    
+    @objc func memoReceivedNotification(notification: NSNotification) {
+        
+        if let info = notification.userInfo?["content"] as? String {
+            memoButton.setTitle(info, for: .normal)
+        }
     }
     
     override func configureHierarchy() {
@@ -171,8 +186,14 @@ class AddViewController: BaseViewController {
     @objc func memoButtonClicked() {
         
         let vc = MemoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        // 이때 다음 페이지로 값을 전달하고 싶다.
+        NotificationCenter.default.post(
+            name: NSNotification.Name("SendMemo"),
+            object: nil,
+            userInfo: ["memo": memoButton.currentTitle ?? ""]
+        )
         
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func moneyButtonClicked() {

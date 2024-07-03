@@ -16,7 +16,9 @@ class TodoTable: Object {
     @Persisted var money: Int // 금액(필수)
     @Persisted var category: String // 필수
     @Persisted var resisterDate: Date // 필수
-    @Persisted var isLike: Bool // 필수, like는 이미 Realm 이 쓰고 있음
+    @Persisted var love: Bool // 필수, like는 이미 Realm 이 쓰고 있음
+    // isLike 사라지고, love 새로 생김 isLike를 love로 옮겨야함
+    @Persisted var folder: String
     
     convenience init(momoTitle: String, memoContent: String?, money: Int, category: String, resisterDate: Date) {
         self.init()
@@ -25,6 +27,6 @@ class TodoTable: Object {
         self.money = money
         self.category = category
         self.resisterDate = resisterDate
-        self.isLike = false
+        self.love = false
     }
 }

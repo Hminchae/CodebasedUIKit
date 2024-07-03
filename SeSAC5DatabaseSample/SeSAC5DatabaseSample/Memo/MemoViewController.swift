@@ -14,14 +14,31 @@ class MemoViewController: BaseViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        NotificationCenter.default.addObserver( //post보다 addObserver 가 항상 먼저 등록이 되어야 한다
+            self,
+            selector: #selector(sendMemoNotification),
+            name: NSNotification.Name("SendMemo"),
+            object: nil
+        )
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-         
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name("memoReceived"),
+            object: nil,
+            userInfo: ["content": memoTextField.text!]
+        )
     }
-     
+    
+    @objc func sendMemoNotification(notification: NSNotification) {
+        print("✅✅✅✅")
+        if let info = notification.userInfo?["memo"] as? String {
+            memoTextField.text = info
+        }
+    }
+    
     override func configureHierarchy() {
         view.addSubview(memoTextField)
     }
@@ -39,5 +56,9 @@ class MemoViewController: BaseViewController {
             make.centerX.equalTo(view)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
         }
+    }
+
+    deinit {
+        print("MemoViewController", self)
     }
 }

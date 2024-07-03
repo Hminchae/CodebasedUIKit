@@ -42,6 +42,14 @@ final class MainViewController: BaseViewController {
         super.viewWillAppear(animated)
         print(#function)
         tableView.reloadData()
+        
+        // Realm SchemaVersion 확인
+        do {
+            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+            print("Realm \(version)")
+        } catch {
+            print(error)
+        }
     }
     
     override func configureHierarchy() {

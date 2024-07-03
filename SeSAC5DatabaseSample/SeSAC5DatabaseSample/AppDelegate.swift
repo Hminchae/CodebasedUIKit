@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RealmSwift
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let config = Realm.Configuration(schemaVersion: 2) {
+            migration, oldSchemaVersion in // 이후 / 이전
+            if oldSchemaVersion > 2 {
+                // folder column add
+                // 단순 컬럼, 테이블 추가나 삭제 등의 경우에는 코드 X
+                migration.renameProperty(onType: TodoTable.className(), from: "isLike", to: "love")
+            }
+        }
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
 

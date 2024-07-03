@@ -12,7 +12,7 @@ class CategoryViewController: BaseViewController {
 
     let categoryTextField = UITextField()
 
-    var sendCategory: AddViewController?
+    var sendCategory: PassCategoryDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
