@@ -9,7 +9,8 @@ import UIKit
 
 import SnapKit
 import RealmSwift
-  
+import Toast
+
 final class MainViewController: BaseViewController {
 
     private let tableView = UITableView()
@@ -72,6 +73,9 @@ final class MainViewController: BaseViewController {
     @objc func rightBarButtonItemClicked() {
         let vc = AddViewController()
         navigationController?.pushViewController(vc, animated: true)
+        vc.showToast = {
+            self.view.makeToast("일기가 저장되었습니다.")
+        }
     }
 
 }
