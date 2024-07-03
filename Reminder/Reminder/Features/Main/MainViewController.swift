@@ -9,14 +9,6 @@ import UIKit
 
 final class MainViewController: BaseViewController {
     
-    private let searchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "검색"
-        searchBar.searchBarStyle = .minimal
-        
-        return searchBar
-    }()
-    
     lazy private var tableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -42,20 +34,13 @@ final class MainViewController: BaseViewController {
     }
     
     override func configureHierarchy() {
-        view.addSubview(searchBar)
         view.addSubview(tableView)
         view.addSubview(newReminderButton)
     }
     
     override func configureLayout() {
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
-            make.height.equalTo(35)
-        }
-        
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.bottom.equalTo(newReminderButton.snp.top)
         }
@@ -68,13 +53,11 @@ final class MainViewController: BaseViewController {
     }
     
     override func configureView() {
-        searchBar.placeholder = "검색"
-        searchBar.delegate = self
-        
         tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func configureNavigationItem() {
+        // 네비게이션 바 아이템 설정
         let edit = UIBarButtonItem(
             title: "편집",
             style: .plain,
@@ -82,8 +65,15 @@ final class MainViewController: BaseViewController {
             action: #selector(editButtonClicked))
         
         navigationItem.rightBarButtonItem = edit
+        
+        // 네비게이션 타이틀 설정
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "전체"
+        
+        // 서치바 설정
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "검색"
     }
     
     @objc private func editButtonClicked() {
@@ -177,8 +167,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ListDetailViewController()
-        
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = ListDetailViewController()
+//        
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
