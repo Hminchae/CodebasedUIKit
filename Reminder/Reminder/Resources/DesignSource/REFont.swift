@@ -27,4 +27,6 @@ enum REFont {
     static var b20: UIFont = UIFont.systemFont(ofSize: 20, weight: .bold)
     
     static var b22: UIFont = UIFont.systemFont(ofSize: 22, weight: .bold)
+    
+    static var b24: UIFont = UIFont.systemFont(ofSize: 24, weight: .bold)
 }

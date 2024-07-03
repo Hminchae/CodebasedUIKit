@@ -15,10 +15,10 @@ final class MainTopTableViewCell: BaseTableViewCell {
     private func collectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         let frame = UIScreen.main.bounds
-        layout.itemSize = CGSize(width: (frame.width - 30) / 2, height: 100)
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: (frame.width - 45) / 2, height: 80)
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 15
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         layout.scrollDirection = .vertical
         
         return layout

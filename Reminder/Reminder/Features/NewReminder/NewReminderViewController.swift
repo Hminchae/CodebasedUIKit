@@ -168,7 +168,7 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             return 1
         case 1:
-            return View.newREList.allCases.count
+            return View.NewREList.allCases.count
         default:
             return 0
         }
@@ -184,7 +184,7 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewReminderDetailTableViewCell.identifier, for: indexPath)
             guard let cell = cell as? NewReminderDetailTableViewCell else { return UITableViewCell() }
-            cell.listTitleLabel.text = View.newREList.allCases[indexPath.row].rawValue
+            cell.listTitleLabel.text = View.NewREList.allCases[indexPath.row].rawValue
             
             return cell
         default:

@@ -17,14 +17,8 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    var categoryIconImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
-        imageView.tintColor = .white
-        
-        return imageView
-    }()
+    var categoryIconContainer = UIView()
+    var categoryIconImageView = UIImageView()
     
     var categoryTitleLable = {
         let label = UILabel()
@@ -36,7 +30,7 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     
     var categoryTotalToDoLabel = {
         let label = UILabel()
-        label.font = REFont.b22
+        label.font = REFont.b24
         label.textColor = .label
         
         return label
@@ -54,27 +48,44 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         configureContainerView()
+        cofigureIconContainerView()
+    }
+    
+    func cofigureIconContainerView() {
+        categoryIconContainer.addSubview(categoryIconImageView)
+        
+        categoryIconContainer.layer.cornerRadius = 15
+        categoryIconContainer.clipsToBounds = true
+        categoryIconContainer.addSubview(categoryIconImageView)
+        
+        categoryIconImageView.tintColor = .white
+        categoryIconImageView.contentMode = .scaleAspectFit
+        
+        categoryIconImageView.snp.makeConstraints { make in
+            make.center.equalTo(categoryIconContainer)
+            make.size.equalTo(20)
+        }
     }
     
     func configureContainerView() {
-        containerView.addSubview(categoryIconImageView)
+        containerView.addSubview(categoryIconContainer)
         containerView.addSubview(categoryTitleLable)
         containerView.addSubview(categoryTotalToDoLabel)
         
-        categoryIconImageView.snp.makeConstraints { make in
-            make.top.equalTo(containerView.snp.top).offset(5)
-            make.leading.equalTo(containerView.snp.leading).offset(5)
+        categoryIconContainer.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(10)
+            make.leading.equalTo(containerView.snp.leading).offset(10)
             make.size.equalTo(30)
         }
         
         categoryTitleLable.snp.makeConstraints { make in
-            make.top.equalTo(categoryIconImageView.snp.bottom).offset(5)
-            make.horizontalEdges.equalTo(categoryIconImageView.snp.horizontalEdges)
+            make.top.equalTo(categoryIconContainer.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(containerView.snp.horizontalEdges).inset(10)
             make.height.equalTo(15)
         }
         
         categoryTotalToDoLabel.snp.makeConstraints { make in
-            make.top.equalTo(categoryIconImageView.snp.top)
+            make.centerY.equalTo(categoryIconContainer.snp.centerY)
             make.trailing.equalTo(containerView.snp.trailing).inset(5)
             make.size.equalTo(20)
         }
