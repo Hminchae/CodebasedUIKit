@@ -76,7 +76,7 @@ final class MainViewController: BaseViewController {
     
     override func configureView() {
         setupTableViewHeader()
-        setupBottomLeftItem()
+        setupBottomItemView()
     }
     
     // MARK: 일반 메서드
@@ -89,7 +89,7 @@ final class MainViewController: BaseViewController {
             action: #selector(editButtonClicked))
         
         navigationItem.rightBarButtonItem = edit
-        
+        navigationItem.backButtonTitle = "목록"
         // 네비게이션 타이틀 설정
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Thanky Reminder"
@@ -100,7 +100,7 @@ final class MainViewController: BaseViewController {
         searchController.searchBar.placeholder = "검색"
     }
     
-    private func setupBottomLeftItem() {
+    private func setupBottomItemView() {
         bottomItemView.addSubview(newReminderButton)
         bottomItemView.addSubview(addListButton)
         
@@ -117,6 +117,7 @@ final class MainViewController: BaseViewController {
     
     func setupTableViewHeader() {
         let headerView = MainHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300))
+        headerView.collectionView.delegate = self
         headerView.collectionView.dataSource = self
         tableView.tableHeaderView = headerView
     }
@@ -140,9 +141,9 @@ final class MainViewController: BaseViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return 5
+        return 5
     }
     
     
@@ -183,8 +184,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        let vc = ListDetailViewController()
-        //
-        //        navigationController?.pushViewController(vc, animated: true)
+        print("bnbbb")
+        let vc = ListDetailViewController()
+        vc.navigationTitle = View.MainCategory.allCases[indexPath.row].rawValue
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

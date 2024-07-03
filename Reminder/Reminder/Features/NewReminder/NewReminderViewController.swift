@@ -16,7 +16,7 @@ protocol NewReminderContentsDelegate {
 
 class NewReminderViewController: BaseViewController {
     
-    lazy private var tableView = {
+    private lazy var tableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,21 +27,34 @@ class NewReminderViewController: BaseViewController {
         
         return tableView
     }()
+
+    private let topItemView = UIView()
+    
+    private lazy var cancelButton = {
+        let button = UIButton()
+        button.setTitle("취소", for: .normal)
+        button.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
+        button.setTitleColor(.systemBlue, for: .normal)
+        
+        return button
+    }()
+    
+    private let modalTitleLabel = {
+        let label = UILabel()
+        label.font = REFont.m17
+        label.textColor = .label
+        label.textAlignment = .center
+        label.text = "새로운 미리알림"
+        
+        return label
+    }()
     
     private lazy var addButton = {
         let button = UIButton()
         button.setTitle("추가", for: .normal)
         button.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-        button.tintColor = .label
+        button.setTitleColor(.label, for: .normal)
         
-        return button
-    }()
-    
-    private lazy var cancelButton = {
-        let button = UIButton()
-        button.setTitle("취소", for: .normal)
-        button.tintColor = .label
-        button.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
         return button
     }()
     
@@ -53,27 +66,52 @@ class NewReminderViewController: BaseViewController {
     }
     
     override func configureHierarchy() {
-        view.addSubview(addButton)
-        view.addSubview(cancelButton)
+        view.addSubview(topItemView)
         view.addSubview(tableView)
     }
     
     override func configureLayout() {
-        cancelButton.snp.makeConstraints { make in
-            make.leading.top.equalTo(view.safeAreaLayoutGuide).offset(5)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
-        }
-        
-        addButton.snp.makeConstraints { make in
-            make.trailing.top.equalTo(view.safeAreaLayoutGuide).inset(5)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
+        topItemView.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(50)
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(15)
-            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(topItemView.snp.bottom)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.snp.bottom)
+        }
+    }
+    
+    override func configureView() {
+        setupTopItemView()
+    }
+    
+    private func setupTopItemView() {
+        topItemView.backgroundColor = .modalBg
+        
+        topItemView.addSubview(cancelButton)
+        topItemView.addSubview(modalTitleLabel)
+        topItemView.addSubview(addButton)
+        
+        cancelButton.snp.makeConstraints { make in
+            make.top.equalTo(topItemView.snp.top).offset(10)
+            make.leading.equalTo(topItemView.snp.leading).offset(10)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
+        }
+        
+        modalTitleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(topItemView.snp.centerX)
+            make.centerY.equalTo(cancelButton.snp.centerY)
+        }
+        
+        addButton.snp.makeConstraints { make in
+            make.top.equalTo(topItemView.snp.top).offset(10)
+            make.trailing.equalTo(topItemView.snp.trailing).inset(10)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
         }
     }
     
@@ -130,6 +168,7 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath)
             guard let cell = cell as? TitleTableViewCell else { return UITableViewCell() }
             cell.titleLabel.text = View.NewREList.allCases[indexPath.row].rawValue
+            cell.accessoryType = .disclosureIndicator
             
             return cell
         default:
@@ -140,7 +179,7 @@ extension NewReminderViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 180
+            return 200
         case 1:
             return 50
         default:

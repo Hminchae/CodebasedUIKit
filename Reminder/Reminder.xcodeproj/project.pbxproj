@@ -32,6 +32,7 @@
 		B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */; };
 		B1CE5FB72C34CBB4000F4AA1 /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */; };
 		B1CE5FBC2C3559E0000F4AA1 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */; };
+		B1CE5FBF2C35721E000F4AA1 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FBE2C35721E000F4AA1 /* RadioButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		B1CE5FB42C34C97D000F4AA1 /* RealmSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwift.swift; sourceTree = "<group>"; };
 		B1CE5FB62C34CBB4000F4AA1 /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		B1CE5FBE2C35721E000F4AA1 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +107,11 @@
 		B1CE5F7E2C344160000F4AA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FBD2C35720A000F4AA1 /* CustomView */,
 				B1CE5FB12C34C0C9000F4AA1 /* Models */,
 				B1CE5FA22C345145000F4AA1 /* Protocol */,
 				B1CE5F842C3442E3000F4AA1 /* Base */,
 				B1CE5F812C3441B8000F4AA1 /* DesignSource */,
-				B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,6 +203,7 @@
 		B1CE5FA22C345145000F4AA1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE5FA02C34513E000F4AA1 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -232,6 +235,14 @@
 				B1CE5FBB2C3559E0000F4AA1 /* Reminder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B1CE5FBD2C35720A000F4AA1 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE5FBE2C35721E000F4AA1 /* RadioButton.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				B1CE5FA82C3460D4000F4AA1 /* MainHeaderView.swift in Sources */,
 				B1CE5F8E2C3443B1000F4AA1 /* REFont.swift in Sources */,
 				B1CE5FA12C34513E000F4AA1 /* ReuseIdentifierProtocol.swift in Sources */,
+				B1CE5FBF2C35721E000F4AA1 /* RadioButton.swift in Sources */,
 				B1CE5FB52C34C97D000F4AA1 /* RealmSwift.swift in Sources */,
 				B1CE5FB02C34BF50000F4AA1 /* TitleTableViewCell.swift in Sources */,
 				B1CE5F9F2C345118000F4AA1 /* MainHeaderCollectionViewCell.swift in Sources */,

@@ -37,5 +37,6 @@ final class MainHeaderView: BaseView {
     
     override func configureView() {
         collectionView.register(MainHeaderCollectionViewCell.self, forCellWithReuseIdentifier: MainHeaderCollectionViewCell.identifier)
+        collectionView.backgroundColor = .bg
     }
 }

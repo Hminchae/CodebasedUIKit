@@ -52,6 +52,20 @@ enum View {
             }
         }
     }
+    
+    enum Radio {
+        case selected(color: UIColor)
+        case unselected
+        
+        var backgroundColor: UIColor {
+            switch self {
+            case .selected(let color):
+                return color
+            case .unselected:
+                return .lightGray
+            }
+        }
+    }
 }
 
 enum Value {

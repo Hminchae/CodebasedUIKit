@@ -12,7 +12,7 @@ final class NewReminderContentsTableViewCell: BaseTableViewCell {
     let titleTextField = {
         let textField = UITextField()
         textField.placeholder = "제목"
-        textField.font = REFont.r14
+        textField.font = REFont.r16
         textField.tintColor = .darkGray
         textField.textColor = .label
         
@@ -21,7 +21,7 @@ final class NewReminderContentsTableViewCell: BaseTableViewCell {
     
     let separatorView = {
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .lightGray
         
         return view
     }()
@@ -29,7 +29,7 @@ final class NewReminderContentsTableViewCell: BaseTableViewCell {
     let memoTextField = {
         let textField = UITextField()
         textField.placeholder = "메모"
-        textField.font = REFont.r14
+        textField.font = REFont.r16
         textField.tintColor = .darkGray
         textField.textColor = .label
         
@@ -45,20 +45,23 @@ final class NewReminderContentsTableViewCell: BaseTableViewCell {
     }
     
     override func configureLayout() {
+        
         titleTextField.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(10)
-            make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(10)
+            make.bottom.equalTo(separatorView.snp.top).inset(2)
+            make.height.equalTo(50)
         }
         
         separatorView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(10)
-            make.top.equalTo(titleTextField.snp.bottom)
-            make.height.equalTo(1)
+            make.leading.equalTo(contentView.snp.leading).offset(10)
+            make.trailing.equalTo(contentView.snp.trailing)
+            make.bottom.equalTo(memoTextField.snp.top).inset(2)
+            make.height.equalTo(0.5)
         }
         
         memoTextField.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(contentView.snp.horizontalEdges).inset(10)
-            make.top.equalTo(separatorView.snp.bottom)
+            make.bottom.equalTo(contentView.snp.bottom)
             make.height.equalTo(150)
         }
     }
@@ -67,6 +70,7 @@ final class NewReminderContentsTableViewCell: BaseTableViewCell {
         titleTextField.addTarget(self, action: #selector(titleChanged(_:)), for: .editingChanged)
         memoTextField.addTarget(self, action: #selector(memoChanged(_:)), for: .editingChanged)
     }
+    
     @objc private func titleChanged(_ textField: UITextField) {
         delegate?.passTitle(textField.text ?? "")
     }
