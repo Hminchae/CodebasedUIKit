@@ -26,6 +26,7 @@
 		B1CE5F4E2C33994C000F4AA1 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5F4C2C3388EF000F4AA1 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B1CE5F512C3399DD000F4AA1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F502C3399DD000F4AA1 /* RealmModel.swift */; };
 		B1CE5FBA2C34D869000F4AA1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5FB92C34D869000F4AA1 /* Toast */; };
+		B1CE5FCD2C364003000F4AA1 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FCC2C364003000F4AA1 /* FileManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 		04387CDF2C337DC800C06C66 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		04387CE12C337DCE00C06C66 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		B1CE5F502C3399DD000F4AA1 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		B1CE5FCC2C364003000F4AA1 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				04387CC32C33793600C06C66 /* BaseTableViewCell.swift */,
 				04387CC52C33793B00C06C66 /* BaseCollectionViewCell.swift */,
 				04387CCF2C337A8200C06C66 /* Reusable.swift */,
+				B1CE5FCC2C364003000F4AA1 /* FileManager+Extension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				04387CD92C337D3500C06C66 /* AddViewController.swift in Sources */,
 				04387CDE2C337DC000C06C66 /* MoneyViewController.swift in Sources */,
 				04387CC22C33793000C06C66 /* BaseViewController.swift in Sources */,
+				B1CE5FCD2C364003000F4AA1 /* FileManager+Extension.swift in Sources */,
 				04387CA22C32A7BF00C06C66 /* AppDelegate.swift in Sources */,
 				04387CC42C33793600C06C66 /* BaseTableViewCell.swift in Sources */,
 				04387CA42C32A7BF00C06C66 /* SceneDelegate.swift in Sources */,
@@ -416,7 +420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A8L5QZ969G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC5DatabaseSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -448,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A8L5QZ969G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC5DatabaseSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

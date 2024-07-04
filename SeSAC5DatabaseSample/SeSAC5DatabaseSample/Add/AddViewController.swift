@@ -7,6 +7,7 @@
 
 import UIKit
 
+import PhotosUI
 import SnapKit
 import RealmSwift
 import Toast
@@ -92,6 +93,9 @@ class AddViewController: BaseViewController {
             print("Realm Create Succeed")
         }
         
+        if let image = photoImageView.image {
+            saveImageToDocument(image: image, filename: "\(data.id)")
+        }
         showToast?()
         
         navigationController?.popViewController(animated: true)
@@ -178,9 +182,30 @@ class AddViewController: BaseViewController {
             make.top.equalTo(titleTextField.snp.bottom).offset(20)
         }
     }
+    // UIColorPickerViewController
+    // PHPickerViewController: Out of process
+    // ✅UIImagePickerController: 촬영/ 갤러리
+    // ➡️단순히 갤러리를 보여주고 가져오는 부분은 권한 필요 ❌
+    // ➡️➡️➡️언제 찍었냐 어디서 찍었냐 렌즈가 뭐냐 -> 권한 필요 🅾️
+    // ➡️➡️➡️이미지를 갤러리에 저장하고 싶을 때도 권한 필요 🅾️
     
     @objc func addButtonClicked() {
         print(#function)
+        // - 사진
+//        let picker = UIImagePickerController()
+//        picker.delegate = self
+//        picker.allowsEditing = true
+//        picker.sourceType = .camera //🧡
+//        present(picker, animated: true)
+        
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 3
+        configuration.filter = .any(of: [.images, .depthEffectPhotos]) // 비디오.. 등
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        present(picker, animated: true)
     }
     
     @objc func memoButtonClicked() {
@@ -221,5 +246,47 @@ extension AddViewController: PassCategoryDataDelegate {
     func passCategoryValue(_ text: String) {
         print(#function, text)
         categoryButton.setTitle(text, for: .normal)
+    }
+}
+
+extension AddViewController: UIFontPickerViewControllerDelegate, UIColorPickerViewControllerDelegate {
+    
+}
+
+// 이 두가지는 따라 다닌다고 기억✅
+extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // ⬇️
+        //info[UIImagePickerController.InfoKey.originalImage] as ? UIImage
+        if let image = info[.originalImage] as? UIImage {
+            photoImageView.image = image
+        }
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(#function)
+        dismiss(animated: true)
+    }
+    
+}
+
+extension AddViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        dismiss(animated: true)
+        print("1",Thread.isMainThread)
+        if let itemProvider = results.first?.itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) {
+                image, error in
+                print("2",Thread.isMainThread)
+                DispatchQueue.main.async {
+                    self.photoImageView.image = image as? UIImage //➡️ 글로벌 스레드로 보냈기 때문에..
+                }
+            }
+        }
     }
 }
