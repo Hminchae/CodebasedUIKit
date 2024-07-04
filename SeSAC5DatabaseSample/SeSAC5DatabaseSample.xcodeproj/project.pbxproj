@@ -27,6 +27,8 @@
 		B1CE5F512C3399DD000F4AA1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5F502C3399DD000F4AA1 /* RealmModel.swift */; };
 		B1CE5FBA2C34D869000F4AA1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE5FB92C34D869000F4AA1 /* Toast */; };
 		B1CE5FCD2C364003000F4AA1 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FCC2C364003000F4AA1 /* FileManager+Extension.swift */; };
+		B1CE5FCF2C36659A000F4AA1 /* TodoTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FCE2C36659A000F4AA1 /* TodoTableRepository.swift */; };
+		B1CE5FD12C3675EC000F4AA1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE5FD02C3675EC000F4AA1 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,8 @@
 		04387CE12C337DCE00C06C66 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		B1CE5F502C3399DD000F4AA1 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		B1CE5FCC2C364003000F4AA1 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		B1CE5FCE2C36659A000F4AA1 /* TodoTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableRepository.swift; sourceTree = "<group>"; };
+		B1CE5FD02C3675EC000F4AA1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				04387CAA2C32A7C000C06C66 /* Assets.xcassets */,
 				04387CAC2C32A7C000C06C66 /* LaunchScreen.storyboard */,
 				04387CAF2C32A7C000C06C66 /* Info.plist */,
+				B1CE5FCE2C36659A000F4AA1 /* TodoTableRepository.swift */,
+				B1CE5FD02C3675EC000F4AA1 /* SearchViewController.swift */,
 			);
 			path = SeSAC5DatabaseSample;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04387CCC2C33798200C06C66 /* MainViewController.swift in Sources */,
+				B1CE5FCF2C36659A000F4AA1 /* TodoTableRepository.swift in Sources */,
 				04387CD62C337BF100C06C66 /* ListTableViewCell.swift in Sources */,
 				04387CD92C337D3500C06C66 /* AddViewController.swift in Sources */,
 				04387CDE2C337DC000C06C66 /* MoneyViewController.swift in Sources */,
@@ -272,6 +279,7 @@
 				04387CA22C32A7BF00C06C66 /* AppDelegate.swift in Sources */,
 				04387CC42C33793600C06C66 /* BaseTableViewCell.swift in Sources */,
 				04387CA42C32A7BF00C06C66 /* SceneDelegate.swift in Sources */,
+				B1CE5FD12C3675EC000F4AA1 /* SearchViewController.swift in Sources */,
 				04387CE22C337DCE00C06C66 /* MemoViewController.swift in Sources */,
 				04387CD02C337A8200C06C66 /* Reusable.swift in Sources */,
 				04387CE02C337DC800C06C66 /* CategoryViewController.swift in Sources */,
