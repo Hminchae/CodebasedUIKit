@@ -12,9 +12,15 @@ import RealmSwift
 import Toast
 
 final class MainViewController: BaseViewController {
-
+    
+    private let repository = TodoTableRepository()
     private let tableView = UITableView()
-    private var list: Results<TodoTable>!
+    
+    // private var list: Results<TodoTable>! // <-👈 얘때매 RealmSwift 임포트해야함
+    // ❌ 하지만!! RealmSwift import 를 안 하고 싶다면!
+    // ⬇️ 이렇게!!
+    var list: [TodoTable] = []
+    // 💡 생각해볼 것 Resluts<JackTable>타입에서는 실시간 갱신이 잘 되었는데, [JackTable] 에서는 되지 않는 이유?
     private let realm = try! Realm()
      
     override func viewDidLoad() {
@@ -24,7 +30,7 @@ final class MainViewController: BaseViewController {
         // money가 5만원 이상인 것만 갖고오고, 금액 높은 순으로 정렬
         // 카테고리가 식비인 것 만 갖고오기
         
-        list = realm.objects(TodoTable.self).sorted(byKeyPath: "money", ascending: true)
+        list = repository.fetchAll()
         /*
         list = realm.objects(TodoTable.self).where {
             $0.category == "식비"
@@ -35,7 +41,7 @@ final class MainViewController: BaseViewController {
 //            $0.money >= 50000
 //        }.sorted(byKeyPath: "money", ascending: false)
         
-        print(realm.configuration.fileURL)
+       //🔨 print(realm.configuration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +50,13 @@ final class MainViewController: BaseViewController {
         tableView.reloadData()
         
         // Realm SchemaVersion 확인
-        do {
-            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
-            print("Realm \(version)")
-        } catch {
-            print(error)
-        }
+        //🔨
+//        do {
+//            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+//            print("Realm \(version)")
+//        } catch {
+//            print(error)
+//        }
     }
     
     override func configureHierarchy() {
@@ -125,16 +132,32 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         */
         
         // 🧶 07-04
-        //let data = list[indexPath.row]
+        let data = list[indexPath.row]
         // 렘을 제거하면 파일을 먼저!!!같이 제거해주어야 한다!
+        removeImageFromDocument(filename: "\(data.id)")
+//        try! realm.write {
+//            // list 를 제거하더라도 realm까지 변경 사항이 반영된다.
+//            realm.delete(list[indexPath.row])
+//            
+//        }
+       // repository.deleteItem(data) <- 이거 삭제임🗑️
+        let realm = try! Realm()
+//        
+//        try! realm.write {
+//            realm.create(TodoTable.self,
+//                         value: ["id": data.id,
+//                                 "money": 1000000000000000000],
+//                         update:  .modified)
+//        }
+//        
+        // 수정하고 싶은 데이터가 여러가지라면?
+        
+        let result = realm.objects(TodoTable.self)
         
         try! realm.write {
-            // list 를 제거하더라도 realm까지 변경 사항이 반영된다.
-            realm.delete(list[indexPath.row])
-            
+            result.setValue(true, forKey: "love")
         }
-        removeImageFromDocument(filename: "\(list[indexPath.row].id)")
-
+        
         tableView.reloadData()
     }
 }

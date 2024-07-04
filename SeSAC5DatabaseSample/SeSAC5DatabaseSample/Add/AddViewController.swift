@@ -9,13 +9,16 @@ import UIKit
 
 import PhotosUI
 import SnapKit
-import RealmSwift
+//import RealmSwift // <- var repository = TodoTableRepository() 때문에 제외해도 댐!
+
 import Toast
 
 protocol PassCategoryDataDelegate {
     func passCategoryValue(_ text: String)
 }
 class AddViewController: BaseViewController {
+    
+    var repository = TodoTableRepository()
     
     let moneyButton = UIButton()
     let categoryButton = UIButton()
@@ -63,7 +66,7 @@ class AddViewController: BaseViewController {
         // 3. 저장 완료 이후에는 메인 화면으로 전환
         view.makeToast("저장되었음")
         // Create 1️⃣ Realm 위치 찾기
-        let realm = try! Realm() // 데이터가 있는 위치를 찾아가는 코드
+        //let realm = try! Realm() // 데이터가 있는 위치를 찾아가는 코드
         
         guard let title = titleTextField.text, !title.isEmpty,
               let content = contentTextField.text
@@ -88,10 +91,12 @@ class AddViewController: BaseViewController {
         }
         
         let data = TodoTable(momoTitle: title, memoContent: content, money: Int.random(in: 1...100) * 1000, category: "식비", resisterDate: Date())
-        try! realm.write {
-            realm.add(data)
-            print("Realm Create Succeed")
-        }
+//        try! realm.write {
+//            realm.add(data)
+//            print("Realm Create Succeed")
+//        }
+        // ⬇️ 이렇게 한줄로!
+        repository.createItem(data)
         
         if let image = photoImageView.image {
             saveImageToDocument(image: image, filename: "\(data.id)")
