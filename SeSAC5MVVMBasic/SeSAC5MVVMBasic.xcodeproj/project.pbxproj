@@ -17,6 +17,7 @@
 		B1CE60102C3D555E000F4AA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE600F2C3D555E000F4AA1 /* SnapKit */; };
 		B1CE60122C3D5EC4000F4AA1 /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */; };
 		B1CE60142C3D6CE5000F4AA1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60132C3D6CE5000F4AA1 /* LoginViewModel.swift */; };
+		B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60152C3D7C75000F4AA1 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		04D2F9032C3CB12600AEFFDC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		B1CE60132C3D6CE5000F4AA1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B1CE60152C3D7C75000F4AA1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		04D2F8E32C3CAD5A00AEFFDC /* SeSAC5MVVMBasic */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE60152C3D7C75000F4AA1 /* Observable.swift */,
 				04D2F9022C3CB11900AEFFDC /* User */,
 				04D2F8FF2C3CAF4C00AEFFDC /* Number */,
 				04D2F8F82C3CADF700AEFFDC /* Login */,
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */,
 				04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */,
 				04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */,
 				04D2F9012C3CAF5400AEFFDC /* NumberViewController.swift in Sources */,

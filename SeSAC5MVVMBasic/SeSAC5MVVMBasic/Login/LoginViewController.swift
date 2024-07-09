@@ -49,23 +49,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         // 인스턴스 생성 시에는 didSet 실행이 안 됨. 그래서 억지로 호출
         let jack = Observable("jack")
      
         jack.bind {
             print("안녕 방가워~~~")
         }
-        
         jack.closure = {
             print("안녕 반가워~!") // 이름을 바꾸었을 때 호출이 됨 -> 먼저 호출을 해주어야 함 -> changeName 이 이 문제를 해결!
         }
-        
         jack.closure?()  // 이런 상황을 연출해줄 수 있다. 일급객체가 실행된 것 일 뿐!
-        
-        
         jack.value = "bran"
-        
         jack.value = "den"
+        */
         
         configureUI()
         configureConstraints()
@@ -111,20 +108,29 @@ class LoginViewController: UIViewController {
         idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
+    
+    func bindData() {
+        viewModel.outputValidationText.bind { _ in
+            self.validationLabel.text = self.viewModel.outputValidationText.value
+        }
+        
+        viewModel.outputValid.bind { _ in
+            let value = self.viewModel.outputValid.value
+            
+            self.validationLabel.textColor = value ? .blue : .red
+            
+            self.loginButton.backgroundColor = value ? .systemGreen : .darkGray
+            self.loginButton.isEnabled = value
+        }
+    }
     @objc private func loginButtonTapped() {
         print(#function)
     }
 
     @objc private func textFieldDidChange() {
         print(#function)
-        viewModel.inputId = idTextField.text
-        viewModel.inputPassword = passwordTextField.text
-        
-        validationLabel.text = viewModel.outputValidationText
-        validationLabel.textColor = viewModel.outputValid ? .blue : .red
-        
-        loginButton.backgroundColor = viewModel.outputValid ? .systemGreen : .darkGray
-        loginButton.isEnabled = viewModel.outputValid
+        viewModel.inputId.value = idTextField.text
+        viewModel.inputPassword.value = passwordTextField.text
+       
     }
 }
