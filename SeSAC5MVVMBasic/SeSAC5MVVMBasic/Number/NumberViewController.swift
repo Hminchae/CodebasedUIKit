@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 class NumberViewController: UIViewController {
-
+    
+    let viewModel = NumberViewModel()
+    
     private let amountTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "금액 입력"
@@ -31,7 +33,7 @@ class NumberViewController: UIViewController {
         return label
     }()
  
-    private let exchangeRate = 1300.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,44 +73,8 @@ class NumberViewController: UIViewController {
     }
  
     @objc private func amountChanged() {
-        print(#function)
-        
-        // 1.
-        guard let text = amountTextField.text else { return }
-        
-        // 2.
-        if text.isEmpty {
-            formattedAmountLabel.text = "값을 입력해주세요"
-            convertedAmountLabel.text = "값을 입력해주세요"
-        }
-        
-        // 3.
-        guard let num = Int(text) else {
-            formattedAmountLabel.text = "숫자만 입력해주세요"
-            convertedAmountLabel.text = "숫자만 입력해주세요"
-            return
-        }
-        
-        // 4.
-        if num > 0, num <= 10000000 {
-            let format = NumberFormatter()
-            format.numberStyle = .decimal
-            
-            let wonResult = format.string(from: num as NSNumber)!
-            formattedAmountLabel.text = "₩" + wonResult
-            
-            let converted = Double(num) / exchangeRate
-            
-            let convertedFormat = NumberFormatter()
-            convertedFormat.numberStyle = .currency
-            convertedFormat.currencyCode = "USD"
-            
-            let convertedResult = convertedFormat.string(from: converted as NSNumber)
-            convertedAmountLabel.text = convertedResult
-            
-        } else {
-            formattedAmountLabel.text = "1,000만원 이하를 입력해주세요"
-            convertedAmountLabel.text = "1,000만원 이하를 입력해주세요"
-        }
+        print(#function, viewModel.inputAmount) // 사용자가 입력을 할때마다 뷰모델의 validation 을 호출하여야 함
+        viewModel.inputAmount = amountTextField.text
+        formattedAmountLabel.text = viewModel.outputAmount
     }
 }
