@@ -31,6 +31,8 @@ class NumberViewController: UIViewController {
         return label
     }()
  
+    private let exchangeRate = 1300.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -70,7 +72,43 @@ class NumberViewController: UIViewController {
  
     @objc private func amountChanged() {
         print(#function)
-        formattedAmountLabel.text = "\(Int.random(in: 1...100))"
-        convertedAmountLabel.text = "\(Int.random(in: 1...100))"
+        
+        // 1.
+        guard let text = amountTextField.text else { return }
+        
+        // 2.
+        if text.isEmpty {
+            formattedAmountLabel.text = "값을 입력해주세요"
+            convertedAmountLabel.text = "값을 입력해주세요"
+        }
+        
+        // 3.
+        guard let num = Int(text) else {
+            formattedAmountLabel.text = "숫자만 입력해주세요"
+            convertedAmountLabel.text = "숫자만 입력해주세요"
+            return
+        }
+        
+        // 4.
+        if num > 0, num <= 10000000 {
+            let format = NumberFormatter()
+            format.numberStyle = .decimal
+            
+            let wonResult = format.string(from: num as NSNumber)!
+            formattedAmountLabel.text = "₩" + wonResult
+            
+            let converted = Double(num) / exchangeRate
+            
+            let convertedFormat = NumberFormatter()
+            convertedFormat.numberStyle = .currency
+            convertedFormat.currencyCode = "USD"
+            
+            let convertedResult = convertedFormat.string(from: converted as NSNumber)
+            convertedAmountLabel.text = convertedResult
+            
+        } else {
+            formattedAmountLabel.text = "1,000만원 이하를 입력해주세요"
+            convertedAmountLabel.text = "1,000만원 이하를 입력해주세요"
+        }
     }
 }

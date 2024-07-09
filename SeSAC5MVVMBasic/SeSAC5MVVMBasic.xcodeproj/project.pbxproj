@@ -12,9 +12,10 @@
 		04D2F8EE2C3CAD5B00AEFFDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D2F8ED2C3CAD5B00AEFFDC /* Assets.xcassets */; };
 		04D2F8F12C3CAD5B00AEFFDC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04D2F8F02C3CAD5B00AEFFDC /* Base */; };
 		04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F8F92C3CAE0400AEFFDC /* LoginViewController.swift */; };
-		04D2F8FD2C3CAE1800AEFFDC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04D2F8FC2C3CAE1800AEFFDC /* SnapKit */; };
 		04D2F9012C3CAF5400AEFFDC /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F9002C3CAF5400AEFFDC /* NumberViewController.swift */; };
 		04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2F9032C3CB12600AEFFDC /* UserViewController.swift */; };
+		B1CE60102C3D555E000F4AA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE600F2C3D555E000F4AA1 /* SnapKit */; };
+		B1CE60122C3D5EC4000F4AA1 /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		04D2F8F92C3CAE0400AEFFDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04D2F9002C3CAF5400AEFFDC /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
 		04D2F9032C3CB12600AEFFDC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D2F8FD2C3CAE1800AEFFDC /* SnapKit in Frameworks */,
+				B1CE60102C3D555E000F4AA1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +48,7 @@
 			children = (
 				04D2F8E32C3CAD5A00AEFFDC /* SeSAC5MVVMBasic */,
 				04D2F8E22C3CAD5A00AEFFDC /* Products */,
+				B1CE600E2C3D555E000F4AA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				04D2F9002C3CAF5400AEFFDC /* NumberViewController.swift */,
+				B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */,
 			);
 			path = Number;
 			sourceTree = "<group>";
@@ -94,6 +98,13 @@
 				04D2F9032C3CB12600AEFFDC /* UserViewController.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		B1CE600E2C3D555E000F4AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,7 +124,7 @@
 			);
 			name = SeSAC5MVVMBasic;
 			packageProductDependencies = (
-				04D2F8FC2C3CAE1800AEFFDC /* SnapKit */,
+				B1CE600F2C3D555E000F4AA1 /* SnapKit */,
 			);
 			productName = SeSAC5MVVMBasic;
 			productReference = 04D2F8E12C3CAD5A00AEFFDC /* SeSAC5MVVMBasic.app */;
@@ -175,6 +186,7 @@
 				04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */,
 				04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */,
 				04D2F9012C3CAF5400AEFFDC /* NumberViewController.swift in Sources */,
+				B1CE60122C3D5EC4000F4AA1 /* NumberViewModel.swift in Sources */,
 				04D2F8E52C3CAD5A00AEFFDC /* AppDelegate.swift in Sources */,
 				04D2F8E72C3CAD5A00AEFFDC /* SceneDelegate.swift in Sources */,
 			);
@@ -400,7 +412,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		04D2F8FC2C3CAE1800AEFFDC /* SnapKit */ = {
+		B1CE600F2C3D555E000F4AA1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04D2F8FB2C3CAE1800AEFFDC /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
