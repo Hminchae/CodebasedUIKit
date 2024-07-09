@@ -48,6 +48,25 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 인스턴스 생성 시에는 didSet 실행이 안 됨. 그래서 억지로 호출
+        let jack = Observable("jack")
+     
+        jack.bind {
+            print("안녕 방가워~~~")
+        }
+        
+        jack.closure = {
+            print("안녕 반가워~!") // 이름을 바꾸었을 때 호출이 됨 -> 먼저 호출을 해주어야 함 -> changeName 이 이 문제를 해결!
+        }
+        
+        jack.closure?()  // 이런 상황을 연출해줄 수 있다. 일급객체가 실행된 것 일 뿐!
+        
+        
+        jack.value = "bran"
+        
+        jack.value = "den"
+        
         configureUI()
         configureConstraints()
         configureActions()
