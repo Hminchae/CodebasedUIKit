@@ -32,14 +32,20 @@ class NumberViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
- 
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureConstraints()
         configureActions()
+        
+        bindData()
+    }
+    
+    func bindData() {
+        viewModel.outputAmount.bind { _ in
+            self.formattedAmountLabel.text = self.viewModel.outputAmount.value
+        }
     }
 
     // MARK: - configure Methods
@@ -74,7 +80,8 @@ class NumberViewController: UIViewController {
  
     @objc private func amountChanged() {
         print(#function, viewModel.inputAmount) // 사용자가 입력을 할때마다 뷰모델의 validation 을 호출하여야 함
-        viewModel.inputAmount = amountTextField.text
-        formattedAmountLabel.text = viewModel.outputAmount
+//        viewModel.inputAmount = amountTextField.text
+//        formattedAmountLabel.text = viewModel.outputAmount
+        viewModel.inputAmount.value = amountTextField.text
     }
 }

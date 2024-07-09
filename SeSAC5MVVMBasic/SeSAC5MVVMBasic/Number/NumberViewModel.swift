@@ -11,31 +11,32 @@ class NumberViewModel {
     
     private let exchangeRate = 1300.0
     
-    var outputAmount = "" // 밖에서 보여줄 친구
-    var inputAmount: String? = "" {
-        didSet {
-            //print("값이 변함: \(inputAmount)")
-            validation(inputAmount)
+    var inputAmount: Observable<String?> = Observable("")
+    var outputAmount: Observable<String?> = Observable("")
+    
+    init() {
+        inputAmount.bind { _ in
+            self.validation()
         }
     }
     
-    private func validation(_ value: String?) {
+    private func validation() {
         
         // 1.
-        guard let text = value else {
-            outputAmount = ""
+        guard let text = inputAmount.value else {
+            outputAmount.value = ""
             return
         }
         
         // 2.
         if text.isEmpty {
-            outputAmount = "값을 입력해주세요"
+            outputAmount.value = "값을 입력해주세요"
             return // 이후 코드 실행되지 않게끔
         }
         
         // 3.
         guard let num = Int(text) else {
-            outputAmount = "숫자만 입력해주세요"
+            outputAmount.value = "숫자만 입력해주세요"
             return
         }
         
@@ -46,7 +47,7 @@ class NumberViewModel {
             format.numberStyle = .decimal
             
             let wonResult = format.string(from: num as NSNumber)!
-            outputAmount = "₩" + wonResult
+            outputAmount.value = "₩" + wonResult
             
             //            let converted = Double(num) / exchangeRate
             //
@@ -58,7 +59,17 @@ class NumberViewModel {
             //            convertedAmountLabel.text = convertedResult
             
         } else {
-            outputAmount = "1,000만원 이하를 입력해주세요"
+            outputAmount.value = "1,000만원 이하를 입력해주세요"
         }
     }
 }
+
+// ✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️
+// ViewModel의 기준을 잡는 제일 기초적인 핵심은
+// UIKit을 import 하지 않는 것
+// 즉, UI를 담당하는 곳이 아니다 라는 것
+
+// ViewModel에서는 엄격한 기준을 세워
+// View에서는 판단하는 로직이 없이 값만 가져올 수 있도록하고
+// ViewModel에서 모든 것을 판단하도록
+// ✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️
