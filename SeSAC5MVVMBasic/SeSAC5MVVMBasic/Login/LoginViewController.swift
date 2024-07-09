@@ -10,6 +10,8 @@ import SnapKit
 
 class LoginViewController: UIViewController {
  
+    let viewModel = LoginViewModel()
+    
     private let idTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "아이디"
@@ -49,6 +51,8 @@ class LoginViewController: UIViewController {
         configureUI()
         configureConstraints()
         configureActions()
+        
+        textFieldDidChange()
     }
 
     private func configureUI() {
@@ -95,5 +99,13 @@ class LoginViewController: UIViewController {
 
     @objc private func textFieldDidChange() {
         print(#function)
+        viewModel.inputId = idTextField.text
+        viewModel.inputPassword = passwordTextField.text
+        
+        validationLabel.text = viewModel.outputValidationText
+        validationLabel.textColor = viewModel.outputValid ? .blue : .red
+        
+        loginButton.backgroundColor = viewModel.outputValid ? .systemGreen : .darkGray
+        loginButton.isEnabled = viewModel.outputValid
     }
 }
