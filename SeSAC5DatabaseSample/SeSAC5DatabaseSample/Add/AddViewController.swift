@@ -20,6 +20,8 @@ class AddViewController: BaseViewController {
     
     var repository = TodoTableRepository()
     
+    var folder: Folder?
+    
     let moneyButton = UIButton()
     let categoryButton = UIButton()
     let memoButton = UIButton()
@@ -33,13 +35,16 @@ class AddViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let folder = folder {
+            navigationItem.title = "\(folder.name) 목록 추가"
+        }
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(memoReceivedNotification),
             name: NSNotification.Name("memoReceived"), 
             object: nil
         )
-    
+        
     }
     
     @objc func memoReceivedNotification(notification: NSNotification) {
@@ -91,12 +96,12 @@ class AddViewController: BaseViewController {
         }
         
         let data = TodoTable(momoTitle: title, memoContent: content, money: Int.random(in: 1...100) * 1000, category: "식비", resisterDate: Date())
-//        try! realm.write {
-//            realm.add(data)
-//            print("Realm Create Succeed")
-//        }
+        //        try! realm.write {
+        //            realm.add(data)
+        //            print("Realm Create Succeed")
+        //        }
         // ⬇️ 이렇게 한줄로!
-        repository.createItem(data)
+        repository.createItem(data, folder: folder!)
         
         if let image = photoImageView.image {
             saveImageToDocument(image: image, filename: "\(data.id)")
@@ -197,11 +202,11 @@ class AddViewController: BaseViewController {
     @objc func addButtonClicked() {
         print(#function)
         // - 사진
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        picker.allowsEditing = true
-//        picker.sourceType = .camera //🧡
-//        present(picker, animated: true)
+        //        let picker = UIImagePickerController()
+        //        picker.delegate = self
+        //        picker.allowsEditing = true
+        //        picker.sourceType = .camera //🧡
+        //        present(picker, animated: true)
         
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 3
@@ -240,9 +245,9 @@ class AddViewController: BaseViewController {
         
         let vc = CategoryViewController()
         vc.sendCategory = self // 👈 현재 쓰고 있는 인스턴스
-//        vc.sendCategory = { [weak self] category in
-//            self?.categoryButton.setTitle(category, for: .normal)
-//        }
+        //        vc.sendCategory = { [weak self] category in
+        //            self?.categoryButton.setTitle(category, for: .normal)
+        //        }
         navigationController?.pushViewController(vc, animated: true)
     }
 }

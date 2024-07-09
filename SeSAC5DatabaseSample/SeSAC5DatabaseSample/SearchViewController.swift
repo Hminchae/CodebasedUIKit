@@ -74,15 +74,12 @@ extension SearchViewController: UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
-        let index = indexPath.row
-        let item = list[index]
+        let data = list[indexPath.row]
         
-        cell.titleLabel.text = item.momoTitle
-        cell.subTitleLabel.text = item.category
-        cell.overviewLabel.text = "\(item.money.formatted())"
-        cell.thumbnailImageView.image = loadImageToDocument(filename: "\(item.id)")
+        cell.titleLabel.text = data.momoTitle
+        cell.subTitleLabel.text = data.category
+        cell.overviewLabel.text = data.main.first?.name
+        
         return cell
     }
-    
-    
 }

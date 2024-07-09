@@ -18,19 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // 2. 왜 if else로 쓰지 않을까?
-        let config = Realm.Configuration(schemaVersion: 2) {
+        let config = Realm.Configuration(schemaVersion: 5) {
             migration, oldSchemaVersion in // 이후 / 이전
             
-            if oldSchemaVersion < 1 {
+            if oldSchemaVersion < 2 {
                 // folder column add
                 // 단순 컬럼, 테이블 추가나 삭제 등의 경우에는 코드 X
-                
             }
             
-            if oldSchemaVersion > 2 {
-                // folder column add
-                // 단순 컬럼, 테이블 추가나 삭제 등의 경우에는 코드 X
-                migration.renameProperty(onType: TodoTable.className(), from: "isLike", to: "love")
+            if oldSchemaVersion < 3 {
+                // folder table add, pk add
+            }
+            
+            if oldSchemaVersion > 4 {
+                // add Realm List, Folder
+            }
+            
+            if oldSchemaVersion > 5 {
+                // add Memo EmbeddedObject, Folder
             }
         }
         Realm.Configuration.defaultConfiguration = config

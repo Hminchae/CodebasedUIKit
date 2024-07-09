@@ -16,47 +16,29 @@ final class MainViewController: BaseViewController {
     private let repository = TodoTableRepository()
     private let tableView = UITableView()
     
-    // private var list: Results<TodoTable>! // <-👈 얘때매 RealmSwift 임포트해야함
-    // ❌ 하지만!! RealmSwift import 를 안 하고 싶다면!
-    // ⬇️ 이렇게!!
+    var folder: Folder?
     var list: [TodoTable] = []
-    // 💡 생각해볼 것 Resluts<JackTable>타입에서는 실시간 갱신이 잘 되었는데, [JackTable] 에서는 되지 않는 이유?
+    
     private let realm = try! Realm()
      
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function)
         
-        // money가 5만원 이상인 것만 갖고오고, 금액 높은 순으로 정렬
-        // 카테고리가 식비인 것 만 갖고오기
-        
-        list = repository.fetchAll()
-        /*
-        list = realm.objects(TodoTable.self).where {
-            $0.category == "식비"
+        if let folder = folder {
+            let value = folder.detail
+            list = Array(value)
         }
-        */
+        repository.detectRealmTable()
         
-//        list = realm.objects(TodoTable.self).where {
-//            $0.money >= 50000
-//        }.sorted(byKeyPath: "money", ascending: false)
-        
-       //🔨 print(realm.configuration.fileURL)
+        guard let folder else { return }
+        navigationItem.title = folder.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function)
         tableView.reloadData()
-        
-        // Realm SchemaVersion 확인
-        //🔨
-//        do {
-//            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
-//            print("Realm \(version)")
-//        } catch {
-//            print(error)
-//        }
     }
     
     override func configureHierarchy() {
@@ -71,7 +53,6 @@ final class MainViewController: BaseViewController {
         tableView.dataSource = self
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.id)
         
-        navigationItem.title = "고래밥 메모"
         let image = UIImage(systemName: "plus")
         let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         navigationItem.rightBarButtonItem = item
@@ -88,6 +69,7 @@ final class MainViewController: BaseViewController {
     @objc func rightBarButtonItemClicked() {
         let vc = AddViewController()
         navigationController?.pushViewController(vc, animated: true)
+        vc.folder = folder
         vc.showToast = {
             self.view.makeToast("일기가 저장되었습니다.")
         }
@@ -150,7 +132,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 //                         update:  .modified)
 //        }
 //        
-        // 수정하고 싶은 데이터가 여러가지라면?
+        // 수정하고 싶은 데이터가 여러레코드라면?
         
         let result = realm.objects(TodoTable.self)
         
