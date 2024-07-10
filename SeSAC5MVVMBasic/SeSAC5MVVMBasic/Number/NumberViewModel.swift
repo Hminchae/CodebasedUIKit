@@ -14,6 +14,8 @@ class NumberViewModel {
     var inputAmount: Observable<String?> = Observable("")
     var outputAmount: Observable<String?> = Observable("")
     
+    static let format = NumberFormatter() // 연산비용 많을 가능성
+    
     init() {
         inputAmount.bind { _ in
             self.validation()
@@ -43,8 +45,7 @@ class NumberViewModel {
         // 4.
         if num > 0, num <= 10000000 {
             
-            let format = NumberFormatter()
-            format.numberStyle = .decimal
+            let format = NumberFormatterManager.numberFormatter
             
             let wonResult = format.string(from: num as NSNumber)!
             outputAmount.value = "₩" + wonResult
