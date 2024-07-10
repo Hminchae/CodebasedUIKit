@@ -11,7 +11,7 @@ class ViewCryptoController: UIViewController {
     
     
     // MARK: - Variables
-    private let coin: Coin
+    let viewModel: ViewCryptoControllerViewModel
     
     // MARK: - UI Components
     private let scrollView = {
@@ -86,8 +86,8 @@ class ViewCryptoController: UIViewController {
     }()
     
     // MARK: - UI Lifecycle
-    init(_ coin: Coin) {
-        self.coin = coin
+    init(_ viewModel: ViewCryptoControllerViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -100,18 +100,17 @@ class ViewCryptoController: UIViewController {
         self.setupUI()
         
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.title = self.coin.name
+        self.navigationItem.title = self.viewModel.coin.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
         
-        self.rankLabel.text = self.coin.cmc_rank.description
-        self.priceLabel.text = self.coin.quote.CAD.price.description
-        self.marketCapLabel.text = self.coin.quote.CAD.market_cap.description
-        self.maxSupplyLabel.text = self.coin.max_supply?.description ?? "123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n123\n"
+        self.rankLabel.text = self.viewModel.rankLabel
+        self.priceLabel.text = self.viewModel.priceLabel
+        self.marketCapLabel.text = self.viewModel.marketCapLabel
+        self.maxSupplyLabel.text = self.viewModel.maxSupplyLabel
         
-        let imageData = try? Data(contentsOf: self.coin.logoURL!)
-        if let imageData {
-            DispatchQueue.main.async { [weak self] in
-                self?.coinLogo.image = UIImage(data: imageData)
+        self.viewModel.onImageLoaded = { [weak self] logoImage in
+            DispatchQueue.main.async {
+                self?.coinLogo.image = logoImage
             }
         }
     }
