@@ -13,15 +13,17 @@ class HomeController: UIViewController {
     private let viewModel: HomeControllerViewModel
     
     // MARK: - UI Components
-    private let tableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
-        tableView.register(CoinCell.self, forCellReuseIdentifier: CoinCell.identifier)
-        
-        return tableView
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private let tableView: UITableView = {
+        let tv = UITableView()
+        tv.backgroundColor = .systemBackground
+        tv.register(CoinCell.self, forCellReuseIdentifier: CoinCell.identifier)
+        return tv
     }()
     
-    // MARK: - UI Lifecycle
+    
+    // MARK: - LifeCycle
     init(_ viewModel: HomeControllerViewModel = HomeControllerViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,7 +35,7 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupSearchController()
         self.setupUI()
         
         self.tableView.delegate = self
@@ -66,29 +68,60 @@ class HomeController: UIViewController {
             }
         }
     }
+
     
     // MARK: - UI Setup
     private func setupUI() {
         self.navigationItem.title = "iCrypto"
-        view.backgroundColor = .systemBackground
+        self.view.backgroundColor = .systemBackground
         
         self.view.addSubview(tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
     
+    private func setupSearchController() {
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Search Cryptos"
+        
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = false
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsBookmarkButton = true
+        searchController.searchBar.setImage(UIImage(systemName: "line.horizontal.3.decrease"), for: .bookmark, state: .normal)
+    }
 }
+
+// MARK: - Search Controller Functions
+extension HomeController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate  {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        print("Search bar button called!")
+    }
+}
+
 
 // MARK: - TableView Functions
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.coins.count
+        let inSearchMode = self.viewModel.inSearchMode(searchController)
+        return inSearchMode ? self.viewModel.filteredCoins.count : self.viewModel.allCoins.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,22 +129,29 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Coin Cell 등록 오류")
         }
         
-        let coin = self.viewModel.coins[indexPath.row]
-        cell.configure(with: coin)
+        let inSearchMode = self.viewModel.inSearchMode(searchController)
         
+        let coin = inSearchMode ? self.viewModel.filteredCoins[indexPath.row] : self.viewModel.allCoins[indexPath.row]
+        cell.configure(with: coin)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 99
+        return 88
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
-        let coin = self.viewModel.coins[indexPath.row]
+        let inSearchMode = self.viewModel.inSearchMode(searchController)
+        
+        let coin = inSearchMode ? self.viewModel.filteredCoins[indexPath.row] : self.viewModel.allCoins[indexPath.row]
+        
         let vm = ViewCryptoControllerViewModel(coin: coin)
         let vc = ViewCryptoController(vm)
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
+    
 }
