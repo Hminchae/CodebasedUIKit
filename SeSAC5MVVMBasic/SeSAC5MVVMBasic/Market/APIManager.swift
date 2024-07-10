@@ -21,7 +21,7 @@ final class APIManager {
         AF.request(url).responseDecodable(of: [Market].self) { response in
             switch response.result {
             case .success(let success):
-                print(success)
+               // print(success)
                 let title = success.first?.korean_name ?? "마켓 목록"
                completionHandler(success, title)
             case .failure(let failure):

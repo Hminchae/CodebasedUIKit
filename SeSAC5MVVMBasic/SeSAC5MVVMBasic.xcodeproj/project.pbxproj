@@ -24,7 +24,26 @@
 		B1CE60252C3E127E000F4AA1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60242C3E127E000F4AA1 /* Alamofire */; };
 		B1CE60272C3E1310000F4AA1 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60262C3E1310000F4AA1 /* Market.swift */; };
 		B1CE60292C3E20AC000F4AA1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60282C3E20AC000F4AA1 /* APIManager.swift */; };
+		B1CE602C2C3E2682000F4AA1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE602B2C3E2682000F4AA1 /* RealmSwift */; };
+		B1CE602D2C3E2698000F4AA1 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B1CE602B2C3E2682000F4AA1 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */; };
+		B1CE60322C3E3299000F4AA1 /* MoneyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */; };
+		B1CE60342C3E36E0000F4AA1 /* NumberFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1CE602E2C3E2698000F4AA1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1CE602D2C3E2698000F4AA1 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04D2F8E12C3CAD5A00AEFFDC /* SeSAC5MVVMBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC5MVVMBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +63,9 @@
 		B1CE60212C3E1033000F4AA1 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		B1CE60262C3E1310000F4AA1 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		B1CE60282C3E20AC000F4AA1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyRepository.swift; sourceTree = "<group>"; };
+		B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE602C2C3E2682000F4AA1 /* RealmSwift in Frameworks */,
 				B1CE60102C3D555E000F4AA1 /* SnapKit in Frameworks */,
 				B1CE60252C3E127E000F4AA1 /* Alamofire in Frameworks */,
 			);
@@ -82,6 +105,7 @@
 				04D2F8E62C3CAD5A00AEFFDC /* SceneDelegate.swift */,
 				04D2F8E42C3CAD5A00AEFFDC /* AppDelegate.swift */,
 				B1CE60152C3D7C75000F4AA1 /* Observable.swift */,
+				B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */,
 				B1CE601E2C3E0E57000F4AA1 /* Market */,
 				04D2F9022C3CB11900AEFFDC /* User */,
 				04D2F8FF2C3CAF4C00AEFFDC /* Number */,
@@ -134,6 +158,8 @@
 				B1CE60212C3E1033000F4AA1 /* MarketViewModel.swift */,
 				B1CE60262C3E1310000F4AA1 /* Market.swift */,
 				B1CE60282C3E20AC000F4AA1 /* APIManager.swift */,
+				B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */,
+				B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -148,6 +174,7 @@
 				04D2F8DD2C3CAD5A00AEFFDC /* Sources */,
 				04D2F8DE2C3CAD5A00AEFFDC /* Frameworks */,
 				04D2F8DF2C3CAD5A00AEFFDC /* Resources */,
+				B1CE602E2C3E2698000F4AA1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +184,7 @@
 			packageProductDependencies = (
 				B1CE600F2C3D555E000F4AA1 /* SnapKit */,
 				B1CE60242C3E127E000F4AA1 /* Alamofire */,
+				B1CE602B2C3E2682000F4AA1 /* RealmSwift */,
 			);
 			productName = SeSAC5MVVMBasic;
 			productReference = 04D2F8E12C3CAD5A00AEFFDC /* SeSAC5MVVMBasic.app */;
@@ -189,6 +217,7 @@
 			packageReferences = (
 				04D2F8FB2C3CAE1800AEFFDC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B1CE60232C3E127E000F4AA1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B1CE602A2C3E2682000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 04D2F8E22C3CAD5A00AEFFDC /* Products */;
 			projectDirPath = "";
@@ -217,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */,
+				B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */,
 				04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */,
 				B1CE60202C3E0E6A000F4AA1 /* MarketViewController.swift in Sources */,
 				04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */,
@@ -228,7 +258,9 @@
 				B1CE60222C3E1033000F4AA1 /* MarketViewModel.swift in Sources */,
 				B1CE60292C3E20AC000F4AA1 /* APIManager.swift in Sources */,
 				B1CE60142C3D6CE5000F4AA1 /* LoginViewModel.swift in Sources */,
+				B1CE60322C3E3299000F4AA1 /* MoneyRepository.swift in Sources */,
 				B1CE60272C3E1310000F4AA1 /* Market.swift in Sources */,
+				B1CE60342C3E36E0000F4AA1 /* NumberFormatterManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +489,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		B1CE602A2C3E2682000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.52.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -469,6 +509,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1CE60232C3E127E000F4AA1 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B1CE602B2C3E2682000F4AA1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE602A2C3E2682000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

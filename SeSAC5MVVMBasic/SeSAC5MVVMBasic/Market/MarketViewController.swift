@@ -83,6 +83,12 @@ extension MarketViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = "\(data.korean_name) | \(data.english_name)"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = viewModel.outputMarketData.value[indexPath.row]
+        
+        viewModel.inputCellSelected.value = data
+    }
 }
 
 extension MarketViewController: UISearchBarDelegate {
