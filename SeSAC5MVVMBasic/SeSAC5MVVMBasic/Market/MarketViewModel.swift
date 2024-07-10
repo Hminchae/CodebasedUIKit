@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Alamofire
-
 final class MarketViewModel {
     
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
@@ -23,22 +21,14 @@ final class MarketViewModel {
     private func transform() {
         inputViewDidLoadTrigger.bind { _ in
             print("네트워크 통신 진행")
-            self.fetchUpbitMarketAPI()
+            self.callRequest()
         }
     }
     
-    private   func fetchUpbitMarketAPI() {
-        let url = "https://api.upbit.com/v1/market/all"
-        
-        AF.request(url).responseDecodable(of: [Market].self) { response in
-            switch response.result {
-            case .success(let success):
-                print(success)
-                self.outputMarketData.value = success
-                self.outputTitleData.value = success.first?.korean_name ?? "마켓 목록"
-            case .failure(let failure):
-                print(failure)
-            }
+    private func callRequest() {
+        APIManager.shared.fetchUpbitMarketAPI { market, title  in
+            self.outputMarketData.value = market
+            self.outputTitleData.value = title
         }
     }
 }
