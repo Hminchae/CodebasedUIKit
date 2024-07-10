@@ -9,6 +9,10 @@ import Foundation
 
 class UserViewModel {
     
+    // 1. observable로 표현할래
+    // 2. viewModel에 상수로
+    // 3. 열거형에서 뷰컨에서 바로 갖고 올래
+    
     // 처음에 로드
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
     // UserList
