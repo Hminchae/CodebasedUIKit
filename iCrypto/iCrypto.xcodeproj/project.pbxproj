@@ -17,6 +17,7 @@
 		B1CE60A32C3EA46C000F4AA1 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60A22C3EA46C000F4AA1 /* CoinCell.swift */; };
 		B1CE60A52C3EAA88000F4AA1 /* ViewCryptoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60A42C3EAA88000F4AA1 /* ViewCryptoController.swift */; };
 		B1CE60A72C3EB37B000F4AA1 /* ViewCryptoControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60A62C3EB37B000F4AA1 /* ViewCryptoControllerViewModel.swift */; };
+		B1CE60A92C3EB902000F4AA1 /* CoinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60A82C3EB902000F4AA1 /* CoinError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B1CE60A22C3EA46C000F4AA1 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		B1CE60A42C3EAA88000F4AA1 /* ViewCryptoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCryptoController.swift; sourceTree = "<group>"; };
 		B1CE60A62C3EB37B000F4AA1 /* ViewCryptoControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCryptoControllerViewModel.swift; sourceTree = "<group>"; };
+		B1CE60A82C3EB902000F4AA1 /* CoinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CE60A02C3EA36B000F4AA1 /* Coin.swift */,
+				B1CE60A82C3EB902000F4AA1 /* CoinError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				B1CE60A72C3EB37B000F4AA1 /* ViewCryptoControllerViewModel.swift in Sources */,
 				B1CE609F2C3E877F000F4AA1 /* APIKey.swift in Sources */,
 				B1CE60A52C3EAA88000F4AA1 /* ViewCryptoController.swift in Sources */,
+				B1CE60A92C3EB902000F4AA1 /* CoinError.swift in Sources */,
 				B1CE60A12C3EA36B000F4AA1 /* Coin.swift in Sources */,
 				B1CE60A32C3EA46C000F4AA1 /* CoinCell.swift in Sources */,
 				B1CE60642C3E7C13000F4AA1 /* SceneDelegate.swift in Sources */,
