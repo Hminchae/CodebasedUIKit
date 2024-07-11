@@ -9,14 +9,22 @@ import UIKit
 
 class SampleViewController: UIViewController {
     
-    private let idTextField: UITextField = {
+    private lazy var idTextField: UITextField = { (ph) -> UITextField in // 매개변수가 없고 반환값이 UITextField
         let textField = UITextField()
-        textField.placeholder = "아이디"
+        textField.placeholder = ph
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
         return textField
-    }()
-
+    }("아이이이디ㅣ디디~~")
+    
+    func makeIdTextField(ph: String) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = ph
+        textField.borderStyle = .roundedRect
+        textField.autocapitalizationType = .none
+        return textField
+    }
+    
     private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "비밀번호"
@@ -41,12 +49,25 @@ class SampleViewController: UIViewController {
         return button
     }()
 
+    func text(a: Int, thanky: (String, Int) -> Void) {
+        thanky("땡키", 8)
+        
+        func sample(ph: String, num: Int) { // 반환값이 없으면 생략이 가능해서..
+            let b = 2
+            idTextField.text = "\(ph)\(b + num)"
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
         configureConstraints()
-        
+        text(a: 8) { ph, number in
+            let b = number
+            idTextField.text = "\(ph)~~~\(number)"
+        }
     }
     
     private func configureUI() {
