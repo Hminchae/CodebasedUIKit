@@ -29,6 +29,8 @@
 		B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */; };
 		B1CE60322C3E3299000F4AA1 /* MoneyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */; };
 		B1CE60342C3E36E0000F4AA1 /* NumberFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */; };
+		B1CE60C42C3F606E000F4AA1 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C32C3F606E000F4AA1 /* SampleViewController.swift */; };
+		B1CE60C62C3F6A04000F4AA1 /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C52C3F6A04000F4AA1 /* ImageZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +68,8 @@
 		B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyRepository.swift; sourceTree = "<group>"; };
 		B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterManager.swift; sourceTree = "<group>"; };
+		B1CE60C32C3F606E000F4AA1 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		B1CE60C52C3F6A04000F4AA1 /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +109,7 @@
 				04D2F8E62C3CAD5A00AEFFDC /* SceneDelegate.swift */,
 				04D2F8E42C3CAD5A00AEFFDC /* AppDelegate.swift */,
 				B1CE60152C3D7C75000F4AA1 /* Observable.swift */,
-				B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */,
+				B1CE60C22C3F605C000F4AA1 /* UI */,
 				B1CE601E2C3E0E57000F4AA1 /* Market */,
 				04D2F9022C3CB11900AEFFDC /* User */,
 				04D2F8FF2C3CAF4C00AEFFDC /* Number */,
@@ -129,6 +133,7 @@
 		04D2F8FF2C3CAF4C00AEFFDC /* Number */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE60332C3E36E0000F4AA1 /* NumberFormatterManager.swift */,
 				04D2F9002C3CAF5400AEFFDC /* NumberViewController.swift */,
 				B1CE60112C3D5EC4000F4AA1 /* NumberViewModel.swift */,
 			);
@@ -162,6 +167,15 @@
 				B1CE60312C3E3299000F4AA1 /* MoneyRepository.swift */,
 			);
 			path = Market;
+			sourceTree = "<group>";
+		};
+		B1CE60C22C3F605C000F4AA1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE60C32C3F606E000F4AA1 /* SampleViewController.swift */,
+				B1CE60C52C3F6A04000F4AA1 /* ImageZoomViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +262,9 @@
 				B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */,
 				B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */,
 				04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */,
+				B1CE60C62C3F6A04000F4AA1 /* ImageZoomViewController.swift in Sources */,
 				B1CE60202C3E0E6A000F4AA1 /* MarketViewController.swift in Sources */,
+				B1CE60C42C3F606E000F4AA1 /* SampleViewController.swift in Sources */,
 				04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */,
 				04D2F9012C3CAF5400AEFFDC /* NumberViewController.swift in Sources */,
 				B1CE60122C3D5EC4000F4AA1 /* NumberViewModel.swift in Sources */,

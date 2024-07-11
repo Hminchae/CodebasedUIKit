@@ -51,17 +51,18 @@ class MarketViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        view.addSubview(searchBar)
+        //view.addSubview(searchBar)
         view.addSubview(tableView)
         
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
-        }
+//        searchBar.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.left.right.equalToSuperview()
+//        }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
+//            make.top.equalTo(searchBar.snp.bottom)
+//            make.left.right.bottom.equalToSuperview()
+            make.edges.equalTo(view.snp.edges)
         }
     }
     

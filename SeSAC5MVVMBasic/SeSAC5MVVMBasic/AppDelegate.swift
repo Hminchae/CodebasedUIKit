@@ -13,8 +13,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UILabel.appearance().font = .boldSystemFont(ofSize: 20)
+        UILabel.appearance().textColor = .blue
+        UILabel.appearance().backgroundColor = .black
+        
+        UIButton.appearance().backgroundColor = .red
+        
+        UITextField.appearance().font = .boldSystemFont(ofSize: 20)
+        UITextField.appearance().textColor = .purple
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .red
+        navigationBarAppearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .backgroundColor: UIColor.yellow
+        ]
+        
+        navigationBarAppearance.largeTitleTextAttributes
+        
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        
+        let navigationBarAppearance2 = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithTransparentBackground()
+        navigationBarAppearance2.backgroundColor = .blue
+        
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance2
+
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = .white
+        
+        tabBarAppearance.stackedLayoutAppearance.selected.iconColor = .blue
+        tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.blue]
+        
+        tabBarAppearance.stackedLayoutAppearance.normal.iconColor = .blue
+        tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.orange]
+        
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        
         return true
+        
     }
 
     // MARK: UISceneSession Lifecycle
