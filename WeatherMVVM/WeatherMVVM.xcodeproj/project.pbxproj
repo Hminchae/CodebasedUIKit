@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B1CE60822C3E81F3000F4AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60812C3E81F3000F4AA1 /* AppDelegate.swift */; };
 		B1CE60842C3E81F3000F4AA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60832C3E81F3000F4AA1 /* SceneDelegate.swift */; };
-		B1CE60862C3E81F3000F4AA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60852C3E81F3000F4AA1 /* ViewController.swift */; };
+		B1CE60862C3E81F3000F4AA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60852C3E81F3000F4AA1 /* MainViewController.swift */; };
 		B1CE608B2C3E81F5000F4AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */; };
 		B1CE608E2C3E81F5000F4AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CE608C2C3E81F5000F4AA1 /* LaunchScreen.storyboard */; };
 		B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60B62C3F3868000F4AA1 /* Observable.swift */; };
@@ -19,7 +19,7 @@
 		B1CE607E2C3E81F3000F4AA1 /* WeatherMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CE60812C3E81F3000F4AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CE60832C3E81F3000F4AA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1CE60852C3E81F3000F4AA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1CE60852C3E81F3000F4AA1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1CE608D2C3E81F5000F4AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1CE608F2C3E81F5000F4AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +56,63 @@
 		B1CE60802C3E81F3000F4AA1 /* WeatherMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				B1CE60812C3E81F3000F4AA1 /* AppDelegate.swift */,
-				B1CE60832C3E81F3000F4AA1 /* SceneDelegate.swift */,
-				B1CE60852C3E81F3000F4AA1 /* ViewController.swift */,
-				B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */,
-				B1CE608C2C3E81F5000F4AA1 /* LaunchScreen.storyboard */,
+				B1CE60BC2C3F5A92000F4AA1 /* Controllers */,
+				B1CE60BB2C3F5A89000F4AA1 /* ViewModels */,
+				B1CE60BA2C3F5A80000F4AA1 /* Models */,
+				B1CE60B92C3F5A74000F4AA1 /* API */,
+				B1CE60B82C3F5A6A000F4AA1 /* Views */,
+				B1CE60BD2C3F5AA2000F4AA1 /* Supporting */,
 				B1CE608F2C3E81F5000F4AA1 /* Info.plist */,
-				B1CE60B62C3F3868000F4AA1 /* Observable.swift */,
 			);
 			path = WeatherMVVM;
+			sourceTree = "<group>";
+		};
+		B1CE60B82C3F5A6A000F4AA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1CE60B92C3F5A74000F4AA1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B1CE60BA2C3F5A80000F4AA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE60B62C3F3868000F4AA1 /* Observable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1CE60BB2C3F5A89000F4AA1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B1CE60BC2C3F5A92000F4AA1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE60852C3E81F3000F4AA1 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B1CE60BD2C3F5AA2000F4AA1 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE608C2C3E81F5000F4AA1 /* LaunchScreen.storyboard */,
+				B1CE60832C3E81F3000F4AA1 /* SceneDelegate.swift */,
+				B1CE60812C3E81F3000F4AA1 /* AppDelegate.swift */,
+				B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */,
-				B1CE60862C3E81F3000F4AA1 /* ViewController.swift in Sources */,
+				B1CE60862C3E81F3000F4AA1 /* MainViewController.swift in Sources */,
 				B1CE60822C3E81F3000F4AA1 /* AppDelegate.swift in Sources */,
 				B1CE60842C3E81F3000F4AA1 /* SceneDelegate.swift in Sources */,
 			);
