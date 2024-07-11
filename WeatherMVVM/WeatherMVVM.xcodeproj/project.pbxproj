@@ -13,6 +13,8 @@
 		B1CE608B2C3E81F5000F4AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */; };
 		B1CE608E2C3E81F5000F4AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CE608C2C3E81F5000F4AA1 /* LaunchScreen.storyboard */; };
 		B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60B62C3F3868000F4AA1 /* Observable.swift */; };
+		B1CE60BF2C3F5C69000F4AA1 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60BE2C3F5C69000F4AA1 /* HTTP.swift */; };
+		B1CE60C12C3F5C8C000F4AA1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C02C3F5C8C000F4AA1 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B1CE608D2C3E81F5000F4AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1CE608F2C3E81F5000F4AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1CE60B62C3F3868000F4AA1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B1CE60BE2C3F5C69000F4AA1 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		B1CE60C02C3F5C8C000F4AA1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		B1CE60B92C3F5A74000F4AA1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE60BE2C3F5C69000F4AA1 /* HTTP.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 				B1CE60832C3E81F3000F4AA1 /* SceneDelegate.swift */,
 				B1CE60812C3E81F3000F4AA1 /* AppDelegate.swift */,
 				B1CE608A2C3E81F5000F4AA1 /* Assets.xcassets */,
+				B1CE60C02C3F5C8C000F4AA1 /* APIKey.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -185,9 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE60BF2C3F5C69000F4AA1 /* HTTP.swift in Sources */,
 				B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */,
 				B1CE60862C3E81F3000F4AA1 /* MainViewController.swift in Sources */,
 				B1CE60822C3E81F3000F4AA1 /* AppDelegate.swift in Sources */,
+				B1CE60C12C3F5C8C000F4AA1 /* APIKey.swift in Sources */,
 				B1CE60842C3E81F3000F4AA1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

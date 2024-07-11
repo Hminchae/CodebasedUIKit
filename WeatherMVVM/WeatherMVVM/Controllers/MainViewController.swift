@@ -13,7 +13,5 @@ class MainViewController : UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
     }
-
-
 }
 
