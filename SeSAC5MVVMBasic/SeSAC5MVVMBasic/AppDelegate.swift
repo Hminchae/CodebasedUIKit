@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .backgroundColor: UIColor.yellow
         ]
         
-        navigationBarAppearance.largeTitleTextAttributes
+        //navigationBarAppearance.largeTitleTextAttributes
         
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         
