@@ -34,6 +34,7 @@
 		B1CE60C82C3F748B000F4AA1 /* HorizontalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C72C3F748B000F4AA1 /* HorizontalScrollViewController.swift */; };
 		B1CE60CA2C3F781D000F4AA1 /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */; };
 		B1CE60CC2C3F9F1B000F4AA1 /* ClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CB2C3F9F1B000F4AA1 /* ClosureViewController.swift */; };
+		B1CE60CE2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,7 @@
 		B1CE60C72C3F748B000F4AA1 /* HorizontalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollViewController.swift; sourceTree = "<group>"; };
 		B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		B1CE60CB2C3F9F1B000F4AA1 /* ClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureViewController.swift; sourceTree = "<group>"; };
+		B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureUpgrageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				04D2F8EF2C3CAD5B00AEFFDC /* LaunchScreen.storyboard */,
 				04D2F8F22C3CAD5B00AEFFDC /* Info.plist */,
 				B1CE60CB2C3F9F1B000F4AA1 /* ClosureViewController.swift */,
+				B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */,
 			);
 			path = SeSAC5MVVMBasic;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE60CE2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift in Sources */,
 				B1CE60CC2C3F9F1B000F4AA1 /* ClosureViewController.swift in Sources */,
 				B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */,
 				B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */,

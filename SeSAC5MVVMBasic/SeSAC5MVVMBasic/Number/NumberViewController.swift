@@ -45,6 +45,8 @@ class NumberViewController: UIViewController {
     func bindData() {
         viewModel.outputAmount.bind { _ in
             self.formattedAmountLabel.text = self.viewModel.outputAmount.value
+            
+            // 왜 self? 
         }
     }
 

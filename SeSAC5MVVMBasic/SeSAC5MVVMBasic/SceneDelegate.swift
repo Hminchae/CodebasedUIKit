@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let vc = UINavigationController(rootViewController: ClosureViewController())
+        let vc = UINavigationController(rootViewController: ClosureUpgrageViewController())
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
