@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
     private let signInButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
@@ -17,11 +17,11 @@ class WelcomeViewController: UIViewController {
         
         return button
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Spotify"
         view.backgroundColor = .systemGreen
         view.addSubview(signInButton)
@@ -52,5 +52,17 @@ class WelcomeViewController: UIViewController {
     
     private func handleSignIn(success: Bool) {
         // Log user In or yell at them for error
+        guard success else {
+            let alert = UIAlertController(title: "어머!",
+                                          message: "로그인 하면서 무엇인가 문제가 생겼습니다.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
+            present(alert, animated: true)
+            return
+        }
+        
+        let mainAppTabBarVC = TabBarViewController()
+        mainAppTabBarVC.modalPresentationStyle = .fullScreen
+        present(mainAppTabBarVC, animated: true)
     }
 }
