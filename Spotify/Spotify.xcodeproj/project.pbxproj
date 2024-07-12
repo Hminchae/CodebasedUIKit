@@ -22,7 +22,6 @@
 		B18BCB182C04D70C00EA8869 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB172C04D70C00EA8869 /* PlayerViewController.swift */; };
 		B18BCB1A2C04D71C00EA8869 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB192C04D71C00EA8869 /* PlaylistViewController.swift */; };
 		B18BCB1C2C04D73100EA8869 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB1B2C04D73100EA8869 /* SearchResultsViewController.swift */; };
-		B18BCB1E2C04D74B00EA8869 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB1D2C04D74B00EA8869 /* AuthManager.swift */; };
 		B18BCB202C04D75700EA8869 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB1F2C04D75700EA8869 /* APICaller.swift */; };
 		B18BCB222C04D77B00EA8869 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB212C04D77B00EA8869 /* HapticsManager.swift */; };
 		B18BCB242C04D80D00EA8869 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB232C04D80D00EA8869 /* Playlist.swift */; };
@@ -30,6 +29,8 @@
 		B18BCB282C04D82100EA8869 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB272C04D82100EA8869 /* Artist.swift */; };
 		B18BCB2A2C04D82D00EA8869 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB292C04D82D00EA8869 /* UserProfile.swift */; };
 		B18BCB2C2C05555700EA8869 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BCB2B2C05555700EA8869 /* Extensions.swift */; };
+		B1CE60D02C415419000F4AA1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CF2C415419000F4AA1 /* APIKey.swift */; };
+		B1CE60D22C4178D3000F4AA1 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60D12C4178D3000F4AA1 /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +51,6 @@
 		B18BCB172C04D70C00EA8869 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B18BCB192C04D71C00EA8869 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		B18BCB1B2C04D73100EA8869 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
-		B18BCB1D2C04D74B00EA8869 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B18BCB1F2C04D75700EA8869 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		B18BCB212C04D77B00EA8869 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		B18BCB232C04D80D00EA8869 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		B18BCB272C04D82100EA8869 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		B18BCB292C04D82D00EA8869 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B18BCB2B2C05555700EA8869 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B1CE60CF2C415419000F4AA1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B1CE60D12C4178D3000F4AA1 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				B18BCB252C04D81800EA8869 /* AudioTrack.swift */,
 				B18BCB272C04D82100EA8869 /* Artist.swift */,
 				B18BCB292C04D82D00EA8869 /* UserProfile.swift */,
+				B1CE60D12C4178D3000F4AA1 /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -139,9 +142,9 @@
 		B18BCB052C04D46100EA8869 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B18BCB1D2C04D74B00EA8869 /* AuthManager.swift */,
 				B18BCB1F2C04D75700EA8869 /* APICaller.swift */,
 				B18BCB212C04D77B00EA8869 /* HapticsManager.swift */,
+				B1CE60CF2C415419000F4AA1 /* APIKey.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -150,9 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				B18BCAED2C04D41100EA8869 /* AppDelegate.swift */,
-				B18BCAF62C04D41200EA8869 /* Assets.xcassets */,
 				B18BCAEF2C04D41100EA8869 /* SceneDelegate.swift */,
 				B18BCB2B2C05555700EA8869 /* Extensions.swift */,
+				B18BCAF62C04D41200EA8869 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -254,12 +257,13 @@
 			files = (
 				B18BCB0A2C04D68C00EA8869 /* SearchViewController.swift in Sources */,
 				B18BCB242C04D80D00EA8869 /* Playlist.swift in Sources */,
-				B18BCB1E2C04D74B00EA8869 /* AuthManager.swift in Sources */,
 				B18BCB1C2C04D73100EA8869 /* SearchResultsViewController.swift in Sources */,
 				B18BCB122C04D6E500EA8869 /* WelcomeViewController.swift in Sources */,
 				B18BCB162C04D70200EA8869 /* ProfileViewController.swift in Sources */,
+				B1CE60D02C415419000F4AA1 /* APIKey.swift in Sources */,
 				B18BCB082C04D67800EA8869 /* TabBarViewController.swift in Sources */,
 				B18BCB222C04D77B00EA8869 /* HapticsManager.swift in Sources */,
+				B1CE60D22C4178D3000F4AA1 /* AuthResponse.swift in Sources */,
 				B18BCB262C04D81800EA8869 /* AudioTrack.swift in Sources */,
 				B18BCAF22C04D41100EA8869 /* HomeViewController.swift in Sources */,
 				B18BCB102C04D6DA00EA8869 /* AuthViewController.swift in Sources */,
