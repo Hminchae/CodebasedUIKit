@@ -25,6 +25,11 @@
 		B1CE61432C42A4C8000F4AA1 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61422C42A4C8000F4AA1 /* TV.swift */; };
 		B1CE61462C42A80A000F4AA1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61452C42A80A000F4AA1 /* Movie.swift */; };
 		B1CE61482C42A940000F4AA1 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61472C42A940000F4AA1 /* MovieResult.swift */; };
+		B1CE614A2C42AA2E000F4AA1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61492C42AA2E000F4AA1 /* Network.swift */; };
+		B1CE614D2C42AE6C000F4AA1 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE614C2C42AE6C000F4AA1 /* RxAlamofire */; };
+		B1CE614F2C42AF83000F4AA1 /* TVNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE614E2C42AF83000F4AA1 /* TVNetwork.swift */; };
+		B1CE61512C42B04C000F4AA1 /* MovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61502C42B04C000F4AA1 /* MovieNetwork.swift */; };
+		B1CE61532C42B104000F4AA1 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61522C42B104000F4AA1 /* NetworkProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,10 @@
 		B1CE61422C42A4C8000F4AA1 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		B1CE61452C42A80A000F4AA1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B1CE61472C42A940000F4AA1 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
+		B1CE61492C42AA2E000F4AA1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B1CE614E2C42AF83000F4AA1 /* TVNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVNetwork.swift; sourceTree = "<group>"; };
+		B1CE61502C42B04C000F4AA1 /* MovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetwork.swift; sourceTree = "<group>"; };
+		B1CE61522C42B104000F4AA1 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +63,7 @@
 				B1CE613A2C4292B1000F4AA1 /* RxCocoa in Frameworks */,
 				B1CE61342C4291F3000F4AA1 /* Kingfisher in Frameworks */,
 				B1CE613C2C4292B1000F4AA1 /* RxSwift in Frameworks */,
+				B1CE614D2C42AE6C000F4AA1 /* RxAlamofire in Frameworks */,
 				B1CE61372C429203000F4AA1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +76,7 @@
 			children = (
 				B1CE60DE2C4199CF000F4AA1 /* ModernLayout */,
 				B1CE60DD2C4199CF000F4AA1 /* Products */,
+				B1CE614B2C42AE6C000F4AA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +112,10 @@
 			children = (
 				B1CE61412C42A4B9000F4AA1 /* Entities */,
 				B1CE613F2C429472000F4AA1 /* APIKey.swift */,
+				B1CE61492C42AA2E000F4AA1 /* Network.swift */,
+				B1CE61502C42B04C000F4AA1 /* MovieNetwork.swift */,
+				B1CE61522C42B104000F4AA1 /* NetworkProvider.swift */,
+				B1CE614E2C42AF83000F4AA1 /* TVNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -113,6 +128,13 @@
 				B1CE61472C42A940000F4AA1 /* MovieResult.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		B1CE614B2C42AE6C000F4AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +158,7 @@
 				B1CE61362C429203000F4AA1 /* SnapKit */,
 				B1CE61392C4292B1000F4AA1 /* RxCocoa */,
 				B1CE613B2C4292B1000F4AA1 /* RxSwift */,
+				B1CE614C2C42AE6C000F4AA1 /* RxAlamofire */,
 			);
 			productName = ModernLayout;
 			productReference = B1CE60DC2C4199CF000F4AA1 /* ModernLayout.app */;
@@ -200,15 +223,19 @@
 			files = (
 				B1CE60F42C419B89000F4AA1 /* Item.swift in Sources */,
 				B1CE61482C42A940000F4AA1 /* MovieResult.swift in Sources */,
+				B1CE614A2C42AA2E000F4AA1 /* Network.swift in Sources */,
 				B1CE60E42C4199CF000F4AA1 /* ViewController.swift in Sources */,
+				B1CE614F2C42AF83000F4AA1 /* TVNetwork.swift in Sources */,
 				B1CE61432C42A4C8000F4AA1 /* TV.swift in Sources */,
 				B1CE61402C429472000F4AA1 /* APIKey.swift in Sources */,
+				B1CE61512C42B04C000F4AA1 /* MovieNetwork.swift in Sources */,
 				B1CE61462C42A80A000F4AA1 /* Movie.swift in Sources */,
 				B1CE60E02C4199CF000F4AA1 /* AppDelegate.swift in Sources */,
 				B1CE61232C426753000F4AA1 /* ListCarouselCollectionViewCell.swift in Sources */,
 				B1CE61212C424E13000F4AA1 /* NormalCaroselCollectionViewCell.swift in Sources */,
 				B1CE60F62C419BDC000F4AA1 /* BannerCollectionViewCell.swift in Sources */,
 				B1CE60E22C4199CF000F4AA1 /* SceneDelegate.swift in Sources */,
+				B1CE61532C42B104000F4AA1 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,16 +488,15 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
-				kind = exactVersion;
-				version = 6.6.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
 			};
 		};
 		B1CE613D2C4292E9000F4AA1 /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire";
 			requirement = {
-				kind = versionRange;
-				maximumVersion = 7.0.0;
+				kind = upToNextMajorVersion;
 				minimumVersion = 6.0.0;
 			};
 		};
@@ -496,6 +522,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1CE61382C4292B1000F4AA1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		B1CE614C2C42AE6C000F4AA1 /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE613D2C4292E9000F4AA1 /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
