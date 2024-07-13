@@ -23,13 +23,14 @@ class ViewController: UIViewController {
         collectionView.register(NormalCaroselCollectionViewCell.self, forCellWithReuseIdentifier: NormalCaroselCollectionViewCell.id)
         collectionView.register(ListCarouselCollectionViewCell.self, forCellWithReuseIdentifier: ListCarouselCollectionViewCell.id)
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
+        collectionView.setCollectionViewLayout(createLayout(), animated: true)
         setDataSource()
         setSnapShot()
     }
     
     private func setUI() {
         self.view.addSubview(collectionView)
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .white
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCaroselCollectionViewCell.id, for: indexPath) as? NormalCaroselCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-
+                
                 cell.config(imageUrl: item.imageUrl, title: item.title, subTitle: item.subTitle)
                 
                 return cell
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCarouselCollectionViewCell.id, for: indexPath) as? ListCarouselCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-
+                
                 cell.config(imageUrl: item.imageUrl, title: item.title, subTitle: item.subTitle)
                 
                 return cell
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 20
         
-        return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
             
             switch sectionIndex {
             case 0:
@@ -118,6 +119,9 @@ class ViewController: UIViewController {
                 return self?.createListSection()
             }
         }, configuration: config) // 섹션 스페이싱
+        
+        layout.register(BackgroundReusableView.self, forDecorationViewOfKind: BackgroundReusableView.id)
+        return layout
     }
     
     private func createBannerSection() -> NSCollectionLayoutSection {
@@ -146,7 +150,7 @@ class ViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20) // 처음 과 끝
-    
+        
         return section
     }
     
@@ -154,15 +158,19 @@ class ViewController: UIViewController {
         //item
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    
+        
         //group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(250))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3) // 그룹안에 아이템 세개가 들어가게끔
         //section
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20) // 처음 과 끝
-    
+        
+        let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: BackgroundReusableView.id)
+        backgroundItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15) // 처음 과 끝
+        section.decorationItems = [backgroundItem]
+        
         return section
     }
 }
@@ -175,3 +183,18 @@ class ViewController: UIViewController {
 
 
 // 섹션 > 그룹 > 아이템
+
+class BackgroundReusableView: UICollectionReusableView {
+    static let id = "BackgroundReusableView"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .systemBlue.withAlphaComponent(0.2)
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
