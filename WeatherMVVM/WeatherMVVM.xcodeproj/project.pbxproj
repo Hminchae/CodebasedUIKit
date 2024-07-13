@@ -15,6 +15,11 @@
 		B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60B62C3F3868000F4AA1 /* Observable.swift */; };
 		B1CE60BF2C3F5C69000F4AA1 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60BE2C3F5C69000F4AA1 /* HTTP.swift */; };
 		B1CE60C12C3F5C8C000F4AA1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C02C3F5C8C000F4AA1 /* APIKey.swift */; };
+		B1CE60FE2C422737000F4AA1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60FD2C422737000F4AA1 /* Item.swift */; };
+		B1CE61012C422758000F4AA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE61002C422758000F4AA1 /* Kingfisher */; };
+		B1CE61042C422762000F4AA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE61032C422762000F4AA1 /* SnapKit */; };
+		B1CE61062C422762000F4AA1 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE61052C422762000F4AA1 /* SnapKit-Dynamic */; };
+		B1CE61092C4227AE000F4AA1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE61082C4227AE000F4AA1 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,7 @@
 		B1CE60B62C3F3868000F4AA1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B1CE60BE2C3F5C69000F4AA1 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		B1CE60C02C3F5C8C000F4AA1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B1CE60FD2C422737000F4AA1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE61092C4227AE000F4AA1 /* RealmSwift in Frameworks */,
+				B1CE61012C422758000F4AA1 /* Kingfisher in Frameworks */,
+				B1CE61042C422762000F4AA1 /* SnapKit in Frameworks */,
+				B1CE61062C422762000F4AA1 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CE60B62C3F3868000F4AA1 /* Observable.swift */,
+				B1CE60FD2C422737000F4AA1 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +148,12 @@
 			dependencies = (
 			);
 			name = WeatherMVVM;
+			packageProductDependencies = (
+				B1CE61002C422758000F4AA1 /* Kingfisher */,
+				B1CE61032C422762000F4AA1 /* SnapKit */,
+				B1CE61052C422762000F4AA1 /* SnapKit-Dynamic */,
+				B1CE61082C4227AE000F4AA1 /* RealmSwift */,
+			);
 			productName = WeatherMVVM;
 			productReference = B1CE607E2C3E81F3000F4AA1 /* WeatherMVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +182,11 @@
 				Base,
 			);
 			mainGroup = B1CE60752C3E81F3000F4AA1;
+			packageReferences = (
+				B1CE60FF2C422758000F4AA1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B1CE61022C422762000F4AA1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1CE61072C4227AE000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = B1CE607F2C3E81F3000F4AA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +217,7 @@
 				B1CE60B72C3F3868000F4AA1 /* Observable.swift in Sources */,
 				B1CE60862C3E81F3000F4AA1 /* MainViewController.swift in Sources */,
 				B1CE60822C3E81F3000F4AA1 /* AppDelegate.swift in Sources */,
+				B1CE60FE2C422737000F4AA1 /* Item.swift in Sources */,
 				B1CE60C12C3F5C8C000F4AA1 /* APIKey.swift in Sources */,
 				B1CE60842C3E81F3000F4AA1 /* SceneDelegate.swift in Sources */,
 			);
@@ -419,6 +442,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1CE60FF2C422758000F4AA1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		B1CE61022C422762000F4AA1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		B1CE61072C4227AE000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1CE61002C422758000F4AA1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE60FF2C422758000F4AA1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		B1CE61032C422762000F4AA1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE61022C422762000F4AA1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B1CE61052C422762000F4AA1 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE61022C422762000F4AA1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		B1CE61082C4227AE000F4AA1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CE61072C4227AE000F4AA1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1CE60762C3E81F3000F4AA1 /* Project object */;
 }
