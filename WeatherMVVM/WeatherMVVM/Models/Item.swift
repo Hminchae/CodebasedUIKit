@@ -13,13 +13,17 @@ struct Section: Hashable {
 }
 
 enum Item: Hashable {
-    case banner(HomeItem)
-    case normalCarousel(HomeItem)
-    case listCarousel(HomeItem)
+    case banner(BannerItem)
+    case hourlyWeather
+    case weeklyWeather
+    case precipitationMap
+    case etcInfo // 바람속도, 구름, 기압, 습도 등
 }
 
-struct HomeItem: Hashable {
-    let title: String
-    let subTitle: String? = ""
-    let imageUrl: String
+struct BannerItem: Hashable {
+    let location: String
+    let temperature: Int
+    let description: String
+    let maxTemp: Int
+    let minTemp: Int
 }
