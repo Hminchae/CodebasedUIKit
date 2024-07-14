@@ -29,6 +29,8 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
+    
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
@@ -102,5 +104,18 @@ final class HomeViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
         let section = NSCollectionLayoutSection(group: group)
         return section
+    }
+    
+    private func setDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            // 사용하려 하는 셀을 return 해주면 됨
+            switch item {
+            case .normal(let tvData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
+                cell?.configure(title: tvData.name, review: tvData.vote, desc: tvData.overview, imageUrl: tvData.posterURL)
+                
+                return cell
+            }
+        })
     }
 }

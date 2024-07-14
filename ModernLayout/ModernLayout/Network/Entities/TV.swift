@@ -15,7 +15,7 @@ struct TVListModel: Decodable {
 struct TV: Decodable, Hashable {
     let name: String
     let overview: String
-    let posterURL: String?
+    let posterURL: String
     let vote: String
     let firstAirDate: String
 
