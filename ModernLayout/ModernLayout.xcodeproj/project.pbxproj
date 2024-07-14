@@ -35,6 +35,7 @@
 		B1CE615D2C4372C9000F4AA1 /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE615C2C4372C9000F4AA1 /* NormalCollectionViewCell.swift */; };
 		B1CE615F2C438C2A000F4AA1 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE615E2C438C2A000F4AA1 /* Content.swift */; };
 		B1CE61612C438FFC000F4AA1 /* BigImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */; };
+		B1CE61632C4392EA000F4AA1 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		B1CE615C2C4372C9000F4AA1 /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1CE615E2C438C2A000F4AA1 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				B1CE615C2C4372C9000F4AA1 /* NormalCollectionViewCell.swift */,
 				B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */,
+				B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE61632C4392EA000F4AA1 /* ListCollectionViewCell.swift in Sources */,
 				B1CE60F42C419B89000F4AA1 /* pre-Item.swift in Sources */,
 				B1CE615A2C42C903000F4AA1 /* HomeViewModel.swift in Sources */,
 				B1CE61482C42A940000F4AA1 /* MovieResult.swift in Sources */,
