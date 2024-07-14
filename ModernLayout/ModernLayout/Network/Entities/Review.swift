@@ -12,39 +12,35 @@ struct ReviewListModel: Decodable {
     let results: [ReviewModel]
 }
 
-struct ReviewModel: Decodable, Hashable {
-    public let id: String
+
+struct ReviewModel: Decodable {
     public let author: Reviewer
     public let createdDate: Date?
     public let content: String
     
     enum CodingKeys: String, CodingKey {
-        case id
         case author = "author_details"
-        case created_date = "created_at"
+        case createdDate = "created_at"
+        case rating
         case content
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = try container.decode(String.self, forKey: .id)
         self.author = try container.decode(Reviewer.self, forKey: .author)
-        self.content = try container.decode(String.self, forKey: .content)
-        let dateString = try container.decode(String.self, forKey: .created_date)
-    
+        let dateString = try container.decode(String.self, forKey: .createdDate)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         createdDate = dateFormatter.date(from: dateString)
-    
+        self.content = try container.decode(String.self, forKey: .content)
     }
 }
 
-struct Reviewer: Decodable, Hashable {
-    public let name: String?
-    public let username: String?
+struct Reviewer: Decodable {
+    public let name: String
+    public let username: String
     public let rating: Int
-    public let imageURL: String
+    public let imageURL: String?
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -55,10 +51,9 @@ struct Reviewer: Decodable, Hashable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name)
-        self.username = try container.decodeIfPresent(String.self, forKey: .username)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.username = try container.decode(String.self, forKey: .username)
         self.rating = try container.decode(Int.self, forKey: .rating)
-        let path = try container.decode(String.self, forKey: .imageURL)
-        self.imageURL = "https://image.tmdb.org/t/p/w500\(path)"
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
     }
 }

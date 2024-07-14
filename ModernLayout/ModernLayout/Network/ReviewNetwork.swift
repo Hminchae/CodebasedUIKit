@@ -17,6 +17,6 @@ final class ReviewNetwork {
     }
     
     func getReviewList(id: Int, contentType: ContentType) -> Observable<ReviewListModel> {
-        return network.getItemList(path: "\(contentType.rawValue)/\(id)/reviews", language: "en-US")
+        return network.getItemList(path: "/\(contentType.rawValue)/\(id)/reviews", language: "en-US")
     }
 }

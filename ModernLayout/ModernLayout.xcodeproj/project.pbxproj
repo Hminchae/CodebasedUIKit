@@ -40,6 +40,7 @@
 		B1CE61672C43C7F2000F4AA1 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */; };
 		B1CE61692C43D5FF000F4AA1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61682C43D5FF000F4AA1 /* Review.swift */; };
 		B1CE616B2C43D96A000F4AA1 /* ReviewNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE616A2C43D96A000F4AA1 /* ReviewNetwork.swift */; };
+		B1CE616F2C43DD74000F4AA1 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE616E2C43DD74000F4AA1 /* ReviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		B1CE61682C43D5FF000F4AA1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		B1CE616A2C43D96A000F4AA1 /* ReviewNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewNetwork.swift; sourceTree = "<group>"; };
+		B1CE616E2C43DD74000F4AA1 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,8 @@
 		B1CE60DE2C4199CF000F4AA1 /* ModernLayout */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE616D2C43DD63000F4AA1 /* Review */,
+				B1CE616C2C43DD56000F4AA1 /* Home */,
 				B1CE61542C42B315000F4AA1 /* Practice */,
 				B1CE60DF2C4199CF000F4AA1 /* AppDelegate.swift */,
 				B1CE60E12C4199CF000F4AA1 /* SceneDelegate.swift */,
@@ -120,9 +124,6 @@
 				B1CE613E2C429464000F4AA1 /* Network */,
 				B1CE615B2C4372B7000F4AA1 /* Cell */,
 				B1CE61552C42C129000F4AA1 /* ButtonView.swift */,
-				B1CE61572C42C237000F4AA1 /* HomeViewController.swift */,
-				B1CE61592C42C903000F4AA1 /* HomeViewModel.swift */,
-				B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */,
 			);
 			path = ModernLayout;
 			sourceTree = "<group>";
@@ -181,6 +182,24 @@
 				B1CE61642C439AFF000F4AA1 /* HeaderView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B1CE616C2C43DD56000F4AA1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE61572C42C237000F4AA1 /* HomeViewController.swift */,
+				B1CE61592C42C903000F4AA1 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B1CE616D2C43DD63000F4AA1 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */,
+				B1CE616E2C43DD74000F4AA1 /* ReviewViewModel.swift */,
+			);
+			path = Review;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CE616B2C43D96A000F4AA1 /* ReviewNetwork.swift in Sources */,
+				B1CE616F2C43DD74000F4AA1 /* ReviewViewModel.swift in Sources */,
 				B1CE61692C43D5FF000F4AA1 /* Review.swift in Sources */,
 				B1CE61632C4392EA000F4AA1 /* ListCollectionViewCell.swift in Sources */,
 				B1CE60F42C419B89000F4AA1 /* pre-Item.swift in Sources */,
