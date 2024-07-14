@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 // 섹션과 아이템 정의
 struct Section: Hashable {
     let id: String
@@ -29,3 +29,4 @@ struct HomeItem: Hashable {
         self.imageUrl = imageUrl
     }
 }
+*/
