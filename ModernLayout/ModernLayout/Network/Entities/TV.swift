@@ -13,6 +13,7 @@ struct TVListModel: Decodable {
 }
 
 struct TV: Decodable, Hashable {
+    let id: Int
     let name: String
     let overview: String
     let posterURL: String
@@ -20,6 +21,7 @@ struct TV: Decodable, Hashable {
     let firstAirDate: String
 
     private enum CodingKeys: String, CodingKey {
+        case id
         case name
         case overview
         case posterPath = "poster_path"
@@ -30,7 +32,8 @@ struct TV: Decodable, Hashable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
+        
+        id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         overview = try container.decode(String.self, forKey: .overview)
 
@@ -44,26 +47,3 @@ struct TV: Decodable, Hashable {
         firstAirDate = try container.decode(String.self, forKey: .firstAirDate)
     }
 }
-
-//struct TVListModel: Codable {
-//    let page: Int
-//    let results: [TV]
-//}
-//
-//struct TV: Codable {
-//    let overview: String
-//    let posterPath: String
-//    let firstAirDate: String
-//    let name: String
-//    let voteAverage: Double
-//    let voteCount: Int
-//    
-//    enum CodingKeys: String, CodingKey {
-//        case overview
-//        case posterPath = "poster_path"
-//        case firstAirDate = "first_air_date"
-//        case name
-//        case voteAverage = "vote_average"
-//        case voteCount = "vote_count"
-//    }
-//}
