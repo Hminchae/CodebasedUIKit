@@ -8,9 +8,10 @@
 import Foundation
 import RxSwift
 import RxAlamofire
+import Alamofire
 
-class Network<T:Decodable> {
-    
+class Network<T: Decodable> {
+
     private let endpoint: String
     private let queue: ConcurrentDispatchQueueScheduler
     
@@ -20,10 +21,18 @@ class Network<T:Decodable> {
     }
     
     func getItemList(path: String) -> Observable<T> {
-        let fullPath = "\(endpoint)\(path)?api_key=\(Constant.key)&language=ko"
-        return RxAlamofire.data(.get, fullPath)
+        let fullPath = "\(endpoint)\(path)?language=ko-KR"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(Constant.key)",
+            "accept": "application/json"
+        ]
+        
+        print(fullPath)
+        
+        return RxAlamofire.request(.get, fullPath, headers: headers)
             .observe(on: queue)
             .debug()
+            .data()
             .map { data -> T in
                 return try JSONDecoder().decode(T.self, from: data)
             }
