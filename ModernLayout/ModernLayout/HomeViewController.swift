@@ -47,6 +47,7 @@ final class HomeViewController: UIViewController {
         bindView()
         bindViewModel()
         tvTrigger.onNext(()) // 1️⃣ 이벤트전달
+        setDataSource()
     }
     
     private func setUI() {
@@ -68,8 +69,14 @@ final class HomeViewController: UIViewController {
         let input = HomeViewModel.Input(tvTrigger: tvTrigger.asObservable(), movieTrigger: movieTrigger.asObservable()) // 2️⃣ asObservable 통해서 함수전달 💡 왜 상단에서 viewModel 인스턴스 생성한건 사용 못함?
         let output = viewModel.transform(input: input)
         
-        output.tvList.bind { tvList in
+        output.tvList.bind { [weak self] tvList in
             print(tvList)
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+            let items = tvList.map {  Item.normal($0) }
+            let section = Section.double
+            snapshot.appendSections([section])
+            snapshot.appendItems(items, toSection: section)
+            self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag) // 바인딩을 해제해주어야 함, 메모리 해제
         
         output.movieList.bind { movieList in
@@ -97,11 +104,13 @@ final class HomeViewController: UIViewController {
     }
     
     private func createDoubleSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4)
+
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(320))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
+
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
