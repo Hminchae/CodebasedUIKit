@@ -39,6 +39,7 @@
 		B1CE61652C439B00000F4AA1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61642C439AFF000F4AA1 /* HeaderView.swift */; };
 		B1CE61672C43C7F2000F4AA1 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */; };
 		B1CE61692C43D5FF000F4AA1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61682C43D5FF000F4AA1 /* Review.swift */; };
+		B1CE616B2C43D96A000F4AA1 /* ReviewNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE616A2C43D96A000F4AA1 /* ReviewNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		B1CE61642C439AFF000F4AA1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B1CE61662C43C7F2000F4AA1 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		B1CE61682C43D5FF000F4AA1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		B1CE616A2C43D96A000F4AA1 /* ReviewNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				B1CE61502C42B04C000F4AA1 /* MovieNetwork.swift */,
 				B1CE614E2C42AF83000F4AA1 /* TVNetwork.swift */,
 				B1CE61522C42B104000F4AA1 /* NetworkProvider.swift */,
+				B1CE616A2C43D96A000F4AA1 /* ReviewNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CE616B2C43D96A000F4AA1 /* ReviewNetwork.swift in Sources */,
 				B1CE61692C43D5FF000F4AA1 /* Review.swift in Sources */,
 				B1CE61632C4392EA000F4AA1 /* ListCollectionViewCell.swift in Sources */,
 				B1CE60F42C419B89000F4AA1 /* pre-Item.swift in Sources */,

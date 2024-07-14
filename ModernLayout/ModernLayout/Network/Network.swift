@@ -20,8 +20,8 @@ class Network<T: Decodable> {
         self.queue = ConcurrentDispatchQueueScheduler(qos: .background)
     }
     
-    func getItemList(path: String) -> Observable<T> {
-        let fullPath = "\(endpoint)\(path)?language=ko-KR"
+    func getItemList(path: String, language: String = "ko-KR") -> Observable<T> {
+        let fullPath = "\(endpoint)\(path)?language=\(language)"
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(Constant.key)",
             "accept": "application/json"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ContentType: Decodable {
+enum ContentType: String, Decodable {
     case tv
     case movie
 }
