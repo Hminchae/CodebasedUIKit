@@ -36,6 +36,7 @@
 		B1CE615F2C438C2A000F4AA1 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE615E2C438C2A000F4AA1 /* Content.swift */; };
 		B1CE61612C438FFC000F4AA1 /* BigImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */; };
 		B1CE61632C4392EA000F4AA1 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */; };
+		B1CE61652C439B00000F4AA1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61642C439AFF000F4AA1 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		B1CE615E2C438C2A000F4AA1 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1CE61642C439AFF000F4AA1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				B1CE615C2C4372C9000F4AA1 /* NormalCollectionViewCell.swift */,
 				B1CE61602C438FFC000F4AA1 /* BigImageCollectionViewCell.swift */,
 				B1CE61622C4392EA000F4AA1 /* ListCollectionViewCell.swift */,
+				B1CE61642C439AFF000F4AA1 /* HeaderView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				B1CE61212C424E13000F4AA1 /* pre-NormalCaroselCollectionViewCell.swift in Sources */,
 				B1CE60F62C419BDC000F4AA1 /* pre-BannerCollectionViewCell.swift in Sources */,
 				B1CE60E22C4199CF000F4AA1 /* SceneDelegate.swift in Sources */,
+				B1CE61652C439B00000F4AA1 /* HeaderView.swift in Sources */,
 				B1CE61532C42B104000F4AA1 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
