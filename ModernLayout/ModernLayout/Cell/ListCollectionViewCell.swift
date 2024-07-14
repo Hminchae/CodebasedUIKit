@@ -53,6 +53,7 @@ class ListCollectionViewCell: UICollectionViewCell {
         image.snp.makeConstraints { make in
             make.top.leading.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.3)
+            make.height.equalTo(image.snp.width)
         }
         
         stackView.snp.makeConstraints { make in
