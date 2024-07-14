@@ -61,7 +61,7 @@ class BigImageCollectionViewCell: UICollectionViewCell {
         
         image.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(500)
         }
         
         stackView.snp.makeConstraints { make in
