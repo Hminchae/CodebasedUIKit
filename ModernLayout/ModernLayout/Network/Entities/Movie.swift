@@ -12,10 +12,10 @@ struct MovieListModel: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Decodable {
+struct Movie: Decodable, Hashable {
     let title: String
     let overview: String
-    let posterURL: String?
+    let posterURL: String
     let vote: String
     let releaseDate: String
     
