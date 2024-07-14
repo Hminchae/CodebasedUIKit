@@ -28,7 +28,7 @@ class HomeViewModel {
     
     struct Output { // 받아와지는 결과값들
         let tvList: Observable<[TV]>
-        let movieList: Observable<MovieResult>
+        let movieList: Observable<Result<MovieResult, Error>>
     }
     
     func transform(input: Input) -> Output {
@@ -41,11 +41,16 @@ class HomeViewModel {
             return self.tvNetwork.getTopRatedList().map{ $0.results }
         }
         
-        let movieList = input.movieTrigger.flatMapLatest { [unowned self] _ -> Observable<MovieResult> in
+        let movieList = input.movieTrigger.flatMapLatest { [unowned self] _ -> Observable<Result<MovieResult, Error>> in
             // combineLatest -> 결과값 합치기
             // Observable 1,2,3 합쳐서 하나의 Observable 로 바꾸고 싶다면?
-            Observable.combineLatest(self.movieNetwork.getUpcomingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) { upcoming, popular, nowPlaying -> MovieResult in
-                return MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying)
+            return Observable.combineLatest(self.movieNetwork.getUpcomingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) { upcoming, popular, nowPlaying -> Result<MovieResult, Error> in
+                
+                //return MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying)
+                    .success(MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying))
+            }.catch { error in
+                print(error)
+                return Observable.just(.failure(error))
             }
         }
         return Output(tvList: tvList, movieList: movieList)

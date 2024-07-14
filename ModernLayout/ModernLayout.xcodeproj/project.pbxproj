@@ -105,13 +105,13 @@
 		B1CE60DE2C4199CF000F4AA1 /* ModernLayout */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE61542C42B315000F4AA1 /* Practice */,
 				B1CE60DF2C4199CF000F4AA1 /* AppDelegate.swift */,
 				B1CE60E12C4199CF000F4AA1 /* SceneDelegate.swift */,
 				B1CE60EA2C4199D1000F4AA1 /* LaunchScreen.storyboard */,
-				B1CE61542C42B315000F4AA1 /* Practice */,
-				B1CE613E2C429464000F4AA1 /* Network */,
 				B1CE60E82C4199D1000F4AA1 /* Assets.xcassets */,
 				B1CE60ED2C4199D1000F4AA1 /* Info.plist */,
+				B1CE613E2C429464000F4AA1 /* Network */,
 				B1CE615B2C4372B7000F4AA1 /* Cell */,
 				B1CE61552C42C129000F4AA1 /* ButtonView.swift */,
 				B1CE61572C42C237000F4AA1 /* HomeViewController.swift */,

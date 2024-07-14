@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
     
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
-
+    
     // Subject - 이벤트를 발생 시키면서 Observable 형태도 되는 것 ➡️ 아래 1,2 두가지 목적으로 Subject를 사용
     let tvTrigger = PublishSubject<Void>()
     let movieTrigger = PublishSubject<Void>()
@@ -89,32 +89,38 @@ final class HomeViewController: UIViewController {
             self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag) // 바인딩을 해제해주어야 함, 메모리 해제
         
-        output.movieList.bind { [weak self] movieResult in
-            print(movieResult)
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-            let bigImageList = movieResult.nowPlaying.results.map { movie in
-                return Item.bigImage(movie)
+        output.movieList.bind { [weak self] result in
+            print(result)
+            switch result {
+            case .success(let movieResult):
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+                let bigImageList = movieResult.nowPlaying.results.map { movie in
+                    return Item.bigImage(movie)
+                }
+                
+                let bannerSection = Section.banner
+                snapshot.appendSections([bannerSection])
+                snapshot.appendItems(bigImageList, toSection: bannerSection)
+                
+                let horizontalSection = Section.horizontal("Popular movies")
+                let normalList = movieResult.popular.results.map { movie in
+                    return Item.normal(Content(movie: movie))
+                }
+                snapshot.appendSections([horizontalSection])
+                snapshot.appendItems(normalList, toSection: horizontalSection)
+                
+                let verticalSection = Section.vertical("Upcoming movies")
+                let verticalList = movieResult.upcoming.results.map { movie in
+                    return Item.list(movie)
+                }
+                snapshot.appendSections([verticalSection])
+                snapshot.appendItems(verticalList, toSection: verticalSection)
+                
+                self?.dataSource?.apply(snapshot)
+            case.failure(let error):
+                print(error)
             }
             
-            let bannerSection = Section.banner
-            snapshot.appendSections([bannerSection])
-            snapshot.appendItems(bigImageList, toSection: bannerSection)
-            
-            let horizontalSection = Section.horizontal("Popular movies")
-            let normalList = movieResult.popular.results.map { movie in
-                return Item.normal(Content(movie: movie))
-            }
-            snapshot.appendSections([horizontalSection])
-            snapshot.appendItems(normalList, toSection: horizontalSection)
-            
-            let verticalSection = Section.vertical("Upcoming movies")
-            let verticalList = movieResult.upcoming.results.map { movie in
-                return Item.list(movie)
-            }
-            snapshot.appendSections([verticalSection])
-            snapshot.appendItems(verticalList, toSection: verticalSection)
-            
-            self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag) // 바인딩을 해제해주어야 함, 메모리 해제
     }
     
@@ -154,10 +160,10 @@ final class HomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(640))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-
+        
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
@@ -166,10 +172,10 @@ final class HomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(350))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
         
@@ -180,10 +186,10 @@ final class HomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(320))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         
@@ -199,10 +205,10 @@ final class HomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 15, trailing: 4)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(480))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         
