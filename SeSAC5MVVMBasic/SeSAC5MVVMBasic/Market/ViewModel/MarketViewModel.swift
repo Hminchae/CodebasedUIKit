@@ -12,12 +12,13 @@ final class MarketViewModel {
     let repository = MoneyRepository()
     
     var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
+    
     var inputCellSelected: Observable<Market?> = Observable(nil)
-    // var inputCellIndex: Observable<Int> = Observable(0)
+    var outputCellSelected: Observable<Market?> = Observable(nil)
     
     var outputTitleData: Observable<String> = Observable("")
-    var outputMarketData: Observable<
-        [Market]> = Observable([])
+    var outputMarketData: Observable<[Market]> = Observable([])
+    
     init() {
         print("MarketViewModel init")
         transform()
@@ -29,14 +30,16 @@ final class MarketViewModel {
             self.callRequest()
         }
         
-        inputCellSelected.bind { market in
-            guard let market = market else { return }
+        inputCellSelected.bind { [weak self] market in
+                    guard let self = self, let market = market else { return }
+                    print("Cell selected: \(market)")
+                    self.outputCellSelected.value = market // 인풋이 들어오면 아웃풋에 market 을 내보내라
             
-            self.saveMarket(
-                market: market.market,
-                name: market.korean_name,
-                won: .random(in: 1...100)
-            )
+//            self.saveMarket(
+//                market: market.market,
+//                name: market.korean_name,
+//                won: .random(in: 1...100)
+//            )
         }
     }
     

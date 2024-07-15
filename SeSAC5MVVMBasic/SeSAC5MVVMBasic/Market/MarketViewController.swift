@@ -47,6 +47,19 @@ class MarketViewController: UIViewController {
         viewModel.outputTitleData.bind { value in
             self.navigationItem.title = value
         }
+        
+        viewModel.outputCellSelected.bind { data in
+            
+            guard let data = data else {
+                print("nil 이라서 화면 전환 X, Early Exit")
+                return
+            }
+            
+            let vc = MarketDetailViewController()
+            vc.viewModel.outputMarketData.value = data
+            // vc.detail = data
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func setupUI() {
@@ -86,7 +99,7 @@ extension MarketViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = viewModel.outputMarketData.value[indexPath.row]
+        let data = viewModel.outputMarketData.value[indexPath.row] // 뷰모델에서 데이터 가지고 오기
         
         viewModel.inputCellSelected.value = data
     }

@@ -35,6 +35,8 @@
 		B1CE60CA2C3F781D000F4AA1 /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */; };
 		B1CE60CC2C3F9F1B000F4AA1 /* ClosureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CB2C3F9F1B000F4AA1 /* ClosureViewController.swift */; };
 		B1CE60CE2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */; };
+		B1CE61ED2C44A3F2000F4AA1 /* MarketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61EC2C44A3F2000F4AA1 /* MarketDetailViewController.swift */; };
+		B1CE61F02C44AA8F000F4AA1 /* MarketDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61EF2C44AA8F000F4AA1 /* MarketDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +80,8 @@
 		B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		B1CE60CB2C3F9F1B000F4AA1 /* ClosureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureViewController.swift; sourceTree = "<group>"; };
 		B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureUpgrageViewController.swift; sourceTree = "<group>"; };
+		B1CE61EC2C44A3F2000F4AA1 /* MarketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewController.swift; sourceTree = "<group>"; };
+		B1CE61EF2C44AA8F000F4AA1 /* MarketDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +173,9 @@
 		B1CE601E2C3E0E57000F4AA1 /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				B1CE61EE2C44AA7F000F4AA1 /* ViewModel */,
 				B1CE601F2C3E0E6A000F4AA1 /* MarketViewController.swift */,
-				B1CE60212C3E1033000F4AA1 /* MarketViewModel.swift */,
+				B1CE61EC2C44A3F2000F4AA1 /* MarketDetailViewController.swift */,
 				B1CE60262C3E1310000F4AA1 /* Market.swift */,
 				B1CE60282C3E20AC000F4AA1 /* APIManager.swift */,
 				B1CE602F2C3E3212000F4AA1 /* RealmModel.swift */,
@@ -188,6 +193,15 @@
 				B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		B1CE61EE2C44AA7F000F4AA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1CE61EF2C44AA8F000F4AA1 /* MarketDetailViewModel.swift */,
+				B1CE60212C3E1033000F4AA1 /* MarketViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +294,7 @@
 				B1CE60202C3E0E6A000F4AA1 /* MarketViewController.swift in Sources */,
 				B1CE60C42C3F606E000F4AA1 /* SampleViewController.swift in Sources */,
 				04D2F9042C3CB12600AEFFDC /* UserViewController.swift in Sources */,
+				B1CE61ED2C44A3F2000F4AA1 /* MarketDetailViewController.swift in Sources */,
 				04D2F9012C3CAF5400AEFFDC /* NumberViewController.swift in Sources */,
 				B1CE60122C3D5EC4000F4AA1 /* NumberViewModel.swift in Sources */,
 				04D2F8E52C3CAD5A00AEFFDC /* AppDelegate.swift in Sources */,
@@ -287,6 +302,7 @@
 				B1CE60182C3D8CBE000F4AA1 /* UserViewModel.swift in Sources */,
 				B1CE60C82C3F748B000F4AA1 /* HorizontalScrollViewController.swift in Sources */,
 				B1CE60222C3E1033000F4AA1 /* MarketViewModel.swift in Sources */,
+				B1CE61F02C44AA8F000F4AA1 /* MarketDetailViewModel.swift in Sources */,
 				B1CE60292C3E20AC000F4AA1 /* APIManager.swift in Sources */,
 				B1CE60142C3D6CE5000F4AA1 /* LoginViewModel.swift in Sources */,
 				B1CE60322C3E3299000F4AA1 /* MoneyRepository.swift in Sources */,
