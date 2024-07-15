@@ -59,7 +59,7 @@ class AnimationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         // 1️⃣ 초기 상태 설정
-        logoImageView.alpha = 0
+        logoImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         emailTextField.alpha = 0
         passwordTextField.alpha = 0
         loginButton.alpha = 0
@@ -69,8 +69,9 @@ class AnimationViewController: UIViewController {
     }
     
     func animationImageView() {
-        UIView.animate(withDuration: 1) {
-            self.logoImageView.alpha = 1 //
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8) {
+            self.logoImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: 500)
         } completion: { _ in
             self.animationEmailTextFieldLabel()
         }
