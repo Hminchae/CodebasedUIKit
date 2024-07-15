@@ -37,6 +37,7 @@
 		B1CE60CE2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */; };
 		B1CE61ED2C44A3F2000F4AA1 /* MarketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61EC2C44A3F2000F4AA1 /* MarketDetailViewController.swift */; };
 		B1CE61F02C44AA8F000F4AA1 /* MarketDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61EF2C44AA8F000F4AA1 /* MarketDetailViewModel.swift */; };
+		B1CE61F22C44B9B0000F4AA1 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE61F12C44B9B0000F4AA1 /* AnimationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +83,7 @@
 		B1CE60CD2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureUpgrageViewController.swift; sourceTree = "<group>"; };
 		B1CE61EC2C44A3F2000F4AA1 /* MarketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewController.swift; sourceTree = "<group>"; };
 		B1CE61EF2C44AA8F000F4AA1 /* MarketDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewModel.swift; sourceTree = "<group>"; };
+		B1CE61F12C44B9B0000F4AA1 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				B1CE60C52C3F6A04000F4AA1 /* ImageZoomViewController.swift */,
 				B1CE60C72C3F748B000F4AA1 /* HorizontalScrollViewController.swift */,
 				B1CE60C92C3F781D000F4AA1 /* VerticalScrollViewController.swift */,
+				B1CE61F12C44B9B0000F4AA1 /* AnimationViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				B1CE60CE2C3FB419000F4AA1 /* ClosureUpgrageViewController.swift in Sources */,
 				B1CE60CC2C3F9F1B000F4AA1 /* ClosureViewController.swift in Sources */,
+				B1CE61F22C44B9B0000F4AA1 /* AnimationViewController.swift in Sources */,
 				B1CE60162C3D7C75000F4AA1 /* Observable.swift in Sources */,
 				B1CE60302C3E3212000F4AA1 /* RealmModel.swift in Sources */,
 				04D2F8FA2C3CAE0400AEFFDC /* LoginViewController.swift in Sources */,
